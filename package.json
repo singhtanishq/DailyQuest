@@ -1,0 +1,72 @@
+{
+  "name": "dailyquest",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "DailyQuest — one challenge, every day. An autonomous daily challenge platform with a deterministic generation pipeline and a static quest archive.",
+  "keywords": [
+    "daily-challenge",
+    "coding-challenges",
+    "deterministic-generation",
+    "github-actions",
+    "react",
+    "typescript",
+    "vite"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Tanishq Singh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanishqsingh/DailyQuest.git"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run validate && npm run typecheck && vite build && node scripts/build/verify-dist.mjs",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate": "tsx scripts/daily/cli/main.ts validate",
+    "check:data": "npm run validate",
+    "generate:daily": "tsx scripts/daily/cli/main.ts daily",
+    "generate:date": "tsx scripts/daily/cli/main.ts date",
+    "generate:backfill": "tsx scripts/daily/cli/main.ts backfill",
+    "rebuild": "tsx scripts/daily/cli/main.ts rebuild",
+    "index": "npm run rebuild",
+    "stats": "npm run rebuild",
+    "quest": "tsx scripts/daily/cli/main.ts --help",
+    "clean": "node scripts/build/clean.mjs"
+  },
+  "dependencies": {
+    "fuse.js": "^7.5.0",
+    "highlight.js": "^11.12.0",
+    "lucide-react": "^1.52.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.1",
+    "vite": "^8.3.3",
+    "vitest": "^5.0.3"
+  }
+}
