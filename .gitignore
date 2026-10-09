@@ -1,0 +1,56 @@
+# =========================================================
+# DAILYQUEST — GITIGNORE
+#
+# Intentionally tracked:
+#   - data/            canonical quest archive + derived JSON
+#   - reports/         daily publishing reports
+#   - public/          static assets (favicon, robots.txt)
+#
+# Generated deployment artifacts (dist/) are never committed;
+# GitHub Pages builds from source on every deploy.
+# =========================================================
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+coverage/
+
+# Vite / caches
+.vite/
+*.tsbuildinfo
+node_modules/.tmp/
+
+# Environment / secrets — never commit credentials
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.tmp.*
+*.bak
+*.orig
+
+# Local helper scripts (personal tooling, not part of the project)
+auto-push.sh
+
+# Local tool state
+.zcode*
+.cta*
