@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <meta name="theme-color" content="#0b0d10" />
+    <title>DailyQuest — One challenge. Every day.</title>
+    <meta
+      name="description"
+      content="DailyQuest publishes one carefully crafted technical challenge every day — coding, debugging, SQL, security, systems and more. A growing, deterministic quest archive."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DailyQuest" />
+    <meta property="og:title" content="DailyQuest — One challenge. Every day." />
+    <meta
+      property="og:description"
+      content="A new technical challenge every day: coding, debugging, SQL, security, systems. Browse the archive, filter by category, train daily."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="DailyQuest — One challenge. Every day." />
+    <meta
+      name="twitter:description"
+      content="A new technical challenge every day: coding, debugging, SQL, security, systems. Browse the archive, filter by category, train daily."
+    />
+    <script>
+      // Resolve theme before first paint to avoid a flash of the wrong theme.
+      (function () {
+        try {
+          var stored = localStorage.getItem('dailyquest.theme');
+          var theme =
+            stored === 'dark' || stored === 'light'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
