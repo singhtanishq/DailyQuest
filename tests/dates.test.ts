@@ -1,6 +1,14 @@
 import { describe, expect } from 'vitest';
 import { test } from './helpers.js';
-import { addDays, datesBetweenExclusive, diffInDays, formatDisplayDate, formatShortDate, getTodayInTz, isIsoDate } from '../scripts/daily/core/dates.js';
+import {
+  addDays,
+  datesBetweenExclusive,
+  diffInDays,
+  formatDisplayDate,
+  formatShortDate,
+  getTodayInTz,
+  isIsoDate,
+} from '../scripts/daily/core/dates.js';
 
 describe('dates', () => {
   test('isIsoDate accepts real dates and rejects the rest', () => {
