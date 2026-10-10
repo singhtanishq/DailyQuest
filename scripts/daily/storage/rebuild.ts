@@ -1,4 +1,5 @@
 import type { Quest } from '../../../shared/types.js';
+import { loadConfig } from '../../../config/dailyquest.config.js';
 import { layoutFor, questPath } from './paths.js';
 import { fileExists, readJsonFile, writeJsonAtomic } from './io.js';
 import { loadArchive } from '../pipeline/context.js';
@@ -55,23 +56,23 @@ export function rebuildDerived(
     changedFiles.push(path);
   };
 
-  writeDerivedIfChanged(layout.indexFile, (at) => buildIndexFile(archive, version(), at).file);
+  writeDerivedIfChanged(layout.indexFile, (at) => buildIndexFile(archive, config_.generatorVersion, at).file);
   writeDerivedIfChanged(layout.statsFile, (at) => ({
     schemaVersion: 1,
-    generatorVersion: version(),
+    generatorVersion: config_.generatorVersion,
     generatedAt: at,
-    ...buildStats(archive, version(), at),
+    ...buildStats(archive, config_.generatorVersion, at),
   }));
-  writeDerivedIfChanged(layout.categoriesFile, (at) => buildCategoriesFile(archive, version(), at));
+  writeDerivedIfChanged(layout.categoriesFile, (at) => buildCategoriesFile(archive, config_.generatorVersion, at));
 
   if (archive.length > 0) {
     writeDerivedIfChanged(layout.latestFile, (at) => {
-      const index = buildIndexFile(archive, version(), at).file;
-      return buildLatestFile(index.quests as IndexEntry[], version(), at);
+      const index = buildIndexFile(archive, config_.generatorVersion, at).file;
+      return buildLatestFile(index.quests as IndexEntry[], config_.generatorVersion, at);
     });
     writeDerivedIfChanged(layout.healthFile, () => ({
       schemaVersion: 1,
-      generatorVersion: version(),
+      generatorVersion: config_.generatorVersion,
       status: 'ok' as const,
       latestQuestDate: archive[archive.length - 1]?.date ?? null,
       archiveCount: archive.length,
@@ -82,13 +83,6 @@ export function rebuildDerived(
   return { questCount: archive.length, changedFiles, resequenced };
 }
 
-function version(): string {
-  // Imported lazily to avoid a cycle at module load.
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  return config_.generatorVersion;
-}
-
-import { loadConfig } from '../../../config/dailyquest.config.js';
 const config_ = loadConfig();
 
 export function questsSorted(archive: Quest[]): Quest[] {
