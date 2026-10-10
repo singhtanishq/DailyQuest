@@ -235,8 +235,8 @@ export const algorithmTemplates: QuestTemplate[] = [
       { name: 'negatives', input: '2\n-5 -3 -8 -1' },
     ],
     examples: [
-      { title: 'Example 1', input: '3\n1 4 2 10 2 3 1', explanation: 'The window [2,10,2] sums to 14? No — [4,2,10] sums to 16 and wins.' },
-      { title: 'Example 2', input: '2\n-5 -3 -8 -1', explanation: 'Even with negatives, sliding keeps O(n): best is (-5) + (-3) = -8? No — (-3) + (-1) = -4.' },
+      { title: 'Example 1', input: '3\n1 4 2 10 2 3 1', explanation: 'The window [4, 2, 10] sums to 16 and wins.' },
+      { title: 'Example 2', input: '2\n-5 -3 -8 -1', explanation: 'All windows are negative; the best is (-5) + (-3) = -8.' },
     ],
     solution: {
       summary:
@@ -907,21 +907,21 @@ export const algorithmTemplates: QuestTemplate[] = [
     question:
       'For sufficiently large input size n, which of these running times grows fastest?',
     options: [
+      'O(n! / 2ⁿ)',
       'O(2ⁿ)',
       'O(n¹⁰⁰)',
       'O(n²⁰ · log n)',
-      'O(n! / 2ⁿ) assuming n! denotes factorial growth', 
     ],
     optionExplanations: [
-      'Wait — actually the factorial term grows faster. Exponential 2ⁿ is beaten by n! for large n, but among these options the intended comparison is 2ⁿ vs the polynomials: 2ⁿ dominates every fixed polynomial.',
-      'n¹⁰⁰ is a fixed polynomial — any exponential 2ⁿ with c > 1 eventually overtakes it, no matter how large the exponent.',
-      'n²⁰ · log n is still polynomial (times a log), so 2ⁿ dominates it.',
-      'n!/2ⁿ grows faster than 2ⁿ itself (roughly (n/e)ⁿ), so for very large n this actually dominates — but the question asks about the listed options; this is the trap. If you read carefully, n!/2ⁿ wins.',
+      'Correct. By Stirling’s approximation n! ≈ (n/e)ⁿ, so n!/2ⁿ ≈ (n/(2e))ⁿ — super-exponential growth that eventually beats plain 2ⁿ.',
+      'O(2ⁿ) is exponential and dwarfs every polynomial — but it is still dominated by the factorial-based option.',
+      'n¹⁰⁰ is a fixed polynomial; any exponential 2ᵏⁿ with k > 0 eventually overtakes it, no matter how large the exponent.',
+      'n²⁰ · log n is polynomial (times a logarithm), so both exponentials dominate it.',
     ],
     reasoning: [
-      'Careful reading matters: n!/2ⁿ grows super-exponentially — faster than plain 2ⁿ.',
-      'Both exponentials dwarf the polynomial options for large n.',
-      'The correct answer is the factorial-based option: O(n!/2ⁿ).',
+      'Both O(n!/2ⁿ) and O(2ⁿ) are exponential-flavored; the polynomials never compete.',
+      'Stirling: n! ≈ (n/e)ⁿ · √(2πn), so n!/2ⁿ ≈ (n/(2e))ⁿ · √(2πn), whose base (n/(2e)) itself grows with n.',
+      'Therefore n!/2ⁿ grows faster than any fixed-base exponential — it is the fastest of the four.',
     ],
     hints: ['Two options are exponential-flavored — compare those, not the polynomials.', 'Stirling: n! ≈ (n/e)ⁿ · √(2πn), so n!/2ⁿ ≈ (n/(2e))ⁿ · √(2πn).'],
     objectives: ['Compare growth rates precisely', 'Read asymptotic questions carefully before answering'],
