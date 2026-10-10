@@ -43,16 +43,19 @@ export function rebuildDerived(
   });
 
   const writeDerivedIfChanged = (path: string, build: (generatedAt: string) => object): void => {
-    const probe = build('__probe__');
-    const canonical = JSON.stringify(probe, null, 2);
+    const contentFingerprint = (o: object): string => {
+      const clone = { ...(o as Record<string, unknown>) };
+      delete clone.generatedAt;
+      return JSON.stringify(clone, null, 2);
+    };
+    const next = build(nowIso);
     if (fileExists(path)) {
       const current = readJsonFile<Record<string, unknown>>(path);
-      const currentCanonical = JSON.stringify({ ...current, generatedAt: '__probe__' }, null, 2);
-      if (currentCanonical === canonical) {
+      if (contentFingerprint(current) === contentFingerprint(next)) {
         return;
       }
     }
-    writeJsonAtomic(path, build(nowIso));
+    writeJsonAtomic(path, next);
     changedFiles.push(path);
   };
 
