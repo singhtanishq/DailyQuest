@@ -56,7 +56,7 @@ export function RandomPage() {
       (entry) =>
         (!params.get('category') || entry.category === params.get('category')) &&
         (!params.get('difficulty') || entry.difficulty === params.get('difficulty')) &&
-        (!params.get('type') || entry.challengeType === params.get('type'))
+        (!params.get('type') || entry.challengeType === params.get('type')),
     );
 
   return (
