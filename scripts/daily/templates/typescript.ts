@@ -183,10 +183,10 @@ function process(input: Input) {
       'const theme = <Theme>{ dark: { color: "#111" } }',
     ],
     optionExplanations: [
-      'Correct: satisfies checks the value against Theme while keeping the inferred literal type — `theme.dark` still works and unknown keys error.',
+      'Correct: satisfies checks the value against Theme while keeping the inferred literal type — conformance is verified AND `theme.dark` stays fully typed.',
       'as forces the Theme type and discards the literal information; it also silences mismatch errors (assertions are unchecked).',
-      'Annotating works but widens the value to Theme: `theme.dark` is fine, but literal key autocompletion is lost and misspelled keys... are actually caught here — the loss is the literal narrowing, not safety.',
-      'The angle-bracket assertion is the same unchecked cast, plus it is ambiguous in .tsx files.',
+      'Annotating does check the shape, but it widens the variable’s type to Theme — you lose the literal-narrowing benefits (like exact key preservation) that satisfies retains.',
+      'The angle-bracket form is the same unchecked cast as `as`, and it is ambiguous inside .tsx files.',
     ],
     reasoning: [
       'Assertions are trust me casts — they neither check nor preserve.',
