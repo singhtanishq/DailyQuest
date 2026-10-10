@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tanishqsingh/DailyQuest.git"
+    "url": "git+https://github.com/singhtanishq/DailyQuest.git"
   },
   "engines": {
     "node": ">=22.12"
