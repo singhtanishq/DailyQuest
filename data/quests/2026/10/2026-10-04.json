@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-04",
+  "date": "2026-10-04",
+  "sequenceNumber": 4,
+  "slug": "2026-10-04-the-comma-that-lied",
+  "title": "The Comma That Lied",
+  "shortTitle": "The Comma That Lied",
+  "subtitle": "Not every comma is a separator.",
+  "description": "Parse a single CSV line where commas inside double quotes are data, not separators — the detail that breaks naive `split(\",\")` in production.",
+  "category": "coding",
+  "subcategories": [
+    "parsing"
+  ],
+  "challengeType": "coding",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 3,
+  "concepts": [
+    "parsing",
+    "state machines"
+  ],
+  "tags": [
+    "csv",
+    "parsing",
+    "strings"
+  ],
+  "skills": [
+    "Character-level parsing",
+    "Quoting rules"
+  ],
+  "prompt": "You are given one line of CSV. Fields are separated by commas, but a field wrapped in double quotes may contain commas, and a quoted field escapes an embedded quote by doubling it (`\"\"` renders a single `\"`). Quotes only have special meaning at field boundaries.",
+  "instructions": [
+    "Read one line of CSV from input.",
+    "Split it into fields using the rules above.",
+    "Print the fields joined by ` | `."
+  ],
+  "constraints": [
+    "The line contains at most 1,000 characters.",
+    "The line is well-formed: quotes are balanced and only wrap whole fields."
+  ],
+  "examples": [
+    {
+      "title": "Example 1",
+      "input": "\"hello, world\",42,end",
+      "output": "hello, world | 42 | end",
+      "explanation": "The comma inside the quotes belongs to the first field."
+    },
+    {
+      "title": "Example 2",
+      "input": "\"she said \"\"hi\"\"\",ok",
+      "output": "she said \"hi\" | ok",
+      "explanation": "The doubled quote collapses into a literal `\"` inside the field."
+    }
+  ],
+  "testCases": [
+    {
+      "name": "plain fields",
+      "input": "a,b,c",
+      "expected": "a | b | c"
+    },
+    {
+      "name": "quoted comma",
+      "input": "\"hello, world\",42,end",
+      "expected": "hello, world | 42 | end"
+    },
+    {
+      "name": "escaped quote",
+      "input": "\"she said \"\"hi\"\"\",ok",
+      "expected": "she said \"hi\" | ok"
+    },
+    {
+      "name": "empty field",
+      "input": "one,,three",
+      "expected": "one |  | three"
+    },
+    {
+      "name": "quoted empty field",
+      "input": "a,\"\",c",
+      "expected": "a |  | c"
+    },
+    {
+      "name": "trailing empty field",
+      "input": "x,",
+      "expected": "x | "
+    }
+  ],
+  "edgeCases": [
+    "empty fields between commas",
+    "quote characters in unquoted fields",
+    "trailing comma"
+  ],
+  "hints": [
+    "A single boolean flag is enough to know whether a comma is a separator.",
+    "When you see a quote inside quotes, look at the very next character before deciding."
+  ],
+  "solution": {
+    "summary": "Scan character by character with an in-quotes flag. Commas only split fields while outside quotes; inside quotes, a doubled quote is a literal quote and a single quote ends the quoted section.",
+    "approach": [
+      "Keep the current field in a buffer and a boolean for quote state.",
+      "Outside quotes: a comma flushes the buffer as a field; a quote enters quoted mode.",
+      "Inside quotes: `\"\"` appends a literal quote; a lone `\"` leaves quoted mode.",
+      "After the loop, flush the final buffer — the line may end with an empty field."
+    ],
+    "code": {
+      "language": "javascript",
+      "label": "Reference solution",
+      "code": "function parseCsvLine(line) {\n  const fields = [];\n  let current = '';\n  let inQuotes = false;\n  for (let i = 0; i < line.length; i++) {\n    const ch = line[i];\n    if (inQuotes) {\n      if (ch === '\"') {\n        if (line[i + 1] === '\"') { current += '\"'; i++; }\n        else inQuotes = false;\n      } else current += ch;\n    } else if (ch === '\"') inQuotes = true;\n    else if (ch === ',') { fields.push(current); current = ''; }\n    else current += ch;\n  }\n  fields.push(current);\n  return fields;\n}"
+    },
+    "complexity": "O(n) time, O(n) space.",
+    "commonMistakes": [
+      "Using `line.split(\",\")` and hoping quotes never appear.",
+      "Treating every `\"\"` as an end-of-field marker without peeking at the next character."
+    ]
+  },
+  "learningObjectives": [
+    "Write a character-level parser with a mode flag",
+    "Internalize CSV quoting rules"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "coding.comma-that-lied",
+  "generatorVersion": "1.0.0",
+  "seed": "69927bd8761a30c1819e2f03b5ccc9d7e9707bbb945a686e4d1cc36f14c609d0",
+  "paramsSignature": "v1",
+  "contentHash": "ac9bf1d8d71e4b51977480977ad28307908bd1bdccc37ed8ab939e24901fcaee",
+  "createdAt": "2026-10-10T16:26:35.239Z",
+  "updatedAt": "2026-10-10T16:26:35.239Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-10T16:26:35.239Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
