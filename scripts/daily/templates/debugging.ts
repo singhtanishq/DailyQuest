@@ -457,7 +457,7 @@ console.log(kept); // ["a", "b", "c"]`,
     ],
     mistakes: ['Iterating backwards with a for-loop also works, but `filter` states the intent directly.', 'Deleting during iteration of ANY live collection (DOM nodes included) hits the same shift problem.'],
     hints: ['After a removal, which element falls into the current index?', 'Which array method is designed exactly for "keep some, drop some"?'],
-    objectives: [',Diagnose mutation-during-iteration bugs', 'Prefer `filter` for removals'],
+    objectives: ['Diagnose mutation-during-iteration bugs', 'Prefer `filter` for removals'],
   }),
 
   debuggingChallenge({
