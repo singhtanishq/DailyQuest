@@ -41,7 +41,10 @@ export const securityTemplates: QuestTemplate[] = [
       'Framework auto-escaping (React text nodes) covers the common path; dangerouslySetInnerHTML and innerHTML are the manual hatches.',
       'CSP (script-src nonces) limits blast radius; HttpOnly cookies limit what a successful XSS can steal.',
     ],
-    hints: ['Classify by WHERE the payload travels: link → server → response, database, or client-only.', 'Which defense is context-dependent and which is a safety net?'],
+    hints: [
+      'Classify by WHERE the payload travels: link → server → response, database, or client-only.',
+      'Which defense is context-dependent and which is a safety net?',
+    ],
     objectives: ['Classify XSS by entry point', 'Layer encoding, CSP and cookie hardening'],
   }),
 
@@ -78,7 +81,10 @@ export const securityTemplates: QuestTemplate[] = [
         'Trying to blocklist words like SELECT — data legitimately contains such words.',
       ],
     },
-    hints: ['Where does user data become part of the SQL grammar?', 'What does the driver do differently with a placeholder?'],
+    hints: [
+      'Where does user data become part of the SQL grammar?',
+      'What does the driver do differently with a placeholder?',
+    ],
     objectives: ['Explain injection structurally', 'Standardize on parameterization'],
   }),
 
@@ -95,8 +101,7 @@ export const securityTemplates: QuestTemplate[] = [
     title: 'The Fast Hash Mistake',
     subtitle: 'SHA-256 is too fast for passwords.',
     description: 'Choose the right password storage primitive.',
-    question:
-      'Which password storage approach is correct?',
+    question: 'Which password storage approach is correct?',
     options: [
       'Argon2id (or bcrypt/scrypt) with a per-user salt and tuned cost parameters',
       'SHA-256 with a per-user salt',
@@ -114,7 +119,10 @@ export const securityTemplates: QuestTemplate[] = [
       'Salts kill rainbow tables; cost parameters buy margin as hardware improves.',
       'Never log, transmit (outside TLS), or encrypt passwords — one-way derivations only.',
     ],
-    hints: ['After a leak, what limits the attacker’s guess rate?', 'Why does encryption differ categorically from hashing here?'],
+    hints: [
+      'After a leak, what limits the attacker’s guess rate?',
+      'Why does encryption differ categorically from hashing here?',
+    ],
     objectives: ['Pick memory-hard KDFs', 'Argue the offline-crack threat model'],
   }),
 
@@ -151,8 +159,14 @@ export const securityTemplates: QuestTemplate[] = [
         'Assuming signature validity implies claim validity — they are separate checks.',
       ],
     },
-    hints: ['Which parts of a JWT are attacker-controlled?', 'Where does revocation actually live in a stateless design?'],
-    objectives: ['Write a complete JWT validation checklist', 'Argue lifetimes and revocation trade-offs'],
+    hints: [
+      'Which parts of a JWT are attacker-controlled?',
+      'Where does revocation actually live in a stateless design?',
+    ],
+    objectives: [
+      'Write a complete JWT validation checklist',
+      'Argue lifetimes and revocation trade-offs',
+    ],
   }),
 
   quizChallenge({
@@ -187,7 +201,10 @@ export const securityTemplates: QuestTemplate[] = [
       'SameSite=Lax blocks cross-site POST cookie attachment in modern browsers; tokens add explicit intent proof.',
       'GET requests must be side-effect-free — the img-tag trick only works against APIs that violate that rule.',
     ],
-    hints: ['Does the browser need permission to ATTACH cookies to a request?', 'Which cookie attribute controls cross-site attachment?'],
+    hints: [
+      'Does the browser need permission to ATTACH cookies to a request?',
+      'Which cookie attribute controls cross-site attachment?',
+    ],
     objectives: ['Explain ambient authority', 'Layer SameSite with tokens'],
   }),
 
@@ -224,7 +241,10 @@ export const securityTemplates: QuestTemplate[] = [
         'Blocking 127.0.0.1 literally while ignoring 0x7f000001, decimal encodings and IPv6 equivalents.',
       ],
     },
-    hints: ['Whose network position does the request come from?', 'Name the cloud service that MUST never be reachable from user-triggered fetches.'],
+    hints: [
+      'Whose network position does the request come from?',
+      'Name the cloud service that MUST never be reachable from user-triggered fetches.',
+    ],
     objectives: ['Analyse SSRF impact paths', 'Layer allowlist, egress and metadata defenses'],
   }),
 
@@ -259,7 +279,10 @@ export const securityTemplates: QuestTemplate[] = [
       'HSTS only helps after the FIRST HTTPS visit — preload lists close that gap.',
       'Headers harden the browser’s defaults; they never fix vulnerable code by themselves.',
     ],
-    hints: ['Which header tells browsers "never interpret this response as another type"?', 'Which one is about WHO may embed your page?'],
+    hints: [
+      'Which header tells browsers "never interpret this response as another type"?',
+      'Which one is about WHO may embed your page?',
+    ],
     objectives: ['Deploy the core header set', 'Place headers correctly in the defense stack'],
   }),
 
@@ -296,7 +319,10 @@ export const securityTemplates: QuestTemplate[] = [
         'Adding a 200-package chain to solve a 10-line problem.',
       ],
     },
-    hints: ['Which file answers "exactly which versions ran in production"?', 'What does a postinstall script mean in trust terms?'],
+    hints: [
+      'Which file answers "exactly which versions ran in production"?',
+      'What does a postinstall script mean in trust terms?',
+    ],
     objectives: ['Design dependency governance', 'Vet packages before adoption'],
   }),
 
@@ -333,7 +359,13 @@ export const securityTemplates: QuestTemplate[] = [
         'Blocking on style-level security theater while missing the authz hole.',
       ],
     },
-    hints: ['Start from the actor: who may fetch whom?', 'Which single missing check turns profile pages into data exfiltration?'],
-    objectives: ['Operate a class-based review checklist', 'Separate blocking from advisory findings'],
+    hints: [
+      'Start from the actor: who may fetch whom?',
+      'Which single missing check turns profile pages into data exfiltration?',
+    ],
+    objectives: [
+      'Operate a class-based review checklist',
+      'Separate blocking from advisory findings',
+    ],
   }),
 ];
