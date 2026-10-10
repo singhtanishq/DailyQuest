@@ -1,11 +1,12 @@
 import type { Quest } from '../../../shared/types.js';
-import { textFingerprint } from '../core/hashing.js';
+import { sha256Hex, textFingerprint } from '../core/hashing.js';
 
 /**
  * Duplicate detection: a new quest must not repeat the content hash, the
  * normalized title, or the normalized prompt of any published quest.
- * Near-duplicate analysis beyond normalization is deliberately conservative —
- * legitimate variants must not be rejected.
+ * Fingerprints are 16-hex hashes of the normalized text; near-duplicate
+ * analysis beyond normalization is deliberately conservative — legitimate
+ * variants must not be rejected.
  */
 
 export interface DraftFingerprints {
@@ -16,9 +17,9 @@ export interface DraftFingerprints {
 
 export function draftFingerprints(quest: Pick<Quest, 'contentHash' | 'title' | 'prompt'>): DraftFingerprints {
   return {
-    contentHash: quest.contentHash,
-    titleFingerprint: textFingerprint(quest.title),
-    promptFingerprint: textFingerprint(quest.prompt),
+    contentHash: quest.contentHash.slice(0, 16),
+    titleFingerprint: sha256Hex(textFingerprint(quest.title)).slice(0, 16),
+    promptFingerprint: sha256Hex(textFingerprint(quest.prompt)).slice(0, 16),
   };
 }
 
@@ -34,15 +35,14 @@ export function findDuplicate(
   draft: DraftFingerprints,
   existing: ExistingFingerprints[]
 ): string | null {
-  const contentPrefix = draft.contentHash.slice(0, 16);
   for (const candidate of existing) {
-    if (candidate.fpc === contentPrefix) {
+    if (candidate.fpc !== '' && candidate.fpc === draft.contentHash) {
       return candidate.id;
     }
-    if (candidate.fpt !== '' && candidate.fpt === draft.titleFingerprint.slice(0, 40)) {
+    if (candidate.fpt !== '' && candidate.fpt === draft.titleFingerprint) {
       return candidate.id;
     }
-    if (candidate.fpp !== '' && candidate.fpp === draft.promptFingerprint.slice(0, 40)) {
+    if (candidate.fpp !== '' && candidate.fpp === draft.promptFingerprint) {
       return candidate.id;
     }
   }
