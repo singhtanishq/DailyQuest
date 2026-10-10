@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, Check, Link2, Lightbulb } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Check, Link2, Lightbulb, ChevronDown } from 'lucide-react';
 
 import type { Quest, QuestIndexEntry } from '../../../shared/types.js';
 import { CodeBlock, Reveal } from '../ui/CodeBlock.js';
