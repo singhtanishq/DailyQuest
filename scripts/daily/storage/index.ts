@@ -1,21 +1,21 @@
 import type { Quest, QuestIndexEntry, QuestIndexFile } from '../../../shared/types.js';
-import { textFingerprint } from '../core/hashing.js';
+import { sha256Hex, textFingerprint } from '../core/hashing.js';
 
-/** Compact content fingerprints stored with each index entry. */
+/** Compact content fingerprints stored with each index entry (16-hex each). */
 export interface QuestFingerprints {
   /** contentHash, truncated */
   fpc: string;
-  /** normalized title fingerprint */
+  /** hash of the normalized title fingerprint */
   fpt: string;
-  /** hashed normalized prompt fingerprint */
+  /** hash of the normalized prompt fingerprint */
   fpp: string;
 }
 
 export function fingerprintsFor(quest: Pick<Quest, 'contentHash' | 'title' | 'prompt'>): QuestFingerprints {
   return {
     fpc: quest.contentHash.slice(0, 16),
-    fpt: textFingerprint(quest.title).slice(0, 40),
-    fpp: textFingerprint(quest.prompt).slice(0, 40),
+    fpt: sha256Hex(textFingerprint(quest.title)).slice(0, 16),
+    fpp: sha256Hex(textFingerprint(quest.prompt)).slice(0, 16),
   };
 }
 
