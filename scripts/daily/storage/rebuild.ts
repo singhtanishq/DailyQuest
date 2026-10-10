@@ -24,7 +24,7 @@ export interface RebuildResult {
  */
 export function rebuildDerived(
   dataRoot: string,
-  opts: { lastGeneration?: { date: string; questId: string; at: string } | null } = {}
+  opts: { lastGeneration?: { date: string; questId: string; at: string } | null } = {},
 ): RebuildResult {
   const layout = layoutFor(dataRoot);
   const nowIso = new Date().toISOString();
@@ -60,14 +60,19 @@ export function rebuildDerived(
     changedFiles.push(path);
   };
 
-  writeDerivedIfChanged(layout.indexFile, (at) => buildIndexFile(archive, config_.generatorVersion, at).file);
+  writeDerivedIfChanged(
+    layout.indexFile,
+    (at) => buildIndexFile(archive, config_.generatorVersion, at).file,
+  );
   writeDerivedIfChanged(layout.statsFile, (at) => ({
     schemaVersion: 1,
     generatorVersion: config_.generatorVersion,
     generatedAt: at,
     ...buildStats(archive),
   }));
-  writeDerivedIfChanged(layout.categoriesFile, (at) => buildCategoriesFile(archive, config_.generatorVersion, at));
+  writeDerivedIfChanged(layout.categoriesFile, (at) =>
+    buildCategoriesFile(archive, config_.generatorVersion, at),
+  );
 
   if (archive.length > 0) {
     writeDerivedIfChanged(layout.latestFile, (at) => {
@@ -79,9 +84,9 @@ export function rebuildDerived(
     let existingLastGeneration = null;
     if (fileExists(layout.healthFile)) {
       existingLastGeneration =
-        (readJsonFile<{ lastGeneration?: { date: string; questId: string; at: string } | null }>(
-          layout.healthFile
-        ).lastGeneration ?? null);
+        readJsonFile<{ lastGeneration?: { date: string; questId: string; at: string } | null }>(
+          layout.healthFile,
+        ).lastGeneration ?? null;
     }
     writeDerivedIfChanged(layout.healthFile, () => ({
       schemaVersion: 1,
