@@ -54,8 +54,14 @@ export const systemDesignTemplates: QuestTemplate[] = [
       scaling:
         'Redis handles ~100k ops/s per node; shard counters by user hash for higher rates. Multi-region needs per-region limits or an async global sync with honest local ceilings.',
     },
-    hints: ['Where does the counter state live so all 30 servers agree?', 'What does the client need to back off politely?'],
-    objectives: ['Choose a limiting algorithm deliberately', 'Design the failure policy explicitly'],
+    hints: [
+      'Where does the counter state live so all 30 servers agree?',
+      'What does the client need to back off politely?',
+    ],
+    objectives: [
+      'Choose a limiting algorithm deliberately',
+      'Design the failure policy explicitly',
+    ],
     discussionPoints: [
       'Fixed vs sliding window under adversarial burst timing.',
       'Fail-open vs fail-closed for different endpoint classes.',
@@ -109,7 +115,10 @@ export const systemDesignTemplates: QuestTemplate[] = [
       scaling:
         'Redirects scale horizontally trivially (stateless + cache). Creation rate is bounded by key generation and store writes — both shard naturally by code prefix.',
     },
-    hints: ['What is on the hot path: creation or redirect? Optimize that one first.', 'Why does the redirect probably not want a 301?'],
+    hints: [
+      'What is on the hot path: creation or redirect? Optimize that one first.',
+      'Why does the redirect probably not want a 301?',
+    ],
     objectives: ['Optimize the read-heavy hot path', 'Pick redirect semantics knowingly'],
     discussionPoints: ['Enumeration vs sequential keys.', 'Analytics without slowing redirects.'],
   }),
@@ -161,9 +170,15 @@ export const systemDesignTemplates: QuestTemplate[] = [
       scaling:
         'Consumers scale horizontally; per-recipient rate limits are the true ceiling. Bulk lanes scale by adding consumers until the email provider is the bottleneck.',
     },
-    hints: ['What guarantee can the queue honestly make about delivery counts?', 'How do bulk campaigns avoid starving order confirmations?'],
+    hints: [
+      'What guarantee can the queue honestly make about delivery counts?',
+      'How do bulk campaigns avoid starving order confirmations?',
+    ],
     objectives: ['Separate hot and bulk traffic', 'Design dedup and DLQ flows'],
-    discussionPoints: ['Exactly-once is a receiver-side property.', 'Template versioning strategy.'],
+    discussionPoints: [
+      'Exactly-once is a receiver-side property.',
+      'Template versioning strategy.',
+    ],
   }),
 
   designChallenge({
@@ -213,9 +228,15 @@ export const systemDesignTemplates: QuestTemplate[] = [
       scaling:
         'Evaluation scales with your service fleet (it is in-process); the control plane handles human-scale writes. Snapshot size for 200 flags is trivially cacheable.',
     },
-    hints: ['Where does evaluation happen to keep p99 under 2 ms?', 'How do percentage rollouts stay stable for the same user?'],
+    hints: [
+      'Where does evaluation happen to keep p99 under 2 ms?',
+      'How do percentage rollouts stay stable for the same user?',
+    ],
     objectives: ['Design push-based config', 'Make rollouts deterministic'],
-    discussionPoints: ['Flags as permanent config vs scheduled cleanup.', 'Multi-region snapshot consistency.'],
+    discussionPoints: [
+      'Flags as permanent config vs scheduled cleanup.',
+      'Multi-region snapshot consistency.',
+    ],
   }),
 
   designChallenge({
@@ -265,7 +286,10 @@ export const systemDesignTemplates: QuestTemplate[] = [
       scaling:
         'Shard scrape targets across scraper fleet; shard TSDB by time + series hash. 25M samples/minute is well within modern TSDB limits when cardinality is disciplined.',
     },
-    hints: ['Which dimension of metrics data explodes first?', 'Where should aggregation happen: query time or write time?'],
+    hints: [
+      'Which dimension of metrics data explodes first?',
+      'Where should aggregation happen: query time or write time?',
+    ],
     objectives: ['Design pull-based collection', 'Engineer cardinality budgets'],
     discussionPoints: ['Pull vs push for serverless targets.', 'Alert fatigue and grouping.'],
   }),
