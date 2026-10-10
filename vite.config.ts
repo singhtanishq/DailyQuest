@@ -69,7 +69,10 @@ export default defineConfig({
           ) {
             return 'vendor-react';
           }
-          if (id.includes('/node_modules/highlight.js/') || id.includes('/node_modules/@highlight-js/')) {
+          if (
+            id.includes('/node_modules/highlight.js/') ||
+            id.includes('/node_modules/@highlight-js/')
+          ) {
             return 'vendor-highlight';
           }
           if (id.includes('/node_modules/fuse.js/')) {
