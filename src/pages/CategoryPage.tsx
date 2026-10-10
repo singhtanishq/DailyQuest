@@ -5,7 +5,6 @@ import { getCategories, getIndex } from '../data/api.js';
 import { useAsync } from '../hooks/useAppState.js';
 import { ErrorState, QuestCardSkeletonGrid } from '../components/ui/States.js';
 import { QuestCard } from '../components/quest/QuestCard.js';
-import { CategoryBadge, DifficultyBadge } from '../components/quest/QuestCard.js';
 import { categoryIcon, categoryLabel } from '../lib/labels.js';
 import { CATEGORY_META } from '../../shared/categories.js';
 import type { CategoryId } from '../../shared/types.js';
@@ -108,5 +107,3 @@ export function CategoryPage() {
     </div>
   );
 }
-
-export { CategoryBadge, DifficultyBadge };
