@@ -105,7 +105,14 @@ export function publishDaily(opts: {
   }
 
   if (dryRun) {
-    return { today, noOp: entries.length === 0, entries, derivedChanged: [], readmeChanged: false, warnings };
+    return {
+      today,
+      noOp: entries.length === 0,
+      entries,
+      derivedChanged: [],
+      readmeChanged: false,
+      warnings,
+    };
   }
 
   const rebuild = rebuildDerived(opts.dataRoot, {
@@ -129,8 +136,8 @@ export function publishDaily(opts: {
             date: latest.date,
           },
           formatDisplayDate(latest.date),
-          resolveSiteUrl(opts.repoRoot)
-        )
+          resolveSiteUrl(opts.repoRoot),
+        ),
       );
     }
   }
