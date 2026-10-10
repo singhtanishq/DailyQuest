@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-10",
+  "date": "2026-10-10",
+  "sequenceNumber": 10,
+  "slug": "2026-10-10-the-balanced-ledger",
+  "title": "The Balanced Ledger",
+  "shortTitle": "The Balanced Ledger",
+  "subtitle": "Every open brace needs a closing story.",
+  "description": "Determine whether a string of brackets is perfectly balanced — the classic stack exercise that still shows up in real parsers.",
+  "category": "coding",
+  "subcategories": [
+    "strings",
+    "stacks"
+  ],
+  "challengeType": "coding",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 10,
+  "conceptComplexity": 1,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 2,
+  "concepts": [
+    "stacks",
+    "parsing"
+  ],
+  "tags": [
+    "strings",
+    "stack",
+    "validation"
+  ],
+  "skills": [
+    "Stack usage",
+    "Input parsing"
+  ],
+  "prompt": "A ledger entry is a string containing only the characters `(`, `)`, `[`, `]`, `{` and `}`. The entry is **balanced** when every opening bracket is closed by the matching type, and closing brackets never appear before their opening partner. Nested and sequential groups are both allowed.",
+  "instructions": [
+    "Read one line of input: the bracket string.",
+    "Print `balanced` if the string is balanced, otherwise print `unbalanced`."
+  ],
+  "constraints": [
+    "The input contains at most 10,000 characters.",
+    "Only the six bracket characters appear in the input.",
+    "An empty string counts as balanced."
+  ],
+  "examples": [
+    {
+      "title": "Example 1",
+      "input": "{[()]}",
+      "output": "balanced",
+      "explanation": "Three levels of nesting, all closed in order."
+    },
+    {
+      "title": "Example 2",
+      "input": "([)]",
+      "output": "unbalanced",
+      "explanation": "The `]` arrives while `(` is still open."
+    }
+  ],
+  "starterCode": {
+    "language": "javascript",
+    "code": "function isBalanced(s) {\n  // your code\n}\n\nconsole.log(isBalanced(require(\"fs\").readFileSync(0, \"utf8\").trim()));"
+  },
+  "testCases": [
+    {
+      "name": "nested groups",
+      "input": "{[()]}",
+      "expected": "balanced"
+    },
+    {
+      "name": "sequential groups",
+      "input": "()[]{}",
+      "expected": "balanced"
+    },
+    {
+      "name": "wrong closing type",
+      "input": "(]",
+      "expected": "unbalanced"
+    },
+    {
+      "name": "closes too early",
+      "input": "([)]",
+      "expected": "unbalanced"
+    },
+    {
+      "name": "unclosed open",
+      "input": "(((",
+      "expected": "unbalanced"
+    },
+    {
+      "name": "stray close",
+      "input": ")",
+      "expected": "unbalanced"
+    }
+  ],
+  "edgeCases": [
+    "empty input",
+    "opener with no closer",
+    "closer with no opener"
+  ],
+  "hints": [
+    "Think about which closing bracket must be matched first — it is always the most recently opened one.",
+    "A stack mirrors that \"last opened, first closed\" rule exactly."
+  ],
+  "solution": {
+    "summary": "Push opening brackets onto a stack; on each closing bracket, the top of the stack must be its matching opener. A mismatch, a close on an empty stack, or leftovers at the end all mean unbalanced.",
+    "approach": [
+      "Iterate over the characters once.",
+      "Openers go onto a stack.",
+      "A closer must match the stack top via a lookup table; pop it if it does, fail otherwise.",
+      "At the end the stack must be empty."
+    ],
+    "code": {
+      "language": "javascript",
+      "label": "Reference solution",
+      "code": "function isBalanced(s) {\n  const pairs = { ')': '(', ']': '[', '}': '{' };\n  const stack = [];\n  for (const ch of s) {\n    if (ch === '(' || ch === '[' || ch === '{') stack.push(ch);\n    else if (ch === ')' || ch === ']' || ch === '}') {\n      if (stack.pop() !== pairs[ch]) return 'unbalanced';\n    }\n  }\n  return stack.length === 0 ? 'balanced' : 'unbalanced';\n}"
+    },
+    "complexity": "O(n) time, O(n) space for the stack.",
+    "commonMistakes": [
+      "Checking only counts (equal opens and closes) — `([)]` passes that check but is not balanced.",
+      "Forgetting the empty-stack case when a closer arrives first."
+    ]
+  },
+  "learningObjectives": [
+    "Recognize when a problem is stack-shaped",
+    "Implement a single-pass validator"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-04"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "coding.balanced-ledger",
+  "generatorVersion": "1.0.0",
+  "seed": "0ef60e34f1b844a4ef5e2c204006295d427847e6bfae549ba42713c36c0ef670",
+  "paramsSignature": "v1",
+  "contentHash": "cc8a94988c3fd5331d8345bed8ce9ffdf371713433bf573de5997f700633033d",
+  "createdAt": "2026-10-10T16:26:42.185Z",
+  "updatedAt": "2026-10-10T16:26:42.185Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-10T16:26:42.185Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
