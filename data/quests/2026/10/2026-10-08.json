@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-08",
+  "date": "2026-10-08",
+  "sequenceNumber": 8,
+  "slug": "2026-10-08-the-grid-walker",
+  "title": "The Grid Walker",
+  "shortTitle": "The Grid Walker",
+  "subtitle": "Right or down, never back.",
+  "description": "Count the paths across a grid moving only right or down — and compress the DP table to a single row.",
+  "category": "algorithms",
+  "subcategories": [
+    "dp"
+  ],
+  "challengeType": "coding",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 15,
+  "conceptComplexity": 1,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 2,
+  "concepts": [
+    "dynamic programming",
+    "combinatorics"
+  ],
+  "tags": [
+    "dp",
+    "grids"
+  ],
+  "skills": [
+    "Grid DP",
+    "Space compression"
+  ],
+  "prompt": "A robot starts at the top-left corner of an `m × n` grid and moves only right or down to reach the bottom-right corner. Print the number of distinct paths.",
+  "instructions": [
+    "Read m and n from one line.",
+    "Print the number of distinct monotone paths."
+  ],
+  "constraints": [
+    "1 ≤ m, n ≤ 100.",
+    "O(m·n) time; O(n) space preferred."
+  ],
+  "examples": [
+    {
+      "title": "Example 1",
+      "input": "3 7",
+      "output": "28",
+      "explanation": "28 paths — this is the classic LeetCode example."
+    },
+    {
+      "title": "Example 2",
+      "input": "3 2",
+      "output": "3",
+      "explanation": "3 paths: down-down-right, down-right-down, right-down-down."
+    }
+  ],
+  "testCases": [
+    {
+      "name": "three by seven",
+      "input": "3 7",
+      "expected": "28"
+    },
+    {
+      "name": "three by two",
+      "input": "3 2",
+      "expected": "3"
+    },
+    {
+      "name": "single cell",
+      "input": "1 1",
+      "expected": "1"
+    },
+    {
+      "name": "single row",
+      "input": "1 10",
+      "expected": "1"
+    },
+    {
+      "name": "seven by three",
+      "input": "7 3",
+      "expected": "28"
+    }
+  ],
+  "edgeCases": [
+    "1×1 grid",
+    "single row or column (answer 1)",
+    "square grids"
+  ],
+  "hints": [
+    "Every path into (i, j) arrives from above or from the left.",
+    "A single row can hold both \"above\" and \"left\" values if updated in the right order."
+  ],
+  "solution": {
+    "summary": "paths(i, j) = paths(i-1, j) + paths(i, j-1). Keep one row: after processing row i, row[j] already holds the count for that cell because row[j-1] was updated in the same pass.",
+    "approach": [
+      "Initialize a row of ones (first row of the grid).",
+      "For each subsequent row, row[j] += row[j-1]: the value above (old row[j]) plus the value to the left.",
+      "The last cell of the final row is the answer.",
+      "Closed form for the brave: C(m+n-2, m-1)."
+    ],
+    "code": {
+      "language": "javascript",
+      "label": "Reference solution",
+      "code": "function uniquePaths(m, n) {\n  const row = new Array(n).fill(1);\n  for (let i = 1; i < m; i++) {\n    for (let j = 1; j < n; j++) {\n      row[j] += row[j - 1];\n    }\n  }\n  return row[n - 1];\n}"
+    },
+    "complexity": "O(m·n) time, O(n) space.",
+    "commonMistakes": [
+      "Allocating the full 2-D table when one row carries everything.",
+      "Forgetting that row-major updates make row[j-1] the \"left neighbor\" of the current row."
+    ]
+  },
+  "learningObjectives": [
+    "Translate a 2-D recurrence into a rolling array",
+    "Connect DP counts to binomial coefficients"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "algo.unique-paths",
+  "generatorVersion": "1.0.0",
+  "seed": "aed5db845da3720cd3765e28633e959bdab8fe6e9eb981ca8da1e59ba9eba5f2",
+  "paramsSignature": "v1",
+  "contentHash": "aef1fe00d1199bf20e0020944a4630fdaa99f54ea22f258896061cae4fb090a6",
+  "createdAt": "2026-10-10T16:26:35.239Z",
+  "updatedAt": "2026-10-10T16:26:35.239Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-10T16:26:35.239Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
