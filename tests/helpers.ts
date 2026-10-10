@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { config as baseConfig, type DailyQuestConfig } from '../config/dailyquest.config.js';
 import type { Quest } from '../shared/types.js';
 import { Rng, deriveSeed } from '../scripts/daily/core/rng.js';
-import { loadArchive, type RecentArchive } from '../scripts/daily/pipeline/context.js';
+import { loadArchive } from '../scripts/daily/pipeline/context.js';
 import { generateQuestForDate, type PipelineContext } from '../scripts/daily/pipeline/generate.js';
 
 /**
@@ -71,4 +71,4 @@ export function seedQuestFile(dataRoot: string, quest: Quest): void {
   );
 }
 
-export { loadArchive, Rng, deriveSeed, type RecentArchive };
+export { loadArchive, Rng, deriveSeed };
