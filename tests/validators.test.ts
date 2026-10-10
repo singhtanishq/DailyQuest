@@ -32,10 +32,10 @@ describe('hashing + fingerprints', () => {
       solutionSummary: 'Same answer.',
     };
     expect(computeContentHash(base)).toBe(
-      computeContentHash({ ...base, prompt: 'Line one.   Line two.' })
+      computeContentHash({ ...base, prompt: 'Line one.   Line two.' }),
     );
     expect(computeContentHash(base)).not.toBe(
-      computeContentHash({ ...base, title: 'Different Title' })
+      computeContentHash({ ...base, title: 'Different Title' }),
     );
   });
 
@@ -59,10 +59,30 @@ describe('hashing + fingerprints', () => {
 
   it('findDuplicate catches each fingerprint class', () => {
     const existing = [{ id: 'dq-2026-10-01', fpc: 'aaaa', fpt: 'bbbb', fpp: 'cccc' }];
-    expect(findDuplicate({ contentHash: 'aaaa', titleFingerprint: 'x', promptFingerprint: 'y' }, existing)).toBe('dq-2026-10-01');
-    expect(findDuplicate({ contentHash: 'zzzz', titleFingerprint: 'bbbb', promptFingerprint: 'y' }, existing)).toBe('dq-2026-10-01');
-    expect(findDuplicate({ contentHash: 'zzzz', titleFingerprint: 'x', promptFingerprint: 'cccc' }, existing)).toBe('dq-2026-10-01');
-    expect(findDuplicate({ contentHash: 'zzzz', titleFingerprint: 'x', promptFingerprint: 'y' }, existing)).toBeNull();
+    expect(
+      findDuplicate(
+        { contentHash: 'aaaa', titleFingerprint: 'x', promptFingerprint: 'y' },
+        existing,
+      ),
+    ).toBe('dq-2026-10-01');
+    expect(
+      findDuplicate(
+        { contentHash: 'zzzz', titleFingerprint: 'bbbb', promptFingerprint: 'y' },
+        existing,
+      ),
+    ).toBe('dq-2026-10-01');
+    expect(
+      findDuplicate(
+        { contentHash: 'zzzz', titleFingerprint: 'x', promptFingerprint: 'cccc' },
+        existing,
+      ),
+    ).toBe('dq-2026-10-01');
+    expect(
+      findDuplicate(
+        { contentHash: 'zzzz', titleFingerprint: 'x', promptFingerprint: 'y' },
+        existing,
+      ),
+    ).toBeNull();
   });
 });
 
