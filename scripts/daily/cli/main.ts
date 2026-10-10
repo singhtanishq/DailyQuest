@@ -5,7 +5,11 @@ import { parseArgs } from 'node:util';
 
 import { isIsoDate } from '../core/dates.js';
 import { addDays, datesBetweenExclusive } from '../core/dates.js';
-import { GenerationError, generateQuestForDate, type PipelineContext } from '../pipeline/generate.js';
+import {
+  GenerationError,
+  generateQuestForDate,
+  type PipelineContext,
+} from '../pipeline/generate.js';
 import { publishDaily, type PublishSummary } from '../pipeline/publish.js';
 import { loadArchive } from '../pipeline/context.js';
 import { rebuildDerived } from '../storage/rebuild.js';
@@ -70,14 +74,18 @@ function writeCiOutputs(summary: PublishSummary): void {
     } else {
       for (const entry of summary.entries) {
         lines.push(
-          `- **${entry.date}** — ${entry.outcome === 'created' ? `Quest #${entry.sequenceNumber}` : 'already published'}: ${entry.title ?? '—'}`
+          `- **${entry.date}** — ${entry.outcome === 'created' ? `Quest #${entry.sequenceNumber}` : 'already published'}: ${entry.title ?? '—'}`,
         );
         if (entry.category) {
-          lines.push(`  - Category: \`${entry.category}\` · Difficulty: \`${entry.difficulty}\` · Quality: ${entry.qualityScore ?? '—'}/100`);
+          lines.push(
+            `  - Category: \`${entry.category}\` · Difficulty: \`${entry.difficulty}\` · Quality: ${entry.qualityScore ?? '—'}/100`,
+          );
         }
       }
       lines.push('');
-      lines.push(`Derived files updated: ${summary.derivedChanged.length} · README: ${summary.readmeChanged ? 'updated' : 'unchanged'}`);
+      lines.push(
+        `Derived files updated: ${summary.derivedChanged.length} · README: ${summary.readmeChanged ? 'updated' : 'unchanged'}`,
+      );
     }
     if (summary.warnings.length > 0) {
       lines.push('', '**Warnings**', '');
@@ -99,9 +107,13 @@ function printPublishSummary(summary: PublishSummary, dryRun: boolean): void {
       console.log(`• ${entry.date}: already published (${entry.title ?? entry.questId})`);
       continue;
     }
-    const label = dryRun ? 'DRY RUN' : `Quest #${String(entry.sequenceNumber ?? 0).padStart(3, '0')}`;
+    const label = dryRun
+      ? 'DRY RUN'
+      : `Quest #${String(entry.sequenceNumber ?? 0).padStart(3, '0')}`;
     console.log(`✓ ${entry.date}: ${label} — ${entry.title}`);
-    console.log(`  ${entry.category} · ${entry.difficulty} · template ${entry.templateId} · quality ${entry.qualityScore}/100`);
+    console.log(
+      `  ${entry.category} · ${entry.difficulty} · template ${entry.templateId} · quality ${entry.qualityScore}/100`,
+    );
   }
   if (summary.readmeChanged) {
     console.log('✓ README status block updated');
@@ -148,7 +160,9 @@ function runBackfill(start: string, end: string, dryRun: boolean): void {
   }
   if (!dryRun) {
     const rebuild = rebuildDerived(DATA_ROOT);
-    console.log(`✓ Derived files rebuilt (${rebuild.changedFiles.length} changed, ${rebuild.questCount} quests)`);
+    console.log(
+      `✓ Derived files rebuilt (${rebuild.changedFiles.length} changed, ${rebuild.questCount} quests)`,
+    );
   }
   console.log(created === 0 ? 'Nothing to backfill.' : `Backfilled ${created} quest(s).`);
 }
@@ -201,7 +215,9 @@ function main(): void {
         if (result.outcome === 'already-exists') {
           console.log(`• ${target}: already exists — ${result.quest?.title}`);
         } else {
-          console.log(`✓ ${target}: ${dryRun ? 'DRY RUN' : 'generated'} — ${result.quest?.title} (${result.quest?.templateId})`);
+          console.log(
+            `✓ ${target}: ${dryRun ? 'DRY RUN' : 'generated'} — ${result.quest?.title} (${result.quest?.templateId})`,
+          );
         }
         for (const warning of result.warnings) {
           console.warn(`⚠ ${warning}`);
@@ -238,7 +254,7 @@ function main(): void {
       case 'rebuild': {
         const rebuild = rebuildDerived(DATA_ROOT);
         console.log(
-          `✓ Rebuilt derived files for ${rebuild.questCount} quest(s); ${rebuild.changedFiles.length} file(s) changed, ${rebuild.resequenced} resequenced`
+          `✓ Rebuilt derived files for ${rebuild.questCount} quest(s); ${rebuild.changedFiles.length} file(s) changed, ${rebuild.resequenced} resequenced`,
         );
         break;
       }
