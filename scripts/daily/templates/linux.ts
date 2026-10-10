@@ -76,7 +76,10 @@ export const linuxTemplates: QuestTemplate[] = [
       'Confusing grep -c (count lines) with grep -o (each match on its own line).',
       'Using grep -v ERROR and counting — that gives the complement.',
     ],
-    hints: ['-c changes the OUTPUT, not the matching.', 'Count the ERROR lines in the fixture by hand first.'],
+    hints: [
+      '-c changes the OUTPUT, not the matching.',
+      'Count the ERROR lines in the fixture by hand first.',
+    ],
     objectives: ['Use grep -c for counts', 'Distinguish -c from -o and -v'],
   }),
 
@@ -145,7 +148,10 @@ export const linuxTemplates: QuestTemplate[] = [
       'Leaving *.log unquoted: the shell expands it against the CURRENT directory before find runs.',
       'Expecting find to skip directories — it does not, unless you add -type f or -maxdepth.',
     ],
-    hints: ['Does find descend into subdirectories by default?', 'Who expands an unquoted * — find or the shell?'],
+    hints: [
+      'Does find descend into subdirectories by default?',
+      'Who expands an unquoted * — find or the shell?',
+    ],
     objectives: ['Search trees with find', 'Quote globs for tools that do their own matching'],
   }),
 
@@ -180,7 +186,10 @@ export const linuxTemplates: QuestTemplate[] = [
       '7=4+2+1, 5=4+0+1, 4=4+0+0.',
       'A runnable script needs x for whoever executes it — which is why 754 lets the group run it.',
     ],
-    hints: ['Write each digit in binary: 7=111, 5=101, 4=100.', 'Which sum gives execute without write?'],
+    hints: [
+      'Write each digit in binary: 7=111, 5=101, 4=100.',
+      'Which sum gives execute without write?',
+    ],
     objectives: ['Decode octal permissions', 'Map rwx bits to numbers'],
   }),
 
@@ -216,7 +225,10 @@ export const linuxTemplates: QuestTemplate[] = [
       'SIGKILL leaves lock files, unwritten buffers, half-closed sockets — the classic post-mortem mess.',
       'Systemd and container runtimes send SIGTERM first for exactly this reason.',
     ],
-    hints: ['Which signal can a process register a handler for?', 'What happens to in-flight writes under SIGKILL?'],
+    hints: [
+      'Which signal can a process register a handler for?',
+      'What happens to in-flight writes under SIGKILL?',
+    ],
     objectives: ['Order the shutdown signal sequence', 'Explain uncatchable signals'],
   }),
 
@@ -234,7 +246,7 @@ export const linuxTemplates: QuestTemplate[] = [
     subtitle: 'Double, single, and no quotes at all.',
     description: 'Predict expansion differences between quoting styles.',
     question:
-      "Given `NAME=\"world\"` in an interactive shell, explain precisely what each of these prints and why: `echo \"Hello $NAME\"`, `echo 'Hello $NAME'`, and `echo Hello $NAME` (unquoted). Then state the rule that separates variable expansion from word splitting and globbing.",
+      'Given `NAME="world"` in an interactive shell, explain precisely what each of these prints and why: `echo "Hello $NAME"`, `echo \'Hello $NAME\'`, and `echo Hello $NAME` (unquoted). Then state the rule that separates variable expansion from word splitting and globbing.',
     guidance: [
       'Give the exact output of each command.',
       'Explain which expansions single quotes suppress.',
@@ -253,7 +265,10 @@ export const linuxTemplates: QuestTemplate[] = [
         'Forgetting that unquoted empty variables disappear entirely from the argument list.',
       ],
     },
-    hints: ['Which quote type is purely literal?', 'What does an unquoted $NAME containing spaces do to the argument count?'],
+    hints: [
+      'Which quote type is purely literal?',
+      'What does an unquoted $NAME containing spaces do to the argument count?',
+    ],
     objectives: ['Predict quoting behaviour exactly', 'Apply the "$VAR" safe-default habit'],
   }),
 ];
