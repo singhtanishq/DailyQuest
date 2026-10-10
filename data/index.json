@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-10T16:26:42.193Z",
+  "generatedAt": "2026-10-10T16:27:20.034Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -25,8 +25,8 @@
       ],
       "contentHash": "dfba33fc56ae29e5dd19fad5424a0e040ca45f33e8207915fd003193889aef1a",
       "fpc": "dfba33fc56ae29e5",
-      "fpt": "theorphanorders",
-      "fpp": "youareworkingwiththefollowingschemasqlit"
+      "fpt": "10d03ab4f4c44e8e",
+      "fpp": "fb35cdf70e631800"
     },
     {
       "id": "dq-2026-10-02",
@@ -51,8 +51,8 @@
       ],
       "contentHash": "1d6cfcaea1a87f9b1d2abe6eac0cb6cb5ca20afd03911cb02e8df73f407142a5",
       "fpc": "1d6cfcaea1a87f9b",
-      "fpt": "thehonestannotation",
-      "fpp": "youdeclareathemeconfigthatmustmatchtypet"
+      "fpt": "5fed32cd5ef8a2bb",
+      "fpp": "bfaa7c03bc55fb7c"
     },
     {
       "id": "dq-2026-10-03",
@@ -77,8 +77,8 @@
       ],
       "contentHash": "b8b9968a0f487ec4e4b7114d2f8153a5775483d8433375427f9f7673dac764f1",
       "fpc": "b8b9968a0f487ec4",
-      "fpt": "theurlparameterthatreachesinside",
-      "fpp": "aserviceoffersfetchapreviewforanyurlyoup"
+      "fpt": "dec6fc91b23f7c4f",
+      "fpp": "6aed57f963683330"
     },
     {
       "id": "dq-2026-10-04",
@@ -104,8 +104,8 @@
       ],
       "contentHash": "ac9bf1d8d71e4b51977480977ad28307908bd1bdccc37ed8ab939e24901fcaee",
       "fpc": "ac9bf1d8d71e4b51",
-      "fpt": "thecommathatlied",
-      "fpp": "youaregivenonelineofcsvfieldsareseparate"
+      "fpt": "c14c26a6e191921c",
+      "fpp": "f57d1dd76a62c167"
     },
     {
       "id": "dq-2026-10-05",
@@ -128,8 +128,8 @@
       ],
       "contentHash": "e4198d9c4c03f064403ea3d07c87bb27867ec6564e09b998a1b27b50d64439d8",
       "fpc": "e4198d9c4c03f064",
-      "fpt": "theaccidentalquadratic",
-      "fpp": "whichsnippetdegradesquadraticallyasitems"
+      "fpt": "27a1cdccf6504a77",
+      "fpp": "ab8a956bee92d3c9"
     },
     {
       "id": "dq-2026-10-06",
@@ -154,8 +154,8 @@
       ],
       "contentHash": "894be407f26e3cb5440ae74641e8d300b370e47c2b03d53618a7caffc5e1af6f",
       "fpc": "894be407f26e3cb5",
-      "fpt": "thetwosourcesoftruth",
-      "fpp": "contrastcontrolledinputsvalueonchangewit"
+      "fpt": "81eeee1f4e7be47a",
+      "fpp": "2483966886733906"
     },
     {
       "id": "dq-2026-10-07",
@@ -179,8 +179,8 @@
       ],
       "contentHash": "d031e2648d7645a698b0e41a4607463b669d0467712544fd063b14c1513ecc5c",
       "fpc": "d031e2648d7645a6",
-      "fpt": "theignoredindex",
-      "fpp": "thetableordershasanindexoncreatedatwhich"
+      "fpt": "3b376e5d3905979c",
+      "fpp": "a6ca637e0c5a7734"
     },
     {
       "id": "dq-2026-10-08",
@@ -205,8 +205,8 @@
       ],
       "contentHash": "aef1fe00d1199bf20e0020944a4630fdaa99f54ea22f258896061cae4fb090a6",
       "fpc": "aef1fe00d1199bf2",
-      "fpt": "thegridwalker",
-      "fpp": "arobotstartsatthetopleftcornerofanmngrid"
+      "fpt": "63eb0cfe0ee51a27",
+      "fpp": "a14a5ab019789b3e"
     },
     {
       "id": "dq-2026-10-09",
@@ -231,8 +231,8 @@
       ],
       "contentHash": "476cc4bfde254024da153ce81fa50261097b1531784fe4f92343df32452e3506",
       "fpc": "476cc4bfde254024",
-      "fpt": "theheadthatatethetail",
-      "fpp": "expectedbehaviourstripextensionreportpdf"
+      "fpt": "45389b22e8887e69",
+      "fpp": "2d69d6fb422b0185"
     },
     {
       "id": "dq-2026-10-10",
@@ -258,8 +258,8 @@
       ],
       "contentHash": "cc8a94988c3fd5331d8345bed8ce9ffdf371713433bf573de5997f700633033d",
       "fpc": "cc8a94988c3fd533",
-      "fpt": "thebalancedledger",
-      "fpp": "aledgerentryisastringcontainingonlythech"
+      "fpt": "e4387f432ed974b2",
+      "fpp": "fa168ca649433939"
     }
   ]
 }
