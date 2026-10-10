@@ -12,7 +12,7 @@ export interface CatchUpPlan {
 export function planCatchUp(
   lastPublished: string | null,
   today: string,
-  maxCatchupDays: number
+  maxCatchupDays: number,
 ): CatchUpPlan {
   if (lastPublished === null) {
     return { dates: [today] };
@@ -26,7 +26,7 @@ export function planCatchUp(
       dates: [today],
       warning: `${missing.length} days were missed (last published ${lastPublished}), exceeding the catch-up limit of ${maxCatchupDays}. Generated only ${today}; run \`npm run generate:backfill -- ${addDays(
         today,
-        -missing.length
+        -missing.length,
       )} ${addDays(today, -1)}\` to recover the gap.`,
     };
   }
