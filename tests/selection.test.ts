@@ -39,7 +39,7 @@ describe('selection', () => {
     for (const [category, weight] of Object.entries(cfg.categoryWeights)) {
       if (weight > 0) {
         expect(
-          templatesForCategory(ALL_TEMPLATES, category as keyof typeof cfg.categoryWeights).length
+          templatesForCategory(ALL_TEMPLATES, category as keyof typeof cfg.categoryWeights).length,
         ).toBeGreaterThan(0);
       }
     }
