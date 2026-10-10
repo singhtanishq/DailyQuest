@@ -16,7 +16,11 @@ import { fingerprintsFor } from '../storage/index.js';
 import { ALL_TEMPLATES } from '../templates/index.js';
 import { runVerification, VerificationError } from '../verify/runners.js';
 import { validateQuestStructure, qualityScore } from '../validators/schema.js';
-import { draftFingerprints, findDuplicate, type ExistingFingerprints } from '../validators/duplicates.js';
+import {
+  draftFingerprints,
+  findDuplicate,
+  type ExistingFingerprints,
+} from '../validators/duplicates.js';
 import { assembleQuest } from './assemble.js';
 import { computeRelated, recentFromArchive } from './context.js';
 
@@ -70,7 +74,7 @@ export function generateQuestForDate(date: string, ctx: PipelineContext): Genera
     const failures = validateQuestStructure(quest).filter((c) => !c.passed);
     if (failures.length > 0) {
       throw new GenerationError(
-        `Existing quest ${date} failed validation: ${failures.map((f) => f.id).join(', ')}`
+        `Existing quest ${date} failed validation: ${failures.map((f) => f.id).join(', ')}`,
       );
     }
     return { outcome: 'already-exists', quest, warnings: [], changedFile: null };
@@ -109,7 +113,7 @@ export function generateQuestForDate(date: string, ctx: PipelineContext): Genera
       } catch (error) {
         if (error instanceof VerificationError) {
           throw new GenerationError(
-            `Template ${template.id} failed its verification on ${date}: ${error.message}`
+            `Template ${template.id} failed its verification on ${date}: ${error.message}`,
           );
         }
         throw error;
@@ -137,13 +141,13 @@ export function generateQuestForDate(date: string, ctx: PipelineContext): Genera
       throw new GenerationError(
         `Quest ${date} (template ${template.id}) failed structural validation: ${failedChecks
           .map((c) => `${c.id}${c.detail ? ` (${c.detail})` : ''}`)
-          .join('; ')}`
+          .join('; ')}`,
       );
     }
     const score = qualityScore(checks);
     if (score < ctx.config.quality.minQualityScore) {
       throw new GenerationError(
-        `Quest ${date} (template ${template.id}) scored ${score}, below minimum ${ctx.config.quality.minQualityScore}`
+        `Quest ${date} (template ${template.id}) scored ${score}, below minimum ${ctx.config.quality.minQualityScore}`,
       );
     }
     quest.validation = {
@@ -155,7 +159,9 @@ export function generateQuestForDate(date: string, ctx: PipelineContext): Genera
 
     const duplicate = findDuplicate(draftFingerprints(quest), existingFingerprints);
     if (duplicate !== null) {
-      warnings.push(`attempt ${attempt}: candidate from ${template.id} duplicates ${duplicate}; rotating`);
+      warnings.push(
+        `attempt ${attempt}: candidate from ${template.id} duplicates ${duplicate}; rotating`,
+      );
       continue;
     }
 
@@ -174,6 +180,6 @@ export function generateQuestForDate(date: string, ctx: PipelineContext): Genera
   }
 
   throw new GenerationError(
-    `Could not generate a unique quest for ${date} after ${ctx.config.rotation.maxDuplicateRetries} attempts`
+    `Could not generate a unique quest for ${date} after ${ctx.config.rotation.maxDuplicateRetries} attempts`,
   );
 }
