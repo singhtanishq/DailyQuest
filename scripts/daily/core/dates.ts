@@ -11,8 +11,8 @@ const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 const MILLIS_PER_DAY = 86_400_000;
 
 /** Current calendar date in the given IANA timezone, as YYYY-MM-DD. */
-export function getTodayInTz(timeZone: string): string {
-  return new Intl.DateTimeFormat('en-CA', { timeZone }).format(new Date());
+export function getTodayInTz(timeZone: string, at: Date = new Date()): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone }).format(at);
 }
 
 export function isIsoDate(value: string): boolean {
