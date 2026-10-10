@@ -27,12 +27,7 @@ Promise.resolve().then(() => console.log('c'));
 console.log('d');`,
     },
     question: 'In what order do the four letters print?',
-    options: [
-      'a, d, c, b',
-      'a, b, c, d',
-      'a, c, d, b',
-      'b, a, d, c',
-    ],
+    options: ['a, d, c, b', 'a, b, c, d', 'a, c, d, b', 'b, a, d, c'],
     optionExplanations: [
       'Correct: synchronous code first (a, d), then the microtask queue drains (c), then the macrotask timer fires (b).',
       'Timers never jump ahead of microtasks or the rest of the synchronous script.',
@@ -44,7 +39,10 @@ console.log('d');`,
       "The microtask queue (promise callbacks) drains completely next: 'c'.",
       "Only then does the event loop pick a macrotask — the timer: 'b'.",
     ],
-    hints: ['Microtasks always drain before the next macrotask.', 'setTimeout(…, 0) is a macrotask, not an immediate call.'],
+    hints: [
+      'Microtasks always drain before the next macrotask.',
+      'setTimeout(…, 0) is a macrotask, not an immediate call.',
+    ],
     objectives: ['Order sync, microtask, and macrotask work', 'Predict event loop interleavings'],
   }),
 
@@ -88,7 +86,10 @@ demo();`,
       'var starts as undefined; let/const start uninitialized (TDZ).',
       'The TDZ turns read-before-declare into a loud error instead of a silent undefined — a deliberate safety feature.',
     ],
-    hints: ['Hoisting moves the binding, not the value, for every declaration kind.', 'The temporal dead zone ends exactly at the declaration statement.'],
+    hints: [
+      'Hoisting moves the binding, not the value, for every declaration kind.',
+      'The temporal dead zone ends exactly at the declaration statement.',
+    ],
     objectives: ['Explain the temporal dead zone', 'Contrast var, let and const initialization'],
   }),
 
@@ -104,7 +105,8 @@ demo();`,
     subcategories: ['objects'],
     title: 'The Lookup Ladder',
     subtitle: 'Where does JS stop climbing?',
-    description: 'Explain exactly how JavaScript finds a property on an object, and what happens when it reaches the top.',
+    description:
+      'Explain exactly how JavaScript finds a property on an object, and what happens when it reaches the top.',
     question:
       'Given `const base = { greet() { return "hi"; } }; const obj = Object.create(base); obj.greet()`, trace the full property lookup. What roles do `[[Prototype]]`, `Object.prototype` and `null` play, and how do `__proto__`, `Object.getPrototypeOf` and `Object.create` relate to the chain?',
     guidance: [
@@ -130,8 +132,14 @@ demo();`,
         'Assuming copies are made — delegation shares the function, no copying occurs.',
       ],
     },
-    hints: ['Follow the internal link one object at a time.', 'Every chain in practice ends at Object.prototype, then null.'],
-    objectives: ['Trace prototype delegation precisely', 'Distinguish [[Prototype]] from constructor.prototype'],
+    hints: [
+      'Follow the internal link one object at a time.',
+      'Every chain in practice ends at Object.prototype, then null.',
+    ],
+    objectives: [
+      'Trace prototype delegation precisely',
+      'Distinguish [[Prototype]] from constructor.prototype',
+    ],
   }),
 
   quizChallenge({
@@ -165,7 +173,10 @@ demo();`,
       'The accessors/iterators (map, filter, slice, concat, flat) return new arrays.',
       'ES2023 added non-mutating twins for the dangerous ones: toSorted, toReversed, toSpliced, with.',
     ],
-    hints: ['Think about which method’s job is to BUILD a new array.', 'ES2023 introduced spelled-out "to" variants for a reason.'],
+    hints: [
+      'Think about which method’s job is to BUILD a new array.',
+      'ES2023 introduced spelled-out "to" variants for a reason.',
+    ],
     objectives: ['Classify array methods by mutation', 'Reach for toSorted/toReversed when needed'],
   }),
 
@@ -203,8 +214,14 @@ demo();`,
         'Thinking late .then handlers are dropped — they always fire.',
       ],
     },
-    hints: ['"Settled" is the umbrella term — which two states does it cover?', 'What does `.then` on an already-resolved promise do?'],
-    objectives: ['Model the promise state machine', 'Predict double-resolve and late-handler behaviour'],
+    hints: [
+      '"Settled" is the umbrella term — which two states does it cover?',
+      'What does `.then` on an already-resolved promise do?',
+    ],
+    objectives: [
+      'Model the promise state machine',
+      'Predict double-resolve and late-handler behaviour',
+    ],
   }),
 
   quizChallenge({
@@ -237,8 +254,14 @@ demo();`,
       'Strict mode’s headline fixes: no implicit globals, this is undefined in bare calls, duplicate parameter names rejected, silent write failures throw.',
       'It is opt-in per script/module/function via the "use strict" directive; ES modules are always strict.',
     ],
-    hints: ['Think about the "implicit global" footgun.', 'Modules are always strict — how often do you see the directive there?'],
-    objectives: ['List the key strict-mode changes', 'Know where strict mode applies automatically'],
+    hints: [
+      'Think about the "implicit global" footgun.',
+      'Modules are always strict — how often do you see the directive there?',
+    ],
+    objectives: [
+      'List the key strict-mode changes',
+      'Know where strict mode applies automatically',
+    ],
   }),
 
   openChallenge({
@@ -253,7 +276,8 @@ demo();`,
     subcategories: ['async'],
     title: 'The Starvation Scenario',
     subtitle: 'When microtasks never let the page breathe.',
-    description: 'Explain how a self-perpetuating microtask can starve rendering, and how to break the cycle.',
+    description:
+      'Explain how a self-perpetuating microtask can starve rendering, and how to break the cycle.',
     question:
       'A developer writes `Promise.resolve().then(function loop() { Promise.resolve().then(loop); })` and the UI freezes even though no timer is pending. Explain why, and describe the scheduling options that would let rendering happen between iterations.',
     guidance: [
@@ -276,7 +300,10 @@ demo();`,
         'Recommending setImmediate (Node-only) for browser code.',
       ],
     },
-    hints: ['What is the exit condition for the microtask drain?', 'Which APIs schedule macrotasks?'],
+    hints: [
+      'What is the exit condition for the microtask drain?',
+      'Which APIs schedule macrotasks?',
+    ],
     objectives: ['Explain microtask starvation precisely', 'Choose the right yielding primitive'],
   }),
 
@@ -301,24 +328,22 @@ console.log(city);
 console.log(user?.name?.length);`,
     },
     question: 'What does the snippet print?',
-    options: [
-      'unknown\nundefined',
-      'unknown\nnull',
-      "TypeError is thrown",
-      "''\nundefined",
-    ],
+    options: ['unknown\nundefined', 'unknown\nnull', 'TypeError is thrown', "''\nundefined"],
     optionExplanations: [
       'Correct: optional chaining short-circuits to undefined, and ?? replaces undefined (and null) with the fallback.',
       'Optional chaining produces undefined, never null — null only propagates from the data itself.',
       'The whole point of ?. is to avoid throwing on null/undefined in the chain.',
-      "An empty string is not produced; the short-circuit value is exactly undefined.",
+      'An empty string is not produced; the short-circuit value is exactly undefined.',
     ],
     reasoning: [
       'user is null → user?.address?.city short-circuits to undefined without evaluating further.',
       'undefined ?? "unknown" → "unknown" (?? triggers on both null and undefined).',
       'user?.name?.length likewise yields undefined.',
     ],
-    hints: ['?. evaluates to undefined the moment the left side is null or undefined.', '?? and || differ on falsy-but-defined values.'],
+    hints: [
+      '?. evaluates to undefined the moment the left side is null or undefined.',
+      '?? and || differ on falsy-but-defined values.',
+    ],
     objectives: ['Predict ?. short-circuit values', 'Combine ?. with ?? correctly'],
   }),
 
@@ -334,7 +359,8 @@ console.log(user?.name?.length);`,
     subcategories: ['objects'],
     title: 'The Four Faces of this',
     subtitle: 'Default, implicit, explicit, new.',
-    description: 'Lay out the complete `this` decision procedure for regular functions and arrow functions.',
+    description:
+      'Lay out the complete `this` decision procedure for regular functions and arrow functions.',
     question:
       'State the four binding rules for regular functions in priority order, explain how arrow functions differ, and predict `this` in a method extracted into a callback.',
     guidance: [
@@ -356,7 +382,10 @@ console.log(user?.name?.length);`,
         'Using an arrow function as an object method and losing the receiver entirely.',
       ],
     },
-    hints: ['Who CALLS the function is the question — arrow functions are the exception.', 'Sort the rules by precedence before applying them.'],
+    hints: [
+      'Who CALLS the function is the question — arrow functions are the exception.',
+      'Sort the rules by precedence before applying them.',
+    ],
     objectives: ['Recite the binding precedence', 'Fix extracted-method bugs deliberately'],
   }),
 ];
