@@ -280,6 +280,8 @@ export interface HealthFile {
   status: 'ok' | 'degraded';
   latestQuestDate: string | null;
   archiveCount: number;
+  /** Number of templates in the generation pool. */
+  templateCount: number;
   lastGeneration: {
     date: string;
     questId: string;
