@@ -41,8 +41,14 @@ export const dataStructureTemplates: QuestTemplate[] = [
         'Approximate LRU with a clock/second-chance policy when strict recency is unnecessary.',
       ],
     },
-    hints: ['What operation does the recency order need that a singly linked list makes expensive?', 'Which structure answers "is this key present" in O(1)?'],
-    objectives: ['Combine structures to satisfy competing requirements', 'Justify O(1) claims operation by operation'],
+    hints: [
+      'What operation does the recency order need that a singly linked list makes expensive?',
+      'Which structure answers "is this key present" in O(1)?',
+    ],
+    objectives: [
+      'Combine structures to satisfy competing requirements',
+      'Justify O(1) claims operation by operation',
+    ],
   }),
 
   quizChallenge({
@@ -76,7 +82,10 @@ export const dataStructureTemplates: QuestTemplate[] = [
       'Queue (FIFO): schedulers, BFS, buffering producers and consumers.',
       'The deciding question is always: what must come out next?',
     ],
-    hints: ['What does "undo" undo — the oldest or newest action?', 'BFS uses which of the two, and why?'],
+    hints: [
+      'What does "undo" undo — the oldest or newest action?',
+      'BFS uses which of the two, and why?',
+    ],
     objectives: ['Match access order to structure', 'Recognize LIFO/FIFO in real systems'],
   }),
 
@@ -114,7 +123,10 @@ export const dataStructureTemplates: QuestTemplate[] = [
         'Forgetting that keys need stable equality and immutability semantics.',
       ],
     },
-    hints: ['What does the load factor measure?', 'Why does doubling make the rehash cost geometric?'],
+    hints: [
+      'What does the load factor measure?',
+      'Why does doubling make the rehash cost geometric?',
+    ],
     objectives: ['Explain collision strategies', 'Justify the amortized claim'],
   }),
 
@@ -150,7 +162,10 @@ export const dataStructureTemplates: QuestTemplate[] = [
       'Set construction is O(m) once; each has() is O(1) expected.',
       'The general rule: repeated membership tests over a static collection → hash-based set/map.',
     ],
-    hints: ['Count the comparisons: 100,000 × 1,000.', 'What is the cost of building the Set compared with what it saves?'],
+    hints: [
+      'Count the comparisons: 100,000 × 1,000.',
+      'What is the cost of building the Set compared with what it saves?',
+    ],
     objectives: ['Spot quadratic lookup patterns', 'Reach for sets instinctively'],
   }),
 
@@ -187,7 +202,10 @@ export const dataStructureTemplates: QuestTemplate[] = [
         'For bounded small integer priorities, bucket queues beat heaps entirely.',
       ],
     },
-    hints: ['What does the heap invariant guarantee — full order, or just the root?', 'Where do children of array index i live?'],
+    hints: [
+      'What does the heap invariant guarantee — full order, or just the root?',
+      'Where do children of array index i live?',
+    ],
     objectives: ['Choose structures by operation mix', 'Explain heap invariants and costs'],
   }),
 ];
