@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": "1.0.0",
+  "generatedAt": "2026-10-10T16:26:42.193Z",
+  "categories": [
+    {
+      "id": "coding",
+      "label": "Coding",
+      "description": "Hands-on implementation challenges: string manipulation, parsing, simulation and small utilities. Every coding quest ships with executable reference tests, so the expected behaviour is verified, not invented.",
+      "icon": "terminal",
+      "group": "Engineering",
+      "questCount": 2,
+      "difficultyDistribution": {
+        "intermediate": 1,
+        "easy": 1
+      },
+      "skills": [
+        "Character-level parsing",
+        "Quoting rules",
+        "Stack usage",
+        "Input parsing"
+      ],
+      "topTags": [
+        "strings",
+        "csv",
+        "parsing",
+        "stack",
+        "validation"
+      ],
+      "latestQuestDate": "2026-10-10"
+    },
+    {
+      "id": "debugging",
+      "label": "Debugging",
+      "description": "Realistic broken code with expected versus actual behaviour. Trace the failure, understand the root cause, and compare your fix against the corrected implementation.",
+      "icon": "bug",
+      "group": "Engineering",
+      "questCount": 1,
+      "difficultyDistribution": {
+        "easy": 1
+      },
+      "skills": [
+        "Boundary analysis"
+      ],
+      "topTags": [
+        "arrays",
+        "javascript"
+      ],
+      "latestQuestDate": "2026-10-09"
+    },
+    {
+      "id": "algorithms",
+      "label": "Algorithms",
+      "description": "Classic techniques — searching, two pointers, sliding windows, dynamic programming — applied to concrete problems with clear complexity expectations.",
+      "icon": "network",
+      "group": "Engineering",
+      "questCount": 1,
+      "difficultyDistribution": {
+        "easy": 1
+      },
+      "skills": [
+        "Grid DP",
+        "Space compression"
+      ],
+      "topTags": [
+        "dp",
+        "grids"
+      ],
+      "latestQuestDate": "2026-10-08"
+    },
+    {
+      "id": "data_structures",
+      "label": "Data Structures",
+      "description": "Stacks, queues, hash maps, heaps and sets used the way they are meant to be used. Challenges focus on choosing and applying the structure, not reciting definitions.",
+      "icon": "layers",
+      "group": "Engineering",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "performance",
+      "label": "Performance",
+      "description": "N+1 queries, accidental quadratic algorithms, caching mistakes and network waterfalls. Performance quests teach practical profiling instincts rather than micro-optimizations.",
+      "icon": "gauge",
+      "group": "Engineering",
+      "questCount": 2,
+      "difficultyDistribution": {
+        "intermediate": 2
+      },
+      "skills": [
+        "Complexity spotting",
+        "Query plan reasoning"
+      ],
+      "topTags": [
+        "complexity",
+        "databases"
+      ],
+      "latestQuestDate": "2026-10-07"
+    },
+    {
+      "id": "code_review",
+      "label": "Code Review",
+      "description": "A deliberately flawed snippet awaits your review. Identify the correctness, security, performance and maintainability issues, then compare findings with the annotated solution.",
+      "icon": "search-code",
+      "group": "Engineering",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "output_prediction",
+      "label": "Output Prediction",
+      "description": "Short snippets with surprising-but-correct behaviour. Every expected output is computed by actually executing the snippet in a sandbox at generation time — never guessed.",
+      "icon": "eye",
+      "group": "Engineering",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "python",
+      "label": "Python",
+      "description": "Language semantics, the standard library, mutability traps and idiomatic patterns — the details that separate Python you can write from Python you can trust.",
+      "icon": "file-code",
+      "group": "Languages & Frameworks",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "javascript",
+      "label": "JavaScript",
+      "description": "Closures, coercion, the event loop, prototypes and array semantics. JavaScript quests target the parts of the language that genuinely surprise working developers.",
+      "icon": "braces",
+      "group": "Languages & Frameworks",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "typescript",
+      "label": "TypeScript",
+      "description": "Narrowing, generics, utility types and the difference between unsafe assertions and honest types. Challenges mirror decisions you make in real codebases.",
+      "icon": "file-type",
+      "group": "Languages & Frameworks",
+      "questCount": 1,
+      "difficultyDistribution": {
+        "intermediate": 1
+      },
+      "skills": [
+        "Assertion discipline"
+      ],
+      "topTags": [
+        "types",
+        "typescript"
+      ],
+      "latestQuestDate": "2026-10-02"
+    },
+    {
+      "id": "react",
+      "label": "React",
+      "description": "Hook rules, dependency arrays, keys, controlled inputs and render behaviour. React quests focus on the mental model, not framework trivia.",
+      "icon": "atom",
+      "group": "Languages & Frameworks",
+      "questCount": 1,
+      "difficultyDistribution": {
+        "intermediate": 1
+      },
+      "skills": [
+        "Form state design"
+      ],
+      "topTags": [
+        "forms",
+        "react"
+      ],
+      "latestQuestDate": "2026-10-06"
+    },
+    {
+      "id": "web",
+      "label": "Web Platform",
+      "description": "HTML semantics, accessibility, CSS layout behaviour and browser fundamentals — the platform knowledge that makes everything else easier.",
+      "icon": "globe",
+      "group": "Web & APIs",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "http",
+      "label": "HTTP",
+      "description": "Methods, status codes, caching, headers, cookies and TLS semantics. HTTP quests demand precision: what does the protocol actually specify, and what do servers actually do?",
+      "icon": "arrow-left-right",
+      "group": "Web & APIs",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "apis",
+      "label": "APIs",
+      "description": "REST design, pagination, idempotency, versioning, retries and rate limiting. API quests ask you to make design decisions and defend them.",
+      "icon": "plug",
+      "group": "Web & APIs",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "databases",
+      "label": "Databases",
+      "description": "Indexing, transactions, isolation levels and schema design — database behaviour that application code inherits whether you understand it or not.",
+      "icon": "database",
+      "group": "Data",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "sql",
+      "label": "SQL",
+      "description": "Joins, aggregation, NULL semantics and window functions against small concrete schemas. SQL quests are validated against SQLite at generation time, so the expected result set is real.",
+      "icon": "table",
+      "group": "Data",
+      "questCount": 1,
+      "difficultyDistribution": {
+        "intermediate": 1
+      },
+      "skills": [
+        "Outer join semantics"
+      ],
+      "topTags": [
+        "joins"
+      ],
+      "latestQuestDate": "2026-10-01"
+    },
+    {
+      "id": "linux",
+      "label": "Linux",
+      "description": "grep, find, sed, pipes, permissions and process management. Some Linux quests are verified by executing the actual commands against a fixture in a sandbox.",
+      "icon": "square-terminal",
+      "group": "Systems & Tooling",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "git",
+      "label": "Git",
+      "description": "Reset versus revert, rebase semantics, reflog recovery and conflict resolution. Git quests check your mental model of what actually happens to commits.",
+      "icon": "git-branch",
+      "group": "Systems & Tooling",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "devops",
+      "label": "DevOps",
+      "description": "Pipelines, environments, rollbacks and observability basics. DevOps quests focus on the decisions that keep deployments boring.",
+      "icon": "infinity",
+      "group": "Systems & Tooling",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "networking",
+      "label": "Networking",
+      "description": "TCP versus UDP, DNS resolution, CIDR math, TLS handshakes and latency. Networking quests keep the terminology precise — several include computed answers.",
+      "icon": "network",
+      "group": "Systems & Tooling",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "cybersecurity",
+      "label": "Cybersecurity",
+      "description": "Defensive security: vulnerability classes, secure coding, detection and mitigation. Quests analyse controlled examples — XSS, CSRF, injection, JWT mistakes — without ever targeting real systems.",
+      "icon": "shield-check",
+      "group": "Security",
+      "questCount": 1,
+      "difficultyDistribution": {
+        "hard": 1
+      },
+      "skills": [
+        "Server-side request analysis"
+      ],
+      "topTags": [
+        "ssrf",
+        "web"
+      ],
+      "latestQuestDate": "2026-10-03"
+    },
+    {
+      "id": "security_analysis",
+      "label": "Security Analysis",
+      "description": "Read a snippet, identify the vulnerability class, explain the risk and propose the mitigation. Purely defensive: analysis and secure fixes, never exploitation.",
+      "icon": "scan-search",
+      "group": "Security",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "regex",
+      "label": "Regex",
+      "description": "Character classes, anchors, groups and the greediness traps between them. Every regex quest is verified by executing the pattern against match and non-match samples.",
+      "icon": "regex",
+      "group": "Reasoning & Craft",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "logic",
+      "label": "Logic",
+      "description": "Deduction, quantifiers, parity and truth-telling puzzles with fully worked reasoning. The answer matters; the derivation matters more.",
+      "icon": "brain",
+      "group": "Reasoning & Craft",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "puzzle",
+      "label": "Puzzles",
+      "description": "Short self-contained brainteasers drawn from computing: bit tricks, number properties and counterintuitive-but-checkable results.",
+      "icon": "puzzle",
+      "group": "Reasoning & Craft",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "architecture",
+      "label": "Architecture",
+      "description": "Monolith versus services, event-driven design, data ownership and integration styles. Architecture quests ask for a position and the reasoning behind it.",
+      "icon": "blocks",
+      "group": "Design",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "system_design",
+      "label": "System Design",
+      "description": "Scoped mini-designs — rate limiters, URL shorteners, webhook delivery — with requirements, trade-offs, failure modes and scaling as first-class answers.",
+      "icon": "workflow",
+      "group": "Design",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    },
+    {
+      "id": "general_tech",
+      "label": "General Tech",
+      "description": "Encodings, floating point, dates, JSON and other cross-cutting fundamentals that produce disproportionately many production bugs.",
+      "icon": "cpu",
+      "group": "Reasoning & Craft",
+      "questCount": 0,
+      "difficultyDistribution": {},
+      "skills": [],
+      "topTags": [],
+      "latestQuestDate": null
+    }
+  ]
+}
