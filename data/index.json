@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": "1.0.0",
+  "generatedAt": "2026-10-10T16:26:42.193Z",
+  "quests": [
+    {
+      "id": "dq-2026-10-01",
+      "date": "2026-10-01",
+      "sequenceNumber": 1,
+      "slug": "2026-10-01-the-orphan-orders",
+      "title": "The Orphan Orders",
+      "shortTitle": "The Orphan Orders",
+      "description": "LEFT JOIN + IS NULL to surface referential damage.",
+      "category": "sql",
+      "challengeType": "sql",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 15,
+      "concepts": [
+        "left join",
+        "coalesce"
+      ],
+      "tags": [
+        "joins"
+      ],
+      "contentHash": "dfba33fc56ae29e5dd19fad5424a0e040ca45f33e8207915fd003193889aef1a",
+      "fpc": "dfba33fc56ae29e5",
+      "fpt": "theorphanorders",
+      "fpp": "youareworkingwiththefollowingschemasqlit"
+    },
+    {
+      "id": "dq-2026-10-02",
+      "date": "2026-10-02",
+      "sequenceNumber": 2,
+      "slug": "2026-10-02-the-honest-annotation",
+      "title": "The Honest Annotation",
+      "shortTitle": "The Honest Annotation",
+      "description": "Choosing between a type assertion and the satisfies operator for a config object.",
+      "category": "typescript",
+      "challengeType": "reasoning",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "type assertions",
+        "satisfies operator"
+      ],
+      "tags": [
+        "typescript",
+        "types"
+      ],
+      "contentHash": "1d6cfcaea1a87f9b1d2abe6eac0cb6cb5ca20afd03911cb02e8df73f407142a5",
+      "fpc": "1d6cfcaea1a87f9b",
+      "fpt": "thehonestannotation",
+      "fpp": "youdeclareathemeconfigthatmustmatchtypet"
+    },
+    {
+      "id": "dq-2026-10-03",
+      "date": "2026-10-03",
+      "sequenceNumber": 3,
+      "slug": "2026-10-03-the-url-parameter-that-reaches-inside",
+      "title": "The URL Parameter That Reaches Inside",
+      "shortTitle": "The URL Parameter That Reaches Inside",
+      "description": "Analyse the SSRF class: mechanism, impact, and layered mitigation.",
+      "category": "cybersecurity",
+      "challengeType": "cybersecurity",
+      "difficulty": "hard",
+      "difficultyScore": 4,
+      "estimatedMinutes": 20,
+      "concepts": [
+        "ssrf",
+        "egress control"
+      ],
+      "tags": [
+        "ssrf",
+        "web"
+      ],
+      "contentHash": "b8b9968a0f487ec4e4b7114d2f8153a5775483d8433375427f9f7673dac764f1",
+      "fpc": "b8b9968a0f487ec4",
+      "fpt": "theurlparameterthatreachesinside",
+      "fpp": "aserviceoffersfetchapreviewforanyurlyoup"
+    },
+    {
+      "id": "dq-2026-10-04",
+      "date": "2026-10-04",
+      "sequenceNumber": 4,
+      "slug": "2026-10-04-the-comma-that-lied",
+      "title": "The Comma That Lied",
+      "shortTitle": "The Comma That Lied",
+      "description": "Parse a single CSV line where commas inside double quotes are data, not separators — the detail that breaks naive `split(\",\")` in production.",
+      "category": "coding",
+      "challengeType": "coding",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 20,
+      "concepts": [
+        "parsing",
+        "state machines"
+      ],
+      "tags": [
+        "csv",
+        "parsing",
+        "strings"
+      ],
+      "contentHash": "ac9bf1d8d71e4b51977480977ad28307908bd1bdccc37ed8ab939e24901fcaee",
+      "fpc": "ac9bf1d8d71e4b51",
+      "fpt": "thecommathatlied",
+      "fpp": "youaregivenonelineofcsvfieldsareseparate"
+    },
+    {
+      "id": "dq-2026-10-05",
+      "date": "2026-10-05",
+      "sequenceNumber": 5,
+      "slug": "2026-10-05-the-accidental-quadratic",
+      "title": "The Accidental Quadratic",
+      "shortTitle": "The Accidental Quadratic",
+      "description": "Which innocent-looking loop is quadratic?",
+      "category": "performance",
+      "challengeType": "performance",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "complexity accidents"
+      ],
+      "tags": [
+        "complexity"
+      ],
+      "contentHash": "e4198d9c4c03f064403ea3d07c87bb27867ec6564e09b998a1b27b50d64439d8",
+      "fpc": "e4198d9c4c03f064",
+      "fpt": "theaccidentalquadratic",
+      "fpp": "whichsnippetdegradesquadraticallyasitems"
+    },
+    {
+      "id": "dq-2026-10-06",
+      "date": "2026-10-06",
+      "sequenceNumber": 6,
+      "slug": "2026-10-06-the-two-sources-of-truth",
+      "title": "The Two Sources of Truth",
+      "shortTitle": "The Two Sources of Truth",
+      "description": "Decide when form state should live in React and when it should stay in the DOM.",
+      "category": "react",
+      "challengeType": "reasoning",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 15,
+      "concepts": [
+        "controlled components",
+        "forms"
+      ],
+      "tags": [
+        "react",
+        "forms"
+      ],
+      "contentHash": "894be407f26e3cb5440ae74641e8d300b370e47c2b03d53618a7caffc5e1af6f",
+      "fpc": "894be407f26e3cb5",
+      "fpt": "thetwosourcesoftruth",
+      "fpp": "contrastcontrolledinputsvalueonchangewit"
+    },
+    {
+      "id": "dq-2026-10-07",
+      "date": "2026-10-07",
+      "sequenceNumber": 7,
+      "slug": "2026-10-07-the-ignored-index",
+      "title": "The Ignored Index",
+      "shortTitle": "The Ignored Index",
+      "description": "Which query fails to use the index on created_at?",
+      "category": "performance",
+      "challengeType": "performance",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "indexing",
+        "sargability"
+      ],
+      "tags": [
+        "databases"
+      ],
+      "contentHash": "d031e2648d7645a698b0e41a4607463b669d0467712544fd063b14c1513ecc5c",
+      "fpc": "d031e2648d7645a6",
+      "fpt": "theignoredindex",
+      "fpp": "thetableordershasanindexoncreatedatwhich"
+    },
+    {
+      "id": "dq-2026-10-08",
+      "date": "2026-10-08",
+      "sequenceNumber": 8,
+      "slug": "2026-10-08-the-grid-walker",
+      "title": "The Grid Walker",
+      "shortTitle": "The Grid Walker",
+      "description": "Count the paths across a grid moving only right or down — and compress the DP table to a single row.",
+      "category": "algorithms",
+      "challengeType": "coding",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 15,
+      "concepts": [
+        "dynamic programming",
+        "combinatorics"
+      ],
+      "tags": [
+        "dp",
+        "grids"
+      ],
+      "contentHash": "aef1fe00d1199bf20e0020944a4630fdaa99f54ea22f258896061cae4fb090a6",
+      "fpc": "aef1fe00d1199bf2",
+      "fpt": "thegridwalker",
+      "fpp": "arobotstartsatthetopleftcornerofanmngrid"
+    },
+    {
+      "id": "dq-2026-10-09",
+      "date": "2026-10-09",
+      "sequenceNumber": 9,
+      "slug": "2026-10-09-the-head-that-ate-the-tail",
+      "title": "The Head That Ate the Tail",
+      "shortTitle": "The Head That Ate the Tail",
+      "description": "A filename extension stripper that leaves the dot behind.",
+      "category": "debugging",
+      "challengeType": "debugging",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "off-by-one",
+        "slice semantics"
+      ],
+      "tags": [
+        "javascript",
+        "arrays"
+      ],
+      "contentHash": "476cc4bfde254024da153ce81fa50261097b1531784fe4f92343df32452e3506",
+      "fpc": "476cc4bfde254024",
+      "fpt": "theheadthatatethetail",
+      "fpp": "expectedbehaviourstripextensionreportpdf"
+    },
+    {
+      "id": "dq-2026-10-10",
+      "date": "2026-10-10",
+      "sequenceNumber": 10,
+      "slug": "2026-10-10-the-balanced-ledger",
+      "title": "The Balanced Ledger",
+      "shortTitle": "The Balanced Ledger",
+      "description": "Determine whether a string of brackets is perfectly balanced — the classic stack exercise that still shows up in real parsers.",
+      "category": "coding",
+      "challengeType": "coding",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 10,
+      "concepts": [
+        "stacks",
+        "parsing"
+      ],
+      "tags": [
+        "strings",
+        "stack",
+        "validation"
+      ],
+      "contentHash": "cc8a94988c3fd5331d8345bed8ce9ffdf371713433bf573de5997f700633033d",
+      "fpc": "cc8a94988c3fd533",
+      "fpt": "thebalancedledger",
+      "fpp": "aledgerentryisastringcontainingonlythech"
+    }
+  ]
+}
