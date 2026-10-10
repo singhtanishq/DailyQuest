@@ -1,6 +1,7 @@
 import type {
   CategoriesFile,
   CategorySummary,
+  HealthFile,
   LatestFile,
   Quest,
   QuestIndexEntry,
@@ -88,6 +89,10 @@ export async function getStats(): Promise<QuestStats> {
 export async function getCategories(): Promise<CategorySummary[]> {
   const data = await getJson<CategoriesFile>('data/categories.json');
   return data.categories;
+}
+
+export async function getHealth(): Promise<HealthFile> {
+  return getJson<HealthFile>('data/health.json');
 }
 
 export function questPathFor(entry: IndexEntry): string {
