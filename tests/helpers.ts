@@ -25,7 +25,11 @@ export function cleanupTempRoot(root: string): void {
 }
 
 export function testConfig(overrides: Partial<DailyQuestConfig> = {}): DailyQuestConfig {
-  return { ...baseConfig, ...overrides, rotation: { ...baseConfig.rotation, ...overrides.rotation } };
+  return {
+    ...baseConfig,
+    ...overrides,
+    rotation: { ...baseConfig.rotation, ...overrides.rotation },
+  };
 }
 
 export function makeContext(options: {
@@ -47,11 +51,7 @@ export function makeContext(options: {
 }
 
 /** Generates a full quest for a date inside a temp root and returns it. */
-export function generateInto(
-  dataRoot: string,
-  date: string,
-  archive: Quest[] = []
-): Quest {
+export function generateInto(dataRoot: string, date: string, archive: Quest[] = []): Quest {
   const ctx = makeContext({ dataRoot, now: new Date('2026-10-10T12:00:00.000Z') });
   ctx.archive = archive;
   const result = generateQuestForDate(date, ctx);
@@ -67,7 +67,7 @@ export function seedQuestFile(dataRoot: string, quest: Quest): void {
   mkdirSync(join(dataRoot, 'quests', year, month), { recursive: true });
   writeFileSync(
     join(dataRoot, 'quests', year, month, `${quest.date}.json`),
-    JSON.stringify(quest, null, 2)
+    JSON.stringify(quest, null, 2),
   );
 }
 
