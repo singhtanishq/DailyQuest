@@ -28,10 +28,7 @@ export function CategoryPage() {
 
   if (!summary && !categories.loading) {
     return (
-      <ErrorState
-        title="Unknown category"
-        detail={`No category with id "${categoryId}" exists.`}
-      />
+      <ErrorState title="Unknown category" detail={`No category with id "${categoryId}" exists.`} />
     );
   }
 
@@ -40,7 +37,7 @@ export function CategoryPage() {
     .sort((a, b) => b.date.localeCompare(a.date));
   const Icon = categoryIcon(categoryId);
   const difficulties = Object.entries(summary?.difficultyDistribution ?? {}).filter(
-    ([, count]) => count > 0
+    ([, count]) => count > 0,
   );
 
   return (
@@ -53,10 +50,23 @@ export function CategoryPage() {
           <h1 className="quest-title" style={{ marginTop: 0 }}>
             {summary?.label ?? categoryLabel(categoryId)}
           </h1>
-          <p style={{ color: 'var(--foreground-muted)', maxWidth: '64ch', marginTop: 'var(--space-2)' }}>
+          <p
+            style={{
+              color: 'var(--foreground-muted)',
+              maxWidth: '64ch',
+              marginTop: 'var(--space-2)',
+            }}
+          >
             {summary?.description ?? meta?.description}
           </p>
-          <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap', marginTop: 'var(--space-3)' }}>
+          <div
+            style={{
+              display: 'flex',
+              gap: 'var(--space-2)',
+              flexWrap: 'wrap',
+              marginTop: 'var(--space-3)',
+            }}
+          >
             <span className="badge">
               {quests.length} {quests.length === 1 ? 'quest' : 'quests'}
             </span>
