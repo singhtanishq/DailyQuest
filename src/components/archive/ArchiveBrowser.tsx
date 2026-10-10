@@ -3,7 +3,7 @@ import { ArrowUpDown, Search } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
 import type { QuestIndexEntry } from '../../shared/types.js';
-import { CHALLENGE_TYPE_LABELS, DIFFICULTY_ORDER, difficultyLabel } from '../../lib/labels.js';
+import { CHALLENGE_TYPE_LABELS, DIFFICULTY_ORDER, categoryLabel, difficultyLabel } from '../../lib/labels.js';
 import { useAsync, useDebounced } from '../../hooks/useAppState.js';
 import { getIndex } from '../../data/api.js';
 import { applyFilters, type ArchiveFilters } from '../../lib/search.js';
@@ -103,7 +103,6 @@ export function ArchiveBrowser({
             aria-label="Filter by category"
           >
             <option value="">All categories</option>
-            {Object.entries(CHALLENGE_TYPE_LABELS).length > 0 ? null : null}
             {categoryOptions(entries ?? [])}
           </select>
         ) : null}
@@ -206,7 +205,7 @@ function categoryOptions(entries: QuestIndexEntry[]) {
   const categories = [...new Set(entries.map((e) => e.category))].sort();
   return categories.map((category) => (
     <option key={category} value={category}>
-      {category}
+      {categoryLabel(category)}
     </option>
   ));
 }
