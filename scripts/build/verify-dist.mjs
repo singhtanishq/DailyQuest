@@ -28,6 +28,12 @@ if (!existsSync(dist)) {
   if (!existsSync(join(dist, 'data', 'latest.json'))) {
     fail('dist/data/latest.json missing — the homepage would have no today quest');
   }
+  if (!existsSync(join(dist, 'sitemap.xml'))) {
+    fail('dist/sitemap.xml missing — run scripts/build/generate-sitemap.mjs');
+  }
+  if (!existsSync(join(dist, 'robots.txt'))) {
+    fail('dist/robots.txt missing');
+  }
   const assets = join(dist, 'assets');
   if (existsSync(assets)) {
     const files = readdirSync(assets);
