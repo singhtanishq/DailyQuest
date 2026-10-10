@@ -10,9 +10,9 @@ import {
   selectTemplate,
   templatesForCategory,
 } from '../core/selection.js';
-import { layoutFor, questPath } from '../storage/paths.js';
+import { questPath } from '../storage/paths.js';
 import { fileExists, readJsonFile, writeJsonAtomic } from '../storage/io.js';
-import { fingerprintsFor, toIndexEntry } from '../storage/index.js';
+import { fingerprintsFor } from '../storage/index.js';
 import { ALL_TEMPLATES } from '../templates/index.js';
 import { runVerification, VerificationError } from '../verify/runners.js';
 import { validateQuestStructure, qualityScore } from '../validators/schema.js';
