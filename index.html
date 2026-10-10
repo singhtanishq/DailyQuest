@@ -39,6 +39,18 @@
           document.documentElement.setAttribute('data-theme', 'dark');
         }
       })();
+      // Consume a deep-link path stashed by 404.html (GitHub Pages SPA fallback).
+      (function () {
+        try {
+          var redirect = sessionStorage.getItem('dailyquest.spa-redirect');
+          if (redirect) {
+            sessionStorage.removeItem('dailyquest.spa-redirect');
+            window.history.replaceState(null, '', redirect);
+          }
+        } catch (e) {
+          /* ignore */
+        }
+      })();
     </script>
   </head>
   <body>
