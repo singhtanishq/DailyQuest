@@ -41,11 +41,7 @@ function streaks(dates: string[]): { current: number; longest: number } {
   return { current, longest };
 }
 
-export function buildStats(
-  quests: Quest[],
-  generatorVersion: string,
-  generatedAt: string
-): Omit<QuestStats, 'schemaVersion' | 'generatorVersion' | 'generatedAt'> {
+export function buildStats(quests: Quest[]): Omit<QuestStats, 'schemaVersion' | 'generatorVersion' | 'generatedAt'> {
   const sorted = [...quests].sort((a, b) => a.date.localeCompare(b.date));
   const byCategory: Record<string, number> = {};
   const byDifficulty: Record<string, number> = {};
