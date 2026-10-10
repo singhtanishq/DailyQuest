@@ -37,7 +37,10 @@ export const architectureTemplates: QuestTemplate[] = [
       'Migration cost from modular monolith to services is real but predictable — extract along the seams you maintained.',
       'The signal to split: divergent scaling profiles, independent release cadences, or team ownership boundaries.',
     ],
-    hints: ['What does the team actually need: independent scaling or simpler operations?', 'What do module boundaries cost to maintain versus service boundaries?'],
+    hints: [
+      'What does the team actually need: independent scaling or simpler operations?',
+      'What do module boundaries cost to maintain versus service boundaries?',
+    ],
     objectives: ['Match architecture to org scale', 'Preserve extraction seams'],
   }),
 
@@ -74,7 +77,10 @@ export const architectureTemplates: QuestTemplate[] = [
         'Assuming Kafka transactions remove consumer dedup needs across service boundaries.',
       ],
     },
-    hints: ['Which system can commit atomically with the state change?', 'What does the consumer need to survive a double publish?'],
+    hints: [
+      'Which system can commit atomically with the state change?',
+      'What does the consumer need to survive a double publish?',
+    ],
     objectives: ['Close the dual-write gap', 'Specify at-least-once consumer duties'],
   }),
 
@@ -110,8 +116,14 @@ export const architectureTemplates: QuestTemplate[] = [
       'Events trade immediate consistency for resilience; that trade is correct exactly when the caller does not consume the result.',
       'Eventual consistency must be visible and bounded — document propagation expectations.',
     ],
-    hints: ['Which of the two operations produces data the customer sees?', 'What happens to checkout when recommendations has a bad deploy?'],
-    objectives: ['Apply the sync/async decision rule', 'Protect critical paths from optional dependencies'],
+    hints: [
+      'Which of the two operations produces data the customer sees?',
+      'What happens to checkout when recommendations has a bad deploy?',
+    ],
+    objectives: [
+      'Apply the sync/async decision rule',
+      'Protect critical paths from optional dependencies',
+    ],
   }),
 
   openChallenge({
@@ -147,7 +159,10 @@ export const architectureTemplates: QuestTemplate[] = [
         'Comparing outputs by reference equality when legitimate nondeterminism exists (timestamps) — compare semantically.',
       ],
     },
-    hints: ['What runs before real traffic moves, and what does it compare?', 'What is the rollback action at any point in the migration?'],
+    hints: [
+      'What runs before real traffic moves, and what does it compare?',
+      'What is the rollback action at any point in the migration?',
+    ],
     objectives: ['Stage a strangler migration', 'Verify equivalence with shadow runs'],
   }),
 
@@ -184,7 +199,10 @@ export const architectureTemplates: QuestTemplate[] = [
         'Events as an afterthought: without them, every consumer becomes a synchronous caller.',
       ],
     },
-    hints: ['What happens to a migration when four teams’ code touches one table?', 'Which service genuinely needs real-time order data?'],
+    hints: [
+      'What happens to a migration when four teams’ code touches one table?',
+      'Which service genuinely needs real-time order data?',
+    ],
     objectives: ['Argue ownership boundaries', 'Replace joins with contracts'],
   }),
 ];
