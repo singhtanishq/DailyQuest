@@ -103,7 +103,10 @@ export interface TemplateSpecBase {
 }
 
 function toDifficulties(d: Difficulty | readonly Difficulty[]): Difficulty[] {
-  return Array.isArray(d) ? [...d] : [d];
+  if (typeof d === 'string') {
+    return [d];
+  }
+  return [...d];
 }
 
 function requireHints(hints: string[], label: string): string[] {
