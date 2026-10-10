@@ -163,7 +163,7 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'quoted comma', input: '"hello, world",42,end' },
       { name: 'escaped quote', input: '"she said ""hi""",ok' },
       { name: 'empty field', input: 'one,,three' },
-      { name: 'quote not at boundary is literal', input: 'a,b"c,d' },
+      { name: 'quoted empty field', input: 'a,"",c' },
       { name: 'trailing empty field', input: 'x,' },
     ],
     examples: [
@@ -973,7 +973,7 @@ export const codingTemplates: QuestTemplate[] = [
     tests: [
       { name: 'classic wrap', input: '12\nThe quick brown fox jumps over the lazy dog' },
       { name: 'exact fit', input: '9\none two three' },
-      { name: 'long words', input: '5\nhi喷雾 missing' },
+      { name: 'exact width word', input: '5\nhi there friend' },
       { name: 'single word longer than nothing', input: '10\nsupercalifragilistic' },
       { name: 'width one', input: '1\na b c' },
     ],
@@ -1053,11 +1053,7 @@ export const codingTemplates: QuestTemplate[] = [
         if (row < 0 || col < 0 || row >= r || col >= c) {
           return;
         }
-        const cell = seen[row]?.[col];
-        if (cell || grid[row]?.[col] === '0') {
-          return;
-        }
-        if (seen[row] === undefined || seen[row]![col] === undefined) {
+        if (seen[row]![col] || grid[row]![col] === '0') {
           return;
         }
         seen[row]![col] = true;
@@ -1152,7 +1148,7 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'short segments', input: 'a_b_c' },
     ],
     examples: [
-      { title: 'Example 1', input: 'http_response_code', explanation: 'Segments: http, response, code → httpHttpResponse? No — httpHttpResponseCode.' },
+      { title: 'Example 1', input: 'http_response_code', explanation: 'Segments: http, response, code → httpResponseCode.' },
       { title: 'Example 2', input: 'md5_hash_value', explanation: 'Digits stay put: md5HashValue.' },
     ],
     solution: {
