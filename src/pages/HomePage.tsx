@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Dice5, Github, LibraryBig } from 'lucide-react';
+import { ArrowRight, Dice5, ExternalLink, LibraryBig } from 'lucide-react';
 
 import { getCategories, getIndex, getLatest, getStats } from '../data/api.js';
 import { useAsync } from '../hooks/useAppState.js';
@@ -185,7 +185,7 @@ export function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github size={15} aria-hidden /> View the source
+              <ExternalLink size={15} aria-hidden /> View the source
             </a>
           </div>
         </section>
