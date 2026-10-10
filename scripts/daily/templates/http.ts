@@ -1,0 +1,260 @@
+import { openChallenge, quizChallenge, type QuestTemplate } from './framework.js';
+
+/**
+ * HTTP pool — protocol semantics with precision: methods, status codes,
+ * caching and cookies, exactly as specified.
+ */
+
+export const httpTemplates: QuestTemplate[] = [
+  quizChallenge({
+    id: 'http.401-vs-403',
+    category: 'http',
+    challengeType: 'http',
+    difficulty: 'easy',
+    minutes: 8,
+    concepts: ['status codes'],
+    tags: ['status-codes'],
+    skills: ['Precise status semantics'],
+    subcategories: ['status-codes'],
+    title: 'The Locked Doors',
+    subtitle: 'Who are you vs what are you allowed.',
+    description: '401 and 403 are different failures with different remedies.',
+    question: 'A request arrives with a valid session but insufficient permissions. Which status fits, and what should the response include in the 401 case?',
+    options: [
+      '403 Forbidden; a 401 response should include WWW-Authenticate to explain how to authenticate',
+      '401 Unauthorized — any auth problem is 401',
+      '403 Forbidden; 401 responses must include a JSON error body per the spec',
+      '400 Bad Request, since the user is at fault',
+    ],
+    optionExplanations: [
+      'Correct: 403 = "I know who you are; you may not do this" (and retrying will not help). 401 = unauthenticated, and WWW-Authenticate is the header that tells the client how to authenticate.',
+      '401 specifically means authentication is missing/invalid — not "logged in but underprivileged".',
+      'WWW-Authenticate is header-based and required for 401; response body formats are not mandated.',
+      '400 describes a malformed request; the request here is fine.',
+    ],
+    reasoning: [
+      '401: "Unauthenticated" despite its historical name "Unauthorized" — the RFC says so explicitly.',
+      '403: authentication succeeded, authorization failed. Retrying identically changes nothing.',
+      '4xx = client-side problem; 5xx = server-side. Choosing between them is diagnosis, not style.',
+    ],
+    hints: ['The RFC 9110 wording for 401 mentions a specific header.', 'Which code implies "do not bother retrying"?'],
+    objectives: ['Choose 401 vs 403 correctly', 'Use WWW-Authenticate properly'],
+  }),
+
+  quizChallenge({
+    id: 'http.idempotent-methods',
+    category: 'http',
+    challengeType: 'http',
+    difficulty: 'intermediate',
+    minutes: 10,
+    concepts: ['method semantics', 'idempotency'],
+    tags: ['methods'],
+    skills: ['Method guarantees'],
+    subcategories: ['methods'],
+    title: 'The Safe Retry List',
+    subtitle: 'What you may repeat without fear.',
+    description: 'Which HTTP methods are idempotent — and what that actually promises.',
+    question: 'Per HTTP semantics, which group lists ONLY idempotent methods?',
+    options: [
+      'GET, PUT, DELETE',
+      'GET, POST, PUT',
+      'POST, PATCH, DELETE',
+      'GET, HEAD, POST',
+    ],
+    optionExplanations: [
+      'Correct: GET, HEAD, OPTIONS, TRACE, PUT and DELETE are idempotent — repeating them leaves the same server state as one call (PUT to a fixed URI sets the same value; DELETE of the same resource is still gone).',
+      'POST is deliberately excluded — each POST may create a new resource.',
+      'PATCH is not idempotent in general (a patch like "increment" changes state each time).',
+      'POST breaks the list again.',
+    ],
+    reasoning: [
+      'Idempotency ≠ safe: DELETE and PUT change state but converge; GET is safe (no state change) AND idempotent.',
+      'This is why clients may retry idempotent requests on timeouts without asking the server first.',
+      'Non-idempotent operations need explicit idempotency keys (see the APIs quests).',
+    ],
+    hints: ['Separate "safe" (no state change) from "idempotent" (same result when repeated).', 'What does a second DELETE of an already-deleted resource do?'],
+    objectives: ['Classify methods by guarantee', 'Use idempotency for retry design'],
+  }),
+
+  quizChallenge({
+    id: 'http.etag-revalidation',
+    category: 'http',
+    challengeType: 'http',
+    difficulty: 'intermediate',
+    minutes: 12,
+    concepts: ['caching', 'conditional requests'],
+    tags: ['caching', 'headers'],
+    skills: ['Cache mechanics'],
+    subcategories: ['caching'],
+    title: 'The Unchanged Payload',
+    subtitle: 'ETag + If-None-Match = 304.',
+    description: 'How conditional requests save bandwidth without hiding changes.',
+    question:
+      'A cached response carries `ETag: "v7"`. The client re-requests the resource and sends `If-None-Match: "v7"`, but the resource has NOT changed. What should the server return?',
+    options: [
+      '304 Not Modified, with no body — the client keeps using its cached copy',
+      '200 OK with the full body, since the client asked again',
+      '412 Precondition Failed, because the precondition header was present',
+      '301 Moved Permanently to the same URL',
+    ],
+    optionExplanations: [
+      'Correct: If-None-Match with a matching ETag means "my copy is current" → 304, which must not carry a body and lets the cache renew its freshness.',
+      'Returning 200 wastes exactly the bandwidth conditional requests exist to save.',
+      '412 is for If-Match/If-Unmodified-Since preconditions on WRITES, not reads.',
+      'Nothing moved — the resource is identical.',
+    ],
+    reasoning: [
+      'ETag is a validator; conditional GET pairs it with If-None-Match.',
+      '304 responses still carry cache-relevant headers (Cache-Control, ETag) but no payload.',
+      'The complementary write-side pattern is If-Match for optimistic concurrency.',
+    ],
+    hints: ['Which header turns a GET conditional on the validator?', 'What may a 304 response contain?'],
+    objectives: ['Implement ETag revalidation', 'Distinguish read and write preconditions'],
+  }),
+
+  quizChallenge({
+    id: 'http.cookie-attributes',
+    category: 'http',
+    challengeType: 'cybersecurity',
+    difficulty: 'intermediate',
+    minutes: 12,
+    concepts: ['cookies', 'security attributes'],
+    tags: ['cookies', 'security'],
+    skills: ['Session hardening'],
+    subcategories: ['state'],
+    title: 'The Hardened Session',
+    subtitle: 'Three attributes, three attacks.',
+    description: 'Match Secure, HttpOnly and SameSite to the attacks they prevent.',
+    question:
+      'A session cookie is set with `Secure; HttpOnly; SameSite=Lax`. Which mapping of attribute → threat is CORRECT?',
+    options: [
+      'Secure → plaintext-network interception; HttpOnly → XSS document.cookie theft; SameSite → cross-site request attachment (CSRF)',
+      'HttpOnly → CSRF; SameSite → XSS; Secure → DNS hijacking',
+      'All three exist only for performance: they reduce cookie size',
+      'SameSite prevents SQL injection in the session store',
+    ],
+    optionExplanations: [
+      'Correct: each attribute targets one class of leakage or abuse precisely.',
+      'The attributes are scrambled: HttpOnly has nothing to do with CSRF, SameSite does not affect XSS reading (it limits attachment).',
+      'They are security attributes with zero performance purpose.',
+      'Server-side injection is unrelated to client-side cookie metadata.',
+    ],
+    reasoning: [
+      'Secure: the browser only sends the cookie over HTTPS.',
+      'HttpOnly: JavaScript cannot read the cookie — XSS cannot exfiltrate it, though XSS can still make authenticated requests.',
+      'SameSite=Lax: the cookie is not attached to most cross-site requests, blunting classic CSRF.',
+    ],
+    hints: ['Who can read the cookie: the server, the network, or page scripts?', 'Which attribute changes whether the cookie TRAVELS on a cross-site request?'],
+    objectives: ['Map cookie attributes to threats', 'Know what each attribute cannot do'],
+  }),
+
+  openChallenge({
+    id: 'http.put-vs-patch',
+    category: 'http',
+    challengeType: 'http',
+    difficulty: 'intermediate',
+    minutes: 15,
+    concepts: ['methods', 'resource semantics'],
+    tags: ['methods', 'rest'],
+    skills: ['Method design'],
+    subcategories: ['methods'],
+    title: 'The Partial Update',
+    subtitle: 'Replace the resource or change it?',
+    description: 'PUT and PATCH differ in contract, not just in habit.',
+    question:
+      'Your API updates user email addresses. Contrast PUT /users/42 with a full representation versus PATCH /users/42 with `{"email": "..."}`. What does each promise, why is PUT idempotent while PATCH may not be, and when is a custom method (POST /users/42:verify) the honest design?',
+    guidance: [
+      'Define PUT’s replace semantics and its idempotency.',
+      'Define PATCH’s delta semantics and when it stops being idempotent.',
+      'Give the criteria for preferring a dedicated action endpoint.',
+    ],
+    solution: {
+      summary:
+        'PUT replaces the resource state with the sent representation — sending the same document twice converges to the same state (idempotent). PATCH applies a delta; deltas like {"email": x} are idempotent, but {"age": age+1}-style operations are not. When the operation is a verb with side effects (verification emails, password reset), a POST-based action endpoint states the intent more honestly than bending PUT/PATCH.',
+      reasoning: [
+        'PUT requires the FULL representation (or the server defines omitted-field behaviour explicitly).',
+        'JSON Patch (RFC 6902) makes deltas explicit and ordered, restoring analysable semantics.',
+        'RPC-ish actions on a resource are legitimate REST when the operation does not map to CRUD.',
+      ],
+      commonMistakes: [
+        'Sending partial bodies to PUT and calling it PATCH.',
+        'Modelling everything as PATCH and losing idempotency for free retries.',
+      ],
+    },
+    hints: ['What does the server do with fields OMITTED from a PUT body?', 'Which delta shapes are safe to retry?'],
+    objectives: ['Separate replace from delta semantics', 'Design action endpoints without guilt'],
+  }),
+
+  quizChallenge({
+    id: 'http.redirect-codes',
+    category: 'http',
+    challengeType: 'http',
+    difficulty: 'intermediate',
+    minutes: 12,
+    concepts: ['redirects', 'status codes'],
+    tags: ['redirects'],
+    skills: ['Redirect semantics'],
+    subcategories: ['status-codes'],
+    title: 'The Moving Van',
+    subtitle: 'Permanent, temporary, and method-preserving.',
+    description: '301, 302, 307 and 308 differ in cacheability and method survival.',
+    question:
+      'A payment endpoint moved from /pay to /checkout. Clients POST to it; the redirect must preserve the POST method and body, and the move is permanent. Which status fits?',
+    options: [
+      '308 Permanent Redirect — permanent like 301, but the method and body are preserved',
+      '301 — permanent is what matters; method changes are acceptable',
+      '302 Found — it is temporary, but universally supported',
+      '307 Temporary Redirect — method-preserving is what matters',
+    ],
+    optionExplanations: [
+      'Correct: 308 = permanent + method-preserving; 307 = temporary + method-preserving.',
+      '301 historically allows clients to switch POST → GET, losing the body — a classic payment-form bug.',
+      '302 has the same method-switch problem and claims temporality.',
+      '307 preserves the method but tells caches the move is temporary — wrong signal for a permanent move.',
+    ],
+    reasoning: [
+      'The permanent/temporary axis controls cacheability; the method-preserving axis controls body survival.',
+      '301/302: old semantics; 307/308 (RFC 7538/9110) exist to make method preservation explicit.',
+      'Browsers and HTTP clients follow these rules consistently today — the historic GET-conversion excuse no longer applies.',
+    ],
+    hints: ['Two axes: permanence and method preservation — place all four codes.', 'Which pair came first historically?'],
+    objectives: ['Choose redirect codes on both axes', 'Avoid the silent POST→GET conversion'],
+  }),
+
+  openChallenge({
+    id: 'http.cache-control-policy',
+    category: 'http',
+    challengeType: 'http',
+    difficulty: 'hard',
+    minutes: 20,
+    concepts: ['caching', 'cache-control'],
+    tags: ['caching'],
+    skills: ['Cache policy design'],
+    subcategories: ['caching'],
+    title: 'The Stale Dashboard',
+    subtitle: 'Design a cache policy that cannot show yesterday.',
+    description: 'Pick Cache-Control headers for three content classes without lying to caches.',
+    question:
+      'Design Cache-Control (and validators) for: (a) the JSON response for "today’s quest", which must never show stale data; (b) hashed static assets like app.8f3c.js; (c) an anonymous category listing that may be a minute stale. Justify each choice.',
+    guidance: [
+      'Use no-cache vs no-store vs max-age correctly — they are not synonyms.',
+      'Explain revalidation (no-cache + ETag) for correctness-sensitive data.',
+      'Use immutable + max-age for content-hashed assets.',
+    ],
+    solution: {
+      summary:
+        '(a) Cache-Control: no-cache with an ETag — caches may store but MUST revalidate each use, so users never see yesterday. (b) max-age=31536000, immutable — the hash in the filename makes any change a new URL, so year-long caching is safe. (c) max-age=60 (or s-maxage=60 with stale-while-revalidate=30) — bounded staleness is the explicit contract. no-store would also work for (a) but wastes bandwidth; it is reserved for truly sensitive responses.',
+      reasoning: [
+        'no-cache ≠ do not store: it means "store, but revalidate". no-store means never store.',
+        'immutable tells browsers not to even re-request within max-age — eliminating conditional requests for hashed assets.',
+        'stale-while-revalidate trades a tiny staleness window for instant responses under load.',
+      ],
+      commonMistakes: [
+        'Sending max-age=0 believing it disables caching (it forces revalidation — that is no-cache’s job).',
+        'Long max-age on non-hashed filenames, then fighting caches with cache-busting query strings.',
+      ],
+    },
+    hints: ['Which directive means "check with me every time" vs "never save this"?', 'What makes a year-long max-age safe?'],
+    objectives: ['Match directives to content classes', 'Design freshness contracts explicitly'],
+  }),
+];
