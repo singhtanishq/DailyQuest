@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 
 import { AppShell } from './components/layout/AppShell.js';
-import { ErrorState } from './components/ui/ErrorState.js';
+import { ErrorState, PageSkeleton } from './components/ui/States.js';
 import { HomePage } from './pages/HomePage.js';
 
 const ArchivePage = lazy(() =>
@@ -29,8 +29,6 @@ const RandomPage = lazy(() =>
 const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage.js').then((m) => ({ default: m.NotFoundPage }))
 );
-
-import { PageSkeleton } from './components/ui/PageSkeleton.js';
 
 /** Replaces only the document title — description/OG stay static. */
 function RouteTitle() {
