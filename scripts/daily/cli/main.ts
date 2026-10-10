@@ -52,6 +52,7 @@ function writeCiOutputs(summary: PublishSummary): void {
   const created = summary.entries.find((e) => e.outcome === 'created');
   if (outputPath) {
     const lines = [
+      `publication_date=${summary.entries[0]?.date ?? summary.today ?? ''}`,
       `outcome=${created ? 'created' : summary.noOp ? 'no-op' : 'updated'}`,
       `quest_number=${created?.sequenceNumber ?? ''}`,
       `quest_title=${created?.title ?? ''}`,
