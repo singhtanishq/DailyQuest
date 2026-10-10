@@ -26,16 +26,15 @@ export function AboutPage() {
       <h2>Why it exists</h2>
       <p>
         Because a daily ritual beats a weekend binge. Ten focused minutes on one precise problem —
-        with hints, a worked solution and the reasoning behind it — compounds faster than
-        tutorials. The daily cadence also keeps the archive honest: it grows in public, one commit
-        at a time.
+        with hints, a worked solution and the reasoning behind it — compounds faster than tutorials.
+        The daily cadence also keeps the archive honest: it grows in public, one commit at a time.
       </p>
 
       <h2>How quests are generated</h2>
       <p>
         There is no AI in the loop and no paid API. A deterministic engine picks a category
-        (weighted), a difficulty (balanced), and a template from a curated pool of{' '}
-        {templateCount} hand-written challenges. Parameters are derived from a seed computed as{' '}
+        (weighted), a difficulty (balanced), and a template from a curated pool of {templateCount}{' '}
+        hand-written challenges. Parameters are derived from a seed computed as{' '}
         <code>SHA-256("DailyQuest:" + date + ":generator-v1")</code> — so the same date always
         produces the same quest, and the whole archive is reproducible from its dates.
       </p>
@@ -89,7 +88,9 @@ export function AboutPage() {
         The most valuable contributions are new challenge templates and corrections. Templates live
         in <code>scripts/daily/templates/</code> and are plain TypeScript objects; adding one is a
         matter of following the existing factory patterns. See{' '}
-        <a href="https://github.com/singhtanishq/DailyQuest/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>{' '}
+        <a href="https://github.com/singhtanishq/DailyQuest/blob/main/CONTRIBUTING.md">
+          CONTRIBUTING.md
+        </a>{' '}
         for the details, and{' '}
         <a href="https://github.com/singhtanishq/DailyQuest/blob/main/docs/GENERATOR.md">
           docs/GENERATOR.md
