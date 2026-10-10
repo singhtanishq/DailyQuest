@@ -1,32 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-10T16:28:18.053Z",
+  "generatedAt": "2026-10-10T22:00:22.242Z",
   "quest": {
-    "id": "dq-2026-10-10",
-    "date": "2026-10-10",
-    "sequenceNumber": 10,
-    "slug": "2026-10-10-the-balanced-ledger",
-    "title": "The Balanced Ledger",
-    "shortTitle": "The Balanced Ledger",
-    "description": "Determine whether a string of brackets is perfectly balanced — the classic stack exercise that still shows up in real parsers.",
-    "category": "coding",
-    "challengeType": "coding",
-    "difficulty": "easy",
-    "difficultyScore": 2,
-    "estimatedMinutes": 10,
+    "id": "dq-2026-10-11",
+    "date": "2026-10-11",
+    "sequenceNumber": 11,
+    "slug": "2026-10-11-the-shared-database-taboo",
+    "title": "The Shared Database Taboo",
+    "shortTitle": "The Shared Database Taboo",
+    "description": "Establish data ownership across service boundaries.",
+    "category": "architecture",
+    "challengeType": "architecture",
+    "difficulty": "intermediate",
+    "difficultyScore": 3,
+    "estimatedMinutes": 20,
     "concepts": [
-      "stacks",
-      "parsing"
+      "service boundaries",
+      "data ownership"
     ],
     "tags": [
-      "strings",
-      "stack",
-      "validation"
+      "data",
+      "services"
     ],
-    "contentHash": "cc8a94988c3fd5331d8345bed8ce9ffdf371713433bf573de5997f700633033d",
-    "fpc": "cc8a94988c3fd533",
-    "fpt": "e4387f432ed974b2",
-    "fpp": "fa168ca649433939"
+    "contentHash": "b0b134b6f1d25b4c456d8bb861b6e78ec8711ac6f9c07919c30439ef0a53059c",
+    "fpc": "b0b134b6f1d25b4c",
+    "fpt": "5617f869d30cb00f",
+    "fpp": "cfe7d4352b034b48"
   }
 }

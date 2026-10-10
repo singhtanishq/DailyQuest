@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-10T16:28:18.053Z",
+  "generatedAt": "2026-10-10T22:00:22.242Z",
   "categories": [
     {
       "id": "coding",
@@ -373,11 +373,18 @@
       "description": "Monolith versus services, event-driven design, data ownership and integration styles. Architecture quests ask for a position and the reasoning behind it.",
       "icon": "blocks",
       "group": "Design",
-      "questCount": 0,
-      "difficultyDistribution": {},
-      "skills": [],
-      "topTags": [],
-      "latestQuestDate": null
+      "questCount": 1,
+      "difficultyDistribution": {
+        "intermediate": 1
+      },
+      "skills": [
+        "Boundary design"
+      ],
+      "topTags": [
+        "data",
+        "services"
+      ],
+      "latestQuestDate": "2026-10-11"
     },
     {
       "id": "system_design",

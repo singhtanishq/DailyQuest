@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-11",
+  "date": "2026-10-11",
+  "sequenceNumber": 11,
+  "slug": "2026-10-11-the-shared-database-taboo",
+  "title": "The Shared Database Taboo",
+  "shortTitle": "The Shared Database Taboo",
+  "subtitle": "Who owns the orders table?",
+  "description": "Establish data ownership across service boundaries.",
+  "category": "architecture",
+  "subcategories": [
+    "boundaries"
+  ],
+  "challengeType": "architecture",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "service boundaries",
+    "data ownership"
+  ],
+  "tags": [
+    "data",
+    "services"
+  ],
+  "skills": [
+    "Boundary design"
+  ],
+  "prompt": "Three services (orders, shipping, analytics) all read order data. Today they share one PostgreSQL database and join freely. A proposal splits them into services with separate databases. What problems does the shared database cause at scale, what replaces cross-service joins, and when is the split actually worth it?\n\nA strong answer addresses:\n- Name the coupling problems: schema changes, migration locks, blast radius.\n- Describe the replacements: APIs, replicated read models, event-fed projections.\n- State the honest cost/benefit for this specific team size.",
+  "instructions": [
+    "Answer in your own words, then compare with the solution."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "What happens to a migration when four teams’ code touches one table?",
+    "Which service genuinely needs real-time order data?"
+  ],
+  "solution": {
+    "summary": "A shared database couples services at the schema level: every migration is cross-team, one bad query degrades everyone, and ownership of tables becomes ambiguous. The replacements: (1) synchronous API reads for real-time needs; (2) event-fed local projections — shipping runs its own read model of order events; (3) the analytics service consumes the event stream into a warehouse. The split is worth it when teams deploy independently and failure domains must isolate; for small teams it adds cross-service consistency work that a modular monolith with schema ownership rules avoids.",
+    "reasoning": [
+      "The database is the real API in shared-database architectures — schema is contract.",
+      "Projections trade join simplicity for eventual consistency and replication lag — visible and usually acceptable for reads.",
+      "Aggregate boundaries should follow ownership: one writer per data set, everyone else through APIs or events."
+    ],
+    "commonMistakes": [
+      "Splitting the database but keeping distributed joins in application code — the coupling moved, not left.",
+      "Events as an afterthought: without them, every consumer becomes a synchronous caller."
+    ]
+  },
+  "learningObjectives": [
+    "Argue ownership boundaries",
+    "Replace joins with contracts"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "arch.data-ownership",
+  "generatorVersion": "1.0.0",
+  "seed": "e5b29f864e49194cec249c95b32d658bf7258b98ebab4b1e6f68acc9f3cdd86e",
+  "paramsSignature": "v1",
+  "contentHash": "b0b134b6f1d25b4c456d8bb861b6e78ec8711ac6f9c07919c30439ef0a53059c",
+  "createdAt": "2026-10-10T22:00:22.239Z",
+  "updatedAt": "2026-10-10T22:00:22.239Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-10T22:00:22.239Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
