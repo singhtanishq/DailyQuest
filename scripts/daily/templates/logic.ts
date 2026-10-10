@@ -38,8 +38,14 @@ export const logicTemplates: QuestTemplate[] = [
       'Key insight 2: at minute 30, rope B has exactly 30 minutes of fuel left.',
       'Lighting B’s other end then doubles its consumption rate again → 15 more minutes.',
     ],
-    hints: ['What total burn rate do two flames on one rope achieve?', 'The 45 must decompose as 30 + 15.'],
-    objectives: ['Reason with rates instead of lengths', 'Decompose target times into measurable chunks'],
+    hints: [
+      'What total burn rate do two flames on one rope achieve?',
+      'The 45 must decompose as 30 + 15.',
+    ],
+    objectives: [
+      'Reason with rates instead of lengths',
+      'Decompose target times into measurable chunks',
+    ],
   }),
 
   quizChallenge({
@@ -74,7 +80,10 @@ export const logicTemplates: QuestTemplate[] = [
       'Both cases yield the SAME wrong door — double negation composes.',
       'The trick generalizes: route the question through the unknown to make both branches agree.',
     ],
-    hints: ['Ask about the OTHER guard’s answer, not reality directly.', 'Enumerate the two cases: X truthful, X lying.'],
+    hints: [
+      'Ask about the OTHER guard’s answer, not reality directly.',
+      'Enumerate the two cases: X truthful, X lying.',
+    ],
     objectives: ['Compose truth and lies through indirection', 'Enumerate cases exhaustively'],
   }),
 
@@ -90,14 +99,11 @@ export const logicTemplates: QuestTemplate[] = [
     subcategories: ['counting'],
     title: 'The Round of Handshakes',
     subtitle: 'Five people, everyone shakes once.',
-    description: 'Count pairwise interactions — the combinatorics behind every "unique pairs" question.',
-    question: 'Five people meet and every pair shakes hands exactly once. How many handshakes happen?',
-    options: [
-      '10',
-      '5',
-      '20',
-      '25',
-    ],
+    description:
+      'Count pairwise interactions — the combinatorics behind every "unique pairs" question.',
+    question:
+      'Five people meet and every pair shakes hands exactly once. How many handshakes happen?',
+    options: ['10', '5', '20', '25'],
     optionExplanations: [
       'Correct: C(5,2) = 5×4/2 = 10.',
       'That is the star count — one person shaking four hands.',
@@ -127,12 +133,7 @@ export const logicTemplates: QuestTemplate[] = [
     subtitle: '3:15 is almost a right angle — almost.',
     description: 'Compute the exact angle between clock hands at 3:15.',
     question: 'What is the exact angle between the hour and minute hands at 3:15?',
-    options: [
-      '7.5 degrees',
-      '0 degrees — both point at 3',
-      '15 degrees',
-      '30 degrees',
-    ],
+    options: ['7.5 degrees', '0 degrees — both point at 3', '15 degrees', '30 degrees'],
     optionExplanations: [
       'Correct: the hour hand moves 0.5°/min, so at 15 minutes past 3 it sits at 97.5°; the minute hand is at 90°. Difference: 7.5°.',
       'The hour hand drifts while the minute hand sweeps — they only coincide at ~3:16:22, not 3:15.',
@@ -144,7 +145,10 @@ export const logicTemplates: QuestTemplate[] = [
       'Hour hand: 30°/hour = 0.5°/min → 3×30 + 15×0.5 = 97.5°.',
       'Angle = |97.5 − 90| = 7.5°.',
     ],
-    hints: ['The hour hand is not frozen at the 3 — it creeps.', 'Degrees per minute: minute hand 6, hour hand 0.5.'],
+    hints: [
+      'The hour hand is not frozen at the 3 — it creeps.',
+      'Degrees per minute: minute hand 6, hour hand 0.5.',
+    ],
     objectives: ['Model hands as moving at fixed rates', 'Combine base offsets with drift'],
   }),
 
@@ -180,7 +184,10 @@ export const logicTemplates: QuestTemplate[] = [
       'Where the 27 went: 25 to the clerk + 2 to the bellhop.',
       'The riddle adds the 2 AGAIN to the 27 while forgetting the guests’ $3 refund — a category error, not a math error.',
     ],
-    hints: ['Write what each actor holds: clerk, bellhop, guests.', 'Should the bellhop’s $2 be added to the guests’ spending or subtracted from it?'],
+    hints: [
+      'Write what each actor holds: clerk, bellhop, guests.',
+      'Should the bellhop’s $2 be added to the guests’ spending or subtracted from it?',
+    ],
     objectives: ['Audit riddles with ledgers', 'Recognize double-counting fallacies'],
   }),
 
@@ -216,7 +223,10 @@ export const logicTemplates: QuestTemplate[] = [
       'Shortfall = (number of counterfeit coins on the scale) × 0.1 g, and that number is unique per stack.',
       'This is the general pattern: make each hypothesis produce a distinct observation.',
     ],
-    hints: ['How many coins from stack 1? From stack 2? From stack k?', 'What single number does the scale report, and how does it map back?'],
+    hints: [
+      'How many coins from stack 1? From stack 2? From stack k?',
+      'What single number does the scale report, and how does it map back?',
+    ],
     objectives: ['Encode hypotheses into observations', 'Design one-shot identification schemes'],
   }),
 
@@ -253,7 +263,10 @@ export const logicTemplates: QuestTemplate[] = [
       'Substitute: G − 2 = G/2 → G = 4 → B = 3.',
       'Always verify both statements against the solution — each equation is one person’s observation.',
     ],
-    hints: ['Each speaker counts themselves OUT of one group.', 'Two statements, two unknowns — write both equations before solving.'],
+    hints: [
+      'Each speaker counts themselves OUT of one group.',
+      'Two statements, two unknowns — write both equations before solving.',
+    ],
     objectives: ['Model viewpoint-dependent counting', 'Verify solutions against every constraint'],
   }),
 ];
@@ -291,7 +304,10 @@ export const puzzleTemplates: QuestTemplate[] = [
       'Divisors pair as (d, n/d); the pair d = n/d exists only when n is a perfect square.',
       'Squares up to 1000: 1² through 31² → 31 open lockers.',
     ],
-    hints: ['Simulate locker 12 (divisors 1,2,3,4,6,12) and locker 16 (1,2,4,8,16).', 'When does a divisor fail to pair with a different partner?'],
+    hints: [
+      'Simulate locker 12 (divisors 1,2,3,4,6,12) and locker 16 (1,2,4,8,16).',
+      'When does a divisor fail to pair with a different partner?',
+    ],
     objectives: ['Reduce simulation to divisor parity', 'Find the invariant behind a pattern'],
   }),
 
@@ -327,7 +343,10 @@ export const puzzleTemplates: QuestTemplate[] = [
       'To pull that off, the two fastest shuttle the torch back both times.',
       'Verify: forward 2, back 1, forward 10, back 2, forward 2 → 17.',
     ],
-    hints: ['The two slowest should cross at the SAME time.', 'Who shuttles the torch back — and how many return trips exist?'],
+    hints: [
+      'The two slowest should cross at the SAME time.',
+      'Who shuttles the torch back — and how many return trips exist?',
+    ],
     objectives: ['Escape greedy framing', 'Prove optimality by accounting for every trip'],
   }),
 ];
