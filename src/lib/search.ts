@@ -35,7 +35,7 @@ export interface ArchiveFilters {
 
 export function applyFilters(
   entries: QuestIndexEntry[],
-  filters: ArchiveFilters
+  filters: ArchiveFilters,
 ): QuestIndexEntry[] {
   let result = searchEntries(entries, filters.q);
   if (filters.category) {
@@ -48,7 +48,7 @@ export function applyFilters(
     result = result.filter((e) => e.challengeType === filters.type);
   }
   result = [...result].sort((a, b) =>
-    filters.sort === 'newest' ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date)
+    filters.sort === 'newest' ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date),
   );
   return result;
 }
