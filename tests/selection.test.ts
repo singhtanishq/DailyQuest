@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { testConfig } from './helpers.js';
+import { CATEGORY_IDS } from '../shared/types.js';
 import { Rng } from '../scripts/daily/core/rng.js';
 import {
   emptyRecentArchive,
@@ -30,8 +31,7 @@ describe('selection', () => {
     const cfg = testConfig();
     const recent = recentWith({ categories: ['sql', 'git'] });
     const rng = new Rng('category-ok');
-    // Must not throw and may legally return sql.
-    expect(['sql', 'git', 'coding']).toContain(selectCategory(rng, cfg, recent));
+    expect(CATEGORY_IDS).toContain(selectCategory(rng, cfg, recent));
   });
 
   it('every category with weight has at least one template', () => {
