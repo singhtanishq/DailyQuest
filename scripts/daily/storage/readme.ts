@@ -35,7 +35,11 @@ export interface StatusBlockEntry {
   date: string;
 }
 
-export function renderStatusBlock(entry: StatusBlockEntry, displayDate: string, siteUrl: string): string {
+export function renderStatusBlock(
+  entry: StatusBlockEntry,
+  displayDate: string,
+  siteUrl: string,
+): string {
   return [
     BEGIN_MARKER,
     `> **Today’s quest:** [#${String(entry.sequenceNumber).padStart(3, '0')} — ${entry.title}](${siteUrl}/quest/${entry.slug})`,
