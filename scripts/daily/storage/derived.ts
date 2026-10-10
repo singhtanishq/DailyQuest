@@ -41,7 +41,9 @@ function streaks(dates: string[]): { current: number; longest: number } {
   return { current, longest };
 }
 
-export function buildStats(quests: Quest[]): Omit<QuestStats, 'schemaVersion' | 'generatorVersion' | 'generatedAt'> {
+export function buildStats(
+  quests: Quest[],
+): Omit<QuestStats, 'schemaVersion' | 'generatorVersion' | 'generatedAt'> {
   const sorted = [...quests].sort((a, b) => a.date.localeCompare(b.date));
   const byCategory: Record<string, number> = {};
   const byDifficulty: Record<string, number> = {};
@@ -84,7 +86,8 @@ export function buildStats(quests: Quest[]): Omit<QuestStats, 'schemaVersion' | 
     byDifficulty,
     byType,
     categoryBreakdown,
-    averageEstimatedMinutes: sorted.length > 0 ? Math.round((totalMinutes / sorted.length) * 10) / 10 : 0,
+    averageEstimatedMinutes:
+      sorted.length > 0 ? Math.round((totalMinutes / sorted.length) * 10) / 10 : 0,
     totalEstimatedMinutes: totalMinutes,
     currentStreak: current,
     longestStreak: longest,
@@ -98,42 +101,43 @@ export function buildStats(quests: Quest[]): Omit<QuestStats, 'schemaVersion' | 
 export function buildCategoriesFile(
   quests: Quest[],
   generatorVersion: string,
-  generatedAt: string
+  generatedAt: string,
 ): CategoriesFile {
   const sorted = [...quests].sort((a, b) => a.date.localeCompare(b.date));
-  const categories: CategorySummary[] = (Object.keys(CATEGORY_META) as Array<keyof typeof CATEGORY_META>).map(
-    (id) => {
-      const meta = CATEGORY_META[id];
-      const own = sorted.filter((q) => q.category === id);
-      const difficultyDistribution: Record<string, number> = {};
-      const tagCounts = new Map<string, number>();
-      const skills = new Set<string>();
-      for (const quest of own) {
-        difficultyDistribution[quest.difficulty] = (difficultyDistribution[quest.difficulty] ?? 0) + 1;
-        for (const tag of quest.tags) {
-          tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
-        }
-        for (const skill of quest.skills) {
-          skills.add(skill);
-        }
+  const categories: CategorySummary[] = (
+    Object.keys(CATEGORY_META) as Array<keyof typeof CATEGORY_META>
+  ).map((id) => {
+    const meta = CATEGORY_META[id];
+    const own = sorted.filter((q) => q.category === id);
+    const difficultyDistribution: Record<string, number> = {};
+    const tagCounts = new Map<string, number>();
+    const skills = new Set<string>();
+    for (const quest of own) {
+      difficultyDistribution[quest.difficulty] =
+        (difficultyDistribution[quest.difficulty] ?? 0) + 1;
+      for (const tag of quest.tags) {
+        tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
       }
-      return {
-        id,
-        label: meta.label,
-        description: meta.description,
-        icon: meta.icon,
-        group: meta.group,
-        questCount: own.length,
-        difficultyDistribution,
-        skills: [...skills].slice(0, 8),
-        topTags: [...tagCounts.entries()]
-          .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-          .slice(0, 6)
-          .map(([tag]) => tag),
-        latestQuestDate: own.length > 0 ? (own[own.length - 1]?.date ?? null) : null,
-      };
+      for (const skill of quest.skills) {
+        skills.add(skill);
+      }
     }
-  );
+    return {
+      id,
+      label: meta.label,
+      description: meta.description,
+      icon: meta.icon,
+      group: meta.group,
+      questCount: own.length,
+      difficultyDistribution,
+      skills: [...skills].slice(0, 8),
+      topTags: [...tagCounts.entries()]
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .slice(0, 6)
+        .map(([tag]) => tag),
+      latestQuestDate: own.length > 0 ? (own[own.length - 1]?.date ?? null) : null,
+    };
+  });
 
   return {
     schemaVersion: 1,
@@ -146,7 +150,7 @@ export function buildCategoriesFile(
 export function buildLatestFile(
   entries: IndexEntry[],
   generatorVersion: string,
-  generatedAt: string
+  generatedAt: string,
 ): { quest: QuestIndexEntry; generatorVersion: string; generatedAt: string; schemaVersion: 1 } {
   const last = entries[entries.length - 1];
   if (!last) {
