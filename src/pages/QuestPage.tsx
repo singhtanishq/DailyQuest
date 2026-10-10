@@ -34,9 +34,7 @@ export function QuestPage() {
     return <ErrorState title="Quest not found" detail={quest.error.message} />;
   }
   if (quest.loading || !quest.data) {
-    return (
-      <PageSkeleton />
-    );
+    return <PageSkeleton />;
   }
 
   const current = quest.data;
@@ -50,7 +48,14 @@ export function QuestPage() {
 
   return (
     <div className="container page" style={{ maxWidth: 860 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-4)' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: 'var(--space-4)',
+        }}
+      >
         <Link to="/archive" className="btn btn-ghost btn-sm">
           <ChevronLeft size={14} aria-hidden /> Archive
         </Link>
