@@ -51,7 +51,7 @@ describe('Rng', () => {
     const weights = [10, 20, 70];
     for (let i = 0; i < 10; i++) {
       expect(a.weighted(items, (x) => weights[items.indexOf(x)] ?? 0)).toBe(
-        b.weighted(items, (x) => weights[items.indexOf(x)] ?? 0)
+        b.weighted(items, (x) => weights[items.indexOf(x)] ?? 0),
       );
     }
   });
@@ -78,22 +78,24 @@ describe('Rng', () => {
 describe('deriveSeed', () => {
   it('follows the documented derivation scheme', () => {
     // SHA-256("DailyQuest:2026-10-07:generator-v1")
-    const expected = createHash('sha256').update('DailyQuest:2026-10-07:generator-v1').digest('hex');
+    const expected = createHash('sha256')
+      .update('DailyQuest:2026-10-07:generator-v1')
+      .digest('hex');
     expect(deriveSeed('2026-10-07', '1.0.0', 'DailyQuest')).toBe(expected);
   });
 
   it('uses only the major version', () => {
     expect(deriveSeed('2026-10-07', '1.2.3', 'DailyQuest')).toBe(
-      deriveSeed('2026-10-07', '1.9.9', 'DailyQuest')
+      deriveSeed('2026-10-07', '1.9.9', 'DailyQuest'),
     );
     expect(deriveSeed('2026-10-07', '1.0.0', 'DailyQuest')).not.toBe(
-      deriveSeed('2026-10-07', '2.0.0', 'DailyQuest')
+      deriveSeed('2026-10-07', '2.0.0', 'DailyQuest'),
     );
   });
 
   it('differs per date', () => {
     expect(deriveSeed('2026-10-07', '1.0.0', 'DailyQuest')).not.toBe(
-      deriveSeed('2026-10-08', '1.0.0', 'DailyQuest')
+      deriveSeed('2026-10-08', '1.0.0', 'DailyQuest'),
     );
   });
 });
