@@ -167,7 +167,13 @@ export function StatsPage() {
             <div className="stat-label">Generator version</div>
           </div>
         </div>
-        <p style={{ marginTop: 'var(--space-4)', fontSize: 'var(--text-sm)', color: 'var(--foreground-muted)' }}>
+        <p
+          style={{
+            marginTop: 'var(--space-4)',
+            fontSize: 'var(--text-sm)',
+            color: 'var(--foreground-muted)',
+          }}
+        >
           The streak counts consecutive <em>published</em> calendar days in the archive itself — it
           is a property of DailyQuest, not of any GitHub account.{' '}
           <Link to="/about">How publishing works →</Link>
