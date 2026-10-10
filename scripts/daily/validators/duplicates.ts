@@ -15,7 +15,9 @@ export interface DraftFingerprints {
   promptFingerprint: string;
 }
 
-export function draftFingerprints(quest: Pick<Quest, 'contentHash' | 'title' | 'prompt'>): DraftFingerprints {
+export function draftFingerprints(
+  quest: Pick<Quest, 'contentHash' | 'title' | 'prompt'>,
+): DraftFingerprints {
   return {
     contentHash: quest.contentHash.slice(0, 16),
     titleFingerprint: sha256Hex(textFingerprint(quest.title)).slice(0, 16),
@@ -33,7 +35,7 @@ export interface ExistingFingerprints {
 /** Returns the conflicting quest id, or null when the draft is unique. */
 export function findDuplicate(
   draft: DraftFingerprints,
-  existing: ExistingFingerprints[]
+  existing: ExistingFingerprints[],
 ): string | null {
   for (const candidate of existing) {
     if (candidate.fpc !== '' && candidate.fpc === draft.contentHash) {
