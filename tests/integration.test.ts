@@ -7,7 +7,11 @@ import { generateQuestForDate } from '../scripts/daily/pipeline/generate.js';
 import { publishDaily } from '../scripts/daily/pipeline/publish.js';
 import { rebuildDerived } from '../scripts/daily/storage/rebuild.js';
 import { validateRepository } from '../scripts/daily/validators/repository.js';
-import { runJsSnippet, runVerification, VerificationError } from '../scripts/daily/verify/runners.js';
+import {
+  runJsSnippet,
+  runVerification,
+  VerificationError,
+} from '../scripts/daily/verify/runners.js';
 
 const FIXED_NOW = new Date('2026-10-10T12:00:00.000Z');
 
