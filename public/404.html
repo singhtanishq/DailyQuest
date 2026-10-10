@@ -15,7 +15,17 @@
        * domains alike.
        */
       (function () {
-        var ROUTES = ['quest', 'archive', 'categories', 'category', 'stats', 'random', 'about', 'today', '404'];
+        var ROUTES = [
+          'quest',
+          'archive',
+          'categories',
+          'category',
+          'stats',
+          'random',
+          'about',
+          'today',
+          '404',
+        ];
         var segments = window.location.pathname.split('/');
         var routeIndex = -1;
         for (var i = 0; i < segments.length; i++) {
@@ -26,7 +36,8 @@
         }
         if (routeIndex > 0) {
           var base = segments.slice(0, routeIndex).join('/') + '/';
-          var route = segments.slice(routeIndex).join('/') + window.location.search + window.location.hash;
+          var route =
+            segments.slice(routeIndex).join('/') + window.location.search + window.location.hash;
           try {
             sessionStorage.setItem('dailyquest.spa-redirect', route);
           } catch (e) {
