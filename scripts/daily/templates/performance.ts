@@ -59,18 +59,17 @@ export const performanceTemplates: QuestTemplate[] = [
     question:
       'Which snippet degrades quadratically as items grow?',
     options: [
-      'const seen = new Set(); for (const id of ids) { if (seen.has(id)) continue; seen.add(id); process(id); }',
       'for (const a of items) { if (others.includes(a.id)) { flagged.push(a); } }',
+      'const seen = new Set(); for (const id of ids) { if (seen.has(id)) continue; seen.add(id); process(id); }',
       'items.forEach((x) => totals.push(x.price * x.qty))',
       'const merged = [...first, ...second]',
     ],
     optionExplanations: [
-      'Correct pattern avoidance — this one is linear thanks to the Set.',
       'Correct: others.includes is O(m) inside an O(n) loop → O(n·m), the classic quadratic accident that passes every small-data test.',
+      'This one is linear thanks to the Set — constant-time membership checks.',
       'Pushing to an array per element is amortized O(1) — linear overall.',
       'A single spread is O(n+m) once.',
     ],
-    optionExplanationsNote: undefined,
     reasoning: [
       'Nested full scans hide behind clean loop syntax; the array-method version reads like it is "just a filter".',
       'The universal fix: hoist the lookup into a hash-based structure once, then query it per iteration.',
