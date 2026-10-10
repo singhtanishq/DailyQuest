@@ -101,7 +101,5 @@ export class Rng {
  */
 export function deriveSeed(date: string, generatorVersion: string, domain: string): string {
   const major = generatorVersion.split('.')[0] || '1';
-  return createHash('sha256')
-    .update(`${domain}:${date}:generator-v${major}`)
-    .digest('hex');
+  return createHash('sha256').update(`${domain}:${date}:generator-v${major}`).digest('hex');
 }
