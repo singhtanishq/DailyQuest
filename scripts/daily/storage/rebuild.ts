@@ -5,6 +5,7 @@ import { fileExists, readJsonFile, writeJsonAtomic } from './io.js';
 import { loadArchive } from '../pipeline/context.js';
 import { buildIndexFile, type IndexEntry } from './index.js';
 import { buildStats, buildCategoriesFile, buildLatestFile } from './derived.js';
+import { ALL_TEMPLATES } from '../templates/index.js';
 
 export interface RebuildResult {
   questCount: number;
@@ -88,6 +89,7 @@ export function rebuildDerived(
       status: 'ok' as const,
       latestQuestDate: archive[archive.length - 1]?.date ?? null,
       archiveCount: archive.length,
+      templateCount: ALL_TEMPLATES.length,
       lastGeneration: opts.lastGeneration ?? existingLastGeneration,
     }));
   }
