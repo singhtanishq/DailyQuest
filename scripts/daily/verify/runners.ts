@@ -19,7 +19,7 @@ import type { VerificationSpec } from '../templates/framework.js';
 export class VerificationError extends Error {
   constructor(
     message: string,
-    readonly kind: string
+    readonly kind: string,
   ) {
     super(message);
     this.name = 'VerificationError';
@@ -88,10 +88,7 @@ function formatCell(value: unknown): string {
  * Runs fixture + query against in-memory SQLite and returns the result set
  * as normalized string rows (values stringified, NULL for null).
  */
-export function runSqlite(
-  fixture: string,
-  query: string
-): { columns: string[]; rows: string[][] } {
+export function runSqlite(fixture: string, query: string): { columns: string[]; rows: string[][] } {
   const input = `${fixture}\n.mode json\n.headers on\n${query}\n`;
   const result = spawnSync('sqlite3', [':memory:'], {
     input,
@@ -136,7 +133,7 @@ export function runShellCommand(
   files: Record<string, string>,
   setup: string[],
   command: string,
-  timeoutMs = 10_000
+  timeoutMs = 10_000,
 ): string {
   const dir = makeSandboxDir('dailyquest-shell');
   try {
@@ -154,7 +151,7 @@ export function runShellCommand(
       if (setupResult.status !== 0) {
         throw new VerificationError(
           `Sandbox setup failed: ${(setupResult.stderr ?? '').slice(0, 300)}`,
-          'shell'
+          'shell',
         );
       }
     }
@@ -166,7 +163,7 @@ export function runShellCommand(
     if (result.status !== 0) {
       throw new VerificationError(
         `Command exited with ${result.status}: ${(result.stderr ?? '').slice(0, 300)}`,
-        'shell'
+        'shell',
       );
     }
     return (result.stdout ?? '').trimEnd();
@@ -201,7 +198,7 @@ function runGitCommand(dir: string, command: string, timeoutMs = 15_000): string
   if (result.status !== 0) {
     throw new VerificationError(
       `git command failed ("${command.slice(0, 80)}"): ${(result.stderr ?? '').slice(0, 300)}`,
-      'git'
+      'git',
     );
   }
   return (result.stdout ?? '').trim();
@@ -218,7 +215,7 @@ export function runGitScenario(
     logSubjects?: string[];
     fileContents?: Record<string, string>;
     revCount?: number;
-  }
+  },
 ): void {
   const dir = makeSandboxDir('dailyquest-git');
   try {
@@ -240,7 +237,7 @@ export function runGitScenario(
       if (JSON.stringify(subjects) !== JSON.stringify(expect.logSubjects)) {
         throw new VerificationError(
           `Expected log subjects ${JSON.stringify(expect.logSubjects)}, found ${JSON.stringify(subjects)}`,
-          'git'
+          'git',
         );
       }
     }
@@ -255,7 +252,7 @@ export function runGitScenario(
         if (actual !== expected.trimEnd()) {
           throw new VerificationError(
             `File ${path} content mismatch: expected ${JSON.stringify(expected)}, found ${JSON.stringify(actual)}`,
-            'git'
+            'git',
           );
         }
       }
@@ -277,7 +274,7 @@ export function runVerification(spec: VerificationSpec): RunOutcome {
       if (actual.trimEnd() !== expected) {
         throw new VerificationError(
           `Snippet printed ${JSON.stringify(actual)} but quest claims ${JSON.stringify(expected)}`,
-          'javascript'
+          'javascript',
         );
       }
       return { ok: true, detail: 'snippet output matches' };
@@ -294,9 +291,9 @@ export function runVerification(spec: VerificationSpec): RunOutcome {
         if (matches !== sample.matches) {
           throw new VerificationError(
             `Pattern /${spec.pattern}/${spec.flags} ${matches ? 'matches' : 'does not match'} ${JSON.stringify(
-              sample.text
+              sample.text,
             )} but the quest claims otherwise`,
-            'regex'
+            'regex',
           );
         }
       }
@@ -304,7 +301,11 @@ export function runVerification(spec: VerificationSpec): RunOutcome {
     }
     case 'sqlite': {
       if (!sqlite3Available()) {
-        return { ok: true, detail: 'sqlite3 not available — skipped (expected rows used as authored)', skipped: true };
+        return {
+          ok: true,
+          detail: 'sqlite3 not available — skipped (expected rows used as authored)',
+          skipped: true,
+        };
       }
       const result = runSqlite(spec.fixture, spec.query);
       const actualRows = result.rows.map((r) => r.join(' | '));
@@ -312,7 +313,7 @@ export function runVerification(spec: VerificationSpec): RunOutcome {
       if (JSON.stringify(actualRows) !== JSON.stringify(expectedRows)) {
         throw new VerificationError(
           `SQLite result mismatch.\nExpected: ${JSON.stringify(expectedRows)}\nActual:   ${JSON.stringify(actualRows)}`,
-          'sqlite'
+          'sqlite',
         );
       }
       return { ok: true, detail: 'result set matches SQLite' };
@@ -322,7 +323,7 @@ export function runVerification(spec: VerificationSpec): RunOutcome {
       if (actual !== spec.expectedOutput.trimEnd()) {
         throw new VerificationError(
           `Command printed ${JSON.stringify(actual)} but quest claims ${JSON.stringify(spec.expectedOutput)}`,
-          'shell'
+          'shell',
         );
       }
       return { ok: true, detail: 'command output matches' };
