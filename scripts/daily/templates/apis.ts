@@ -39,7 +39,10 @@ export const apiTemplates: QuestTemplate[] = [
         'Cursoring over a non-unique sort key without a tiebreaker.',
       ],
     },
-    hints: ['Insert a row between two page requests and trace what page 3 returns.', 'What must the WHERE clause express to continue where the last page stopped?'],
+    hints: [
+      'Insert a row between two page requests and trace what page 3 returns.',
+      'What must the WHERE clause express to continue where the last page stopped?',
+    ],
     objectives: ['Diagnose offset pagination drift', 'Design stable keyset pagination'],
   }),
 
@@ -76,7 +79,10 @@ export const apiTemplates: QuestTemplate[] = [
         'Recording the key after the operation instead of atomically with it.',
       ],
     },
-    hints: ['Where must the key → result record be written to survive crashes between execute and respond?', 'What should happen if the same key arrives with a different body?'],
+    hints: [
+      'Where must the key → result record be written to survive crashes between execute and respond?',
+      'What should happen if the same key arrives with a different body?',
+    ],
     objectives: ['Design the full idempotency contract', 'Handle concurrent-replay races'],
   }),
 
@@ -93,8 +99,7 @@ export const apiTemplates: QuestTemplate[] = [
     title: 'The Breaking Field',
     subtitle: 'When removing a field becomes an incident.',
     description: 'Choose a versioning strategy and know what a breaking change is.',
-    question:
-      'Which change to a REST API response is NOT breaking for tolerant clients?',
+    question: 'Which change to a REST API response is NOT breaking for tolerant clients?',
     options: [
       'Adding a new optional field to a response',
       'Renaming an existing response field',
@@ -112,7 +117,10 @@ export const apiTemplates: QuestTemplate[] = [
       'Version location is secondary: /v1/ paths are simplest and most visible; headers are purer but invisible in logs.',
       'A real deprecation needs sunset dates in headers (Deprecation, Sunset) and a documented migration.',
     ],
-    hints: ['Which change can every tolerant parser already absorb?', 'Which header pair signals a planned shutdown?'],
+    hints: [
+      'Which change can every tolerant parser already absorb?',
+      'Which header pair signals a planned shutdown?',
+    ],
     objectives: ['Classify changes by compatibility', 'Plan deprecations deliberately'],
   }),
 
@@ -129,8 +137,7 @@ export const apiTemplates: QuestTemplate[] = [
     title: 'The Polite Rejection',
     subtitle: '429 with instructions.',
     description: 'What a rate-limited response must tell the client.',
-    question:
-      'A client exceeds your API’s rate limit. What is the correct, most helpful response?',
+    question: 'A client exceeds your API’s rate limit. What is the correct, most helpful response?',
     options: [
       '429 Too Many Requests, ideally with Retry-After and RateLimit headers describing limits and reset',
       '503 Service Unavailable, since the server refuses to work',
@@ -147,7 +154,10 @@ export const apiTemplates: QuestTemplate[] = [
       'Machine-readable limits let well-behaved clients self-throttle instead of hammering.',
       'Exponential backoff with jitter should still be implemented client-side — Retry-After is the server’s floor, not a substitute.',
     ],
-    hints: ['Which status code was added specifically for throttling?', 'Which header carries "seconds until you may retry"?'],
+    hints: [
+      'Which status code was added specifically for throttling?',
+      'Which header carries "seconds until you may retry"?',
+    ],
     objectives: ['Return actionable throttling responses', 'Expose budget headers'],
   }),
 
@@ -184,7 +194,10 @@ export const apiTemplates: QuestTemplate[] = [
         'Returning arrays of errors at the top level inconsistently across endpoints.',
       ],
     },
-    hints: ['There is an RFC for exactly this problem — name it.', 'What do intermediaries (caches, LBs) act on: status or body?'],
+    hints: [
+      'There is an RFC for exactly this problem — name it.',
+      'What do intermediaries (caches, LBs) act on: status or body?',
+    ],
     objectives: ['Design RFC 9457-based errors', 'Keep machines and humans both served'],
   }),
 
@@ -221,7 +234,10 @@ export const apiTemplates: QuestTemplate[] = [
         'Signing only the body — replays become undetectable.',
       ],
     },
-    hints: ['What is the strongest guarantee a distributed delivery system can honestly make?', 'How does a receiver prove a webhook came from you AND is recent?'],
+    hints: [
+      'What is the strongest guarantee a distributed delivery system can honestly make?',
+      'How does a receiver prove a webhook came from you AND is recent?',
+    ],
     objectives: ['Design webhook delivery end to end', 'Push idempotency to the receiver contract'],
   }),
 
@@ -237,7 +253,8 @@ export const apiTemplates: QuestTemplate[] = [
     subcategories: ['auth'],
     title: 'The Credential Menu',
     subtitle: 'Match the client to the flow.',
-    description: 'API keys, client-credentials OAuth and authorization-code flows serve different actors.',
+    description:
+      'API keys, client-credentials OAuth and authorization-code flows serve different actors.',
     question:
       'A third-party BACKEND service calls your API on behalf of itself (not a user). Which credential design fits best?',
     options: [
@@ -256,7 +273,10 @@ export const apiTemplates: QuestTemplate[] = [
       'Pick by actor: user present → authorization code (+PKCE); no user, server-to-server → client credentials; truly trivial integrations → signed static keys with rotation.',
       'Short-lived tokens bound the damage of leakage; rotation and scopes bound blast radius.',
     ],
-    hints: ['Is there a human in the loop at all?', 'What happens when a long-lived shared secret leaks?'],
+    hints: [
+      'Is there a human in the loop at all?',
+      'What happens when a long-lived shared secret leaks?',
+    ],
     objectives: ['Match flows to actors', 'Reason about token lifetime and scope'],
   }),
 ];
