@@ -36,7 +36,12 @@ interface CodeBlockProps {
 }
 
 /** Syntax-highlighted code block with a language label and copy button. */
-export function CodeBlock({ code, language = 'plaintext', label, lineNumbers = false }: CodeBlockProps) {
+export function CodeBlock({
+  code,
+  language = 'plaintext',
+  label,
+  lineNumbers = false,
+}: CodeBlockProps) {
   ensureLanguages();
   const [copied, setCopied] = useState(false);
 
@@ -70,7 +75,12 @@ export function CodeBlock({ code, language = 'plaintext', label, lineNumbers = f
     <figure className="codeblock" style={{ margin: 0 }}>
       <div className="codeblock-header">
         <span>{label ?? detected}</span>
-        <button type="button" className="copy-btn" onClick={copy} aria-label="Copy code to clipboard">
+        <button
+          type="button"
+          className="copy-btn"
+          onClick={copy}
+          aria-label="Copy code to clipboard"
+        >
           {copied ? <Check size={13} aria-hidden /> : <Copy size={13} aria-hidden />}
           {copied ? 'Copied' : 'Copy'}
         </button>
@@ -102,7 +112,12 @@ interface RevealProps {
 }
 
 /** Accessible collapsible section (hints, solution). */
-export function Reveal({ summary, children, variant = 'default', defaultOpen = false }: RevealProps) {
+export function Reveal({
+  summary,
+  children,
+  variant = 'default',
+  defaultOpen = false,
+}: RevealProps) {
   const [open, setOpen] = useState(defaultOpen);
   return (
     <div className={`reveal${variant === 'solution' ? ' reveal-solution' : ''}`}>
