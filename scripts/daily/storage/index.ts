@@ -1,4 +1,4 @@
-import type { Quest, QuestIndexEntry, QuestIndexFile, SCHEMA_VERSION } from '../../../shared/types.js';
+import type { Quest, QuestIndexEntry, QuestIndexFile } from '../../../shared/types.js';
 import { textFingerprint } from '../core/hashing.js';
 
 /** Compact content fingerprints stored with each index entry. */
@@ -55,7 +55,7 @@ export function buildIndexFile(
   const sorted = [...quests].sort((a, b) => a.date.localeCompare(b.date));
   return {
     file: {
-      schemaVersion: 1 satisfies typeof SCHEMA_VERSION,
+      schemaVersion: 1 as const,
       generatorVersion,
       generatedAt,
       quests: sorted.map(toIndexEntry),
