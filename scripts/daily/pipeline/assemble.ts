@@ -1,5 +1,5 @@
+import { DIFFICULTY_SCORES } from '../../../shared/categories.js';
 import {
-  DIFFICULTY_SCORES,
   type CategoryId,
   type Difficulty,
   type Quest,
