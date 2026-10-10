@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-05",
+  "date": "2026-10-05",
+  "sequenceNumber": 5,
+  "slug": "2026-10-05-the-accidental-quadratic",
+  "title": "The Accidental Quadratic",
+  "shortTitle": "The Accidental Quadratic",
+  "subtitle": "Small n is fine. Then the data grows.",
+  "description": "Which innocent-looking loop is quadratic?",
+  "category": "performance",
+  "subcategories": [
+    "complexity"
+  ],
+  "challengeType": "performance",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 12,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "complexity accidents"
+  ],
+  "tags": [
+    "complexity"
+  ],
+  "skills": [
+    "Complexity spotting"
+  ],
+  "prompt": "Which snippet degrades quadratically as items grow?\n\n**A.** const seen = new Set(); for (const id of ids) { if (seen.has(id)) continue; seen.add(id); process(id); }\n**B.** items.forEach((x) => totals.push(x.price * x.qty))\n**C.** for (const a of items) { if (others.includes(a.id)) { flagged.push(a); } }\n**D.** const merged = [...first, ...second]",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "const seen = new Set(); for (const id of ids) { if (seen.has(id)) continue; seen.add(id); process(id); }",
+    "items.forEach((x) => totals.push(x.price * x.qty))",
+    "for (const a of items) { if (others.includes(a.id)) { flagged.push(a); } }",
+    "const merged = [...first, ...second]"
+  ],
+  "correctOptionIndex": 2,
+  "examples": [],
+  "hints": [
+    "Find the hidden inner loop.",
+    "Which operation is O(m) per call on arrays but O(1) on Sets?"
+  ],
+  "solution": {
+    "summary": "The correct answer is C — for (const a of items) { if (others.includes(a.id)) { flagged.push(a); } }",
+    "answer": "for (const a of items) { if (others.includes(a.id)) { flagged.push(a); } }",
+    "reasoning": [
+      "Nested full scans hide behind clean loop syntax; the array-method version reads like it is \"just a filter\".",
+      "The universal fix: hoist the lookup into a hash-based structure once, then query it per iteration."
+    ],
+    "whyNot": [
+      "const seen = new Set(); for (const id of ids) { if (seen.has(id)) continue; seen.add(id); process(id); } — This one is linear thanks to the Set — constant-time membership checks.",
+      "items.forEach((x) => totals.push(x.price * x.qty)) — Pushing to an array per element is amortized O(1) — linear overall.",
+      "const merged = [...first, ...second] — A single spread is O(n+m) once."
+    ]
+  },
+  "learningObjectives": [
+    "Spot hidden inner loops",
+    "Substitute hash lookups for scans"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "perf.quadratic-accident",
+  "generatorVersion": "1.0.0",
+  "seed": "fab2b485a28be023311780058abf2ee498e6c529be7469672c905ef24d02234c",
+  "paramsSignature": "v1",
+  "contentHash": "e4198d9c4c03f064403ea3d07c87bb27867ec6564e09b998a1b27b50d64439d8",
+  "createdAt": "2026-10-10T16:26:35.239Z",
+  "updatedAt": "2026-10-10T16:26:35.239Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-10T16:26:35.239Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
