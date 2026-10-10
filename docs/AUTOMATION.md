@@ -15,16 +15,26 @@ The publisher. Triggers:
 
 - **Schedule** — `cron: '17 0 * * *'` with `timezone: 'Asia/Kolkata'` (GitHub supports
   IANA timezones on `schedule`; Asia/Kolkata has no DST). The off-round minute avoids the
-  top-of-the-hour congestion GitHub documents for scheduled workflows.
+  top-of-the-hour congestion GitHub documents for scheduled workflows. Scheduled runs pass
+  `--scheduled` to the CLI, so the `publishingEnabled` kill switch in
+  `config/dailyquest.config.ts` applies.
 - **`workflow_dispatch`** — with optional `target_date` (empty = today in the publication
   timezone) and `dry_run` (generate + validate + build, but no commit/push/deploy).
+
+Workflow inputs never reach shell commands through direct expression interpolation:
+`target_date` and `dry_run` flow into step `env:` values, the generation step validates
+the date against `^[0-9]{4}-[0-9]{2}-[0-9]{2}$` before use, and the invocation is the real
+generator — `npm run generate:daily -- --ci` (the bare `quest` script stays help-only).
+The generation step emits job outputs (`publication_date`, `quest_number`, `quest_title`,
+`changed`); `changed=false` for both dry runs and no-op reruns, so push and deployment
+gates can distinguish a real publication from either.
 
 A single `concurrency: daily-quest` group (no cancellation) guarantees one publisher at a
 time: a manual run queues behind a scheduled one instead of racing it.
 
 Steps: configuration check → checkout (with the PAT) → npm ci → generate → validate the
-whole archive → tests → build → identity setup → commit → safe push → upload artifact →
-deploy.
+whole archive → tests → build (which itself fails on malformed dist output) → identity
+setup → commit → safe push → upload `dist/` artifact → deploy.
 
 ### `deploy.yml`
 
@@ -32,6 +42,14 @@ Builds and deploys for pushes to `main` that are **not** the daily commit
 (message check: `!startsWith('feat(daily):')`) and for manual dispatch. The daily
 workflow deploys its own build immediately, so this prevents double deploys. Both deploy
 paths share the `github-pages` concurrency group.
+
+In both workflows `actions/configure-pages` runs inside the deploy job, next to
+`actions/deploy-pages` — deliberately not in the publishing job, so a Pages
+configuration problem can never block the quest commit and push. The uploaded artifact is
+the contents of `dist/` (built `index.html` at the artifact root), never the repository
+root; `scripts/build/verify-dist.ts` fails the build before upload if the production HTML
+still references the development entry point (`/src/main.tsx`) or ignores the configured
+base path.
 
 ## Commit attribution
 
