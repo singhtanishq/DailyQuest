@@ -59,8 +59,16 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'stray close', input: ')' },
     ],
     examples: [
-      { title: 'Example 1', input: '{[()]}', explanation: 'Three levels of nesting, all closed in order.' },
-      { title: 'Example 2', input: '([)]', explanation: 'The `]` arrives while `(` is still open.' },
+      {
+        title: 'Example 1',
+        input: '{[()]}',
+        explanation: 'Three levels of nesting, all closed in order.',
+      },
+      {
+        title: 'Example 2',
+        input: '([)]',
+        explanation: 'The `]` arrives while `(` is still open.',
+      },
     ],
     starter: {
       language: 'javascript',
@@ -218,8 +226,15 @@ export const codingTemplates: QuestTemplate[] = [
       'A single boolean flag is enough to know whether a comma is a separator.',
       'When you see a quote inside quotes, look at the very next character before deciding.',
     ],
-    objectives: ['Write a character-level parser with a mode flag', 'Internalize CSV quoting rules'],
-    edgeCases: ['empty fields between commas', 'quote characters in unquoted fields', 'trailing comma'],
+    objectives: [
+      'Write a character-level parser with a mode flag',
+      'Internalize CSV quoting rules',
+    ],
+    edgeCases: [
+      'empty fields between commas',
+      'quote characters in unquoted fields',
+      'trailing comma',
+    ],
   }),
 
   codingChallenge({
@@ -243,7 +258,11 @@ export const codingTemplates: QuestTemplate[] = [
       'The second line contains `n` distinct integers from the range `[0, n]` in arbitrary order.',
       'Print the single missing number.',
     ],
-    constraints: ['0 ≤ n ≤ 10^6', 'Exactly one number is missing.', 'O(n) time, O(1) extra space preferred.'],
+    constraints: [
+      '0 ≤ n ≤ 10^6',
+      'Exactly one number is missing.',
+      'O(n) time, O(1) extra space preferred.',
+    ],
     run: (input) => {
       const lines = input.trim().split('\n');
       const n = Number.parseInt(lines[0]!.trim(), 10);
@@ -259,7 +278,11 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'shuffled order', input: '9\n8 3 7 1 0 5 2 6 9' },
     ],
     examples: [
-      { title: 'Example 1', input: '5\n0 1 2 4 5', explanation: 'The full range 0..5 sums to 15; the given numbers sum to 12.' },
+      {
+        title: 'Example 1',
+        input: '5\n0 1 2 4 5',
+        explanation: 'The full range 0..5 sums to 15; the given numbers sum to 12.',
+      },
       { title: 'Example 2', input: '3\n1 2 3', explanation: 'Zero is the missing value.' },
     ],
     solution: {
@@ -281,11 +304,21 @@ export const codingTemplates: QuestTemplate[] = [
       alternatives: [
         'XOR every index and value together; the result is the missing number — useful when sums could overflow.',
       ],
-      mistakes: ['Sorting first (O(n log n)) when a constant-space one-pass exists.', 'Forgetting the range starts at 0, not 1.'],
+      mistakes: [
+        'Sorting first (O(n log n)) when a constant-space one-pass exists.',
+        'Forgetting the range starts at 0, not 1.',
+      ],
     },
-    hints: ['There is a closed-form formula for the sum of 0..n.', 'What is the difference between what should be there and what is?'],
+    hints: [
+      'There is a closed-form formula for the sum of 0..n.',
+      'What is the difference between what should be there and what is?',
+    ],
     objectives: ['Apply the Gauss summation identity', 'Reason about single-pass array problems'],
-    edgeCases: ['missing value is 0', 'missing value is n', 'n = 0 with empty list — impossible per constraints but worth noticing'],
+    edgeCases: [
+      'missing value is 0',
+      'missing value is n',
+      'n = 0 with empty list — impossible per constraints but worth noticing',
+    ],
   }),
 
   codingChallenge({
@@ -304,15 +337,21 @@ export const codingTemplates: QuestTemplate[] = [
       'Convert a Roman numeral to its integer value, handling the subtractive pairs IV, IX, XL, XC, CD and CM correctly.',
     promptIntro:
       'Roman numerals are usually additive (VI = 6), except when a smaller symbol precedes a larger one: then it is subtracted (IV = 4, CM = 900). You receive one valid Roman numeral on a single line.',
-    instructions: ['Read one Roman numeral (letters I, V, X, L, C, D, M).', 'Print its integer value.'],
-    constraints: ['The numeral is valid and at most 15 characters.', 'The value fits in a 32-bit integer.'],
+    instructions: [
+      'Read one Roman numeral (letters I, V, X, L, C, D, M).',
+      'Print its integer value.',
+    ],
+    constraints: [
+      'The numeral is valid and at most 15 characters.',
+      'The value fits in a 32-bit integer.',
+    ],
     run: (input) => {
       const values: Record<string, number> = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
       const s = input.trim().toUpperCase();
       let total = 0;
       for (let i = 0; i < s.length; i++) {
         const current = values[s[i]!] ?? 0;
-        const next = i + 1 < s.length ? values[s[i + 1]!] ?? 0 : 0;
+        const next = i + 1 < s.length ? (values[s[i + 1]!] ?? 0) : 0;
         total += current < next ? -current : current;
       }
       return String(total);
@@ -350,9 +389,15 @@ export const codingTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(n) time, O(1) space.',
-      mistakes: ['Enumerating all six subtractive pairs as special cases instead of comparing neighbors.', 'Reading right-to-left but forgetting to flip the comparison.'],
+      mistakes: [
+        'Enumerating all six subtractive pairs as special cases instead of comparing neighbors.',
+        'Reading right-to-left but forgetting to flip the comparison.',
+      ],
     },
-    hints: ['Only one comparison matters at each position: this symbol versus the next one.', 'CM is just C "before" M — subtraction falls out of a neighbor comparison.'],
+    hints: [
+      'Only one comparison matters at each position: this symbol versus the next one.',
+      'CM is just C "before" M — subtraction falls out of a neighbor comparison.',
+    ],
     objectives: ['Model numeral systems as local rules', 'Avoid special-case sprawl'],
     edgeCases: ['numeral ends in I or X (no next symbol)', 'repeated subtractive context like XIX'],
   }),
@@ -374,7 +419,10 @@ export const codingTemplates: QuestTemplate[] = [
     promptIntro:
       'Given a line of text, replace every maximal run of identical consecutive characters with the character followed by the run length. Case matters: `a` and `A` are different characters.',
     instructions: ['Read one line of input.', 'Print the run-length encoded result.'],
-    constraints: ['The input is 1..1,000 characters of printable ASCII.', 'Every run is written explicitly, even runs of length 1.'],
+    constraints: [
+      'The input is 1..1,000 characters of printable ASCII.',
+      'Every run is written explicitly, even runs of length 1.',
+    ],
     run: (input) => {
       const s = input.trim();
       if (s.length === 0) {
@@ -401,7 +449,11 @@ export const codingTemplates: QuestTemplate[] = [
     ],
     examples: [
       { title: 'Example 1', input: 'aaabb', explanation: 'Runs of 3 a’s and 2 b’s.' },
-      { title: 'Example 2', input: 'abc', explanation: 'Every run has length 1, so each character is followed by 1.' },
+      {
+        title: 'Example 2',
+        input: 'abc',
+        explanation: 'Every run has length 1, so each character is followed by 1.',
+      },
     ],
     solution: {
       summary:
@@ -425,9 +477,15 @@ export const codingTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(n) time, O(n) space for the output.',
-      mistakes: ['Forgetting the final flush after the loop.', 'Encoding with `i` compared against `s[i+1]` and dropping the last run.'],
+      mistakes: [
+        'Forgetting the final flush after the loop.',
+        'Encoding with `i` compared against `s[i+1]` and dropping the last run.',
+      ],
     },
-    hints: ['The loop ending at `s.length` (inclusive) lets you flush the last run inside the loop.', 'Count first, append when the run breaks.'],
+    hints: [
+      'The loop ending at `s.length` (inclusive) lets you flush the last run inside the loop.',
+      'Count first, append when the run breaks.',
+    ],
     objectives: ['Implement a classic encoding by hand', 'Handle the final-run boundary correctly'],
     edgeCases: ['all identical characters', 'no repeats at all', 'single character input'],
   }),
@@ -448,7 +506,10 @@ export const codingTemplates: QuestTemplate[] = [
       'Find the longest run of consecutive zero bits that is bounded by 1 bits on both sides in the binary representation of a number.',
     promptIntro:
       'Given a positive integer, write it in binary and find the length of the longest run of consecutive zeros that has a `1` on both sides. Zeros before the first `1` or after the last `1` do not count.',
-    instructions: ['Read one positive integer from input.', 'Print the longest 1-bounded zero run length.'],
+    instructions: [
+      'Read one positive integer from input.',
+      'Print the longest 1-bounded zero run length.',
+    ],
     constraints: ['1 ≤ n < 2^31.'],
     run: (input) => {
       const n = Number.parseInt(input.trim(), 10);
@@ -475,8 +536,16 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'leading zeros ignored', input: '1' },
     ],
     examples: [
-      { title: 'Example 1', input: '529', explanation: '529 is 1000010001 in binary — gaps of 4 and 3.' },
-      { title: 'Example 2', input: '32', explanation: '100000 has trailing zeros only; nothing is 1-bounded.' },
+      {
+        title: 'Example 1',
+        input: '529',
+        explanation: '529 is 1000010001 in binary — gaps of 4 and 3.',
+      },
+      {
+        title: 'Example 2',
+        input: '32',
+        explanation: '100000 has trailing zeros only; nothing is 1-bounded.',
+      },
     ],
     solution: {
       summary:
@@ -504,10 +573,19 @@ export const codingTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(log n) time — one pass over the bits, O(log n) space for the string.',
-      mistakes: ['Counting trailing zeros (use a sentinel like -1 so runs only exist after a 1).', 'Resetting the counter before folding it into the maximum.'],
+      mistakes: [
+        'Counting trailing zeros (use a sentinel like -1 so runs only exist after a 1).',
+        'Resetting the counter before folding it into the maximum.',
+      ],
     },
-    hints: ['The run must be closed by a 1 — what does that suggest about where you update the maximum?', 'A -1 sentinel distinguishes "before the first 1" from "zero run of length 0".'],
-    objectives: ['Convert between numbers and bit patterns fluently', 'Track bounded runs in a single pass'],
+    hints: [
+      'The run must be closed by a 1 — what does that suggest about where you update the maximum?',
+      'A -1 sentinel distinguishes "before the first 1" from "zero run of length 0".',
+    ],
+    objectives: [
+      'Convert between numbers and bit patterns fluently',
+      'Track bounded runs in a single pass',
+    ],
     edgeCases: ['n is a power of two (no closed gaps)', 'n has all bits set'],
   }),
 
@@ -527,7 +605,10 @@ export const codingTemplates: QuestTemplate[] = [
       'Repeatedly sum the digits of a number until a single digit is left — the digital root, with a surprise closed form.',
     promptIntro:
       'Take a non-negative integer, sum its decimal digits, and repeat with the sum until only one digit remains. Print that final digit.',
-    instructions: ['Read one non-negative integer from input.', 'Print the single digit that the process converges to.'],
+    instructions: [
+      'Read one non-negative integer from input.',
+      'Print the single digit that the process converges to.',
+    ],
     constraints: ['0 ≤ n ≤ 2^53 - 1.'],
     run: (input) => {
       let n = Number.parseInt(input.trim(), 10);
@@ -547,7 +628,11 @@ export const codingTemplates: QuestTemplate[] = [
     ],
     examples: [
       { title: 'Example 1', input: '942', explanation: '9 + 4 + 2 = 15, then 1 + 5 = 6.' },
-      { title: 'Example 2', input: '999999999', explanation: '81 → 9. Any multiple of 9 (above 0) ends at 9.' },
+      {
+        title: 'Example 2',
+        input: '999999999',
+        explanation: '81 → 9. Any multiple of 9 (above 0) ends at 9.',
+      },
     ],
     solution: {
       summary:
@@ -569,9 +654,15 @@ export const codingTemplates: QuestTemplate[] = [
 // O(1): n === 0 ? 0 : 1 + (n - 1) % 9`,
       },
       complexity: 'O(log* n) for the loop; O(1) with the modulo formula.',
-      mistakes: ['Looping on `n > 0` instead of `n >= 10`, which never terminates for single-digit input… until you notice it loops forever on 5.', 'Forgetting that 0 is a valid input and a fixed point.'],
+      mistakes: [
+        'Looping on `n > 0` instead of `n >= 10`, which never terminates for single-digit input… until you notice it loops forever on 5.',
+        'Forgetting that 0 is a valid input and a fixed point.',
+      ],
     },
-    hints: ['Each pass makes the number strictly smaller — think about why.', 'Modulo 9 is deeply connected to digit sums.'],
+    hints: [
+      'Each pass makes the number strictly smaller — think about why.',
+      'Modulo 9 is deeply connected to digit sums.',
+    ],
     objectives: ['Implement digit manipulation loops', 'Discover the congruence shortcut'],
     edgeCases: ['n = 0', 'single-digit input', 'numbers divisible by 9'],
   }),
@@ -592,7 +683,10 @@ export const codingTemplates: QuestTemplate[] = [
       'Find the longest common prefix shared by every word in a list — the small utility hiding inside autocomplete and path handling.',
     promptIntro:
       'You receive a list of lowercase words on one line. Find the longest string that is a prefix of every word. If the words share nothing, the answer is the empty string.',
-    instructions: ['Read one line of space-separated words.', 'Print the longest common prefix (it may be empty).'],
+    instructions: [
+      'Read one line of space-separated words.',
+      'Print the longest common prefix (it may be empty).',
+    ],
     constraints: ['1..1,000 words, each 1..100 characters.', 'All characters are lowercase a-z.'],
     run: (input) => {
       const words = input.trim().split(/\s+/).filter(Boolean);
@@ -620,8 +714,16 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'duplicate words', input: 'echo echo echo' },
     ],
     examples: [
-      { title: 'Example 1', input: 'interspecies interstellar interstate', explanation: 'All three share `inters`.' },
-      { title: 'Example 2', input: 'dog cat bird', explanation: 'The first characters already differ, so the prefix is empty.' },
+      {
+        title: 'Example 1',
+        input: 'interspecies interstellar interstate',
+        explanation: 'All three share `inters`.',
+      },
+      {
+        title: 'Example 2',
+        input: 'dog cat bird',
+        explanation: 'The first characters already differ, so the prefix is empty.',
+      },
     ],
     solution: {
       summary:
@@ -644,11 +746,20 @@ export const codingTemplates: QuestTemplate[] = [
   return prefix;
 }`,
       },
-      complexity: 'O(S) where S is the total number of characters; O(1) extra space besides the prefix.',
-      alternatives: ['Sort the words and compare only the first and last — the common prefix of those two is the answer.'],
-      mistakes: ['Comparing all words pairwise instead of shrinking one candidate.', 'Not handling a single-word list.'],
+      complexity:
+        'O(S) where S is the total number of characters; O(1) extra space besides the prefix.',
+      alternatives: [
+        'Sort the words and compare only the first and last — the common prefix of those two is the answer.',
+      ],
+      mistakes: [
+        'Comparing all words pairwise instead of shrinking one candidate.',
+        'Not handling a single-word list.',
+      ],
     },
-    hints: ['The answer can never be longer than the shortest word.', 'The prefix only ever shrinks — never grows.'],
+    hints: [
+      'The answer can never be longer than the shortest word.',
+      'The prefix only ever shrinks — never grows.',
+    ],
     objectives: ['Implement prefix shrinking correctly', 'Practice early termination'],
     edgeCases: ['one word', 'identical words', 'no shared characters'],
   }),
@@ -693,8 +804,16 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'punctuation untouched', input: '13\nWhy did the chicken cross the road?' },
     ],
     examples: [
-      { title: 'Example 1', input: '3\nAttack at Dawn', explanation: 'A→D, t→w, …: `Dwwdfn dw Gdzq`.' },
-      { title: 'Example 2', input: '25\nZebra Crossing', explanation: 'Z wraps to A; e shifts to d; uppercase C becomes B.' },
+      {
+        title: 'Example 1',
+        input: '3\nAttack at Dawn',
+        explanation: 'A→D, t→w, …: `Dwwdfn dw Gdzq`.',
+      },
+      {
+        title: 'Example 2',
+        input: '25\nZebra Crossing',
+        explanation: 'Z wraps to A; e shifts to d; uppercase C becomes B.',
+      },
     ],
     solution: {
       summary:
@@ -715,11 +834,24 @@ export const codingTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(n) time, O(n) space.',
-      mistakes: ['Forgetting the double-mod and producing negative offsets for shift 0 after % 26.', 'Shifting uppercase letters through the lowercase range.'],
+      mistakes: [
+        'Forgetting the double-mod and producing negative offsets for shift 0 after % 26.',
+        'Shifting uppercase letters through the lowercase range.',
+      ],
     },
-    hints: ['(((k % 26) + 26) % 26) is always in [0, 25].', 'Uppercase A–Z lives at code points 65–90; lowercase at 97–122.'],
-    objectives: ['Master modular character arithmetic', 'Preserve structure while transforming content'],
-    edgeCases: ['k = 0 and k = 26 (identity)', 'k larger than the message length', 'message with no letters at all'],
+    hints: [
+      '(((k % 26) + 26) % 26) is always in [0, 25].',
+      'Uppercase A–Z lives at code points 65–90; lowercase at 97–122.',
+    ],
+    objectives: [
+      'Master modular character arithmetic',
+      'Preserve structure while transforming content',
+    ],
+    edgeCases: [
+      'k = 0 and k = 26 (identity)',
+      'k larger than the message length',
+      'message with no letters at all',
+    ],
   }),
 
   codingChallenge({
@@ -738,7 +870,10 @@ export const codingTemplates: QuestTemplate[] = [
       'Flatten an arbitrarily nested JSON array of numbers into a single flat sequence — recursion in its most practical costume.',
     promptIntro:
       'You receive one line of JSON representing an array that may contain numbers or further arrays, nested to any depth. Flatten it: output all numbers in left-to-right order, space-separated.',
-    instructions: ['Read one line of JSON from input.', 'Print the flattened numbers space-separated (empty output for an empty array).'],
+    instructions: [
+      'Read one line of JSON from input.',
+      'Print the flattened numbers space-separated (empty output for an empty array).',
+    ],
     constraints: ['Nesting depth ≤ 100.', 'The JSON contains only numbers and arrays.'],
     run: (input) => {
       const parsed: unknown = JSON.parse(input.trim());
@@ -761,8 +896,16 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'negatives and floats', input: '[-1,[2.5,[0]]]' },
     ],
     examples: [
-      { title: 'Example 1', input: '[1,[2,3],[4,[5,[6]]]]', explanation: 'Four levels deep, all folded into one sequence.' },
-      { title: 'Example 2', input: '[[],[[]],[1,[]]]', explanation: 'Empty shells vanish; only the 1 survives.' },
+      {
+        title: 'Example 1',
+        input: '[1,[2,3],[4,[5,[6]]]]',
+        explanation: 'Four levels deep, all folded into one sequence.',
+      },
+      {
+        title: 'Example 2',
+        input: '[[],[[]],[1,[]]]',
+        explanation: 'Empty shells vanish; only the 1 survives.',
+      },
     ],
     solution: {
       summary:
@@ -785,12 +928,24 @@ export const codingTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(n) over all elements; recursion depth equals nesting depth.',
-      alternatives: ['An explicit stack of (array, index) pairs avoids recursion limits at extreme depth.'],
-      mistakes: ['Returning `[...value].flat()` — `Array.prototype.flat` only flattens one level by default (use `flat(Infinity)` knowingly).', 'Pushing arrays into the output instead of recursing.'],
+      alternatives: [
+        'An explicit stack of (array, index) pairs avoids recursion limits at extreme depth.',
+      ],
+      mistakes: [
+        'Returning `[...value].flat()` — `Array.prototype.flat` only flattens one level by default (use `flat(Infinity)` knowingly).',
+        'Pushing arrays into the output instead of recursing.',
+      ],
     },
-    hints: ['Base case: a number. Recursive case: an array of things to walk.', 'Left-to-right output falls out of visiting children in order.'],
+    hints: [
+      'Base case: a number. Recursive case: an array of things to walk.',
+      'Left-to-right output falls out of visiting children in order.',
+    ],
     objectives: ['Write clean recursive traversals', 'Use JSON.parse with type-narrowing care'],
-    edgeCases: ['empty top-level array', 'arrays containing only empty arrays', 'deeply nested single element'],
+    edgeCases: [
+      'empty top-level array',
+      'arrays containing only empty arrays',
+      'deeply nested single element',
+    ],
   }),
 
   codingChallenge({
@@ -809,8 +964,14 @@ export const codingTemplates: QuestTemplate[] = [
       'Sort words by length, breaking ties alphabetically — a small exercise in composing comparison rules that generalizes to real ranking systems.',
     promptIntro:
       'You receive a list of words on one line. Sort them: primarily by length (shorter first), and alphabetically among words of equal length.',
-    instructions: ['Read one line of space-separated words.', 'Print the sorted words space-separated.'],
-    constraints: ['1..1,000 words, each 1..100 characters.', 'The sort must be deterministic — equal words stay adjacent.'],
+    instructions: [
+      'Read one line of space-separated words.',
+      'Print the sorted words space-separated.',
+    ],
+    constraints: [
+      '1..1,000 words, each 1..100 characters.',
+      'The sort must be deterministic — equal words stay adjacent.',
+    ],
     run: (input) => {
       const words = input.trim().split(/\s+/).filter(Boolean);
       return words
@@ -831,8 +992,16 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'single word', input: 'solo' },
     ],
     examples: [
-      { title: 'Example 1', input: 'banana kiwi fig apple', explanation: 'fig (3), kiwi (4), apple (5), banana (6).' },
-      { title: 'Example 2', input: 'pear plum pea', explanation: 'pea (3) beats pear (4) and plum (4); among 4-letter words, pear < plum.' },
+      {
+        title: 'Example 1',
+        input: 'banana kiwi fig apple',
+        explanation: 'fig (3), kiwi (4), apple (5), banana (6).',
+      },
+      {
+        title: 'Example 2',
+        input: 'pear plum pea',
+        explanation: 'pea (3) beats pear (4) and plum (4); among 4-letter words, pear < plum.',
+      },
     ],
     solution: {
       summary:
@@ -855,7 +1024,10 @@ export const codingTemplates: QuestTemplate[] = [
         'Using `localeCompare` and getting locale-dependent order.',
       ],
     },
-    hints: ['A comparator returns negative/zero/positive — decide the primary key before the tie-breaker.', 'Think about what "deterministic" means when two words are identical.'],
+    hints: [
+      'A comparator returns negative/zero/positive — decide the primary key before the tie-breaker.',
+      'Think about what "deterministic" means when two words are identical.',
+    ],
     objectives: ['Compose multi-key comparators', 'Avoid locale-dependent ordering'],
     edgeCases: ['all words the same length', 'exact duplicates', 'one word'],
   }),
@@ -876,7 +1048,10 @@ export const codingTemplates: QuestTemplate[] = [
       'Parse a URL query string correctly: pairs split on `&`, values on the first `=`, `+` means space, and percent escapes decode to UTF-8.',
     promptIntro:
       'Given a query string (no leading `?`), split it into `key=value` pairs and decode both sides. Rules: pairs are separated by `&`; a pair may have no `=` (value is empty); `+` decodes to a space; `%XX` sequences decode as UTF-8.',
-    instructions: ['Read one query string from input.', 'Print each decoded pair as `key=value` on its own line, in order.'],
+    instructions: [
+      'Read one query string from input.',
+      'Print each decoded pair as `key=value` on its own line, in order.',
+    ],
     constraints: ['The input contains only valid pairs and well-formed escapes.'],
     run: (input) => {
       const decode = (s: string) => decodeURIComponent(s.replace(/\+/g, ' '));
@@ -900,8 +1075,16 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'plus is space', input: 'bio=hi+there' },
     ],
     examples: [
-      { title: 'Example 1', input: 'q=hello+world&lang=en', explanation: 'The `+` in the value decodes to a space.' },
-      { title: 'Example 2', input: 'token=abc=def', explanation: 'Only the FIRST `=` splits key from value; the rest is data.' },
+      {
+        title: 'Example 1',
+        input: 'q=hello+world&lang=en',
+        explanation: 'The `+` in the value decodes to a space.',
+      },
+      {
+        title: 'Example 2',
+        input: 'token=abc=def',
+        explanation: 'Only the FIRST `=` splits key from value; the rest is data.',
+      },
     ],
     solution: {
       summary:
@@ -924,9 +1107,15 @@ export const codingTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(n) time and space.',
-      mistakes: ['`pair.split("=")` breaks on values containing `=`.', 'Decoding before splitting on `&` — an encoded `%26` would be corrupted.'],
+      mistakes: [
+        '`pair.split("=")` breaks on values containing `=`.',
+        'Decoding before splitting on `&` — an encoded `%26` would be corrupted.',
+      ],
     },
-    hints: ['Split on `&` first, decode last.', 'Values may legitimately contain `=` — how would `indexOf` help?'],
+    hints: [
+      'Split on `&` first, decode last.',
+      'Values may legitimately contain `=` — how would `indexOf` help?',
+    ],
     objectives: ['Parse query strings per the URL spec', 'Understand percent-encoding and `+`'],
     edgeCases: ['key with no `=`', 'empty value', 'encoded `%26` and `%3D` inside values'],
   }),
@@ -947,8 +1136,15 @@ export const codingTemplates: QuestTemplate[] = [
       'Wrap text to a maximum line width, greedily fitting as many words per line as possible — the algorithm behind every textarea.',
     promptIntro:
       'The first line contains the maximum line width `W`. The second line contains the text. Wrap the text so that each line contains as many words as fit within `W` characters (words separated by single spaces). No line may exceed `W` characters; words are never split.',
-    instructions: ['The first line contains `W` (1 ≤ W ≤ 200).', 'The second line contains the text (words of 1..W characters).', 'Print the wrapped text.'],
-    constraints: ['Every single word fits on a line by itself.', 'Trailing spaces are not allowed.'],
+    instructions: [
+      'The first line contains `W` (1 ≤ W ≤ 200).',
+      'The second line contains the text (words of 1..W characters).',
+      'Print the wrapped text.',
+    ],
+    constraints: [
+      'Every single word fits on a line by itself.',
+      'Trailing spaces are not allowed.',
+    ],
     run: (input) => {
       const lines = input.trim().split('\n');
       const width = Number.parseInt(lines[0]!.trim(), 10);
@@ -981,9 +1177,14 @@ export const codingTemplates: QuestTemplate[] = [
       {
         title: 'Example 1',
         input: '12\nThe quick brown fox jumps over the lazy dog',
-        explanation: 'Lines fill greedily: "The quick", "brown fox", "jumps over", "the lazy dog" (exactly 12).',
+        explanation:
+          'Lines fill greedily: "The quick", "brown fox", "jumps over", "the lazy dog" (exactly 12).',
       },
-      { title: 'Example 2', input: '9\none two three', explanation: '"one two" is 7; adding "three" would make 13, so it wraps.' },
+      {
+        title: 'Example 2',
+        input: '9\none two three',
+        explanation: '"one two" is 7; adding "three" would make 13, so it wraps.',
+      },
     ],
     solution: {
       summary:
@@ -1009,11 +1210,21 @@ export const codingTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(total characters) time.',
-      mistakes: ['Measuring `word.length` before a space that may not exist yet.', 'Splitting words that do not fit — the spec forbids it.'],
+      mistakes: [
+        'Measuring `word.length` before a space that may not exist yet.',
+        'Splitting words that do not fit — the spec forbids it.',
+      ],
     },
-    hints: ['Only two cases exist per word: the line is empty, or it is not.', 'The fit check is `current + 1 + word ≤ W` — the +1 is the space.'],
+    hints: [
+      'Only two cases exist per word: the line is empty, or it is not.',
+      'The fit check is `current + 1 + word ≤ W` — the +1 is the space.',
+    ],
     objectives: ['Implement greedy text layout', 'Get boundary arithmetic exactly right'],
-    edgeCases: ['word exactly fills the remaining width', 'width 1', 'text with repeated spaces in input (collapse them)'],
+    edgeCases: [
+      'word exactly fills the remaining width',
+      'width 1',
+      'text with repeated spaces in input (collapse them)',
+    ],
   }),
 
   codingChallenge({
@@ -1037,7 +1248,10 @@ export const codingTemplates: QuestTemplate[] = [
       'The next `r` lines each contain `c` characters, `0` or `1`.',
       'Print the number of islands.',
     ],
-    constraints: ['1 ≤ r, c ≤ 100.', 'Recursion depth or an explicit stack — your choice, but stay within memory limits.'],
+    constraints: [
+      '1 ≤ r, c ≤ 100.',
+      'Recursion depth or an explicit stack — your choice, but stay within memory limits.',
+    ],
     run: (input) => {
       const lines = input.trim().split('\n');
       const dims = lines[0]!.trim().split(/\s+/).map(Number);
@@ -1080,8 +1294,16 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'thin strips', input: '1 5\n10101' },
     ],
     examples: [
-      { title: 'Example 1', input: '4 4\n1100\n1100\n0011\n0011', explanation: 'A 2×2 landmass top-left and another bottom-right.' },
-      { title: 'Example 2', input: '3 3\n100\n010\n001', explanation: 'Diagonal cells do not connect: three separate isles.' },
+      {
+        title: 'Example 1',
+        input: '4 4\n1100\n1100\n0011\n0011',
+        explanation: 'A 2×2 landmass top-left and another bottom-right.',
+      },
+      {
+        title: 'Example 2',
+        input: '3 3\n100\n010\n001',
+        explanation: 'Diagonal cells do not connect: three separate isles.',
+      },
     ],
     solution: {
       summary:
@@ -1111,9 +1333,15 @@ export const codingTemplates: QuestTemplate[] = [
       },
       complexity: 'O(r·c) time and space — every cell is visited a constant number of times.',
       alternatives: ['Union-Find: merge adjacent land cells into sets, then count distinct roots.'],
-      mistakes: ['Including diagonal neighbors, which merges separate isles.', 'Flood-filling without a visited marker, recursing forever.'],
+      mistakes: [
+        'Including diagonal neighbors, which merges separate isles.',
+        'Flood-filling without a visited marker, recursing forever.',
+      ],
     },
-    hints: ['Every island has exactly one cell that the row-major scan reaches first.', 'The fill must mark cells visited before recursing, not after.'],
+    hints: [
+      'Every island has exactly one cell that the row-major scan reaches first.',
+      'The fill must mark cells visited before recursing, not after.',
+    ],
     objectives: ['Implement flood fill on a grid', 'Understand connected components in disguise'],
     edgeCases: ['all water', 'all land', 'diagonal-only contact', 'single row or column'],
   }),
@@ -1135,7 +1363,10 @@ export const codingTemplates: QuestTemplate[] = [
     promptIntro:
       'You receive a lowercase snake_case identifier (letters and digits, separated by single underscores, no leading or trailing underscore). Convert it to camelCase: the first segment stays lowercase; every following segment has its first character uppercased; underscores disappear.',
     instructions: ['Read one identifier from input.', 'Print the camelCase form.'],
-    constraints: ['The input matches `[a-z0-9]+(_[a-z0-9]+)*`.', 'Segments may contain digits but never start with one after an underscore.'],
+    constraints: [
+      'The input matches `[a-z0-9]+(_[a-z0-9]+)*`.',
+      'Segments may contain digits but never start with one after an underscore.',
+    ],
     run: (input) => {
       const s = input.trim();
       return s.replace(/_+([a-z0-9])/g, (_match, ch: string) => ch.toUpperCase());
@@ -1148,8 +1379,16 @@ export const codingTemplates: QuestTemplate[] = [
       { name: 'short segments', input: 'a_b_c' },
     ],
     examples: [
-      { title: 'Example 1', input: 'http_response_code', explanation: 'Segments: http, response, code → httpResponseCode.' },
-      { title: 'Example 2', input: 'md5_hash_value', explanation: 'Digits stay put: md5HashValue.' },
+      {
+        title: 'Example 1',
+        input: 'http_response_code',
+        explanation: 'Segments: http, response, code → httpResponseCode.',
+      },
+      {
+        title: 'Example 2',
+        input: 'md5_hash_value',
+        explanation: 'Digits stay put: md5HashValue.',
+      },
     ],
     solution: {
       summary:
@@ -1169,8 +1408,18 @@ export const codingTemplates: QuestTemplate[] = [
         'Handling digits incorrectly — `toUpperCase` leaves them unchanged, which is what we want.',
       ],
     },
-    hints: ['The first segment should NOT be changed — how does the regex guarantee that?', 'One substitution pattern is enough; no loop required.'],
-    objectives: ['Use regex replace with a function', 'Respect the first-segment rule of camelCase'],
-    edgeCases: ['single-segment input', 'consecutive segments like a_b_c', 'digits at segment boundaries'],
+    hints: [
+      'The first segment should NOT be changed — how does the regex guarantee that?',
+      'One substitution pattern is enough; no loop required.',
+    ],
+    objectives: [
+      'Use regex replace with a function',
+      'Respect the first-segment rule of camelCase',
+    ],
+    edgeCases: [
+      'single-segment input',
+      'consecutive segments like a_b_c',
+      'digits at segment boundaries',
+    ],
   }),
 ];
