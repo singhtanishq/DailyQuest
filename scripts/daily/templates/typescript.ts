@@ -48,7 +48,10 @@ function process(input: Input) {
       'An early return strengthens narrowing after the if — no else needed.',
       'Custom guards (input is Foo) extend the same principle to checks the compiler cannot express.',
     ],
-    hints: ['The if both narrows and (via return) filters the fallthrough path.', 'What does the compiler know after `typeof input === "string"` is false?'],
+    hints: [
+      'The if both narrows and (via return) filters the fallthrough path.',
+      'What does the compiler know after `typeof input === "string"` is false?',
+    ],
     objectives: ['Predict narrowing through branches and returns', 'Write custom type guards'],
   }),
 
@@ -83,7 +86,10 @@ function process(input: Input) {
       'unknown stops the spread: you must narrow before operating.',
       'Rule of thumb: unknown at system boundaries (JSON.parse results, network payloads), concrete types after validation.',
     ],
-    hints: ['Which one lets you call any method on it without checks?', 'What happens when an `any` value is assigned to a `string` variable?'],
+    hints: [
+      'Which one lets you call any method on it without checks?',
+      'What happens when an `any` value is assigned to a `string` variable?',
+    ],
     objectives: ['Prefer unknown at boundaries', 'Contain any propagation'],
   }),
 
@@ -119,8 +125,14 @@ function process(input: Input) {
       'Partial is for update payloads, not for public projections.',
       'The pattern generalizes: project out secrets at the boundary, make optionality explicit.',
     ],
-    hints: ['Which utility removes keys by name?', 'How do you make a single field optional without touching the others?'],
-    objectives: ['Compose utility types for safe projections', 'Keep secrets out of derived shapes'],
+    hints: [
+      'Which utility removes keys by name?',
+      'How do you make a single field optional without touching the others?',
+    ],
+    objectives: [
+      'Compose utility types for safe projections',
+      'Keep secrets out of derived shapes',
+    ],
   }),
 
   openChallenge({
@@ -157,7 +169,10 @@ function process(input: Input) {
         'Overusing generics for single concrete types — genericity needs variation to pay off.',
       ],
     },
-    hints: ['Call first([1,2,3])[0] + 1 under both signatures — which compiles?', 'A constraint is how the body earns the right to use members.'],
+    hints: [
+      'Call first([1,2,3])[0] + 1 under both signatures — which compiles?',
+      'A constraint is how the body earns the right to use members.',
+    ],
     objectives: ['Articulate the value of type parameters', 'Use constraints to unlock operations'],
   }),
 
@@ -173,7 +188,8 @@ function process(input: Input) {
     subcategories: ['types'],
     title: 'The Honest Annotation',
     subtitle: 'as widens; satisfies checks without widening.',
-    description: 'Choosing between a type assertion and the satisfies operator for a config object.',
+    description:
+      'Choosing between a type assertion and the satisfies operator for a config object.',
     question:
       'You declare a theme config that must match `type Theme = Record<string, { color: string }>`. Which declaration keeps literal key checking while guaranteeing conformance?',
     options: [
@@ -193,7 +209,10 @@ function process(input: Input) {
       'satisfies answers: is this value assignable, and can I keep the precise type?',
       'For config objects, satisfies catches typos on BOTH sides: unknown keys and missing required fields.',
     ],
-    hints: ['What survives the expression type-wise in each variant?', 'Which operator was added in TS 4.9 precisely for this use case?'],
+    hints: [
+      'What survives the expression type-wise in each variant?',
+      'Which operator was added in TS 4.9 precisely for this use case?',
+    ],
     objectives: ['Use satisfies for checked literals', 'Reserve `as` for genuinely provable casts'],
   }),
 ];
