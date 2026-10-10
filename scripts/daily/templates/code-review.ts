@@ -20,8 +20,7 @@ export const codeReviewTemplates: QuestTemplate[] = [
     subtitle: 'Login success goes wherever the URL says.',
     description: 'A post-login redirect that trusts a query parameter.',
     language: 'typescript',
-    context:
-      'This runs in an Express-style route handler after successful login.',
+    context: 'This runs in an Express-style route handler after successful login.',
     code: `app.get("/login", async (req, res) => {
   const { username, password, redirectTo } = req.query;
   const user = await verifyCredentials(String(username), String(password));
@@ -54,7 +53,10 @@ export const codeReviewTemplates: QuestTemplate[] = [
         fix: 'Validate with a schema (zod/valibot) and return 400 on malformed input.',
       },
     ],
-    hints: ['Where does redirectTo end up, and who controls it?', 'What could an attacker gain by choosing the post-login destination?'],
+    hints: [
+      'Where does redirectTo end up, and who controls it?',
+      'What could an attacker gain by choosing the post-login destination?',
+    ],
     objectives: ['Spot open redirects in auth flows', 'Design redirect allowlists'],
   }),
 
@@ -101,7 +103,10 @@ export const codeReviewTemplates: QuestTemplate[] = [
         fix: 'Parameterization again — one prepared statement, many executions.',
       },
     ],
-    hints: ['Trace the quote characters through the assembled string.', 'There are two separate problems with the LIKE clause.'],
+    hints: [
+      'Trace the quote characters through the assembled string.',
+      'There are two separate problems with the LIKE clause.',
+    ],
     objectives: ['Identify injection in assembled SQL', 'Know the LIKE-wildcard nuance'],
   }),
 
@@ -159,7 +164,10 @@ export const codeReviewTemplates: QuestTemplate[] = [
   return <p>{size.w}×{size.h}</p>;
 }`,
     },
-    hints: ['What does the effect return in the broken version?', 'How many listeners exist after five visits to this page?'],
+    hints: [
+      'What does the effect return in the broken version?',
+      'How many listeners exist after five visits to this page?',
+    ],
     objectives: ['Enforce subscribe/unsubscribe symmetry', 'Connect leaks to GC reachability'],
   }),
 
@@ -200,7 +208,10 @@ export const codeReviewTemplates: QuestTemplate[] = [
         fix: 'Batch with a bounded-concurrency map (e.g. p-limit) — unbounded Promise.all can overwhelm the DB.',
       },
     ],
-    hints: ['What does the event loop do during readFileSync?', 'Are the row operations order-dependent?'],
+    hints: [
+      'What does the event loop do during readFileSync?',
+      'Are the row operations order-dependent?',
+    ],
     objectives: ['Spot blocking IO in async code', 'Apply bounded concurrency'],
   }),
 
@@ -294,7 +305,10 @@ export async function fetchDashboard() {
         fix: 'Enable eslint no-cond-assign as an error.',
       },
     ],
-    hints: ['What is the value of an assignment expression?', 'Trace cart.total through the function line by line.'],
+    hints: [
+      'What is the value of an assignment expression?',
+      'Trace cart.total through the function line by line.',
+    ],
     objectives: ['Catch assignment-in-condition typos', 'Wire lint rules as a safety net'],
   }),
 
@@ -341,7 +355,10 @@ export async function fetchDashboard() {
         fix: 'Accept a client-generated idempotency key and store it with the order.',
       },
     ],
-    hints: ['List every line where the process could die. Which states are unrecoverable?', 'Which operation does the client retry?'],
+    hints: [
+      'List every line where the process could die. Which states are unrecoverable?',
+      'Which operation does the client retry?',
+    ],
     objectives: ['Reason about partial failure', 'Design transactional + idempotent flows'],
   }),
 ];
