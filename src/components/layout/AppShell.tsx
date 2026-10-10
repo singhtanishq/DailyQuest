@@ -23,7 +23,13 @@ function BrandMark() {
         strokeWidth="1.8"
         strokeLinejoin="round"
       />
-      <path d="M8.4 12.1l2.5 2.6 4.9-5.4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M8.4 12.1l2.5 2.6 4.9-5.4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
