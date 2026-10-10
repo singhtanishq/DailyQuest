@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-03",
+  "date": "2026-10-03",
+  "sequenceNumber": 3,
+  "slug": "2026-10-03-the-url-parameter-that-reaches-inside",
+  "title": "The URL Parameter That Reaches Inside",
+  "shortTitle": "The URL Parameter That Reaches Inside",
+  "subtitle": "When your server fetches attacker-chosen addresses.",
+  "description": "Analyse the SSRF class: mechanism, impact, and layered mitigation.",
+  "category": "cybersecurity",
+  "subcategories": [
+    "web-security"
+  ],
+  "challengeType": "cybersecurity",
+  "difficulty": "hard",
+  "difficultyScore": 4,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 4,
+  "reasoningComplexity": 4,
+  "implementationComplexity": 3,
+  "concepts": [
+    "ssrf",
+    "egress control"
+  ],
+  "tags": [
+    "ssrf",
+    "web"
+  ],
+  "skills": [
+    "Server-side request analysis"
+  ],
+  "prompt": "A service offers \"fetch a preview for any URL you paste\". Analyse why this is dangerous even though it only performs GET requests: which internal targets become reachable, how redirects and DNS rebinding complicate naive defenses, and design the layered mitigation (allowlists, egress rules, metadata-service hardening).\n\nA strong answer addresses:\n- Explain the privilege position: the server’s network, not the attacker’s.\n- Cover redirect-following and DNS-rebinding bypasses of naive URL checks.\n- Design defenses in layers: scheme/host allowlists, egress firewall, IMDS protection.",
+  "instructions": [
+    "Answer in your own words, then compare with the solution."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "Whose network position does the request come from?",
+    "Name the cloud service that MUST never be reachable from user-triggered fetches."
+  ],
+  "solution": {
+    "summary": "The request originates from YOUR server — inside the perimeter — so attacker-chosen URLs can reach internal-only services: cloud metadata endpoints (169.254.169.254), admin panels, databases. Naive URL checks are bypassed by HTTP redirects (validate the START URL, get redirected to localhost) and DNS rebinding (resolve once to a public IP, again to an internal one). Mitigations in layers: scheme+host allowlist; resolve and connect only to approved IPs with the connection pinned to that resolution; block link-local/private ranges at the egress firewall; IMDSv2-style token requirements on the metadata service; disable redirect following or re-validate every hop.",
+    "reasoning": [
+      "SSRF is an authorization problem (network reachability), not an injection problem.",
+      "Response data may also leak (fetch-and-return turns intranet pages into exfiltration).",
+      "Timeouts and response-size caps limit blind-probing side channels."
+    ],
+    "commonMistakes": [
+      "Validating the URL string but following redirects unvalidated.",
+      "Blocking 127.0.0.1 literally while ignoring 0x7f000001, decimal encodings and IPv6 equivalents."
+    ]
+  },
+  "learningObjectives": [
+    "Analyse SSRF impact paths",
+    "Layer allowlist, egress and metadata defenses"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "sec.ssrf-analysis",
+  "generatorVersion": "1.0.0",
+  "seed": "6af0b9423db1d63eaa4e6516dc31372e57e5490fcb9dfe6fb9daceec379397ea",
+  "paramsSignature": "v1",
+  "contentHash": "b8b9968a0f487ec4e4b7114d2f8153a5775483d8433375427f9f7673dac764f1",
+  "createdAt": "2026-10-10T16:26:35.239Z",
+  "updatedAt": "2026-10-10T16:26:35.239Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-10T16:26:35.239Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
