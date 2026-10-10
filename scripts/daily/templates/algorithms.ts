@@ -63,8 +63,16 @@ export const algorithmTemplates: QuestTemplate[] = [
       { name: 'pivot early', input: '3\n5 1 3' },
     ],
     examples: [
-      { title: 'Example 1', input: '0\n4 5 6 7 0 1 2', explanation: 'The rotation splits the array into two sorted runs; 0 lives in the second.' },
-      { title: 'Example 2', input: '3\n4 5 6 7 0 1 2', explanation: '3 is not present; the search space empties.' },
+      {
+        title: 'Example 1',
+        input: '0\n4 5 6 7 0 1 2',
+        explanation: 'The rotation splits the array into two sorted runs; 0 lives in the second.',
+      },
+      {
+        title: 'Example 2',
+        input: '3\n4 5 6 7 0 1 2',
+        explanation: '3 is not present; the search space empties.',
+      },
     ],
     solution: {
       summary:
@@ -103,7 +111,10 @@ export const algorithmTemplates: QuestTemplate[] = [
       'In a rotated sorted array, at least one half around mid is always properly sorted.',
       'A sorted range is recognizable by its endpoints — compare nums[lo] with nums[mid].',
     ],
-    objectives: ['Adapt binary search to a shifted invariant', 'Always discard half the search space'],
+    objectives: [
+      'Adapt binary search to a shifted invariant',
+      'Always discard half the search space',
+    ],
     edgeCases: ['no rotation at all', 'target at either boundary', 'two-element arrays'],
   }),
 
@@ -128,7 +139,11 @@ export const algorithmTemplates: QuestTemplate[] = [
       'The second line contains the sorted array.',
       'Print two 1-based indices in ascending order, or `-1 -1`.',
     ],
-    constraints: ['2 ≤ n ≤ 10^5.', 'Use O(1) extra space — the array is already sorted.', 'O(n) time expected.'],
+    constraints: [
+      '2 ≤ n ≤ 10^5.',
+      'Use O(1) extra space — the array is already sorted.',
+      'O(n) time expected.',
+    ],
     run: (input) => {
       const lines = input.trim().split('\n');
       const target = Number.parseInt(lines[0]!.trim(), 10);
@@ -181,9 +196,15 @@ export const algorithmTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(n) time, O(1) space.',
-      mistakes: ['Using a hash map (works, but wastes the sortedness and O(1) space).', 'Advancing both pointers at once after a miss.'],
+      mistakes: [
+        'Using a hash map (works, but wastes the sortedness and O(1) space).',
+        'Advancing both pointers at once after a miss.',
+      ],
     },
-    hints: ['If the current sum is too small, can the right pointer ever help?', 'Each comparison permanently eliminates exactly one candidate.'],
+    hints: [
+      'If the current sum is too small, can the right pointer ever help?',
+      'Each comparison permanently eliminates exactly one candidate.',
+    ],
     objectives: ['Apply the two-pointer pattern', 'Trust and articulate the invariant'],
     edgeCases: ['pair at the outermost positions', 'negative values', 'no valid pair'],
   }),
@@ -235,8 +256,16 @@ export const algorithmTemplates: QuestTemplate[] = [
       { name: 'negatives', input: '2\n-5 -3 -8 -1' },
     ],
     examples: [
-      { title: 'Example 1', input: '3\n1 4 2 10 2 3 1', explanation: 'The window [4, 2, 10] sums to 16 and wins.' },
-      { title: 'Example 2', input: '2\n-5 -3 -8 -1', explanation: 'All windows are negative; the best is (-5) + (-3) = -8.' },
+      {
+        title: 'Example 1',
+        input: '3\n1 4 2 10 2 3 1',
+        explanation: 'The window [4, 2, 10] sums to 16 and wins.',
+      },
+      {
+        title: 'Example 2',
+        input: '2\n-5 -3 -8 -1',
+        explanation: 'All windows are negative; the best is (-5) + (-3) = -8.',
+      },
     ],
     solution: {
       summary:
@@ -260,9 +289,15 @@ export const algorithmTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(n) time, O(1) space.',
-      mistakes: ['Recomputing the window sum from scratch — O(n·k).', 'Off-by-one: subtracting nums[i-k] after adding nums[i] in the wrong order (harmless here, fatal with max-only windows).'],
+      mistakes: [
+        'Recomputing the window sum from scratch — O(n·k).',
+        'Off-by-one: subtracting nums[i-k] after adding nums[i] in the wrong order (harmless here, fatal with max-only windows).',
+      ],
     },
-    hints: ['Two adjacent windows share k-1 elements.', 'What enters the window when it slides one step right, and what leaves?'],
+    hints: [
+      'Two adjacent windows share k-1 elements.',
+      'What enters the window when it slides one step right, and what leaves?',
+    ],
     objectives: ['Maintain an aggregate incrementally', 'Recognize fixed-size window problems'],
     edgeCases: ['k equals the array length', 'k = 1 (pure maximum)', 'all-negative arrays'],
   }),
@@ -283,7 +318,10 @@ export const algorithmTemplates: QuestTemplate[] = [
       'Find the length of the longest substring without repeating characters — a variable-size sliding window with a precise restart rule.',
     promptIntro:
       'Given a string, find the length of the longest contiguous substring in which no character appears more than once.',
-    instructions: ['Read one string from input.', 'Print the length of the longest repeat-free substring.'],
+    instructions: [
+      'Read one string from input.',
+      'Print the length of the longest repeat-free substring.',
+    ],
     constraints: ['The string may be empty.', 'Length up to 10^5. O(n) expected.'],
     run: (input) => {
       const s = input.trim();
@@ -313,7 +351,12 @@ export const algorithmTemplates: QuestTemplate[] = [
     ],
     examples: [
       { title: 'Example 1', input: 'abcabcbb', explanation: 'The answer is 3: "abc".' },
-      { title: 'Example 2', input: 'abba', explanation: 'The trap: after "ab", the second b restarts at index 2 — but the second a at index 3 must NOT restart before 2. Answer 2.' },
+      {
+        title: 'Example 2',
+        input: 'abba',
+        explanation:
+          'The trap: after "ab", the second b restarts at index 2 — but the second a at index 3 must NOT restart before 2. Answer 2.',
+      },
     ],
     solution: {
       summary:
@@ -344,7 +387,10 @@ export const algorithmTemplates: QuestTemplate[] = [
         'Using a set and shrinking the window one character at a time (correct but slower to reason about).',
       ],
     },
-    hints: ['The window only ever moves forward; start never decreases.', 'A character seen before the window began is not a repeat.'],
+    hints: [
+      'The window only ever moves forward; start never decreases.',
+      'A character seen before the window began is not a repeat.',
+    ],
     objectives: ['Master variable-size sliding windows', 'Handle the stale-index trap correctly'],
     edgeCases: ['empty string', 'the abba restart trap', 'all unique', 'all identical'],
   }),
@@ -366,7 +412,11 @@ export const algorithmTemplates: QuestTemplate[] = [
     promptIntro:
       'Given an array of integers (at least one element), find the maximum sum of a non-empty contiguous subarray.',
     instructions: ['Read one line of space-separated integers.', 'Print the maximum subarray sum.'],
-    constraints: ['1 ≤ n ≤ 10^5.', 'The subarray must be non-empty (all-negative arrays return the largest element).', 'O(n) time, O(1) space.'],
+    constraints: [
+      '1 ≤ n ≤ 10^5.',
+      'The subarray must be non-empty (all-negative arrays return the largest element).',
+      'O(n) time, O(1) space.',
+    ],
     run: (input) => {
       const nums = input.trim().split(/\s+/).map(Number);
       let best = nums[0]!;
@@ -385,8 +435,16 @@ export const algorithmTemplates: QuestTemplate[] = [
       { name: 'alternating', input: '8 -19 5 -4 20' },
     ],
     examples: [
-      { title: 'Example 1', input: '-2 1 -3 4 -1 2 1 -5 4', explanation: '[4, -1, 2, 1] sums to 6.' },
-      { title: 'Example 2', input: '-3 -1 -2', explanation: 'All negative: the best subarray is the single element -1.' },
+      {
+        title: 'Example 1',
+        input: '-2 1 -3 4 -1 2 1 -5 4',
+        explanation: '[4, -1, 2, 1] sums to 6.',
+      },
+      {
+        title: 'Example 2',
+        input: '-3 -1 -2',
+        explanation: 'All negative: the best subarray is the single element -1.',
+      },
     ],
     solution: {
       summary:
@@ -410,9 +468,15 @@ export const algorithmTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(n) time, O(1) space.',
-      mistakes: ['Initializing current = 0, which returns 0 for all-negative arrays (an empty subarray).', 'Resetting current to 0 instead of to the current element.'],
+      mistakes: [
+        'Initializing current = 0, which returns 0 for all-negative arrays (an empty subarray).',
+        'Resetting current to 0 instead of to the current element.',
+      ],
     },
-    hints: ['"Extend or restart" is one Math.max per element.', 'A negative running prefix can never help the elements after it.'],
+    hints: [
+      '"Extend or restart" is one Math.max per element.',
+      'A negative running prefix can never help the elements after it.',
+    ],
     objectives: ['Implement Kadane’s algorithm', 'Understand why restart beats carry'],
     edgeCases: ['single element', 'all negative', 'best run at the very end'],
   }),
@@ -438,7 +502,11 @@ export const algorithmTemplates: QuestTemplate[] = [
       'The second line contains the distinct denominations.',
       'Print the minimum coin count, or `-1`.',
     ],
-    constraints: ['0 ≤ amount ≤ 10^4.', 'Denominations are positive integers.', 'O(amount × coins) is the intended complexity.'],
+    constraints: [
+      '0 ≤ amount ≤ 10^4.',
+      'Denominations are positive integers.',
+      'O(amount × coins) is the intended complexity.',
+    ],
     run: (input) => {
       const lines = input.trim().split('\n');
       const amount = Number.parseInt(lines[0]!.trim(), 10);
@@ -464,7 +532,11 @@ export const algorithmTemplates: QuestTemplate[] = [
     ],
     examples: [
       { title: 'Example 1', input: '11\n1 2 5', explanation: '5 + 5 + 1 → 3 coins.' },
-      { title: 'Example 2', input: '6\n1 3 4', explanation: 'Greedy picks 4+1+1 (3 coins); the optimum is 3+3 (2 coins).' },
+      {
+        title: 'Example 2',
+        input: '6\n1 3 4',
+        explanation: 'Greedy picks 4+1+1 (3 coins); the optimum is 3+3 (2 coins).',
+      },
     ],
     solution: {
       summary:
@@ -488,9 +560,15 @@ export const algorithmTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(amount × number of coins) time, O(amount) space.',
-      mistakes: ['Using greedy largest-first — correct for canonical systems (1,5,10), wrong in general.', 'Iterating coins in the outer loop but expecting order-independence (it is, for min-coins — but the reasoning differs from counting combinations).'],
+      mistakes: [
+        'Using greedy largest-first — correct for canonical systems (1,5,10), wrong in general.',
+        'Iterating coins in the outer loop but expecting order-independence (it is, for min-coins — but the reasoning differs from counting combinations).',
+      ],
     },
-    hints: ['Every optimal amount is one coin on top of a smaller optimal amount.', 'dp[0] = 0 is the seed; infinity means "not yet reachable".'],
+    hints: [
+      'Every optimal amount is one coin on top of a smaller optimal amount.',
+      'dp[0] = 0 is the seed; infinity means "not yet reachable".',
+    ],
     objectives: ['Build a bottom-up unbounded-knapsack DP', 'Know when greedy fails and why'],
     edgeCases: ['amount 0', 'impossible amounts', 'denominations larger than the amount'],
   }),
@@ -554,10 +632,19 @@ export const algorithmTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(n) time, O(1) space.',
-      mistakes: ['Memoizing into an array when two variables do the job.', 'Off-by-one in the base cases producing 2·Fibonacci.'],
+      mistakes: [
+        'Memoizing into an array when two variables do the job.',
+        'Off-by-one in the base cases producing 2·Fibonacci.',
+      ],
     },
-    hints: ['Think backwards: what could your final move have been?', 'ways(n) counts sequences — the recurrence is additive, exactly like Fibonacci.'],
-    objectives: ['Derive a recurrence from a counting problem', 'Compress DP state to two variables'],
+    hints: [
+      'Think backwards: what could your final move have been?',
+      'ways(n) counts sequences — the recurrence is additive, exactly like Fibonacci.',
+    ],
+    objectives: [
+      'Derive a recurrence from a counting problem',
+      'Compress DP state to two variables',
+    ],
     edgeCases: ['n = 1', 'n = 2', 'large n within 64-bit range'],
   }),
 
@@ -599,8 +686,16 @@ export const algorithmTemplates: QuestTemplate[] = [
       { name: 'seven by three', input: '7 3' },
     ],
     examples: [
-      { title: 'Example 1', input: '3 7', explanation: '28 paths — this is the classic LeetCode example.' },
-      { title: 'Example 2', input: '3 2', explanation: '3 paths: down-down-right, down-right-down, right-down-down.' },
+      {
+        title: 'Example 1',
+        input: '3 7',
+        explanation: '28 paths — this is the classic LeetCode example.',
+      },
+      {
+        title: 'Example 2',
+        input: '3 2',
+        explanation: '3 paths: down-down-right, down-right-down, right-down-down.',
+      },
     ],
     solution: {
       summary:
@@ -624,10 +719,19 @@ export const algorithmTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(m·n) time, O(n) space.',
-      mistakes: ['Allocating the full 2-D table when one row carries everything.', 'Forgetting that row-major updates make row[j-1] the "left neighbor" of the current row.'],
+      mistakes: [
+        'Allocating the full 2-D table when one row carries everything.',
+        'Forgetting that row-major updates make row[j-1] the "left neighbor" of the current row.',
+      ],
     },
-    hints: ['Every path into (i, j) arrives from above or from the left.', 'A single row can hold both "above" and "left" values if updated in the right order.'],
-    objectives: ['Translate a 2-D recurrence into a rolling array', 'Connect DP counts to binomial coefficients'],
+    hints: [
+      'Every path into (i, j) arrives from above or from the left.',
+      'A single row can hold both "above" and "left" values if updated in the right order.',
+    ],
+    objectives: [
+      'Translate a 2-D recurrence into a rolling array',
+      'Connect DP counts to binomial coefficients',
+    ],
     edgeCases: ['1×1 grid', 'single row or column (answer 1)', 'square grids'],
   }),
 
@@ -673,7 +777,11 @@ export const algorithmTemplates: QuestTemplate[] = [
       { name: 'large majority', input: '5 5 5 5 1' },
     ],
     examples: [
-      { title: 'Example 1', input: '2 2 1 1 1 2 2', explanation: '2 appears 4 of 7 times — the majority.' },
+      {
+        title: 'Example 1',
+        input: '2 2 1 1 1 2 2',
+        explanation: '2 appears 4 of 7 times — the majority.',
+      },
       { title: 'Example 2', input: '3 2 3', explanation: '3 appears twice of three.' },
     ],
     solution: {
@@ -696,9 +804,15 @@ export const algorithmTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(n) time, O(1) space.',
-      mistakes: ['Assuming the final candidate is always right without the majority guarantee — without it you need a second verification pass.', 'Sorting "for simplicity" — O(n log n) and unnecessary.'],
+      mistakes: [
+        'Assuming the final candidate is always right without the majority guarantee — without it you need a second verification pass.',
+        'Sorting "for simplicity" — O(n log n) and unnecessary.',
+      ],
     },
-    hints: ['Pair off different elements: what survives unlimited pairing?', 'The counter measures the candidate’s surplus, not its total.'],
+    hints: [
+      'Pair off different elements: what survives unlimited pairing?',
+      'The counter measures the candidate’s surplus, not its total.',
+    ],
     objectives: ['Implement Boyer–Moore voting', 'Explain why cancellation preserves the majority'],
     edgeCases: ['majority at the array end', 'single element', 'exactly half plus one'],
   }),
@@ -751,8 +865,16 @@ export const algorithmTemplates: QuestTemplate[] = [
       { name: 'single interval', input: '5 7' },
     ],
     examples: [
-      { title: 'Example 1', input: '1 3\n2 6\n8 10\n15 18', explanation: '[1,3] and [2,6] overlap → [1,6]; the rest stand alone.' },
-      { title: 'Example 2', input: '1 4\n4 5', explanation: 'Touching endpoints merge into [1,5].' },
+      {
+        title: 'Example 1',
+        input: '1 3\n2 6\n8 10\n15 18',
+        explanation: '[1,3] and [2,6] overlap → [1,6]; the rest stand alone.',
+      },
+      {
+        title: 'Example 2',
+        input: '1 4\n4 5',
+        explanation: 'Touching endpoints merge into [1,5].',
+      },
     ],
     solution: {
       summary:
@@ -776,10 +898,19 @@ export const algorithmTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(n log n) for the sort, O(n) for the sweep.',
-      mistakes: ['Merging in input order without sorting.', 'Using `<` instead of `<=` and leaving touching intervals unmerged.'],
+      mistakes: [
+        'Merging in input order without sorting.',
+        'Using `<` instead of `<=` and leaving touching intervals unmerged.',
+      ],
     },
-    hints: ['After sorting, any interval that can overlap the current merged block must be its immediate successor.', 'Touching intervals ([1,4] and [4,5]) usually merge in calendars.'],
-    objectives: ['Apply the sort-then-scan pattern', 'Handle boundary-touch semantics deliberately'],
+    hints: [
+      'After sorting, any interval that can overlap the current merged block must be its immediate successor.',
+      'Touching intervals ([1,4] and [4,5]) usually merge in calendars.',
+    ],
+    objectives: [
+      'Apply the sort-then-scan pattern',
+      'Handle boundary-touch semantics deliberately',
+    ],
     edgeCases: ['nested intervals', 'touching endpoints', 'unsorted input', 'single interval'],
   }),
 
@@ -799,7 +930,10 @@ export const algorithmTemplates: QuestTemplate[] = [
       'Check whether an integer is a palindrome without converting it to a string — reverse only half the digits.',
     promptIntro:
       'Determine whether a non-negative-integer-or-negative input reads the same forwards and backwards — without any string conversion. Print `yes` or `no`.',
-    instructions: ['Read one integer from input.', 'Print `yes` if it is a palindrome, otherwise `no`.'],
+    instructions: [
+      'Read one integer from input.',
+      'Print `yes` if it is a palindrome, otherwise `no`.',
+    ],
     constraints: ['No string conversion of the number.', 'Negative numbers are never palindromes.'],
     run: (input) => {
       const n = Number.parseInt(input.trim(), 10);
@@ -823,8 +957,16 @@ export const algorithmTemplates: QuestTemplate[] = [
       { name: 'not a palindrome', input: '123' },
     ],
     examples: [
-      { title: 'Example 1', input: '12321', explanation: 'Reversed half (12…21) matches the rest (123 → 12 | 3). Yes.' },
-      { title: 'Example 2', input: '10', explanation: 'Ends in zero but is not zero — cannot be a palindrome.' },
+      {
+        title: 'Example 1',
+        input: '12321',
+        explanation: 'Reversed half (12…21) matches the rest (123 → 12 | 3). Yes.',
+      },
+      {
+        title: 'Example 2',
+        input: '10',
+        explanation: 'Ends in zero but is not zero — cannot be a palindrome.',
+      },
     ],
     solution: {
       summary:
@@ -847,9 +989,15 @@ export const algorithmTemplates: QuestTemplate[] = [
 }`,
       },
       complexity: 'O(log₁₀ n) time, O(1) space.',
-      mistakes: ['Reversing the entire number and risking overflow in fixed-width languages.', 'Forgetting that 0 is a palindrome while 10, 100, 1000 never are.'],
+      mistakes: [
+        'Reversing the entire number and risking overflow in fixed-width languages.',
+        'Forgetting that 0 is a palindrome while 10, 100, 1000 never are.',
+      ],
     },
-    hints: ['You never need more than half the digits.', 'Odd-length palindromes have a middle digit that matches anything — drop it.'],
+    hints: [
+      'You never need more than half the digits.',
+      'Odd-length palindromes have a middle digit that matches anything — drop it.',
+    ],
     objectives: ['Manipulate digits arithmetically', 'Use half-reversal to avoid overflow'],
     edgeCases: ['negative input', 'trailing zeros', 'single digit', 'zero'],
   }),
@@ -887,7 +1035,10 @@ export const algorithmTemplates: QuestTemplate[] = [
       'Any optimal schedule’s first meeting can be replaced by f: f ends no later, so everything after still fits.',
       'Therefore an optimal solution exists that contains f — greedy choice is safe, and induction finishes the proof.',
     ],
-    hints: ['The correct strategy’s optimality has a classic exchange-argument proof.', 'Ask: after making the choice, is there always an optimal solution that agrees with it?'],
+    hints: [
+      'The correct strategy’s optimality has a classic exchange-argument proof.',
+      'Ask: after making the choice, is there always an optimal solution that agrees with it?',
+    ],
     objectives: ['Distinguish plausible-but-wrong greedy rules', 'Understand exchange arguments'],
   }),
 
@@ -904,14 +1055,8 @@ export const algorithmTemplates: QuestTemplate[] = [
     title: 'The Slowest Racer',
     subtitle: 'Which complexity dominates them all?',
     description: 'A quick asymptotic reality check: polynomial vs. exponential.',
-    question:
-      'For sufficiently large input size n, which of these running times grows fastest?',
-    options: [
-      'O(n! / 2ⁿ)',
-      'O(2ⁿ)',
-      'O(n¹⁰⁰)',
-      'O(n²⁰ · log n)',
-    ],
+    question: 'For sufficiently large input size n, which of these running times grows fastest?',
+    options: ['O(n! / 2ⁿ)', 'O(2ⁿ)', 'O(n¹⁰⁰)', 'O(n²⁰ · log n)'],
     optionExplanations: [
       'Correct. By Stirling’s approximation n! ≈ (n/e)ⁿ, so n!/2ⁿ ≈ (n/(2e))ⁿ — super-exponential growth that eventually beats plain 2ⁿ.',
       'O(2ⁿ) is exponential and dwarfs every polynomial — but it is still dominated by the factorial-based option.',
@@ -923,7 +1068,13 @@ export const algorithmTemplates: QuestTemplate[] = [
       'Stirling: n! ≈ (n/e)ⁿ · √(2πn), so n!/2ⁿ ≈ (n/(2e))ⁿ · √(2πn), whose base (n/(2e)) itself grows with n.',
       'Therefore n!/2ⁿ grows faster than any fixed-base exponential — it is the fastest of the four.',
     ],
-    hints: ['Two options are exponential-flavored — compare those, not the polynomials.', 'Stirling: n! ≈ (n/e)ⁿ · √(2πn), so n!/2ⁿ ≈ (n/(2e))ⁿ · √(2πn).'],
-    objectives: ['Compare growth rates precisely', 'Read asymptotic questions carefully before answering'],
+    hints: [
+      'Two options are exponential-flavored — compare those, not the polynomials.',
+      'Stirling: n! ≈ (n/e)ⁿ · √(2πn), so n!/2ⁿ ≈ (n/(2e))ⁿ · √(2πn).',
+    ],
+    objectives: [
+      'Compare growth rates precisely',
+      'Read asymptotic questions carefully before answering',
+    ],
   }),
 ];
