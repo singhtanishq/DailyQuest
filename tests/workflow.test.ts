@@ -50,9 +50,10 @@ describe('daily workflow: inputs and schedule', () => {
 
   it('never interpolates inputs directly inside the generation run block', () => {
     const generateStep = daily.split('- name: Generate quest')[1]?.split('\n      - name:')[0] ?? '';
-    expect(generateStep).toContain('npm run generate:daily');
-    expect(generateStep).not.toContain('${{ inputs');
-    expect(generateStep).not.toContain('${{ secrets');
+    const runBlock = generateStep.split('run: |')[1] ?? '';
+    expect(runBlock).toContain('npm run generate:daily');
+    expect(runBlock).not.toContain('${{ inputs');
+    expect(runBlock).not.toContain('${{ secrets');
   });
 
   it('supports workflow_dispatch with target_date and dry_run', () => {
