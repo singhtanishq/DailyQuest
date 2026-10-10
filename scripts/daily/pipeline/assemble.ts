@@ -1,9 +1,5 @@
 import { DIFFICULTY_SCORES } from '../../../shared/categories.js';
-import {
-  type CategoryId,
-  type Difficulty,
-  type Quest,
-} from '../../../shared/types.js';
+import { type CategoryId, type Difficulty, type Quest } from '../../../shared/types.js';
 import { computeContentHash } from '../core/hashing.js';
 import { questId, questSlug } from '../core/slug.js';
 import type { QuestBody, QuestTemplate } from '../templates/framework.js';
@@ -46,7 +42,7 @@ function clamp1to5(value: number): number {
 
 export function deriveComplexity(
   category: CategoryId,
-  difficultyScore: number
+  difficultyScore: number,
 ): { conceptComplexity: number; reasoningComplexity: number; implementationComplexity: number } {
   const reasoning = clamp1to5(difficultyScore);
   const concept = CONCEPTUAL_CATEGORIES.has(category)
@@ -57,7 +53,11 @@ export function deriveComplexity(
   const implementation = IMPLEMENTATION_CATEGORIES.has(category)
     ? reasoning
     : clamp1to5(reasoning - 1);
-  return { conceptComplexity: concept, reasoningComplexity: reasoning, implementationComplexity: implementation };
+  return {
+    conceptComplexity: concept,
+    reasoningComplexity: reasoning,
+    implementationComplexity: implementation,
+  };
 }
 
 export interface AssembleParams {
@@ -73,8 +73,17 @@ export interface AssembleParams {
 }
 
 export function assembleQuest(params: AssembleParams): Quest {
-  const { date, template, difficulty, body, seedHex, generatorVersion, sequenceNumber, relatedQuestIds, nowIso } =
-    params;
+  const {
+    date,
+    template,
+    difficulty,
+    body,
+    seedHex,
+    generatorVersion,
+    sequenceNumber,
+    relatedQuestIds,
+    nowIso,
+  } = params;
   const difficultyScore = DIFFICULTY_SCORES[difficulty] ?? 3;
   const category = template.category;
   const complexity = deriveComplexity(category, difficultyScore);
