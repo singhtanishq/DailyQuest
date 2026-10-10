@@ -33,16 +33,10 @@ const NotFoundPage = lazy(() =>
 import { PageSkeleton } from './components/ui/PageSkeleton.js';
 
 /** Replaces only the document title — description/OG stay static. */
-function RouteTitle({ suffix }: { suffix?: string }) {
-  const location = useLocation();
-  const title = suffix
-    ? `${suffix} — DailyQuest`
-    : 'DailyQuest — One challenge. Every day.';
-  // Keyed by location so nested navigations re-run the effect.
-  if (document.title !== title) {
-    document.title = title;
+function RouteTitle() {
+  if (document.title !== 'DailyQuest — One challenge. Every day.') {
+    document.title = 'DailyQuest — One challenge. Every day.';
   }
-  void location;
   return null;
 }
 
@@ -76,7 +70,6 @@ function ScrollToTop() {
   void pathname;
   return null;
 }
-
 export function App() {
   const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
   return (
