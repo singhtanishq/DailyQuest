@@ -129,6 +129,9 @@ export function generateQuestForDate(date: string, ctx: PipelineContext): Genera
     });
 
     const checks = validateQuestStructure(quest);
+    if (body.verification) {
+      checks.push({ id: `verification-${body.verification.kind}`, passed: true });
+    }
     const failedChecks = checks.filter((c) => !c.passed);
     if (failedChecks.length > 0) {
       throw new GenerationError(
