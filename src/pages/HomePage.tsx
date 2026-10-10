@@ -101,7 +101,15 @@ export function HomePage() {
         </section>
 
         <section className="section">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 'var(--space-3)' }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'baseline',
+              flexWrap: 'wrap',
+              gap: 'var(--space-3)',
+            }}
+          >
             <h2 className="section-title" style={{ marginBottom: 0 }}>
               Recent quests
             </h2>
@@ -173,9 +181,21 @@ export function HomePage() {
           </section>
         ) : null}
 
-        <section className="section" style={{ textAlign: 'center', paddingBottom: 'var(--space-6)' }}>
-          <h2 className="section-title" style={{ justifyContent: 'center' }}>Feeling lucky?</h2>
-          <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <section
+          className="section"
+          style={{ textAlign: 'center', paddingBottom: 'var(--space-6)' }}
+        >
+          <h2 className="section-title" style={{ justifyContent: 'center' }}>
+            Feeling lucky?
+          </h2>
+          <div
+            style={{
+              display: 'flex',
+              gap: 'var(--space-3)',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
             <Link to="/random" className="btn btn-secondary">
               <Dice5 size={15} aria-hidden /> Try a random quest
             </Link>
