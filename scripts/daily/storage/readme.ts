@@ -22,7 +22,7 @@ export function resolveSiteUrl(repoRoot: string): string {
   } catch {
     // fall through to default
   }
-  return 'https://tanishqsingh.github.io/DailyQuest';
+  return 'https://singhtanishq.github.io/DailyQuest';
 }
 
 export interface StatusBlockEntry {
