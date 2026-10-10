@@ -37,6 +37,9 @@ export function AppShell({ children }: { children: ReactNode }) {
     setMenuOpen(false);
   }, [location.pathname]);
 
+  const isActive = (to: string, end?: boolean): boolean =>
+    end ? location.pathname === '/' : location.pathname.startsWith(to);
+
   return (
     <div className="site">
       <a href="#main" className="skip-link">
@@ -58,17 +61,20 @@ export function AppShell({ children }: { children: ReactNode }) {
             {menuOpen ? <X size={17} aria-hidden /> : <Menu size={17} aria-hidden />}
           </button>
           <nav className={`nav${menuOpen ? ' open' : ''}`} aria-label="Primary">
-            {NAV_ITEMS.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.end}
-                className="nav-link"
-                aria-current={(match) => (match ? 'page' : undefined)}
-              >
-                {item.label}
-              </NavLink>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const active = isActive(item.to, item.end);
+              return (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.end}
+                  className="nav-link"
+                  aria-current={active ? 'page' : undefined}
+                >
+                  {item.label}
+                </NavLink>
+              );
+            })}
             <button
               type="button"
               className="theme-toggle"
