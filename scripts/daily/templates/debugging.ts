@@ -49,9 +49,18 @@ console.log(makeCounters()); // [0, 1, 2]`,
       'All three closures point at the same `i`, which ends the loop at 3.',
       '`let` declares a fresh binding per iteration (the spec defines it that way), giving each closure its own `i`.',
     ],
-    mistakes: ['Wrapping the callback in an IIFE `(function(j){ ... })(i)` fixes it too, but `let` is the modern fix.', 'Blaming the arrow function — the culprit is the `var`.'],
-    hints: ['What is the scope of a variable declared with `var`?', 'When do the closures read `i`, and what is its value by then?'],
-    objectives: ['Explain function-scoped vs. block-scoped bindings', 'Fix closure-capture bugs with `let`'],
+    mistakes: [
+      'Wrapping the callback in an IIFE `(function(j){ ... })(i)` fixes it too, but `let` is the modern fix.',
+      'Blaming the arrow function — the culprit is the `var`.',
+    ],
+    hints: [
+      'What is the scope of a variable declared with `var`?',
+      'When do the closures read `i`, and what is its value by then?',
+    ],
+    objectives: [
+      'Explain function-scoped vs. block-scoped bindings',
+      'Fix closure-capture bugs with `let`',
+    ],
   }),
 
   debuggingChallenge({
@@ -75,8 +84,10 @@ console.log(makeCounters()); // [0, 1, 2]`,
 
 print(add_item("apple"))   # ['apple']
 print(add_item("pear"))    # expected ['pear']`,
-    expectedBehaviour: 'Each call with no basket starts from an empty list: `["apple"]` then `["pear"]`.',
-    actualBehaviour: 'The second call returns `["apple", "pear"]` — the default list persists between calls.',
+    expectedBehaviour:
+      'Each call with no basket starts from an empty list: `["apple"]` then `["pear"]`.',
+    actualBehaviour:
+      'The second call returns `["apple", "pear"]` — the default list persists between calls.',
     fixedCode: `def add_item(item, basket=None):
     if basket is None:
         basket = []
@@ -89,9 +100,18 @@ print(add_item("pear"))    # expected ['pear']`,
       'A mutable default is therefore shared state across all calls.',
       'The `None` sentinel pattern creates a fresh list per call, which is the idiomatic fix.',
     ],
-    mistakes: ['Using `basket=basket or []` — it also mutates callers who pass a falsy-but-real list.', 'Blaming `append` — the shared object is the problem, not the mutation API.'],
-    hints: ['When is a default argument value evaluated in Python?', 'Try inspecting `add_item.__defaults__` after each call.'],
-    objectives: ['Understand Python’s one-time default evaluation', 'Apply the `None` sentinel idiom'],
+    mistakes: [
+      'Using `basket=basket or []` — it also mutates callers who pass a falsy-but-real list.',
+      'Blaming `append` — the shared object is the problem, not the mutation API.',
+    ],
+    hints: [
+      'When is a default argument value evaluated in Python?',
+      'Try inspecting `add_item.__defaults__` after each call.',
+    ],
+    objectives: [
+      'Understand Python’s one-time default evaluation',
+      'Apply the `None` sentinel idiom',
+    ],
   }),
 
   debuggingChallenge({
@@ -106,8 +126,7 @@ print(add_item("pear"))    # expected ['pear']`,
     subcategories: ['javascript'],
     title: 'The Original Order Vanishes',
     subtitle: 'Sorting for display destroyed the source.',
-    description:
-      'Sorting a copy of the leaderboard accidentally sorted the leaderboard itself.',
+    description: 'Sorting a copy of the leaderboard accidentally sorted the leaderboard itself.',
     language: 'javascript',
     brokenCode: `const scores = [42, 7, 19];
 const display = scores.sort();
@@ -126,8 +145,14 @@ console.log(display);  // [7, 19, 42]`,
       'The variable assignment copies the reference, never the contents.',
       'ES2023 added non-mutating twins: `toSorted`, `toReversed`, `toSpliced`, and `with`.',
     ],
-    mistakes: ['Assuming the returned value is a new array because it is assigned to a new variable.', 'Using `[...scores].sort()` — also correct, and clearer on older runtimes.'],
-    hints: ['Which array methods return new arrays, and which return the same reference?', 'Check whether `display === scores` in the broken version.'],
+    mistakes: [
+      'Assuming the returned value is a new array because it is assigned to a new variable.',
+      'Using `[...scores].sort()` — also correct, and clearer on older runtimes.',
+    ],
+    hints: [
+      'Which array methods return new arrays, and which return the same reference?',
+      'Check whether `display === scores` in the broken version.',
+    ],
     objectives: ['Know which array methods mutate', 'Choose between spread-copy and `toSorted`'],
   }),
 
@@ -143,8 +168,7 @@ console.log(display);  // [7, 19, 42]`,
     subcategories: ['async'],
     title: 'The Impatient Fetcher',
     subtitle: 'forEach does not wait for anyone.',
-    description:
-      'A function that awaits inside `forEach` returns before any fetch has finished.',
+    description: 'A function that awaits inside `forEach` returns before any fetch has finished.',
     language: 'javascript',
     brokenCode: `async function loadNames(ids) {
   const names = [];
@@ -159,7 +183,8 @@ console.log(display);  // [7, 19, 42]`,
 const names = await loadNames([1, 2, 3]);
 console.log(names.length); // expected 3`,
     expectedBehaviour: '`loadNames` resolves with all three fetched names, so the length is 3.',
-    actualBehaviour: 'The length is 0 — the function returns the empty array long before the fetches resolve.',
+    actualBehaviour:
+      'The length is 0 — the function returns the empty array long before the fetches resolve.',
     fixedCode: `async function loadNames(ids) {
   const names = await Promise.all(
     ids.map((id) => fetchName(id))
@@ -173,9 +198,18 @@ console.log(names.length); // expected 3`,
       'The pushes happen later, after the caller has already received the empty array.',
       '`Promise.all` (or a `for...of` loop with `await`) is the correct join point; `map` + `Promise.all` also runs the fetches concurrently.',
     ],
-    mistakes: ['Using `for...of` with `await` when concurrency is desired — correct but sequential.', 'Adding `.then` inside `forEach` and still not joining the promises.'],
-    hints: ['What does `forEach` do with the return value of its callback?', 'You need a place where all three promises are collected and awaited.'],
-    objectives: ['Explain why `await` inside `forEach` does not serialize', 'Join concurrent work with `Promise.all`'],
+    mistakes: [
+      'Using `for...of` with `await` when concurrency is desired — correct but sequential.',
+      'Adding `.then` inside `forEach` and still not joining the promises.',
+    ],
+    hints: [
+      'What does `forEach` do with the return value of its callback?',
+      'You need a place where all three promises are collected and awaited.',
+    ],
+    objectives: [
+      'Explain why `await` inside `forEach` does not serialize',
+      'Join concurrent work with `Promise.all`',
+    ],
   }),
 
   debuggingChallenge({
@@ -213,9 +247,18 @@ console.log(stripExtension("report.pdf")); // expected "report"`,
       '`slice` is end-exclusive: `slice(0, dot)` keeps characters 0..dot-1.',
       'Adding 1 re-includes the dot — a textbook inclusive/exclusive mix-up.',
     ],
-    mistakes: ['Confusing `slice` (end-exclusive) with `substr` (length).', 'Not handling the `-1` no-dot case, which this code luckily gets right.'],
-    hints: ['Write out the indices of "report.pdf" and mark where the dot sits.', 'Is `slice`’s second argument inclusive or exclusive?'],
-    objectives: ['Internalize end-exclusive slicing', 'Trace boundary arithmetic on concrete indices'],
+    mistakes: [
+      'Confusing `slice` (end-exclusive) with `substr` (length).',
+      'Not handling the `-1` no-dot case, which this code luckily gets right.',
+    ],
+    hints: [
+      'Write out the indices of "report.pdf" and mark where the dot sits.',
+      'Is `slice`’s second argument inclusive or exclusive?',
+    ],
+    objectives: [
+      'Internalize end-exclusive slicing',
+      'Trace boundary arithmetic on concrete indices',
+    ],
   }),
 
   debuggingChallenge({
@@ -242,7 +285,8 @@ console.log(stripExtension("report.pdf")); // expected "report"`,
 
 console.log(total([19, 99, 49, 33])); // expected 2.00`,
     expectedBehaviour: 'The four prices sum to exactly `2.0`.',
-    actualBehaviour: 'It prints `1.9999999999999998` — binary floating point cannot represent the decimal intermediates exactly.',
+    actualBehaviour:
+      'It prints `1.9999999999999998` — binary floating point cannot represent the decimal intermediates exactly.',
     fixedCode: `function total(cents) {
   let sum = 0;
   for (const c of cents) {
@@ -257,8 +301,14 @@ console.log(total([19, 99, 49, 33])); // expected 2.00`,
       'Each division and addition rounds to the nearest double; errors compound.',
       'Integer arithmetic in cents is exact up to 2^53, and one final division bounds the error.',
     ],
-    mistakes: ['Reaching for `toFixed(2)` mid-loop — it returns strings and hides the problem.', 'Storing money as floats at all; integers or a decimal type are the real fix.'],
-    hints: ['Which of the four numbers can be represented exactly in binary?', 'Delay the division: compute in the unit the input already gives you.'],
+    mistakes: [
+      'Reaching for `toFixed(2)` mid-loop — it returns strings and hides the problem.',
+      'Storing money as floats at all; integers or a decimal type are the real fix.',
+    ],
+    hints: [
+      'Which of the four numbers can be represented exactly in binary?',
+      'Delay the division: compute in the unit the input already gives you.',
+    ],
     objectives: ['Recognize binary-representation drift', 'Structure money math to stay exact'],
   }),
 
@@ -287,7 +337,8 @@ console.log(total([19, 99, 49, 33])); // expected 2.00`,
 
 reporter.greet(); // expected: Hello from dailyquest`,
     expectedBehaviour: 'After 100 ms the timer prints `Hello from dailyquest`.',
-    actualBehaviour: 'It prints `Hello from undefined` — `this` is not the reporter inside the callback.',
+    actualBehaviour:
+      'It prints `Hello from undefined` — `this` is not the reporter inside the callback.',
     fixedCode: `const reporter = {
   name: "dailyquest",
   greet() {
@@ -304,9 +355,18 @@ reporter.greet(); // expected: Hello from dailyquest`,
       'An arrow function closes over the `this` of `greet`, which is `reporter`.',
       '`.bind(reporter)` achieves the same result with a regular function.',
     ],
-    mistakes: ['Using an arrow method DEFINITION (`greet: () => {...}`) — that would lose `reporter` at the outer level instead.', 'Storing `const self = this` — works, but is the pre-ES6 workaround.'],
-    hints: ['`this` is decided at call time for regular functions — who calls this one?', 'Arrow functions resolve `this` where they are WRITTEN, not where they run.'],
-    objectives: ['Predict `this` under the four binding rules', 'Fix lost bindings with arrows or bind'],
+    mistakes: [
+      'Using an arrow method DEFINITION (`greet: () => {...}`) — that would lose `reporter` at the outer level instead.',
+      'Storing `const self = this` — works, but is the pre-ES6 workaround.',
+    ],
+    hints: [
+      '`this` is decided at call time for regular functions — who calls this one?',
+      'Arrow functions resolve `this` where they are WRITTEN, not where they run.',
+    ],
+    objectives: [
+      'Predict `this` under the four binding rules',
+      'Fix lost bindings with arrows or bind',
+    ],
   }),
 
   debuggingChallenge({
@@ -332,7 +392,8 @@ reporter.greet(); // expected: Hello from dailyquest`,
 const stats = await buildStats(rows);
 console.log(typeof stats.summary.then); // expected "undefined"`,
     expectedBehaviour: '`stats.summary` is the finished object, not a thenable.',
-    actualBehaviour: '`stats.summary` is a Promise — the caller inspects `.then` because the result was never awaited.',
+    actualBehaviour:
+      '`stats.summary` is a Promise — the caller inspects `.then` because the result was never awaited.',
     fixedCode: `async function buildStats(rows) {
   const summary = await computeHeavy(rows);
   return { count: rows.length, summary };
@@ -344,8 +405,14 @@ console.log(typeof stats.summary.then); // expected "undefined"`,
       'Nothing in `buildStats` awaits it — a "floating promise".',
       'The returned object embeds the promise; TypeScript would flag the type, plain JS hides it until runtime.',
     ],
-    mistakes: ['Assuming `async` callers auto-await sub-calls.', 'Fixing with `.then(summary => ...)` and forgetting to await THAT too.'],
-    hints: ['What is the return type of calling an `async` function?', 'Trace the type of `summary` line by line.'],
+    mistakes: [
+      'Assuming `async` callers auto-await sub-calls.',
+      'Fixing with `.then(summary => ...)` and forgetting to await THAT too.',
+    ],
+    hints: [
+      'What is the return type of calling an `async` function?',
+      'Trace the type of `summary` line by line.',
+    ],
     objectives: ['Recognize floating promises', 'Use `await` at the point of composition'],
   }),
 
@@ -370,7 +437,8 @@ console.log(typeof stats.summary.then); // expected "undefined"`,
 
 console.log(isValidPort("8080abc")); // expected false`,
     expectedBehaviour: '"8080abc" is rejected: `false`.',
-    actualBehaviour: 'It returns `true` — `parseInt` parsed the leading `8080` and silently ignored the rest.',
+    actualBehaviour:
+      'It returns `true` — `parseInt` parsed the leading `8080` and silently ignored the rest.',
     fixedCode: `function isValidPort(input) {
   return /^\\d+$/.test(input) && Number(input) >= 0 && Number(input) <= 65535;
 }`,
@@ -381,8 +449,14 @@ console.log(isValidPort("8080abc")); // expected false`,
       'The range check was applied to a number that does not correspond to the full input.',
       'Validating the SHAPE first (regex) and converting second rejects garbage outright.',
     ],
-    mistakes: ['Fixing with `String(port) === input` — it fails for "0080" and similar forms.', 'Using `Number()` alone: it returns NaN for garbage (fine) but also accepts hex "0x1F" and whitespace-padded strings.'],
-    hints: ['Does `parseInt` tell you whether it consumed the whole string?', 'Two-step validation: shape first, value second.'],
+    mistakes: [
+      'Fixing with `String(port) === input` — it fails for "0080" and similar forms.',
+      'Using `Number()` alone: it returns NaN for garbage (fine) but also accepts hex "0x1F" and whitespace-padded strings.',
+    ],
+    hints: [
+      'Does `parseInt` tell you whether it consumed the whole string?',
+      'Two-step validation: shape first, value second.',
+    ],
     objectives: ['Understand prefix parsing behaviour', 'Validate input shape before converting'],
   }),
 
@@ -406,7 +480,8 @@ draft.append("conclusion")
 
 print(backup)  # expected ['intro', 'body']`,
     expectedBehaviour: '`backup` still holds the original two items.',
-    actualBehaviour: '`backup` prints `["intro", "body", "conclusion"]` — both names reference the same list.',
+    actualBehaviour:
+      '`backup` prints `["intro", "body", "conclusion"]` — both names reference the same list.',
     fixedCode: `draft = ["intro", "body"]
 backup = draft.copy()  # or list(draft), or draft[:]
 draft.append("conclusion")
@@ -419,8 +494,14 @@ print(backup)  # ['intro', 'body']`,
       '`.copy()`, `list(x)` and slicing produce shallow copies suitable for flat lists.',
       'Nested structures need `copy.deepcopy` to avoid the same trap one level deeper.',
     ],
-    mistakes: ['Using `copy.copy` on nested lists and still sharing inner lists.', 'Assuming assignment copies because it looks like `b = a` copying in value languages.'],
-    hints: ['What does the assignment operator copy in Python — objects, or references?', 'Try `draft is backup` in the broken version.'],
+    mistakes: [
+      'Using `copy.copy` on nested lists and still sharing inner lists.',
+      'Assuming assignment copies because it looks like `b = a` copying in value languages.',
+    ],
+    hints: [
+      'What does the assignment operator copy in Python — objects, or references?',
+      'Try `draft is backup` in the broken version.',
+    ],
     objectives: ['Distinguish binding from copying', 'Choose the right copy depth'],
   }),
 
@@ -436,7 +517,8 @@ print(backup)  # ['intro', 'body']`,
     subcategories: ['javascript'],
     title: 'The Skipping Janitor',
     subtitle: 'Remove elements while walking the list, miss half of them.',
-    description: 'A cleanup loop that splices as it goes skips the element right after each removal.',
+    description:
+      'A cleanup loop that splices as it goes skips the element right after each removal.',
     language: 'javascript',
     brokenCode: `const queue = ["a", "junk", "junk", "b", "junk", "c"];
 queue.forEach((item, index) => {
@@ -444,7 +526,8 @@ queue.forEach((item, index) => {
 });
 console.log(queue); // expected ["a", "b", "c"]`,
     expectedBehaviour: 'All three "junk" entries are removed: `["a", "b", "c"]`.',
-    actualBehaviour: 'One "junk" survives — `["a", "junk", "b", "c"]` — because forEach visits indexes 0,1,2,… while the array shrinks underneath it.',
+    actualBehaviour:
+      'One "junk" survives — `["a", "junk", "b", "c"]` — because forEach visits indexes 0,1,2,… while the array shrinks underneath it.',
     fixedCode: `const queue = ["a", "junk", "junk", "b", "junk", "c"];
 const kept = queue.filter((item) => item !== "junk");
 console.log(kept); // ["a", "b", "c"]`,
@@ -455,8 +538,14 @@ console.log(kept); // ["a", "b", "c"]`,
       'forEach’s next iteration looks at i+1 — skipping the element that just moved into i.',
       '`filter` builds the result without touching the source, which is the idiomatic fix.',
     ],
-    mistakes: ['Iterating backwards with a for-loop also works, but `filter` states the intent directly.', 'Deleting during iteration of ANY live collection (DOM nodes included) hits the same shift problem.'],
-    hints: ['After a removal, which element falls into the current index?', 'Which array method is designed exactly for "keep some, drop some"?'],
+    mistakes: [
+      'Iterating backwards with a for-loop also works, but `filter` states the intent directly.',
+      'Deleting during iteration of ANY live collection (DOM nodes included) hits the same shift problem.',
+    ],
+    hints: [
+      'After a removal, which element falls into the current index?',
+      'Which array method is designed exactly for "keep some, drop some"?',
+    ],
     objectives: ['Diagnose mutation-during-iteration bugs', 'Prefer `filter` for removals'],
   }),
 
@@ -472,7 +561,8 @@ console.log(kept); // ["a", "b", "c"]`,
     subcategories: ['javascript'],
     title: 'The Impossible Maximum',
     subtitle: 'An empty cart reports −Infinity.',
-    description: 'A "featured price" helper returns −Infinity when the catalogue is empty, and the UI happily renders it.',
+    description:
+      'A "featured price" helper returns −Infinity when the catalogue is empty, and the UI happily renders it.',
     language: 'javascript',
     brokenCode: `function featuredPrice(prices) {
   return Math.max(...prices);
@@ -480,7 +570,8 @@ console.log(kept); // ["a", "b", "c"]`,
 
 console.log(featuredPrice([])); // expected null`,
     expectedBehaviour: 'An empty list yields `null` so the caller can show "no featured price".',
-    actualBehaviour: 'It returns `-Infinity`, which is truthy and renders as "−Infinity" in the UI.',
+    actualBehaviour:
+      'It returns `-Infinity`, which is truthy and renders as "−Infinity" in the UI.',
     fixedCode: `function featuredPrice(prices) {
   if (prices.length === 0) return null;
   return Math.max(...prices);
@@ -492,8 +583,17 @@ console.log(featuredPrice([])); // expected null`,
       '−Infinity is truthy, so `if (featuredPrice(list))` guards do not catch it.',
       'Explicit empty-input handling at the boundary is cheaper than sanitizing downstream.',
     ],
-    mistakes: ['Guarding with a falsy check — `-Infinity` is truthy.', 'Using `reduce(Math.max)` without an initial value, which THROWS on empty arrays (a different failure mode).'],
-    hints: ['What does `Math.max()` print when called with no arguments at all?', 'Decide the contract for empty input before computing anything.'],
-    objectives: ['Know the no-argument identity of Math.max', 'Design explicit empty-input contracts'],
+    mistakes: [
+      'Guarding with a falsy check — `-Infinity` is truthy.',
+      'Using `reduce(Math.max)` without an initial value, which THROWS on empty arrays (a different failure mode).',
+    ],
+    hints: [
+      'What does `Math.max()` print when called with no arguments at all?',
+      'Decide the contract for empty input before computing anything.',
+    ],
+    objectives: [
+      'Know the no-argument identity of Math.max',
+      'Design explicit empty-input contracts',
+    ],
   }),
 ];
