@@ -11,7 +11,7 @@ export function loadArchive(dataRoot: string): Quest[] {
   const layout = layoutFor(dataRoot);
   let entries: string[];
   try {
-    entries = readdirSync(layout.questsDir, { recursive: true });
+    entries = readdirSync(layout.questsDir, { recursive: true, encoding: 'utf8' });
   } catch {
     return [];
   }
