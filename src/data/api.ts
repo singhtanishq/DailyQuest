@@ -32,7 +32,7 @@ async function getJson<T>(path: string, cache: RequestCache = 'default'): Promis
   let response: Response;
   try {
     response = await fetch(`${BASE}${path}`, { cache });
-  } catch (error) {
+  } catch {
     throw new DataError(`Network error while loading ${path}`, 'network');
   }
   if (response.status === 404) {
