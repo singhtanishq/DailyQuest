@@ -3,7 +3,12 @@ import { ArrowUpDown, Search } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
 import type { QuestIndexEntry } from '../../../shared/types.js';
-import { CHALLENGE_TYPE_LABELS, DIFFICULTY_ORDER, categoryLabel, difficultyLabel } from '../../lib/labels.js';
+import {
+  CHALLENGE_TYPE_LABELS,
+  DIFFICULTY_ORDER,
+  categoryLabel,
+  difficultyLabel,
+} from '../../lib/labels.js';
 import { useAsync, useDebounced } from '../../hooks/useAppState.js';
 import { getIndex } from '../../data/api.js';
 import { applyFilters, type ArchiveFilters } from '../../lib/search.js';
@@ -77,14 +82,28 @@ export function ArchiveBrowser({ lockCategory }: { lockCategory?: string }) {
       <div className="archive-controls">
         <label style={{ display: 'contents' }}>
           <span style={{ position: 'absolute', left: -9999 }}>Search quests</span>
-          <span className="text-input" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '0 0.8rem' }}>
-            <Search size={15} aria-hidden style={{ color: 'var(--foreground-muted)', flexShrink: 0 }} />
+          <span
+            className="text-input"
+            style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '0 0.8rem' }}
+          >
+            <Search
+              size={15}
+              aria-hidden
+              style={{ color: 'var(--foreground-muted)', flexShrink: 0 }}
+            />
             <input
               type="search"
               value={searchInput}
               placeholder="Search titles, tags, concepts…"
               onChange={(e) => setSearchInput(e.target.value)}
-              style={{ flex: 1, background: 'none', border: 'none', outline: 'none', padding: '0.55rem 0', color: 'inherit' }}
+              style={{
+                flex: 1,
+                background: 'none',
+                border: 'none',
+                outline: 'none',
+                padding: '0.55rem 0',
+                color: 'inherit',
+              }}
             />
           </span>
         </label>
@@ -129,7 +148,9 @@ export function ArchiveBrowser({ lockCategory }: { lockCategory?: string }) {
 
       <div className="sort-row">
         <span className="result-count">
-          {loading ? 'Loading archive…' : `${filtered.length} quest${filtered.length === 1 ? '' : 's'}`}
+          {loading
+            ? 'Loading archive…'
+            : `${filtered.length} quest${filtered.length === 1 ? '' : 's'}`}
         </span>
         <button
           type="button"
@@ -169,7 +190,9 @@ export function ArchiveBrowser({ lockCategory }: { lockCategory?: string }) {
             .filter((p) => p === 1 || p === pageCount || Math.abs(p - page) <= 1)
             .map((p, i, arr) => (
               <span key={p} style={{ display: 'contents' }}>
-                {i > 0 && p - (arr[i - 1] ?? 0) > 1 ? <span style={{ color: 'var(--foreground-faint)' }}>…</span> : null}
+                {i > 0 && p - (arr[i - 1] ?? 0) > 1 ? (
+                  <span style={{ color: 'var(--foreground-faint)' }}>…</span>
+                ) : null}
                 <button
                   type="button"
                   className="page-btn"
