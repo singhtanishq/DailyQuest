@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-01",
+  "date": "2026-10-01",
+  "sequenceNumber": 1,
+  "slug": "2026-10-01-the-orphan-orders",
+  "title": "The Orphan Orders",
+  "shortTitle": "The Orphan Orders",
+  "subtitle": "Keep the rows the join would drop.",
+  "description": "LEFT JOIN + IS NULL to surface referential damage.",
+  "category": "sql",
+  "subcategories": [
+    "joins"
+  ],
+  "challengeType": "sql",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 15,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 3,
+  "concepts": [
+    "left join",
+    "coalesce"
+  ],
+  "tags": [
+    "joins"
+  ],
+  "skills": [
+    "Outer join semantics"
+  ],
+  "prompt": "You are working with the following schema (SQLite):\n\n```sql\nCREATE TABLE users (\n  id INTEGER PRIMARY KEY,\n  name TEXT NOT NULL,\n  city TEXT NOT NULL\n);\n\nCREATE TABLE orders (\n  id INTEGER PRIMARY KEY,\n  user_id INTEGER NOT NULL REFERENCES users(id),\n  amount_cents INTEGER NOT NULL,\n  status TEXT NOT NULL CHECK (status IN ('paid', 'pending', 'refunded')),\n  created_at TEXT NOT NULL\n);\n\nINSERT INTO users (id, name, city) VALUES\n  (1, 'Ada',    'London'),\n  (2, 'Grace',  'Berlin'),\n  (3, 'Linus',  'Helsinki'),\n  (4, 'Edsger', 'Berlin');\n\nINSERT INTO orders (id, user_id, amount_cents, status, created_at) VALUES\n  (101, 1,  12000, 'paid',     '2026-01-05'),\n  (102, 1,   8050, 'refunded', '2026-01-07'),\n  (103, 2,  20000, 'paid',     '2026-01-09'),\n  (104, 3,   4500, 'pending',  '2026-01-11'),\n  (105, 2,   6000, 'paid',     '2026-01-15'),\n  (106, 99,  7000, 'paid',     '2026-01-20');\n```\n\nOrder 106 references user 99, who does not exist. Return the `id` of every order whose buyer is missing, together with the buyer name rendered as `unknown` (use COALESCE), as columns `id` and `buyer`, ordered by id.",
+  "instructions": [
+    "Write a single SQL query that produces the requested result."
+  ],
+  "constraints": [
+    "The query must be deterministic and must not modify the database."
+  ],
+  "examples": [],
+  "hints": [
+    "Which join type preserves unmatched left rows?",
+    "After a LEFT JOIN, what is NULL in an unmatched row?"
+  ],
+  "solution": {
+    "summary": "The reference query is:",
+    "code": {
+      "language": "sql",
+      "label": "Reference query",
+      "code": "SELECT o.id, COALESCE(u.name, 'unknown') AS buyer\nFROM orders o\nLEFT JOIN users u ON u.id = o.user_id\nWHERE u.id IS NULL\nORDER BY o.id;"
+    },
+    "reasoning": [
+      "LEFT JOIN keeps every order row; orders without a matching user get NULL for all users columns.",
+      "The WHERE u.id IS NULL filter is the anti-join idiom: keep exactly the unmatched left rows.",
+      "COALESCE renders the display fallback, though the filter has already ensured the name is NULL here — in a report without the filter, it substitutes per row."
+    ],
+    "commonMistakes": [
+      "Using an INNER JOIN — the orphan row disappears before you can find it.",
+      "Testing u.name IS NULL when name is NOT NULL in the schema — the join key (u.id) is the reliable NULL marker."
+    ]
+  },
+  "learningObjectives": [
+    "Detect referential orphans with LEFT JOIN",
+    "Use COALESCE for display fallbacks"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "sql.orphan-orders",
+  "generatorVersion": "1.0.0",
+  "seed": "10fa2b451bbff0c48647131426cd2a84fee7790746dc0c2bd336a1691fbf1f89",
+  "paramsSignature": "v1",
+  "contentHash": "dfba33fc56ae29e5dd19fad5424a0e040ca45f33e8207915fd003193889aef1a",
+  "createdAt": "2026-10-10T16:26:35.239Z",
+  "updatedAt": "2026-10-10T16:26:35.239Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-10T16:26:35.239Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced",
+      "verification-sqlite"
+    ]
+  }
+}
