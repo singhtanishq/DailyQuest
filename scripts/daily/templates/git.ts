@@ -47,7 +47,10 @@ export const gitTemplates: QuestTemplate[] = [
       'Believing reset deletes your file changes — only --hard touches the working tree.',
       'Confusing what happens to the index: --mixed unstages, --soft does not.',
     ],
-    hints: ['The three reset modes differ in how many of the three trees (HEAD, index, worktree) they rewind.', 'Which mode is the default?'],
+    hints: [
+      'The three reset modes differ in how many of the three trees (HEAD, index, worktree) they rewind.',
+      'Which mode is the default?',
+    ],
     objectives: ['Differentiate soft, mixed and hard resets', 'Reason in the three-trees model'],
   }),
 
@@ -92,7 +95,10 @@ export const gitTemplates: QuestTemplate[] = [
       'Expecting the log to shrink — revert never removes commits.',
       'Using revert to undo a merge without -m 1, which fails on purpose.',
     ],
-    hints: ['Count the commits after an inverse patch is committed.', 'What does the default revert message look like?'],
+    hints: [
+      'Count the commits after an inverse patch is committed.',
+      'What does the default revert message look like?',
+    ],
     objectives: ['Choose revert for shared history', 'Predict inverse-patch results'],
   }),
 
@@ -142,7 +148,10 @@ export const gitTemplates: QuestTemplate[] = [
       'Expecting the commit HASH to survive — a new parent means a new hash.',
       'Assuming g.txt arrives only if the branch is merged — cherry-pick carries the diff alone.',
     ],
-    hints: ['Cherry-pick is apply-by-commit: same change, new identity.', 'Which files did main have before the pick?'],
+    hints: [
+      'Cherry-pick is apply-by-commit: same change, new identity.',
+      'Which files did main have before the pick?',
+    ],
     objectives: ['Explain what cherry-pick copies', 'Predict merged-free integration results'],
   }),
 
@@ -178,8 +187,14 @@ export const gitTemplates: QuestTemplate[] = [
       'The reflog keeps the commit reachable for the default retention window (~30 days for unreachable objects).',
       'Naming it with a branch (or tagging) makes the reachability permanent.',
     ],
-    hints: ['What does a branch actually contain?', 'What keeps unreferenced objects alive for a while?'],
-    objectives: ['Explain reachability and reflog rescue', 'Recover detached-HEAD work deliberately'],
+    hints: [
+      'What does a branch actually contain?',
+      'What keeps unreferenced objects alive for a while?',
+    ],
+    objectives: [
+      'Explain reachability and reflog rescue',
+      'Recover detached-HEAD work deliberately',
+    ],
   }),
 
   quizChallenge({
@@ -214,7 +229,10 @@ export const gitTemplates: QuestTemplate[] = [
       'The golden rule: never rebase branches others may have based work on.',
       'Merge commits are honest about integration points; linear history is easier to bisect and revert.',
     ],
-    hints: ['What ingredients feed the commit hash?', 'Which operation is safe to do on a branch only you have pulled?'],
+    hints: [
+      'What ingredients feed the commit hash?',
+      'Which operation is safe to do on a branch only you have pulled?',
+    ],
     objectives: ['Contrast merge and rebase topologies', 'Apply the golden rule of rebasing'],
   }),
 
@@ -252,7 +270,10 @@ export const gitTemplates: QuestTemplate[] = [
         'Running gc --prune=now in panic, which actually destroys the evidence.',
       ],
     },
-    hints: ['Which log does git log NOT show?', 'What is the default expiry for unreachable objects?'],
+    hints: [
+      'Which log does git log NOT show?',
+      'What is the default expiry for unreachable objects?',
+    ],
     objectives: ['Recover hard-reset work via reflog', 'Understand reachability and GC'],
   }),
 
@@ -287,7 +308,10 @@ export const gitTemplates: QuestTemplate[] = [
       'Untracked files need -u to be included.',
       'stash list, stash show, and named drops (stash drop stash@{1}) manage the stack.',
     ],
-    hints: ['What is the difference between pop and apply by definition?', 'Are untracked files included by default?'],
+    hints: [
+      'What is the difference between pop and apply by definition?',
+      'Are untracked files included by default?',
+    ],
     objectives: ['Use the stash stack safely', 'Distinguish pop from apply'],
   }),
 ];
