@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
 
 import { deriveSeed, Rng } from '../scripts/daily/core/rng.js';
@@ -77,7 +78,6 @@ describe('Rng', () => {
 describe('deriveSeed', () => {
   it('follows the documented derivation scheme', () => {
     // SHA-256("DailyQuest:2026-10-07:generator-v1")
-    const { createHash } = require('node:crypto') as typeof import('node:crypto');
     const expected = createHash('sha256').update('DailyQuest:2026-10-07:generator-v1').digest('hex');
     expect(deriveSeed('2026-10-07', '1.0.0', 'DailyQuest')).toBe(expected);
   });
