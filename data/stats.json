@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": "1.0.0",
+  "generatedAt": "2026-10-10T16:28:18.053Z",
+  "totalQuests": 10,
+  "currentSequence": 10,
+  "latestQuestDate": "2026-10-10",
+  "oldestQuestDate": "2026-10-01",
+  "byCategory": {
+    "sql": 1,
+    "typescript": 1,
+    "cybersecurity": 1,
+    "coding": 2,
+    "performance": 2,
+    "react": 1,
+    "algorithms": 1,
+    "debugging": 1
+  },
+  "byDifficulty": {
+    "intermediate": 6,
+    "hard": 1,
+    "easy": 3
+  },
+  "byType": {
+    "sql": 1,
+    "reasoning": 2,
+    "cybersecurity": 1,
+    "coding": 3,
+    "performance": 2,
+    "debugging": 1
+  },
+  "categoryBreakdown": [
+    {
+      "id": "coding",
+      "label": "Coding",
+      "count": 2,
+      "percent": 20
+    },
+    {
+      "id": "performance",
+      "label": "Performance",
+      "count": 2,
+      "percent": 20
+    },
+    {
+      "id": "algorithms",
+      "label": "Algorithms",
+      "count": 1,
+      "percent": 10
+    },
+    {
+      "id": "cybersecurity",
+      "label": "Cybersecurity",
+      "count": 1,
+      "percent": 10
+    },
+    {
+      "id": "debugging",
+      "label": "Debugging",
+      "count": 1,
+      "percent": 10
+    },
+    {
+      "id": "react",
+      "label": "React",
+      "count": 1,
+      "percent": 10
+    },
+    {
+      "id": "sql",
+      "label": "SQL",
+      "count": 1,
+      "percent": 10
+    },
+    {
+      "id": "typescript",
+      "label": "TypeScript",
+      "count": 1,
+      "percent": 10
+    }
+  ],
+  "averageEstimatedMinutes": 14.3,
+  "totalEstimatedMinutes": 143,
+  "currentStreak": 10,
+  "longestStreak": 10,
+  "archiveSpanDays": 10,
+  "missedDays": 0,
+  "mostFrequentCategory": "coding",
+  "mostFrequentDifficulty": "intermediate"
+}
