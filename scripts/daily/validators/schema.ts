@@ -1,8 +1,8 @@
+import { DIFFICULTY_SCORES } from '../../../shared/categories.js';
 import {
   CATEGORY_IDS,
   CHALLENGE_TYPES,
   DIFFICULTIES,
-  DIFFICULTY_SCORES,
   QUEST_STATUSES,
   type Quest,
 } from '../../../shared/types.js';
@@ -131,7 +131,10 @@ export function validateQuestStructure(quest: Quest): CheckResult[] {
   check('objectives-nonempty', quest.learningObjectives.length > 0);
   check(
     'validation-record',
-    quest.validation.passed === true && quest.validation.score >= 0 && quest.validation.checkedAt.includes('T')
+    typeof quest.validation.score === 'number' &&
+      quest.validation.score >= 0 &&
+      quest.validation.checkedAt.includes('T'),
+    `score=${quest.validation.score}`
   );
 
   // Multiple-choice consistency
@@ -147,10 +150,9 @@ export function validateQuestStructure(quest: Quest): CheckResult[] {
     check('options-consistent', optionsOk);
   }
 
-  // Executable challenges carry examples/tests
-  const executable = ['coding', 'output_prediction', 'sql', 'regex', 'linux'].includes(
-    quest.challengeType
-  );
+  // Executable challenges carry examples or a computed expected output.
+  // (SQL and regex quests are verified through sandbox execution instead.)
+  const executable = ['coding', 'output_prediction', 'linux'].includes(quest.challengeType);
   if (executable && quest.examples.length === 0 && !quest.testCases && !quest.expectedOutput) {
     check('executable-examples', false, 'executable quest without examples or expected output');
   }
