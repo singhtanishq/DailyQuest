@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { CodeBlock } from './CodeBlock.js';
+import { CodeBlock } from '../ui/CodeBlock.js';
 
 /**
  * Markdown-lite renderer for quest prose.
