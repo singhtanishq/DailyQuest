@@ -40,7 +40,13 @@ export type VerificationSpec =
   /** Evaluate a RegExp against match / non-match samples. */
   | { kind: 'regex'; pattern: string; flags: string; samples: { text: string; matches: boolean }[] }
   /** Run bash setup + command in a temp dir; stdout must equal expectedOutput. */
-  | { kind: 'shell'; setup: string[]; files?: Record<string, string>; command: string; expectedOutput: string }
+  | {
+      kind: 'shell';
+      setup: string[];
+      files?: Record<string, string>;
+      command: string;
+      expectedOutput: string;
+    }
   /** Run git commands in a temp repo and assert repository state. */
   | {
       kind: 'git';
@@ -164,7 +170,7 @@ export function quizChallenge(spec: QuizSpec): QuestTemplate {
       }
       promptParts.push(spec.question);
       promptParts.push(
-        shuffledOptions.map((opt, i) => `**${LETTERS[i] ?? '?'}.** ${opt}`).join('\n')
+        shuffledOptions.map((opt, i) => `**${LETTERS[i] ?? '?'}.** ${opt}`).join('\n'),
       );
 
       const solution: QuestSolution = {
@@ -246,7 +252,9 @@ export function openChallenge(spec: OpenSpec): QuestTemplate {
       }
       promptParts.push(spec.question);
       if (spec.guidance && spec.guidance.length > 0) {
-        promptParts.push(`A strong answer addresses:\n${spec.guidance.map((g) => `- ${g}`).join('\n')}`);
+        promptParts.push(
+          `A strong answer addresses:\n${spec.guidance.map((g) => `- ${g}`).join('\n')}`,
+        );
       }
 
       return {
@@ -326,7 +334,7 @@ export function codingChallenge(spec: CodingSpec): QuestTemplate {
           expected = spec.run(test.input);
         } catch (error) {
           throw new Error(
-            `${spec.id}: reference implementation failed on test "${test.name}": ${(error as Error).message}`
+            `${spec.id}: reference implementation failed on test "${test.name}": ${(error as Error).message}`,
           );
         }
         return { name: test.name, input: test.input, expected };
@@ -338,10 +346,15 @@ export function codingChallenge(spec: CodingSpec): QuestTemplate {
           output = spec.run(example.input);
         } catch (error) {
           throw new Error(
-            `${spec.id}: reference implementation failed on example "${example.title}": ${(error as Error).message}`
+            `${spec.id}: reference implementation failed on example "${example.title}": ${(error as Error).message}`,
           );
         }
-        return { title: example.title, input: example.input, output, explanation: example.explanation };
+        return {
+          title: example.title,
+          input: example.input,
+          output,
+          explanation: example.explanation,
+        };
       });
 
       return {
@@ -535,7 +548,9 @@ export function reviewChallenge(spec: ReviewSpec): QuestTemplate {
       subtitle: spec.subtitle,
       description: spec.description,
       prompt: [
-        spec.context ? spec.context : 'Review the following code as if it appeared in your team’s pull request.',
+        spec.context
+          ? spec.context
+          : 'Review the following code as if it appeared in your team’s pull request.',
         codeFence(spec.language, spec.code),
         'Identify every issue worth raising: correctness, security, performance, and maintainability.',
       ].join('\n\n'),
@@ -552,10 +567,15 @@ export function reviewChallenge(spec: ReviewSpec): QuestTemplate {
           .map((i) => i.title)
           .join('; ')}.`,
         reasoning: spec.issues.map(
-          (issue) => `**[${issue.severity.toUpperCase()}] ${issue.title}** — ${issue.explanation} Fix: ${issue.fix}`
+          (issue) =>
+            `**[${issue.severity.toUpperCase()}] ${issue.title}** — ${issue.explanation} Fix: ${issue.fix}`,
         ),
         code: spec.improvedCode
-          ? { language: spec.improvedCode.language, label: 'Improved implementation', code: spec.improvedCode.code }
+          ? {
+              language: spec.improvedCode.language,
+              label: 'Improved implementation',
+              code: spec.improvedCode.code,
+            }
           : undefined,
       },
       learningObjectives: spec.objectives,
@@ -667,14 +687,20 @@ export function regexChallenge(spec: RegexSpec): QuestTemplate {
     concepts: spec.concepts,
     build: () => {
       const sampleLines = spec.samples
-        .map((s) => `- \`${s.text}\` → ${s.matches ? 'match' : 'NO match'}${s.note ? ` (${s.note})` : ''}`)
+        .map(
+          (s) =>
+            `- \`${s.text}\` → ${s.matches ? 'match' : 'NO match'}${s.note ? ` (${s.note})` : ''}`,
+        )
         .join('\n');
 
       const prompt =
         spec.mode === 'explain'
-          ? [spec.question, codeFence('regex', `/${spec.pattern}/${spec.flags}`), 'Test strings:', sampleLines].join(
-              '\n\n'
-            )
+          ? [
+              spec.question,
+              codeFence('regex', `/${spec.pattern}/${spec.flags}`),
+              'Test strings:',
+              sampleLines,
+            ].join('\n\n')
           : [
               spec.question,
               'Test strings:',
@@ -710,7 +736,12 @@ export function regexChallenge(spec: RegexSpec): QuestTemplate {
         skills: spec.skills,
         estimatedMinutes: spec.minutes,
         paramsSignature: 'v1',
-        verification: { kind: 'regex', pattern: spec.pattern, flags: spec.flags, samples: spec.samples },
+        verification: {
+          kind: 'regex',
+          pattern: spec.pattern,
+          flags: spec.flags,
+          samples: spec.samples,
+        },
       };
     },
   };
@@ -879,9 +910,10 @@ export function designChallenge(spec: DesignSpec): QuestTemplate {
       title: spec.title,
       subtitle: spec.subtitle,
       description: spec.description,
-      prompt: [spec.brief, `**Requirements**\n${spec.requirements.map((r) => `- ${r}`).join('\n')}`].join(
-        '\n\n'
-      ),
+      prompt: [
+        spec.brief,
+        `**Requirements**\n${spec.requirements.map((r) => `- ${r}`).join('\n')}`,
+      ].join('\n\n'),
       instructions: [
         'Sketch the components and their responsibilities.',
         'Define the data flow for the primary operation.',
