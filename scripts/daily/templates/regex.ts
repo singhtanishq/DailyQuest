@@ -41,8 +41,14 @@ export const regexTemplates: QuestTemplate[] = [
       'Thinking ^ matches "any line start" by default — with the m flag it does, without it the whole string must comply.',
       'Confusing $ with \\n handling: $ matches just before a final newline in some engines.',
     ],
-    hints: ['Anchors are zero-width: they assert position, they do not consume characters.', 'Check both ends of each test string.'],
-    objectives: ['Use anchors for exact-string validation', 'Distinguish assertion from consumption'],
+    hints: [
+      'Anchors are zero-width: they assert position, they do not consume characters.',
+      'Check both ends of each test string.',
+    ],
+    objectives: [
+      'Use anchors for exact-string validation',
+      'Distinguish assertion from consumption',
+    ],
   }),
 
   regexChallenge({
@@ -79,7 +85,10 @@ export const regexTemplates: QuestTemplate[] = [
       'Assuming the pattern must match the ENTIRE string — without anchors, any substring match counts.',
       'Confusing + (one or more) with * (zero or more): \\d* would match "abc" too, via the empty match.',
     ],
-    hints: ['There are no anchors — a match anywhere is enough.', '+ is one-or-more; is one digit enough in "a1b2"?'],
+    hints: [
+      'There are no anchors — a match anywhere is enough.',
+      '+ is one-or-more; is one digit enough in "a1b2"?',
+    ],
     objectives: ['Read class+quantifier patterns', 'Apply "matches anywhere" semantics'],
   }),
 
@@ -121,7 +130,10 @@ export const regexTemplates: QuestTemplate[] = [
       'Forgetting either anchor — "xa1b2c3" would match a substring.',
       'Using {6,} (six or more) instead of exactly {6}.',
     ],
-    hints: ['Two anchors and one quantifier are all you need.', 'Which characters belong to the hex alphabet?'],
+    hints: [
+      'Two anchors and one quantifier are all you need.',
+      'Which characters belong to the hex alphabet?',
+    ],
     objectives: ['Author anchored validation patterns', 'Use bounded quantifiers precisely'],
   }),
 
@@ -163,7 +175,10 @@ export const regexTemplates: QuestTemplate[] = [
       'Trying \\d{1,2} for the hour — it accepts "9:30" and "29:00".',
       'Forgetting that ranges are per-CHARACTER: [0-23] means 0, 1 or 2 — not the range zero to twenty-three.',
     ],
-    hints: ['Encode numeric ranges digit by digit: tens place first.', 'Which two families of hour values exist: 00–19 and 20–23.'],
+    hints: [
+      'Encode numeric ranges digit by digit: tens place first.',
+      'Which two families of hour values exist: 00–19 and 20–23.',
+    ],
     objectives: ['Encode numeric ranges in regex', 'Prefer non-capturing groups in validators'],
   }),
 
@@ -201,7 +216,10 @@ export const regexTemplates: QuestTemplate[] = [
       'Thinking \\b matches a SPACE — it matches a position, and a space is merely one thing that can create it.',
       'Forgetting the underscore is a word character: "my_cat" does NOT match /\\bcat\\b/.',
     ],
-    hints: ['Boundaries are zero-width positions, not characters.', 'What counts as a word character: exactly [A-Za-z0-9_].'],
+    hints: [
+      'Boundaries are zero-width positions, not characters.',
+      'What counts as a word character: exactly [A-Za-z0-9_].',
+    ],
     objectives: ['Use \\b for whole-word matching', 'Explain the word-character definition'],
   }),
 
@@ -265,7 +283,8 @@ export const regexTemplates: QuestTemplate[] = [
       { text: '2026-1', matches: false },
       { text: 'year 2026-10-07', matches: true },
     ],
-    question: 'Which strings match `/(\\d{4})-(\\d{2})/`, and what do the two groups capture in "year 2026-10-07"?',
+    question:
+      'Which strings match `/(\\d{4})-(\\d{2})/`, and what do the two groups capture in "year 2026-10-07"?',
     explanation: [
       '\\d{4} demands exactly four digits captured into group 1; \\d{2} captures exactly two into group 2.',
       '"202-10" fails (three digits before the dash); "2026-1" fails (one digit after).',
@@ -302,7 +321,8 @@ export const regexTemplates: QuestTemplate[] = [
       { text: '...', matches: true },
       { text: '.gitignore', matches: true },
     ],
-    question: 'Which strings contain a match for `/\\./`, and what would happen WITHOUT the backslash?',
+    question:
+      'Which strings contain a match for `/\\./`, and what would happen WITHOUT the backslash?',
     explanation: [
       '\\. matches a literal dot; the backslash strips the special meaning.',
       'Unescaped, . means "any single character except newline" — /a.c/ would then match "abc" too.',
@@ -313,8 +333,14 @@ export const regexTemplates: QuestTemplate[] = [
       'Over-escaping: /\\.\\./ is two literal dots, not "any two characters".',
       'Escaping inside character classes where . is already literal: [.] works, [\\.] is equivalent but noisy.',
     ],
-    hints: ['Which regex metacharacter is the wildcard?', 'Inside a character class, does the dot keep its special meaning?'],
-    objectives: ['Escape metacharacters deliberately', 'Predict the wildcard behaviour of an unescaped dot'],
+    hints: [
+      'Which regex metacharacter is the wildcard?',
+      'Inside a character class, does the dot keep its special meaning?',
+    ],
+    objectives: [
+      'Escape metacharacters deliberately',
+      'Predict the wildcard behaviour of an unescaped dot',
+    ],
   }),
 
   quizChallenge({
@@ -358,7 +384,10 @@ text.match(/<(.*?)>/)[1];
       'Lazy quantifiers (.+?, .*?) consume as little as possible, expanding only while the rest of the pattern fails.',
       'For tokenizing markup-like text, the lazy form is almost always the intended one.',
     ],
-    hints: ['Greedy grabs everything, then gives back the minimum.', 'The lazy suffix is a question mark after the quantifier.'],
+    hints: [
+      'Greedy grabs everything, then gives back the minimum.',
+      'The lazy suffix is a question mark after the quantifier.',
+    ],
     objectives: ['Predict greedy backtracking', 'Choose lazy quantifiers for delimiters'],
   }),
 ];
