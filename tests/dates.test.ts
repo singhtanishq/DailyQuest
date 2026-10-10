@@ -39,16 +39,10 @@ describe('dates', () => {
 
   test('getTodayInTz resolves the calendar date per zone, not the host zone', () => {
     // 2026-01-01 00:30 Asia/Kolkata is still 2025-12-31 in UTC.
-    const instant = Date.UTC(2025, 11, 31, 19, 0, 0);
-    const originalNow = Date.now;
-    Date.now = () => instant;
-    try {
-      expect(getTodayInTz('Asia/Kolkata')).toBe('2026-01-01');
-      expect(getTodayInTz('UTC')).toBe('2025-12-31');
-      expect(getTodayInTz('America/Los_Angeles')).toBe('2025-12-31');
-    } finally {
-      Date.now = originalNow;
-    }
+    const instant = new Date(Date.UTC(2025, 11, 31, 19, 0, 0));
+    expect(getTodayInTz('Asia/Kolkata', instant)).toBe('2026-01-01');
+    expect(getTodayInTz('UTC', instant)).toBe('2025-12-31');
+    expect(getTodayInTz('America/Los_Angeles', instant)).toBe('2025-12-31');
   });
 
   test('display formatting is stable and human readable', () => {
