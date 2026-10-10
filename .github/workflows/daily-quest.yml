@@ -1,0 +1,201 @@
+name: Daily Quest
+
+# Publishes exactly one quest per day.
+#
+# Schedule: 00:17 Asia/Kolkata, expressed with GitHub's timezone-aware cron
+# (IANA zone; Asia/Kolkata has no DST). The non-rounded minute avoids the
+# top-of-the-hour congestion GitHub documents for scheduled workflows.
+# If the timezone key were ever rejected, 17 0 * * * IST == 47 18 * * * UTC.
+on:
+  schedule:
+    - cron: '17 0 * * *'
+      timezone: 'Asia/Kolkata'
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: 'Publication date (YYYY-MM-DD). Empty = today in Asia/Kolkata.'
+        required: false
+      dry_run:
+        description: 'Validate only — no commit, no push, no deploy'
+        type: boolean
+        default: false
+
+# One publisher at a time, ever. Manual runs queue behind the scheduled run.
+concurrency:
+  group: daily-quest
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Generate, verify, commit, push
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      changed: ${{ steps.publish.outputs.changed }}
+    steps:
+      - name: Verify publishing configuration
+        if: ${{ !inputs.dry_run }}
+        env:
+          TOKEN_SET: ${{ secrets.DAILYQUEST_PUSH_TOKEN != '' }}
+          NAME_SET: ${{ secrets.DAILYQUEST_COMMIT_NAME != '' }}
+          EMAIL_SET: ${{ secrets.DAILYQUEST_COMMIT_EMAIL != '' }}
+        run: |
+          missing=""
+          [ "$TOKEN_SET" != "true" ] && missing="$missing DAILYQUEST_PUSH_TOKEN"
+          [ "$NAME_SET" != "true" ] && missing="$missing DAILYQUEST_COMMIT_NAME"
+          [ "$EMAIL_SET" != "true" ] && missing="$missing DAILYQUEST_COMMIT_EMAIL"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repository secrets:$missing"
+            echo "DailyQuest requires an account-authenticated credential and a commit"
+            echo "identity belonging to the repository owner, so daily commits are"
+            echo "attributed to a human. See README → Contribution Attribution Setup."
+            exit 1
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # The account credential makes the daily push authenticate as the
+          # owner (and lets the push trigger the deploy workflow).
+          token: ${{ secrets.DAILYQUEST_PUSH_TOKEN }}
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate quest (deterministic, idempotent)
+        id: publish
+        env:
+          DAILYQUEST_TIMEZONE: Asia/Kolkata
+        run: |
+          set -euo pipefail
+          ARGS="--ci"
+          if [ -n "${{ inputs.target_date }}" ]; then
+            ARGS="$ARGS --date=${{ inputs.target_date }}"
+          fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          npm run quest -- daily $ARGS
+
+      - name: Validate whole archive
+        run: npm run validate
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build site
+        run: npm run build
+
+      - name: Configure commit identity
+        if: ${{ !inputs.dry_run }}
+        id: identity
+        env:
+          DAILYQUEST_COMMIT_NAME: ${{ secrets.DAILYQUEST_COMMIT_NAME }}
+          DAILYQUEST_COMMIT_EMAIL: ${{ secrets.DAILYQUEST_COMMIT_EMAIL }}
+        run: |
+          set -euo pipefail
+          NAME="$DAILYQUEST_COMMIT_NAME"
+          EMAIL="$DAILYQUEST_COMMIT_EMAIL"
+          if [ -z "$NAME" ] || [ -z "$EMAIL" ]; then
+            echo "::error::Commit identity secrets are empty."
+            exit 1
+          fi
+          # Refuse generic automation identities — attribution requires a
+          # human-owned email verified on the owner's GitHub account.
+          case "$(echo "$EMAIL" | tr '[:upper:]' '[:lower:]')" in
+            *github-actions[bot]*|*noreply@github.com*|*actionsbot*|*bot@users.noreply*)
+              echo "::error::The configured commit email looks like a bot identity."
+              echo "Set DAILYQUEST_COMMIT_EMAIL to an email verified on the owner's account."
+              exit 1
+              ;;
+          esac
+          git config user.name "$NAME"
+          git config user.email "$EMAIL"
+          MASKED="$(echo "$EMAIL" | sed -E 's/^(.).*(@.*)$/\1***\2/')"
+          echo "DailyQuest commit identity verification"
+          echo "  Name:  $NAME"
+          echo "  Email: $MASKED (masked)"
+          echo "email_masked=$MASKED" >> "$GITHUB_OUTPUT"
+
+      - name: Commit the day's quest
+        if: ${{ !inputs.dry_run }}
+        id: commit
+        run: |
+          set -euo pipefail
+          git add data reports README.md
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Nothing to commit — the archive is already up to date."
+            exit 0
+          fi
+          NUMBER="${{ steps.publish.outputs.quest_number }}"
+          TITLE="${{ steps.publish.outputs.quest_title }}"
+          MESSAGE="feat(daily): publish DailyQuest #${NUMBER:-???}"
+          if [ -n "$TITLE" ]; then
+            MESSAGE="$MESSAGE — $TITLE"
+          fi
+          git commit -m "$MESSAGE"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "Committed: $MESSAGE"
+
+      - name: Push (safe, never forced)
+        if: ${{ !inputs.dry_run && steps.commit.outputs.changed == 'true' }}
+        run: |
+          set -euo pipefail
+          DATE="${{ steps.publish.outputs.publication_date }}"
+          if [ -z "$DATE" ]; then
+            echo "::error::Publication date missing from generation output."
+            exit 1
+          fi
+          YEAR="${DATE:0:4}"; MONTH="${DATE:5:2}"
+          QUEST_PATH="data/quests/$YEAR/$MONTH/$DATE.json"
+
+          git fetch origin main
+          if ! git merge-base --is-ancestor origin/main HEAD; then
+            # Someone pushed while we generated. If they already published this
+            # date, our commit is redundant — align with them and stop.
+            if git cat-file -e "origin/main:$QUEST_PATH" 2>/dev/null; then
+              echo "::warning::origin/main already contains a quest for $DATE."
+              git reset --hard origin/main
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Remote moved — rebasing the daily commit (no force push)."
+            git pull --rebase origin main
+          fi
+          git push origin HEAD:main
+
+      - name: Upload Pages artifact
+        if: ${{ !inputs.dry_run && steps.commit.outputs.changed != 'false' }}
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: publish
+    if: ${{ !inputs.dry_run && needs.publish.outputs.changed == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
