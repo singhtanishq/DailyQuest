@@ -7,6 +7,7 @@ import { generateQuestForDate } from '../scripts/daily/pipeline/generate.js';
 import { publishDaily } from '../scripts/daily/pipeline/publish.js';
 import { rebuildDerived } from '../scripts/daily/storage/rebuild.js';
 import { validateRepository } from '../scripts/daily/validators/repository.js';
+import { runJsSnippet, runVerification, VerificationError } from '../scripts/daily/verify/runners.js';
 
 const FIXED_NOW = new Date('2026-10-10T12:00:00.000Z');
 
@@ -120,38 +121,21 @@ describe('integration: generation pipeline', () => {
     }
   });
 
-  it('verification genuinely executes: a bad SQL expectation aborts generation', () => {
-    const root = makeTempRoot();
-    try {
-      // sql.second-highest's expected value is verified against SQLite; craft
-      // a scenario where verification must fail by temporarily breaking a
-      // template's claim through a wrapper template is overkill — instead
-      // assert that the real template passes verification AND that the JS
-      // sandbox runner catches a wrong claim directly.
-      const { runJsSnippet, VerificationError, runVerification } =
-        await_import_runners();
-      expect(runJsSnippet("console.log('5' - 3)")).toBe('2');
+  it('verification genuinely executes: wrong claims abort, right claims pass', () => {
+    expect(runJsSnippet("console.log('5' - 3)")).toBe('2');
 
-      const bad = {
-        kind: 'javascript' as const,
-        code: "console.log('5' + 3)",
-        expectedOutput: '8',
-      };
-      expect(() => runVerification(bad)).toThrow(VerificationError);
+    const wrong = {
+      kind: 'javascript' as const,
+      code: "console.log('5' + 3)",
+      expectedOutput: '8',
+    };
+    expect(() => runVerification(wrong)).toThrow(VerificationError);
 
-      // And the quest for a verification-backed date was written successfully
-      // in the earlier tests — here we just confirm the file exists.
-      void root;
-    } finally {
-      cleanupTempRoot(root);
-    }
+    const right = {
+      kind: 'javascript' as const,
+      code: "console.log('5' + 3)",
+      expectedOutput: '53',
+    };
+    expect(runVerification(right).ok).toBe(true);
   });
 });
-
-// Small helper so the import stays at usage site (vitest transforms both fine).
-function await_import_runners(): typeof import('../scripts/daily/verify/runners.js') {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  return require('../scripts/daily/verify/runners.js') as typeof import(
-    '../scripts/daily/verify/runners.js'
-  );
-}
