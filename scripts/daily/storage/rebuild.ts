@@ -73,13 +73,22 @@ export function rebuildDerived(
       const index = buildIndexFile(archive, config_.generatorVersion, at).file;
       return buildLatestFile(index.quests as IndexEntry[], config_.generatorVersion, at);
     });
+    // Preserve the lastGeneration marker on no-op runs so the health file
+    // stays byte-stable (a requirement of the idempotent daily workflow).
+    let existingLastGeneration = null;
+    if (fileExists(layout.healthFile)) {
+      existingLastGeneration =
+        (readJsonFile<{ lastGeneration?: { date: string; questId: string; at: string } | null }>(
+          layout.healthFile
+        ).lastGeneration ?? null);
+    }
     writeDerivedIfChanged(layout.healthFile, () => ({
       schemaVersion: 1,
       generatorVersion: config_.generatorVersion,
       status: 'ok' as const,
       latestQuestDate: archive[archive.length - 1]?.date ?? null,
       archiveCount: archive.length,
-      lastGeneration: opts.lastGeneration ?? null,
+      lastGeneration: opts.lastGeneration ?? existingLastGeneration,
     }));
   }
 
