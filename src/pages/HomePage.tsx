@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Compass, Dice5, Github, LibraryBig } from 'lucide-react';
+import { ArrowRight, Dice5, Github, LibraryBig } from 'lucide-react';
 
-import type { QuestIndexEntry } from '../../shared/types.js';
 import { getCategories, getIndex, getLatest, getStats } from '../data/api.js';
 import { useAsync } from '../hooks/useAppState.js';
 import { QuestCard } from '../components/quest/QuestCard.js';
-import { DifficultyBadge, MetaStrip } from '../components/quest/QuestCard.js';
-import { categoryIcon, categoryLabel } from '../lib/labels.js';
-import { formatDisplayDate, padQuestNumber, pluralize, totalHours } from '../lib/format.js';
-import { EmptyState, ErrorState, PageSkeleton, QuestCardSkeletonGrid } from '../components/ui/States.js';
+import { MetaStrip } from '../components/quest/QuestCard.js';
+import { categoryIcon } from '../lib/labels.js';
+import { pluralize, totalHours } from '../lib/format.js';
+import { EmptyState, ErrorState, QuestCardSkeletonGrid } from '../components/ui/States.js';
 
 export function HomePage() {
   const latest = useAsync(getLatest, []);
@@ -194,8 +193,3 @@ export function HomePage() {
     </>
   );
 }
-
-export { formatDisplayDate, padQuestNumber };
-export type { QuestIndexEntry };
-export { Compass };
-export { DifficultyBadge };
