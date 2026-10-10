@@ -1,4 +1,3 @@
-import { CATEGORY_META } from '../../../shared/categories.js';
 import {
   DIFFICULTY_SCORES,
   type CategoryId,
@@ -86,7 +85,6 @@ export function assembleQuest(params: AssembleParams): Quest {
     prompt: body.prompt,
     solutionSummary: body.solution.summary,
   });
-  const meta = CATEGORY_META[category];
 
   return {
     schemaVersion: 1,
