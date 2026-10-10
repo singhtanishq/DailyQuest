@@ -18,7 +18,7 @@ function listQuestFiles(dataRoot: string): string[] {
   const files: string[] = [];
   let entries: string[];
   try {
-    entries = readdirSync(layout.questsDir, { recursive: true });
+    entries = readdirSync(layout.questsDir, { recursive: true, encoding: 'utf8' });
   } catch {
     return files;
   }
@@ -58,6 +58,9 @@ export function validateRepository(dataRoot: string): RepositoryReport {
     }
     for (const failed of validateQuestStructure(quest).filter((c) => !c.passed)) {
       errors.push(`${rel}: ${failed.id}${failed.detail ? ` — ${failed.detail}` : ''}`);
+    }
+    if (quest.validation.passed !== true) {
+      errors.push(`${rel}: quest is marked as not validated (validation.passed must be true for published quests)`);
     }
     quests.push(quest);
   }
