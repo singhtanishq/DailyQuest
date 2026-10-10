@@ -26,7 +26,13 @@ export function CategoriesPage() {
       <h1 className="quest-title" style={{ marginTop: 0 }}>
         Categories
       </h1>
-      <p style={{ color: 'var(--foreground-muted)', marginTop: 'var(--space-2)', marginBottom: 'var(--space-6)' }}>
+      <p
+        style={{
+          color: 'var(--foreground-muted)',
+          marginTop: 'var(--space-2)',
+          marginBottom: 'var(--space-6)',
+        }}
+      >
         The quest archive is organized into {data.filter((c) => c.questCount > 0).length} active
         categories across engineering, languages, systems, security and design.
       </p>
@@ -45,7 +51,11 @@ export function CategoriesPage() {
                 {groupCategories.map((category) => {
                   const Icon = categoryIcon(category.icon);
                   return (
-                    <Link key={category.id} to={`/category/${category.id}`} className="category-card">
+                    <Link
+                      key={category.id}
+                      to={`/category/${category.id}`}
+                      className="category-card"
+                    >
                       <span className="category-icon">
                         <Icon size={20} aria-hidden />
                       </span>
