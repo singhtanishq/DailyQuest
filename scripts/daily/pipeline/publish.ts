@@ -44,6 +44,8 @@ export function publishDaily(opts: {
   dateOverride?: string;
   dryRun?: boolean;
   scheduled?: boolean;
+  /** Injectable clock (tests); defaults to wall-clock time. */
+  now?: Date;
 }): PublishSummary {
   const config = loadConfig();
   const dryRun = opts.dryRun ?? false;
@@ -68,12 +70,13 @@ export function publishDaily(opts: {
     warnings.push(plan.warning);
   }
 
+  const now = opts.now ?? new Date();
   const ctx: PipelineContext = {
     dataRoot: opts.dataRoot,
     config,
     archive,
     dryRun,
-    now: new Date(),
+    now,
   };
 
   const entries: PublishEntry[] = [];
@@ -106,7 +109,7 @@ export function publishDaily(opts: {
   }
 
   const rebuild = rebuildDerived(opts.dataRoot, {
-    lastGeneration: lastCreated ? { ...lastCreated, at: new Date().toISOString() } : null,
+    lastGeneration: lastCreated ? { ...lastCreated, at: now.toISOString() } : null,
   });
 
   let readmeChanged = false;
@@ -137,7 +140,7 @@ export function publishDaily(opts: {
       const report: DailyReport = {
         schemaVersion: 1,
         date: entry.date,
-        generatedAt: new Date().toISOString(),
+        generatedAt: now.toISOString(),
         generatorVersion: config.generatorVersion,
         outcome: 'created',
         questId: entry.questId,
