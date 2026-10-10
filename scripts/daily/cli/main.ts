@@ -54,14 +54,22 @@ function die(message: string): never {
 function writeCiOutputs(summary: PublishSummary): void {
   const outputPath = process.env.GITHUB_OUTPUT;
   const created = summary.entries.find((e) => e.outcome === 'created');
+  // A dry run must never signal "changed": push and deployment gating rely on
+  // this output to distinguish a real publication from a preview or a no-op.
+  const dryRun = summary.entries.some((e) => e.outcome === 'dry-run');
+  const changed =
+    !dryRun && !(summary.noOp && summary.derivedChanged.length === 0 && !summary.readmeChanged);
   if (outputPath) {
+    // Entries are generated in ascending date order; the newest date is the
+    // one the push-safety check must compare against.
+    const newest = [...summary.entries].reverse().find((e) => e.date.length > 0);
     const lines = [
-      `publication_date=${summary.entries[0]?.date ?? summary.today ?? ''}`,
-      `outcome=${created ? 'created' : summary.noOp ? 'no-op' : 'updated'}`,
+      `publication_date=${newest?.date ?? summary.today ?? ''}`,
+      `outcome=${dryRun ? 'dry-run' : created ? 'created' : summary.noOp ? 'no-op' : 'updated'}`,
       `quest_number=${created?.sequenceNumber ?? ''}`,
       `quest_title=${created?.title ?? ''}`,
       `quest_slug=${created?.questId?.replace('dq-', '') ?? ''}`,
-      `changed=${summary.noOp && summary.derivedChanged.length === 0 && !summary.readmeChanged ? 'false' : 'true'}`,
+      `changed=${changed ? 'true' : 'false'}`,
       '',
     ];
     appendFileSync(outputPath, lines.join('\n'));
