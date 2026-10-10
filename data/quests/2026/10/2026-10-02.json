@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-02",
+  "date": "2026-10-02",
+  "sequenceNumber": 2,
+  "slug": "2026-10-02-the-honest-annotation",
+  "title": "The Honest Annotation",
+  "shortTitle": "The Honest Annotation",
+  "subtitle": "as widens; satisfies checks without widening.",
+  "description": "Choosing between a type assertion and the satisfies operator for a config object.",
+  "category": "typescript",
+  "subcategories": [
+    "types"
+  ],
+  "challengeType": "reasoning",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 12,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "type assertions",
+    "satisfies operator"
+  ],
+  "tags": [
+    "typescript",
+    "types"
+  ],
+  "skills": [
+    "Assertion discipline"
+  ],
+  "prompt": "You declare a theme config that must match `type Theme = Record<string, { color: string }>`. Which declaration keeps literal key checking while guaranteeing conformance?\n\n**A.** const theme = { dark: { color: \"#111\" } } satisfies Theme\n**B.** const theme: Theme = { dark: { color: \"#111\" } }\n**C.** const theme = <Theme>{ dark: { color: \"#111\" } }\n**D.** const theme = { dark: { color: \"#111\" } } as Theme",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "const theme = { dark: { color: \"#111\" } } satisfies Theme",
+    "const theme: Theme = { dark: { color: \"#111\" } }",
+    "const theme = <Theme>{ dark: { color: \"#111\" } }",
+    "const theme = { dark: { color: \"#111\" } } as Theme"
+  ],
+  "correctOptionIndex": 0,
+  "examples": [],
+  "hints": [
+    "What survives the expression type-wise in each variant?",
+    "Which operator was added in TS 4.9 precisely for this use case?"
+  ],
+  "solution": {
+    "summary": "The correct answer is A — const theme = { dark: { color: \"#111\" } } satisfies Theme",
+    "answer": "const theme = { dark: { color: \"#111\" } } satisfies Theme",
+    "reasoning": [
+      "Assertions are trust me casts — they neither check nor preserve.",
+      "satisfies answers: is this value assignable, and can I keep the precise type?",
+      "For config objects, satisfies catches typos on BOTH sides: unknown keys and missing required fields."
+    ],
+    "whyNot": [
+      "const theme: Theme = { dark: { color: \"#111\" } } — Annotating does check the shape, but it widens the variable’s type to Theme — you lose the literal-narrowing benefits (like exact key preservation) that satisfies retains.",
+      "const theme = <Theme>{ dark: { color: \"#111\" } } — The angle-bracket form is the same unchecked cast as `as`, and it is ambiguous inside .tsx files.",
+      "const theme = { dark: { color: \"#111\" } } as Theme — as forces the Theme type and discards the literal information; it also silences mismatch errors (assertions are unchecked)."
+    ]
+  },
+  "learningObjectives": [
+    "Use satisfies for checked literals",
+    "Reserve `as` for genuinely provable casts"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "ts.as-vs-satisfies",
+  "generatorVersion": "1.0.0",
+  "seed": "0c25ef0703d5a324ece08f9a9ecc2b56e0d8615a94724b0a380835ac8cbfca6f",
+  "paramsSignature": "v1",
+  "contentHash": "1d6cfcaea1a87f9b1d2abe6eac0cb6cb5ca20afd03911cb02e8df73f407142a5",
+  "createdAt": "2026-10-10T16:26:35.239Z",
+  "updatedAt": "2026-10-10T16:26:35.239Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-10T16:26:35.239Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
