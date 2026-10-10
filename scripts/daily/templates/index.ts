@@ -1,4 +1,4 @@
-import type { QuestTemplate } from '../../../shared/types.js';
+import type { QuestTemplate } from './framework.js';
 
 import { algorithmTemplates } from './algorithms.js';
 import { architectureTemplates } from './architecture.js';
@@ -55,6 +55,7 @@ export const ALL_TEMPLATES: QuestTemplate[] = [
   ...puzzleTemplates,
   ...systemDesignTemplates,
   ...architectureTemplates,
+  ...performanceTemplates,
   ...devopsTemplates,
   ...generalTemplates,
 ];
