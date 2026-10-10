@@ -2,13 +2,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowUpDown, Search } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
-import type { QuestIndexEntry } from '../../shared/types.js';
+import type { QuestIndexEntry } from '../../../shared/types.js';
 import { CHALLENGE_TYPE_LABELS, DIFFICULTY_ORDER, categoryLabel, difficultyLabel } from '../../lib/labels.js';
 import { useAsync, useDebounced } from '../../hooks/useAppState.js';
 import { getIndex } from '../../data/api.js';
 import { applyFilters, type ArchiveFilters } from '../../lib/search.js';
 import { EmptyState, QuestCardSkeletonGrid } from '../ui/States.js';
-import { QuestCard } from './QuestCard.js';
+import { QuestCard } from '../quest/QuestCard.js';
 
 const PAGE_SIZE = 12;
 
@@ -24,14 +24,7 @@ function toFilters(params: URLSearchParams): ArchiveFilters {
 }
 
 /** Full archive browser: search, filters, sort, pagination — all in the URL. */
-export function ArchiveBrowser({
-  lockCategory,
-  heading,
-}: {
-  /** When set, the category filter is fixed (category pages). */
-  lockCategory?: string;
-  heading?: string;
-}) {
+export function ArchiveBrowser({ lockCategory }: { lockCategory?: string }) {
   const location = useLocation();
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
