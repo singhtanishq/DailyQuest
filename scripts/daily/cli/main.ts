@@ -47,10 +47,6 @@ function die(message: string): never {
   process.exit(1);
 }
 
-function repoRootFromDataRoot(dataRoot: string): string {
-  return resolve(dataRoot, '..');
-}
-
 function writeCiOutputs(summary: PublishSummary): void {
   const outputPath = process.env.GITHUB_OUTPUT;
   const created = summary.entries.find((e) => e.outcome === 'created');
