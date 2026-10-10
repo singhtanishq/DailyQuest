@@ -195,6 +195,14 @@ for local generation.
   must be your own verified email, not an automation address.
 - **Push rejected (non-fast-forward)** — the workflow rebases automatically and never
   force-pushes; if the remote already published the date, it realigns and skips.
+- **`Get Pages site failed` at `configure-pages`** — Pages is not enabled with the right
+  source. Settings → Pages → Build and deployment → **Source: GitHub Actions**, then re-run
+  the deploy workflow. (A failure here never blocks the daily quest commit — Pages
+  configuration is only touched inside the deploy job.)
+- **The site serves the raw source `index.html`** (e.g. the browser requests
+  `/src/main.tsx` and 404s) — a stale *branch-based* deployment of the repository root is
+  still live. The first successful Actions deployment of `dist/` replaces it; confirm
+  Settings → Pages → Source is **GitHub Actions**, then re-run **Deploy Site**.
 - **Pages shows a 404 on deep links** — ensure Pages source is *GitHub Actions* and the
   build ran (the SPA fallback ships as `404.html`).
 - **A quest looks wrong** — open an issue with the quest date; published quests are
