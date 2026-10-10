@@ -34,7 +34,12 @@ const urls = [
   { path: '/categories', priority: '0.6', changefreq: 'weekly' },
   { path: '/stats', priority: '0.5', changefreq: 'daily' },
   { path: '/about', priority: '0.4', changefreq: 'monthly' },
-  ...index.quests.map((q) => ({ path: `/quest/${q.slug}`, priority: '0.8', changefreq: 'monthly', date: q.date })),
+  ...index.quests.map((q) => ({
+    path: `/quest/${q.slug}`,
+    priority: '0.8',
+    changefreq: 'monthly',
+    date: q.date,
+  })),
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -44,7 +49,7 @@ ${urls
     (u) =>
       `  <url><loc>${base}${basePath === '' ? '' : basePath}${u.path}</loc>${
         u.date ? `<lastmod>${u.date}</lastmod>` : ''
-      }<changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`
+      }<changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`,
   )
   .join('\n')}
 </urlset>
