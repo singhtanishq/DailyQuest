@@ -1,8 +1,6 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import type { IndexEntry } from './index.js';
-
 const BEGIN_MARKER = '<!-- DAILYQUEST:STATUS:BEGIN -->';
 const END_MARKER = '<!-- DAILYQUEST:STATUS:END -->';
 
@@ -27,11 +25,17 @@ export function resolveSiteUrl(repoRoot: string): string {
   return 'https://tanishqsingh.github.io/DailyQuest';
 }
 
-export function renderStatusBlock(
-  entry: IndexEntry,
-  displayDate: string,
-  siteUrl: string
-): string {
+export interface StatusBlockEntry {
+  sequenceNumber: number;
+  title: string;
+  slug: string;
+  category: string;
+  difficulty: string;
+  estimatedMinutes: number;
+  date: string;
+}
+
+export function renderStatusBlock(entry: StatusBlockEntry, displayDate: string, siteUrl: string): string {
   return [
     BEGIN_MARKER,
     `> **Today’s quest:** [#${String(entry.sequenceNumber).padStart(3, '0')} — ${entry.title}](${siteUrl}/quest/${entry.slug})`,
