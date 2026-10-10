@@ -73,7 +73,10 @@ ORDER BY total_cents DESC;`,
       'Filtering status after aggregation — `WHERE` must run before `GROUP BY`.',
       'Using a LEFT JOIN and forgetting that the orphan order lands in a NULL city group.',
     ],
-    hints: ['Which rows survive the status filter first?', 'The orphan order (user_id 99) — does an inner join keep it?'],
+    hints: [
+      'Which rows survive the status filter first?',
+      'The orphan order (user_id 99) — does an inner join keep it?',
+    ],
     objectives: ['Compose JOIN + WHERE + GROUP BY + ORDER BY', 'Reason about inner-join semantics'],
   }),
 
@@ -91,8 +94,7 @@ ORDER BY total_cents DESC;`,
     subtitle: 'Find who never ordered.',
     description: 'An anti-join: users without a single order.',
     schema: SHOP_SCHEMA,
-    question:
-      'Return the `name` of every user who has NO orders at all, ordered alphabetically.',
+    question: 'Return the `name` of every user who has NO orders at all, ordered alphabetically.',
     query: `SELECT u.name
 FROM users u
 WHERE NOT EXISTS (
@@ -110,7 +112,10 @@ ORDER BY u.name;`,
       'Writing `WHERE o.user_id IS NULL` with an INNER JOIN — inner joins already removed those rows.',
       'Using NOT IN with a nullable subquery column: one NULL makes the whole NOT IN return nothing.',
     ],
-    hints: ['Which anti-join shapes do you know — NOT EXISTS, LEFT JOIN + IS NULL, NOT IN?', 'Order 106 points at user 99, who does not exist. Does that affect the answer?'],
+    hints: [
+      'Which anti-join shapes do you know — NOT EXISTS, LEFT JOIN + IS NULL, NOT IN?',
+      'Order 106 points at user 99, who does not exist. Does that affect the answer?',
+    ],
     objectives: ['Implement anti-joins idiomatically', 'Know the NOT IN + NULL trap'],
   }),
 
@@ -148,7 +153,10 @@ LIMIT 1;`,
       'Ordering by an aliased aggregate in engines that disallow it — order by the full expression instead.',
       'Forgetting the status filter, which would pull the 8050 refund into Ada’s total.',
     ],
-    hints: ['Aggregate per user first; only then pick the maximum.', 'LIMIT 1 after a DESC sort is the simplest top-1.'],
+    hints: [
+      'Aggregate per user first; only then pick the maximum.',
+      'LIMIT 1 after a DESC sort is the simplest top-1.',
+    ],
     objectives: ['Nest aggregation into top-N selection', 'Think about tie-breaking determinism'],
   }),
 
@@ -185,7 +193,10 @@ WHERE status = 'paid'
       'Using LIMIT 1 OFFSET 1 without handling ties — duplicates shift the offset.',
       'Forgetting DISTINCT semantics when duplicates of the maximum exist.',
     ],
-    hints: ['What is the maximum, and what are you really asked to maximize over?', 'Two-level MAX is a clean pattern: max of "everything below the max".'],
+    hints: [
+      'What is the maximum, and what are you really asked to maximize over?',
+      'Two-level MAX is a clean pattern: max of "everything below the max".',
+    ],
     objectives: ['Solve top-N-without-OFFSET problems', 'Know MAX’s empty-set behaviour'],
   }),
 
@@ -230,7 +241,10 @@ WHERE manager_id IS NULL;`,
       'Reaching for IS NOT NULL to find values that "are not null-ish" — there is no null-ish; it is binary.',
       'Assuming COUNT(*) and COUNT(manager_id) are the same — the latter skips NULLs.',
     ],
-    hints: ['What are the three truth values in SQL?', 'Which operator exists specifically for NULL testing?'],
+    hints: [
+      'What are the three truth values in SQL?',
+      'Which operator exists specifically for NULL testing?',
+    ],
     objectives: ['Explain three-valued logic', 'Use IS NULL correctly in filters'],
   }),
 
@@ -285,8 +299,14 @@ ORDER BY manager_id, rnk;`,
       'Adding GROUP BY manager_id and collapsing to one row per group.',
       'Forgetting WHERE manager_id IS NOT NULL, which would create a NULL partition for Ada.',
     ],
-    hints: ['Window functions run AFTER the WHERE clause and never reduce row count.', 'PARTITION BY is "GROUP BY that keeps the rows".'],
-    objectives: ['Use PARTITION BY + ORDER BY windows', 'Distinguish RANK, ROW_NUMBER and DENSE_RANK'],
+    hints: [
+      'Window functions run AFTER the WHERE clause and never reduce row count.',
+      'PARTITION BY is "GROUP BY that keeps the rows".',
+    ],
+    objectives: [
+      'Use PARTITION BY + ORDER BY windows',
+      'Distinguish RANK, ROW_NUMBER and DENSE_RANK',
+    ],
   }),
 
   sqlChallenge({
@@ -332,8 +352,14 @@ HAVING COUNT(*) > 1;`,
       'Writing WHERE COUNT(*) > 1 — aggregates cannot appear in WHERE; that is what HAVING is for.',
       'Dropping the WHERE and then filtering NULL groups with HAVING manager_id IS NOT NULL — works, but conflates row and group filters.',
     ],
-    hints: ['Which clause sees individual rows, and which sees groups?', 'The pipeline is FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY.'],
-    objectives: ['Place filters on the correct side of aggregation', 'Reconstruct the SQL execution pipeline'],
+    hints: [
+      'Which clause sees individual rows, and which sees groups?',
+      'The pipeline is FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY.',
+    ],
+    objectives: [
+      'Place filters on the correct side of aggregation',
+      'Reconstruct the SQL execution pipeline',
+    ],
   }),
 
   sqlChallenge({
@@ -368,7 +394,10 @@ ORDER BY o.id;`,
       'Using an INNER JOIN — the orphan row disappears before you can find it.',
       'Testing u.name IS NULL when name is NOT NULL in the schema — the join key (u.id) is the reliable NULL marker.',
     ],
-    hints: ['Which join type preserves unmatched left rows?', 'After a LEFT JOIN, what is NULL in an unmatched row?'],
+    hints: [
+      'Which join type preserves unmatched left rows?',
+      'After a LEFT JOIN, what is NULL in an unmatched row?',
+    ],
     objectives: ['Detect referential orphans with LEFT JOIN', 'Use COALESCE for display fallbacks'],
   }),
 
@@ -402,7 +431,10 @@ WHERE created_at BETWEEN '2026-01-05' AND '2026-01-15';`,
       'Using BETWEEN on TIMESTAMP columns with a date-only upper bound, which cuts off the whole last day (2026-01-15T00:00:00 exactly).',
       'Storing dates in non-ISO formats and comparing text — the trick only works for ISO-8601.',
     ],
-    hints: ['Compare the six created_at values with the window bounds as plain strings.', 'Is BETWEEN inclusive or exclusive?'],
+    hints: [
+      'Compare the six created_at values with the window bounds as plain strings.',
+      'Is BETWEEN inclusive or exclusive?',
+    ],
     objectives: ['Exploit ISO-8601 ordering', 'Respect BETWEEN inclusivity'],
   }),
 
