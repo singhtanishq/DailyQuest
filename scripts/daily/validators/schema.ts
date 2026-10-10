@@ -22,7 +22,8 @@ export interface CheckResult {
 }
 
 const PLACEHOLDER_PATTERN = /\b(TODO|FIXME|LOREM IPSUM|PLACEHOLDER|TBD|XXX)\b/i;
-const SECRET_PATTERN = /\b(sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{20,}|gho_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|xox[baprs]-[A-Za-z0-9-]{10,})\b/;
+const SECRET_PATTERN =
+  /\b(sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{20,}|gho_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|xox[baprs]-[A-Za-z0-9-]{10,})\b/;
 
 function collectText(quest: Quest): string {
   const parts: string[] = [
@@ -65,40 +66,44 @@ export function validateQuestStructure(quest: Quest): CheckResult[] {
   check(
     'id-format',
     /^dq-\d{4}-\d{2}-\d{2}$/.test(quest.id) && quest.id === `dq-${quest.date}`,
-    `id=${quest.id} date=${quest.date}`
+    `id=${quest.id} date=${quest.date}`,
   );
   check('date-valid', isIsoDate(quest.date));
   const expectedSlug = `${quest.date}-${slugify(quest.title)}`;
   check(
     'slug-canonical',
     quest.slug === expectedSlug && !quest.slug.includes('--'),
-    `slug=${quest.slug} expected=${expectedSlug}`
+    `slug=${quest.slug} expected=${expectedSlug}`,
   );
   check('sequence-positive', Number.isInteger(quest.sequenceNumber) && quest.sequenceNumber >= 1);
   check('status-published', QUEST_STATUSES.includes(quest.status));
   check('authoring-method', quest.authoringMethod === 'deterministic-template');
   check('template-id-present', typeof quest.templateId === 'string' && quest.templateId.length > 0);
-  check(
-    'generator-version',
-    /^\d+\.\d+\.\d+$/.test(quest.generatorVersion)
-  );
+  check('generator-version', /^\d+\.\d+\.\d+$/.test(quest.generatorVersion));
   check('seed-present', /^[0-9a-f]{16,}$/.test(quest.seed));
   check('content-hash-present', /^[0-9a-f]{16,}$/.test(quest.contentHash));
   check(
     'timestamps',
-    isIsoDate(quest.createdAt.split('T')[0] ?? '') && quest.updatedAt.includes('T')
+    isIsoDate(quest.createdAt.split('T')[0] ?? '') && quest.updatedAt.includes('T'),
   );
 
   // Taxonomy
   check('category-valid', (CATEGORY_IDS as readonly string[]).includes(quest.category));
-  check('challenge-type-valid', (CHALLENGE_TYPES as readonly string[]).includes(quest.challengeType));
+  check(
+    'challenge-type-valid',
+    (CHALLENGE_TYPES as readonly string[]).includes(quest.challengeType),
+  );
   check('difficulty-valid', (DIFFICULTIES as readonly string[]).includes(quest.difficulty));
   check(
     'difficulty-score-aligned',
     quest.difficultyScore === DIFFICULTY_SCORES[quest.difficulty],
-    `score=${quest.difficultyScore} difficulty=${quest.difficulty}`
+    `score=${quest.difficultyScore} difficulty=${quest.difficulty}`,
   );
-  for (const key of ['conceptComplexity', 'reasoningComplexity', 'implementationComplexity'] as const) {
+  for (const key of [
+    'conceptComplexity',
+    'reasoningComplexity',
+    'implementationComplexity',
+  ] as const) {
     const value = quest[key];
     check(`${key}-range`, Number.isInteger(value) && value >= 1 && value <= 5, `got ${value}`);
   }
@@ -112,20 +117,23 @@ export function validateQuestStructure(quest: Quest): CheckResult[] {
   check(
     'prompt-substantial',
     quest.prompt.trim().length >= 40,
-    `${quest.prompt.trim().length} chars`
+    `${quest.prompt.trim().length} chars`,
   );
   check(
     'instructions-nonempty',
-    quest.instructions.length > 0 && quest.instructions.every((i) => i.trim().length > 0)
+    quest.instructions.length > 0 && quest.instructions.every((i) => i.trim().length > 0),
   );
   check('hints-count', quest.hints.length <= 3 && quest.hints.every((h) => h.trim().length > 0));
   check('solution-summary', quest.solution.summary.trim().length >= 10);
   check(
     'estimated-minutes',
     quest.estimatedMinutes >= 5 && quest.estimatedMinutes <= 120,
-    `${quest.estimatedMinutes}`
+    `${quest.estimatedMinutes}`,
   );
-  check('concepts-nonempty', quest.concepts.length > 0 && quest.concepts.every((c) => c.trim().length > 0));
+  check(
+    'concepts-nonempty',
+    quest.concepts.length > 0 && quest.concepts.every((c) => c.trim().length > 0),
+  );
   check('tags-nonempty', quest.tags.length > 0 && quest.tags.every((t) => t.trim().length > 0));
   check('skills-nonempty', quest.skills.length > 0);
   check('objectives-nonempty', quest.learningObjectives.length > 0);
@@ -134,7 +142,7 @@ export function validateQuestStructure(quest: Quest): CheckResult[] {
     typeof quest.validation.score === 'number' &&
       quest.validation.score >= 0 &&
       quest.validation.checkedAt.includes('T'),
-    `score=${quest.validation.score}`
+    `score=${quest.validation.score}`,
   );
 
   // Multiple-choice consistency
@@ -162,12 +170,12 @@ export function validateQuestStructure(quest: Quest): CheckResult[] {
   const placeholderMatch = PLACEHOLDER_PATTERN.exec(text);
   check('no-placeholders', placeholderMatch === null, placeholderMatch?.[0]);
   const secretMatch = SECRET_PATTERN.exec(text);
-  check('no-secrets', secretMatch === null, secretMatch ? 'credential-like token found' : undefined);
   check(
-    'markdown-fences-balanced',
-    countFences(text) % 2 === 0,
-    `${countFences(text)} fences`
+    'no-secrets',
+    secretMatch === null,
+    secretMatch ? 'credential-like token found' : undefined,
   );
+  check('markdown-fences-balanced', countFences(text) % 2 === 0, `${countFences(text)} fences`);
 
   return checks;
 }
