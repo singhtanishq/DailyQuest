@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { DataError } from '../data/api.js';
-
 export interface AsyncState<T> {
   data: T | null;
   error: Error | null;
