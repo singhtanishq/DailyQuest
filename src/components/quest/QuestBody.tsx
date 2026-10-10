@@ -37,14 +37,20 @@ export function QuestBody({ quest }: { quest: Quest }) {
                 {option}
                 {index === quest.correctOptionIndex ? (
                   <span className="verdict">
-                    <Check size={11} style={{ display: 'inline', verticalAlign: '-1px' }} /> solution
-                    marks this correct
+                    <Check size={11} style={{ display: 'inline', verticalAlign: '-1px' }} />{' '}
+                    solution marks this correct
                   </span>
                 ) : null}
               </div>
             ))}
           </div>
-          <p style={{ marginTop: '0.75rem', color: 'var(--foreground-muted)', fontSize: 'var(--text-sm)' }}>
+          <p
+            style={{
+              marginTop: '0.75rem',
+              color: 'var(--foreground-muted)',
+              fontSize: 'var(--text-sm)',
+            }}
+          >
             Decide before you scroll on — the solution section explains why the marked option wins.
           </p>
         </section>
@@ -127,7 +133,13 @@ export function QuestBody({ quest }: { quest: Quest }) {
               </div>
             ))}
           </div>
-          <p style={{ marginTop: '0.75rem', color: 'var(--foreground-muted)', fontSize: 'var(--text-sm)' }}>
+          <p
+            style={{
+              marginTop: '0.75rem',
+              color: 'var(--foreground-muted)',
+              fontSize: 'var(--text-sm)',
+            }}
+          >
             All expected outputs were computed by executing the reference solution at generation
             time — {quest.testCases.length} test{quest.testCases.length === 1 ? '' : 's'} in total.
           </p>
@@ -179,10 +191,7 @@ export function SolutionPanel({ quest }: { quest: Quest }) {
   return (
     <section className="quest-section">
       <h2>Solution</h2>
-      <Reveal
-        variant="solution"
-        summary="Reveal Solution"
-      >
+      <Reveal variant="solution" summary="Reveal Solution">
         <p className="solution-warning">
           Try the quest first — the reasoning below is worth more after an attempt.
         </p>
@@ -245,9 +254,7 @@ export function SolutionPanel({ quest }: { quest: Quest }) {
 
         {solution.commonMistakes && solution.commonMistakes.length > 0 ? (
           <>
-            <h3 style={{ margin: '1rem 0 0.5rem', fontSize: 'var(--text-md)' }}>
-              Common mistakes
-            </h3>
+            <h3 style={{ margin: '1rem 0 0.5rem', fontSize: 'var(--text-md)' }}>Common mistakes</h3>
             <MarkdownLite text={solution.commonMistakes.map((m) => `- ${m}`).join('\n')} />
           </>
         ) : null}
@@ -296,7 +303,8 @@ export function QuestNav({
       {next ? (
         <Link to={`/quest/${next.slug}`} className="next">
           <div className="direction">
-            Next Quest <ChevronRight size={12} style={{ display: 'inline', verticalAlign: '-2px' }} />
+            Next Quest{' '}
+            <ChevronRight size={12} style={{ display: 'inline', verticalAlign: '-2px' }} />
           </div>
           <div className="nav-title">
             #{padQuestNumber(next.sequenceNumber)} {next.title}
