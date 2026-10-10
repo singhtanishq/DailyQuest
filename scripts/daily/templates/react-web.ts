@@ -38,7 +38,10 @@ export const reactTemplates: QuestTemplate[] = [
       'Index keys make identity follow position, so state bleeds across items on delete/reorder.',
       'Use a stable, unique-per-item id; fall back to index keys only for static, never-reordered lists.',
     ],
-    hints: ['What does React use keys for after a render?', 'Which instance keeps the `useState` value when the list rotates?'],
+    hints: [
+      'What does React use keys for after a render?',
+      'Which instance keeps the `useState` value when the list rotates?',
+    ],
     objectives: ['Explain key-based reconciliation', 'Choose keys that encode item identity'],
   }),
 
@@ -88,7 +91,10 @@ export const reactTemplates: QuestTemplate[] = [
       'The functional update setCount(c => c + 1) reads the LATEST state and fixes this without re-subscribing.',
       'Alternatively, listing [count] re-creates the interval each tick — correct but churny.',
     ],
-    hints: ['Which value of `count` did the interval callback capture, and when?', 'What does the setCount(c => c + 1) form receive as its argument?'],
+    hints: [
+      'Which value of `count` did the interval callback capture, and when?',
+      'What does the setCount(c => c + 1) form receive as its argument?',
+    ],
     objectives: ['Diagnose stale closures in effects', 'Reach for functional updates'],
   }),
 
@@ -123,7 +129,10 @@ export const reactTemplates: QuestTemplate[] = [
       'Early returns before later hooks have the same hazard as conditionals.',
       'Move conditionals INSIDE the hook usage (choose arguments), or split components.',
     ],
-    hints: ['How does React know which useState call maps to which stored value?', 'What happens to slot numbering when one call disappears?'],
+    hints: [
+      'How does React know which useState call maps to which stored value?',
+      'What happens to slot numbering when one call disappears?',
+    ],
     objectives: ['Explain order-based hook slots', 'Refactor conditional hook misuse'],
   }),
 
@@ -161,8 +170,14 @@ export const reactTemplates: QuestTemplate[] = [
         'Mixing both for one input and fighting the DOM over the value.',
       ],
     },
-    hints: ['Who is the source of truth in each pattern?', 'What does every keystroke cost in a controlled input?'],
-    objectives: ['Compare controlled and uncontrolled models', 'Choose per scenario with justification'],
+    hints: [
+      'Who is the source of truth in each pattern?',
+      'What does every keystroke cost in a controlled input?',
+    ],
+    objectives: [
+      'Compare controlled and uncontrolled models',
+      'Choose per scenario with justification',
+    ],
   }),
 ];
 
@@ -199,8 +214,14 @@ export const webTemplates: QuestTemplate[] = [
       'A button also carries no navigation semantics (unlike <a href>), matching the "perform an action" intent.',
       'Rule: choose the element whose native behaviour matches the interaction, style it afterwards.',
     ],
-    hints: ['Try submitting that div with the Tab key only.', 'What does a screen reader announce for a div?'],
-    objectives: ['Prefer native semantics over rebuilt behaviour', 'Name the four free guarantees of <button>'],
+    hints: [
+      'Try submitting that div with the Tab key only.',
+      'What does a screen reader announce for a div?',
+    ],
+    objectives: [
+      'Prefer native semantics over rebuilt behaviour',
+      'Name the four free guarantees of <button>',
+    ],
   }),
 
   quizChallenge({
@@ -235,7 +256,10 @@ export const webTemplates: QuestTemplate[] = [
       'p.note = (0,1,1); .note = (0,1,0); p = (0,0,1); #intro = (1,0,0).',
       'Only !important or inline styles outrank ID selectors — both are smells.',
     ],
-    hints: ['Compare the three-column tuple before thinking about order.', 'Order matters only between selectors of EQUAL specificity.'],
+    hints: [
+      'Compare the three-column tuple before thinking about order.',
+      'Order matters only between selectors of EQUAL specificity.',
+    ],
     objectives: ['Compute specificity tuples', 'Untangle cascade conflicts'],
   }),
 
@@ -251,7 +275,8 @@ export const webTemplates: QuestTemplate[] = [
     subcategories: ['security'],
     title: 'The CORS Misconception',
     subtitle: 'CORS is the browser asking permission.',
-    description: 'What the Same-Origin Policy forbids, what CORS actually grants, and who enforces it.',
+    description:
+      'What the Same-Origin Policy forbids, what CORS actually grants, and who enforces it.',
     question:
       'A teammate says "we enabled CORS on the server, so now attackers can’t call our API." Untangle the confusion: what does the Same-Origin Policy block, what does a CORS header actually do, and why is CORS not an attack-surface control?',
     guidance: [
@@ -273,8 +298,14 @@ export const webTemplates: QuestTemplate[] = [
         'Treating CORS failures as server errors — the request may have succeeded; the browser hid the response.',
       ],
     },
-    hints: ['Try calling the API with curl — does CORS exist there?', 'Who refuses to hand over the response: the server or the browser?'],
-    objectives: ['Place CORS correctly in the security model', 'Separate read restrictions from write protections'],
+    hints: [
+      'Try calling the API with curl — does CORS exist there?',
+      'Who refuses to hand over the response: the server or the browser?',
+    ],
+    objectives: [
+      'Place CORS correctly in the security model',
+      'Separate read restrictions from write protections',
+    ],
   }),
 
   openChallenge({
@@ -311,7 +342,10 @@ export const webTemplates: QuestTemplate[] = [
         'Blaming JavaScript speed — the cost is forced synchronous layout, not the JS itself.',
       ],
     },
-    hints: ['Which property reads force layout, and which writes invalidate it?', 'Split the loop into two passes: all reads, then all writes.'],
+    hints: [
+      'Which property reads force layout, and which writes invalidate it?',
+      'Split the loop into two passes: all reads, then all writes.',
+    ],
     objectives: ['Explain forced synchronous layout', 'Apply read-write batching'],
   }),
 ];
