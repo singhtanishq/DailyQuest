@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-10",
+  "generatedAt": "2026-10-10T16:26:42.197Z",
+  "generatorVersion": "1.0.0",
+  "outcome": "created",
+  "questId": "dq-2026-10-10",
+  "sequenceNumber": 10,
+  "title": "The Balanced Ledger",
+  "category": "coding",
+  "difficulty": "easy",
+  "templateId": "coding.balanced-ledger",
+  "validationScore": 100,
+  "changedDerivedFiles": [
+    "/Users/tanishqsingh/Desktop/Personal/Projects/DailyQuest/data/index.json",
+    "/Users/tanishqsingh/Desktop/Personal/Projects/DailyQuest/data/stats.json",
+    "/Users/tanishqsingh/Desktop/Personal/Projects/DailyQuest/data/categories.json",
+    "/Users/tanishqsingh/Desktop/Personal/Projects/DailyQuest/data/latest.json",
+    "/Users/tanishqsingh/Desktop/Personal/Projects/DailyQuest/data/health.json"
+  ],
+  "warnings": [
+    "attempt 1: candidate from sql.avg-and-cast duplicates dq-2026-10-01; rotating"
+  ],
+  "durationMs": 0
+}
