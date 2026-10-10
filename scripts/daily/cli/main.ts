@@ -53,7 +53,10 @@ function die(message: string): never {
 
 function writeCiOutputs(summary: PublishSummary): void {
   const outputPath = process.env.GITHUB_OUTPUT;
+  // Real publications and dry-run previews both carry quest metadata; only
+  // `outcome` and `changed` distinguish a real publication from a preview.
   const created = summary.entries.find((e) => e.outcome === 'created');
+  const candidate = created ?? summary.entries.find((e) => e.outcome === 'dry-run');
   // A dry run must never signal "changed": push and deployment gating rely on
   // this output to distinguish a real publication from a preview or a no-op.
   const dryRun = summary.entries.some((e) => e.outcome === 'dry-run');
@@ -66,9 +69,9 @@ function writeCiOutputs(summary: PublishSummary): void {
     const lines = [
       `publication_date=${newest?.date ?? summary.today ?? ''}`,
       `outcome=${dryRun ? 'dry-run' : created ? 'created' : summary.noOp ? 'no-op' : 'updated'}`,
-      `quest_number=${created?.sequenceNumber ?? ''}`,
-      `quest_title=${created?.title ?? ''}`,
-      `quest_slug=${created?.questId?.replace('dq-', '') ?? ''}`,
+      `quest_number=${candidate?.sequenceNumber ?? ''}`,
+      `quest_title=${candidate?.title ?? ''}`,
+      `quest_slug=${candidate?.questId?.replace('dq-', '') ?? ''}`,
       `changed=${changed ? 'true' : 'false'}`,
       '',
     ];
