@@ -37,7 +37,10 @@ export const networkingTemplates: QuestTemplate[] = [
       'UDP: a thin datagram layer; reliability belongs to the application (QUIC builds TCP-like guarantees ON TOP of UDP).',
       'The decision axis: can your application tolerate loss or reordering better than it tolerates delay?',
     ],
-    hints: ['What does a dropped position packet actually cost a game?', 'Which protocol retransmits — and is retransmitting an old frame useful?'],
+    hints: [
+      'What does a dropped position packet actually cost a game?',
+      'Which protocol retransmits — and is retransmitting an old frame useful?',
+    ],
     objectives: ['Match transports to workloads', 'Explain head-of-line blocking'],
   }),
 
@@ -53,7 +56,8 @@ export const networkingTemplates: QuestTemplate[] = [
     subcategories: ['ip'],
     title: 'The /26 Subnet',
     subtitle: 'Sixty-four minus the endpoints.',
-    description: 'Compute addresses and usable hosts for a /26 — the arithmetic every operator needs.',
+    description:
+      'Compute addresses and usable hosts for a /26 — the arithmetic every operator needs.',
     question:
       'A subnet is announced as `10.0.0.64/26`. How many TOTAL addresses does the block contain, and how many are USABLE for hosts?',
     options: [
@@ -111,7 +115,10 @@ export const networkingTemplates: QuestTemplate[] = [
         'Forgetting negative caching: NXDOMAIN also has a TTL.',
       ],
     },
-    hints: ['Who performs recursion on behalf of the client?', 'What record type bounds a cached "does not exist"?'],
+    hints: [
+      'Who performs recursion on behalf of the client?',
+      'What record type bounds a cached "does not exist"?',
+    ],
     objectives: ['Trace recursive resolution', 'Reason about TTL and failure latency'],
   }),
 
@@ -148,8 +155,14 @@ export const networkingTemplates: QuestTemplate[] = [
         'Confusing certificate trust with vulnerability-freedom — a valid cert says nothing about server software.',
       ],
     },
-    hints: ['Count the flights in each version’s handshake.', 'What exactly does a valid certificate chain prove?'],
-    objectives: ['Compare handshake round trips', 'Separate authentication from confidentiality claims'],
+    hints: [
+      'Count the flights in each version’s handshake.',
+      'What exactly does a valid certificate chain prove?',
+    ],
+    objectives: [
+      'Compare handshake round trips',
+      'Separate authentication from confidentiality claims',
+    ],
   }),
 
   quizChallenge({
@@ -182,7 +195,10 @@ export const networkingTemplates: QuestTemplate[] = [
       'Memorize the big five: 22 SSH, 80 HTTP, 443 HTTPS, 5432 PostgreSQL, 3306 MySQL.',
       'Ports are conventions enforced by nothing — but every default config, firewall rule and load balancer assumes them.',
     ],
-    hints: ['Two of the distractors swap or misfile well-known numbers.', 'Which database is 3306?'],
+    hints: [
+      'Two of the distractors swap or misfile well-known numbers.',
+      'Which database is 3306?',
+    ],
     objectives: ['Recall standard service ports', 'Spot misconfigured listeners'],
   }),
 
@@ -219,7 +235,10 @@ export const networkingTemplates: QuestTemplate[] = [
         'Assuming HTTP/2 eliminates latency — it eliminates queueing-for-connections, not RTTs.',
       ],
     },
-    hints: ['Three phases: transport setup, security setup, exchange.', 'What does a reused connection skip entirely?'],
+    hints: [
+      'Three phases: transport setup, security setup, exchange.',
+      'What does a reused connection skip entirely?',
+    ],
     objectives: ['Count round trips per protocol phase', 'Justify keep-alive and pooling'],
   }),
 
@@ -256,7 +275,10 @@ export const networkingTemplates: QuestTemplate[] = [
         'Trusting client-supplied X-Forwarded-For headers on direct connections.',
       ],
     },
-    hints: ['Who configures it: the client org or the service owner?', 'Which proxy do end users usually NOT know exists?'],
+    hints: [
+      'Who configures it: the client org or the service owner?',
+      'Which proxy do end users usually NOT know exists?',
+    ],
     objectives: ['Classify proxy types by direction', 'Assign operational responsibilities'],
   }),
 ];
