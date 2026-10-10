@@ -18,7 +18,8 @@ export const databaseTemplates: QuestTemplate[] = [
     subcategories: ['indexes'],
     title: 'The Index Everything Fallacy',
     subtitle: 'Every index is a tax on writes.',
-    description: 'When an index helps, when it hurts, and why low-selectivity columns are poor candidates.',
+    description:
+      'When an index helps, when it hurts, and why low-selectivity columns are poor candidates.',
     question:
       'A team adds indexes to every column "to make reads fast." Explain the real trade-off: what an index costs on writes and storage, why a boolean status column is usually a bad index candidate on its own, and how composite indexes change the calculus.',
     guidance: [
@@ -40,8 +41,14 @@ export const databaseTemplates: QuestTemplate[] = [
         'Assuming the planner will always use the index — it estimates; small tables scan faster.',
       ],
     },
-    hints: ['What happens to every index when one row is updated?', 'How many distinct values does a boolean have, and how many rows match each?'],
-    objectives: ['Weigh read gains against write costs', 'Design composite indexes for query shapes'],
+    hints: [
+      'What happens to every index when one row is updated?',
+      'How many distinct values does a boolean have, and how many rows match each?',
+    ],
+    objectives: [
+      'Weigh read gains against write costs',
+      'Design composite indexes for query shapes',
+    ],
   }),
 
   quizChallenge({
@@ -59,12 +66,7 @@ export const databaseTemplates: QuestTemplate[] = [
     description: 'Map read phenomena to isolation levels precisely.',
     question:
       'Which isolation level is the LOWEST that prevents both non-repeatable reads AND phantoms in the SQL standard?',
-    options: [
-      'SERIALIZABLE',
-      'REPEATABLE READ',
-      'READ COMMITTED',
-      'READ UNCOMMITTED',
-    ],
+    options: ['SERIALIZABLE', 'REPEATABLE READ', 'READ COMMITTED', 'READ UNCOMMITTED'],
     optionExplanations: [
       'Correct per the SQL standard: REPEATABLE READ forbids dirty and non-repeatable reads but still allows phantoms; only SERIALIZABLE forbids all listed anomalies.',
       'The standard says REPEATABLE READ still permits phantoms — new rows matching an earlier predicate may appear. (PostgreSQL’s implementation is stricter, but the standard answer stands.)',
@@ -76,7 +78,13 @@ export const databaseTemplates: QuestTemplate[] = [
       'Each level up eliminates one more phenomenon; SERIALIZABLE makes concurrent executions equivalent to some serial order.',
       'Implementations differ: PostgreSQL’s REPEATABLE READ (MVCC snapshots) actually blocks phantoms too — know both the standard and your engine.',
     ],
-    hints: ['Define the three phenomena in one line each.', 'Where does the standard draw the phantom line?'],
-    objectives: ['Recite the phenomena-to-level mapping', 'Separate the SQL standard from engine implementations'],
+    hints: [
+      'Define the three phenomena in one line each.',
+      'Where does the standard draw the phantom line?',
+    ],
+    objectives: [
+      'Recite the phenomena-to-level mapping',
+      'Separate the SQL standard from engine implementations',
+    ],
   }),
 ];
