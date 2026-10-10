@@ -11,7 +11,9 @@ export interface QuestFingerprints {
   fpp: string;
 }
 
-export function fingerprintsFor(quest: Pick<Quest, 'contentHash' | 'title' | 'prompt'>): QuestFingerprints {
+export function fingerprintsFor(
+  quest: Pick<Quest, 'contentHash' | 'title' | 'prompt'>,
+): QuestFingerprints {
   return {
     fpc: quest.contentHash.slice(0, 16),
     fpt: sha256Hex(textFingerprint(quest.title)).slice(0, 16),
@@ -50,7 +52,7 @@ export type IndexEntry = QuestIndexEntry & QuestFingerprints;
 export function buildIndexFile(
   quests: Quest[],
   generatorVersion: string,
-  generatedAt: string
+  generatedAt: string,
 ): { file: Omit<QuestIndexFile, 'quests'> & { quests: IndexEntry[] } } {
   const sorted = [...quests].sort((a, b) => a.date.localeCompare(b.date));
   return {
