@@ -61,7 +61,7 @@ export function rebuildDerived(
     schemaVersion: 1,
     generatorVersion: config_.generatorVersion,
     generatedAt: at,
-    ...buildStats(archive, config_.generatorVersion, at),
+    ...buildStats(archive),
   }));
   writeDerivedIfChanged(layout.categoriesFile, (at) => buildCategoriesFile(archive, config_.generatorVersion, at));
 
