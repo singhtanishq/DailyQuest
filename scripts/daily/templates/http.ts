@@ -19,7 +19,8 @@ export const httpTemplates: QuestTemplate[] = [
     title: 'The Locked Doors',
     subtitle: 'Who are you vs what are you allowed.',
     description: '401 and 403 are different failures with different remedies.',
-    question: 'A request arrives with a valid session but insufficient permissions. Which status fits, and what should the response include in the 401 case?',
+    question:
+      'A request arrives with a valid session but insufficient permissions. Which status fits, and what should the response include in the 401 case?',
     options: [
       '403 Forbidden; a 401 response should include WWW-Authenticate to explain how to authenticate',
       '401 Unauthorized — any auth problem is 401',
@@ -37,7 +38,10 @@ export const httpTemplates: QuestTemplate[] = [
       '403: authentication succeeded, authorization failed. Retrying identically changes nothing.',
       '4xx = client-side problem; 5xx = server-side. Choosing between them is diagnosis, not style.',
     ],
-    hints: ['The RFC 9110 wording for 401 mentions a specific header.', 'Which code implies "do not bother retrying"?'],
+    hints: [
+      'The RFC 9110 wording for 401 mentions a specific header.',
+      'Which code implies "do not bother retrying"?',
+    ],
     objectives: ['Choose 401 vs 403 correctly', 'Use WWW-Authenticate properly'],
   }),
 
@@ -55,12 +59,7 @@ export const httpTemplates: QuestTemplate[] = [
     subtitle: 'What you may repeat without fear.',
     description: 'Which HTTP methods are idempotent — and what that actually promises.',
     question: 'Per HTTP semantics, which group lists ONLY idempotent methods?',
-    options: [
-      'GET, PUT, DELETE',
-      'GET, POST, PUT',
-      'POST, PATCH, DELETE',
-      'GET, HEAD, POST',
-    ],
+    options: ['GET, PUT, DELETE', 'GET, POST, PUT', 'POST, PATCH, DELETE', 'GET, HEAD, POST'],
     optionExplanations: [
       'Correct: GET, HEAD, OPTIONS, TRACE, PUT and DELETE are idempotent — repeating them leaves the same server state as one call (PUT to a fixed URI sets the same value; DELETE of the same resource is still gone).',
       'POST is deliberately excluded — each POST may create a new resource.',
@@ -72,7 +71,10 @@ export const httpTemplates: QuestTemplate[] = [
       'This is why clients may retry idempotent requests on timeouts without asking the server first.',
       'Non-idempotent operations need explicit idempotency keys (see the APIs quests).',
     ],
-    hints: ['Separate "safe" (no state change) from "idempotent" (same result when repeated).', 'What does a second DELETE of an already-deleted resource do?'],
+    hints: [
+      'Separate "safe" (no state change) from "idempotent" (same result when repeated).',
+      'What does a second DELETE of an already-deleted resource do?',
+    ],
     objectives: ['Classify methods by guarantee', 'Use idempotency for retry design'],
   }),
 
@@ -108,7 +110,10 @@ export const httpTemplates: QuestTemplate[] = [
       '304 responses still carry cache-relevant headers (Cache-Control, ETag) but no payload.',
       'The complementary write-side pattern is If-Match for optimistic concurrency.',
     ],
-    hints: ['Which header turns a GET conditional on the validator?', 'What may a 304 response contain?'],
+    hints: [
+      'Which header turns a GET conditional on the validator?',
+      'What may a 304 response contain?',
+    ],
     objectives: ['Implement ETag revalidation', 'Distinguish read and write preconditions'],
   }),
 
@@ -144,7 +149,10 @@ export const httpTemplates: QuestTemplate[] = [
       'HttpOnly: JavaScript cannot read the cookie — XSS cannot exfiltrate it, though XSS can still make authenticated requests.',
       'SameSite=Lax: the cookie is not attached to most cross-site requests, blunting classic CSRF.',
     ],
-    hints: ['Who can read the cookie: the server, the network, or page scripts?', 'Which attribute changes whether the cookie TRAVELS on a cross-site request?'],
+    hints: [
+      'Who can read the cookie: the server, the network, or page scripts?',
+      'Which attribute changes whether the cookie TRAVELS on a cross-site request?',
+    ],
     objectives: ['Map cookie attributes to threats', 'Know what each attribute cannot do'],
   }),
 
@@ -181,7 +189,10 @@ export const httpTemplates: QuestTemplate[] = [
         'Modelling everything as PATCH and losing idempotency for free retries.',
       ],
     },
-    hints: ['What does the server do with fields OMITTED from a PUT body?', 'Which delta shapes are safe to retry?'],
+    hints: [
+      'What does the server do with fields OMITTED from a PUT body?',
+      'Which delta shapes are safe to retry?',
+    ],
     objectives: ['Separate replace from delta semantics', 'Design action endpoints without guilt'],
   }),
 
@@ -217,7 +228,10 @@ export const httpTemplates: QuestTemplate[] = [
       '301/302: old semantics; 307/308 (RFC 7538/9110) exist to make method preservation explicit.',
       'Browsers and HTTP clients follow these rules consistently today — the historic GET-conversion excuse no longer applies.',
     ],
-    hints: ['Two axes: permanence and method preservation — place all four codes.', 'Which pair came first historically?'],
+    hints: [
+      'Two axes: permanence and method preservation — place all four codes.',
+      'Which pair came first historically?',
+    ],
     objectives: ['Choose redirect codes on both axes', 'Avoid the silent POST→GET conversion'],
   }),
 
@@ -254,7 +268,10 @@ export const httpTemplates: QuestTemplate[] = [
         'Long max-age on non-hashed filenames, then fighting caches with cache-busting query strings.',
       ],
     },
-    hints: ['Which directive means "check with me every time" vs "never save this"?', 'What makes a year-long max-age safe?'],
+    hints: [
+      'Which directive means "check with me every time" vs "never save this"?',
+      'What makes a year-long max-age safe?',
+    ],
     objectives: ['Match directives to content classes', 'Design freshness contracts explicitly'],
   }),
 ];
