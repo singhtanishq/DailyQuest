@@ -26,7 +26,8 @@ function dailyQuestData(): Plugin {
     name: 'dailyquest-data',
     configureServer(server: ViteDevServer) {
       server.middlewares.use((req, res, next) => {
-        const url = (req.url ?? '').split('?')[0];
+        const raw = req.url ?? '';
+        const url = raw.split('?')[0] ?? '';
         if (url.startsWith('/data/')) {
           const file = resolve(dataDir, url.slice('/data/'.length));
           if (existsSync(file) && file.startsWith(dataDir)) {
@@ -55,10 +56,26 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-highlight': ['highlight.js/lib/core'],
-          'vendor-search': ['fuse.js'],
+        manualChunks(id: string) {
+          if (!id.includes('/node_modules/')) {
+            return undefined;
+          }
+          if (
+            id.includes('/node_modules/react/') ||
+            id.includes('/node_modules/react-dom/') ||
+            id.includes('/node_modules/react-router') ||
+            id.includes('/node_modules/scheduler/') ||
+            id.includes('/node_modules/lucide-react/')
+          ) {
+            return 'vendor-react';
+          }
+          if (id.includes('/node_modules/highlight.js/') || id.includes('/node_modules/@highlight-js/')) {
+            return 'vendor-highlight';
+          }
+          if (id.includes('/node_modules/fuse.js/')) {
+            return 'vendor-search';
+          }
+          return undefined;
         },
       },
     },
