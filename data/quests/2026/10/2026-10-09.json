@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-09",
+  "date": "2026-10-09",
+  "sequenceNumber": 9,
+  "slug": "2026-10-09-the-head-that-ate-the-tail",
+  "title": "The Head That Ate the Tail",
+  "shortTitle": "The Head That Ate the Tail",
+  "subtitle": "One character too many.",
+  "description": "A filename extension stripper that leaves the dot behind.",
+  "category": "debugging",
+  "subcategories": [
+    "javascript"
+  ],
+  "challengeType": "debugging",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 12,
+  "conceptComplexity": 1,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 2,
+  "concepts": [
+    "off-by-one",
+    "slice semantics"
+  ],
+  "tags": [
+    "javascript",
+    "arrays"
+  ],
+  "skills": [
+    "Boundary analysis"
+  ],
+  "prompt": "**Expected behaviour:** `stripExtension(\"report.pdf\")` returns `\"report\"`.\n\n**Actual behaviour:** It returns `\"report.\"` — the dot survives.\n\n```javascript\nfunction stripExtension(filename) {\n  const dot = filename.lastIndexOf(\".\");\n  if (dot === -1) return filename;\n  return filename.slice(0, dot + 1);\n}\n\nconsole.log(stripExtension(\"report.pdf\")); // expected \"report\"\n```\n\nIdentify the bug, explain why it causes the observed behaviour, and fix it.",
+  "instructions": [
+    "Reproduce the failure mentally or locally.",
+    "Pinpoint the exact line and mechanism of the bug.",
+    "Write the minimal fix that restores the expected behaviour."
+  ],
+  "constraints": [
+    "Do not redesign the function unless the bug requires it."
+  ],
+  "examples": [],
+  "hints": [
+    "Write out the indices of \"report.pdf\" and mark where the dot sits.",
+    "Is `slice`’s second argument inclusive or exclusive?"
+  ],
+  "solution": {
+    "summary": "`slice(0, end)` excludes the index `end`. Using `dot + 1` as the end keeps the character AT `dot` — the dot itself. The second argument is an exclusive bound, not a length.",
+    "approach": [
+      "`lastIndexOf` returns the index OF the dot (0-based).",
+      "`slice` is end-exclusive: `slice(0, dot)` keeps characters 0..dot-1.",
+      "Adding 1 re-includes the dot — a textbook inclusive/exclusive mix-up."
+    ],
+    "code": {
+      "language": "javascript",
+      "label": "Corrected implementation",
+      "code": "function stripExtension(filename) {\n  const dot = filename.lastIndexOf(\".\");\n  if (dot === -1) return filename;\n  return filename.slice(0, dot);\n}"
+    },
+    "commonMistakes": [
+      "Confusing `slice` (end-exclusive) with `substr` (length).",
+      "Not handling the `-1` no-dot case, which this code luckily gets right."
+    ]
+  },
+  "learningObjectives": [
+    "Internalize end-exclusive slicing",
+    "Trace boundary arithmetic on concrete indices"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "debug.slice-off-by-one",
+  "generatorVersion": "1.0.0",
+  "seed": "fd868895b178d77fad40b6b47b8fdeb8b59a6ec3596cf4763400df9e51a58db7",
+  "paramsSignature": "v1",
+  "contentHash": "476cc4bfde254024da153ce81fa50261097b1531784fe4f92343df32452e3506",
+  "createdAt": "2026-10-10T16:26:35.239Z",
+  "updatedAt": "2026-10-10T16:26:35.239Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-10T16:26:35.239Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
