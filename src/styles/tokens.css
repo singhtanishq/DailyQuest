@@ -1,0 +1,111 @@
+/* ============================================================
+   DailyQuest — design tokens
+   Dark is the default; light is an explicit override.
+   ============================================================ */
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --background: #0b0d10;
+  --surface: #12151a;
+  --surface-muted: #171b21;
+  --surface-raised: #1b2027;
+  --border: #232830;
+  --border-strong: #313945;
+
+  --foreground: #e8eaed;
+  --foreground-muted: #9ba3ad;
+  --foreground-faint: #6b7280;
+
+  --primary: #e8b44a;
+  --primary-strong: #f2c464;
+  --primary-foreground: #14100a;
+  --primary-soft: rgba(232, 180, 74, 0.12);
+
+  --accent: #5ac8b0;
+  --accent-soft: rgba(90, 200, 176, 0.12);
+
+  --success: #5ac878;
+  --warning: #e8b44a;
+  --danger: #e86a5a;
+
+  --code-background: #0e1116;
+  --code-border: #1d232c;
+
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-raised: 0 8px 24px rgba(0, 0, 0, 0.35);
+
+  --focus-ring: 0 0 0 2px var(--background), 0 0 0 4px var(--primary);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --background: #fafaf7;
+  --surface: #ffffff;
+  --surface-muted: #f3f2ee;
+  --surface-raised: #ffffff;
+  --border: #e3e2db;
+  --border-strong: #cfcec5;
+
+  --foreground: #1c1e21;
+  --foreground-muted: #5c6470;
+  --foreground-faint: #9aa0a8;
+
+  --primary: #a87614;
+  --primary-strong: #8f620e;
+  --primary-foreground: #ffffff;
+  --primary-soft: rgba(168, 118, 20, 0.1);
+
+  --accent: #1f8a70;
+  --accent-soft: rgba(31, 138, 112, 0.1);
+
+  --success: #2e7d4f;
+  --warning: #a87614;
+  --danger: #b3402f;
+
+  --code-background: #14171c;
+  --code-border: #262c36;
+
+  --shadow-soft: 0 1px 2px rgba(28, 30, 33, 0.06);
+  --shadow-raised: 0 8px 24px rgba(28, 30, 33, 0.08);
+
+  --focus-ring: 0 0 0 2px var(--background), 0 0 0 4px var(--primary);
+}
+
+:root {
+  /* Type scale */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono',
+    monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.8438rem;
+  --text-md: 0.9375rem;
+  --text-lg: 1.0625rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5625rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.75rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  /* Shape */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --container: 1080px;
+
+  --header-height: 60px;
+}
