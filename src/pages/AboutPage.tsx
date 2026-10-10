@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getAllTemplateIds } from '../lib/statsClient.js';
+import { getHealth } from '../data/api.js';
+import { useAsync } from '../hooks/useAppState.js';
 
 export function AboutPage() {
   useEffect(() => {
     document.title = 'About — DailyQuest';
   }, []);
 
-  const templateCount = getAllTemplateIds().length;
+  const health = useAsync(getHealth, []);
+  const templateCount = health.data?.templateCount ?? 0;
 
   return (
     <div className="container page page-narrow prose">
