@@ -49,7 +49,7 @@ export function MarkdownLite({ text }: { text: string }) {
       blocks.push(
         <div key={`code-${index}`} style={{ margin: '0.9rem 0' }}>
           <CodeBlock code={code} language={lang || 'text'} />
-        </div>
+        </div>,
       );
       return;
     }
@@ -65,7 +65,7 @@ export function MarkdownLite({ text }: { text: string }) {
           {bullets.map((item, i) => (
             <li key={i}>{renderInline(item, `${key}-${i}`)}</li>
           ))}
-        </ul>
+        </ul>,
       );
       bullets = [];
     };
