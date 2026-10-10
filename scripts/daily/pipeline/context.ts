@@ -45,7 +45,7 @@ export function computeRelated(
   category: string,
   date: string,
   archive: Quest[],
-  selfId: string
+  selfId: string,
 ): string[] {
   return archive
     .filter((q) => q.category === category && q.id !== selfId && q.date !== date)
