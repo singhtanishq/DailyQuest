@@ -234,7 +234,7 @@ export const linuxTemplates: QuestTemplate[] = [
     subtitle: 'Double, single, and no quotes at all.',
     description: 'Predict expansion differences between quoting styles.',
     question:
-      'Given `NAME="world"` in an interactive shell, explain precisely what each of these prints and why: `echo "Hello $NAME"`, `echo 'Hello $NAME'`, and `echo Hello $NAME` (unquoted). Then state the rule that separates variable expansion from word splitting and globbing.',
+      "Given `NAME=\"world\"` in an interactive shell, explain precisely what each of these prints and why: `echo \"Hello $NAME\"`, `echo 'Hello $NAME'`, and `echo Hello $NAME` (unquoted). Then state the rule that separates variable expansion from word splitting and globbing.",
     guidance: [
       'Give the exact output of each command.',
       'Explain which expansions single quotes suppress.',
