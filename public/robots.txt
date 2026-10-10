@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://singhtanishq.github.io/DailyQuest/sitemap.xml
