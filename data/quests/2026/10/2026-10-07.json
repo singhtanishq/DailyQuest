@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-07",
+  "date": "2026-10-07",
+  "sequenceNumber": 7,
+  "slug": "2026-10-07-the-ignored-index",
+  "title": "The Ignored Index",
+  "shortTitle": "The Ignored Index",
+  "subtitle": "Wrapping a column in a function hides the index.",
+  "description": "Which query fails to use the index on created_at?",
+  "category": "performance",
+  "subcategories": [
+    "databases"
+  ],
+  "challengeType": "performance",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 12,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "indexing",
+    "sargability"
+  ],
+  "tags": [
+    "databases"
+  ],
+  "skills": [
+    "Query plan reasoning"
+  ],
+  "prompt": "The table orders has an index on created_at. Which query CANNOT use it efficiently?\n\n**A.** WHERE DATE(created_at) = '2026-01-15'\n**B.** WHERE created_at BETWEEN '2026-01-15 00:00:00' AND '2026-01-15 23:59:59'\n**C.** WHERE created_at >= '2026-01-01' AND created_at < '2026-02-01'\n**D.** ORDER BY created_at LIMIT 10",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "WHERE DATE(created_at) = '2026-01-15'",
+    "WHERE created_at BETWEEN '2026-01-15 00:00:00' AND '2026-01-15 23:59:59'",
+    "WHERE created_at >= '2026-01-01' AND created_at < '2026-02-01'",
+    "ORDER BY created_at LIMIT 10"
+  ],
+  "correctOptionIndex": 2,
+  "examples": [],
+  "hints": [
+    "Which side of the comparison carries the function?",
+    "What does the planner need to seek: a computable range or a per-row computation?"
+  ],
+  "solution": {
+    "summary": "The correct answer is C — WHERE created_at >= '2026-01-01' AND created_at < '2026-02-01'",
+    "answer": "WHERE created_at >= '2026-01-01' AND created_at < '2026-02-01'",
+    "reasoning": [
+      "Sargability rule: indexable predicates reference the bare column; wrap functions around VALUES, never columns.",
+      "The rewrite for the DATE case: created_at >= date AND created_at < date + 1 day."
+    ],
+    "whyNot": [
+      "WHERE DATE(created_at) = '2026-01-15' — Correct: applying a function to the COLUMN (DATE(created_at)) makes the predicate non-sargable; the planner must evaluate it per row and falls back to a scan. Rewrite as a range on the bare column.",
+      "WHERE created_at BETWEEN '2026-01-15 00:00:00' AND '2026-01-15 23:59:59' — BETWEEN on the bare column is a range scan — index-friendly (mind the inclusive upper bound for sub-second precision).",
+      "ORDER BY created_at LIMIT 10 — ORDER BY on the indexed column with LIMIT is the index’s best case."
+    ]
+  },
+  "learningObjectives": [
+    "Write sargable predicates",
+    "Rewrite function-wrapped filters as ranges"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-05"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "perf.index-defeat",
+  "generatorVersion": "1.0.0",
+  "seed": "99256f8851ebff7d0b959227ea62f1e57c6964f96d246dd4334c56af8099a033",
+  "paramsSignature": "v1",
+  "contentHash": "d031e2648d7645a698b0e41a4607463b669d0467712544fd063b14c1513ecc5c",
+  "createdAt": "2026-10-10T16:26:35.239Z",
+  "updatedAt": "2026-10-10T16:26:35.239Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-10T16:26:35.239Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
