@@ -39,7 +39,10 @@ export const performanceTemplates: QuestTemplate[] = [
         'Blindly joining everything: over-fetching wide tables outweighs round-trip savings.',
       ],
     },
-    hints: ['When exactly is o.customer fetched?', 'What shape does the fixed query count look like: constant or proportional?'],
+    hints: [
+      'When exactly is o.customer fetched?',
+      'What shape does the fixed query count look like: constant or proportional?',
+    ],
     objectives: ['Recognize N+1 from symptoms', 'Choose between preloading and joins'],
   }),
 
@@ -56,8 +59,7 @@ export const performanceTemplates: QuestTemplate[] = [
     title: 'The Accidental Quadratic',
     subtitle: 'Small n is fine. Then the data grows.',
     description: 'Which innocent-looking loop is quadratic?',
-    question:
-      'Which snippet degrades quadratically as items grow?',
+    question: 'Which snippet degrades quadratically as items grow?',
     options: [
       'for (const a of items) { if (others.includes(a.id)) { flagged.push(a); } }',
       'const seen = new Set(); for (const id of ids) { if (seen.has(id)) continue; seen.add(id); process(id); }',
@@ -74,7 +76,10 @@ export const performanceTemplates: QuestTemplate[] = [
       'Nested full scans hide behind clean loop syntax; the array-method version reads like it is "just a filter".',
       'The universal fix: hoist the lookup into a hash-based structure once, then query it per iteration.',
     ],
-    hints: ['Find the hidden inner loop.', 'Which operation is O(m) per call on arrays but O(1) on Sets?'],
+    hints: [
+      'Find the hidden inner loop.',
+      'Which operation is O(m) per call on arrays but O(1) on Sets?',
+    ],
     objectives: ['Spot hidden inner loops', 'Substitute hash lookups for scans'],
   }),
 
@@ -111,7 +116,10 @@ export const performanceTemplates: QuestTemplate[] = [
         'Setting TTL without jitter: synchronized expiry recreates the stampede every interval.',
       ],
     },
-    hints: ['What happens when the cached entry expires under 50 rps?', 'Where does staleness become visible and testable?'],
+    hints: [
+      'What happens when the cached entry expires under 50 rps?',
+      'Where does staleness become visible and testable?',
+    ],
     objectives: ['Design TTL + stampede-safe caching', 'Make staleness observable'],
   }),
 
@@ -147,7 +155,10 @@ export const performanceTemplates: QuestTemplate[] = [
       'Tree shaking helps only what is imported; splitting changes WHEN it is imported.',
       'Measure with Lighthouse/bundlesize budgets in CI so regressions are caught at review time.',
     ],
-    hints: ['Which bytes does the browser parse before interactive?', 'What does dynamic import change about the dependency graph?'],
+    hints: [
+      'Which bytes does the browser parse before interactive?',
+      'What does dynamic import change about the dependency graph?',
+    ],
     objectives: ['Prioritize optimizations by mechanism', 'Guard bundles with budgets'],
   }),
 
@@ -184,7 +195,10 @@ export const performanceTemplates: QuestTemplate[] = [
         'Inlining ALL CSS — large inline stylesheets cannot be cached and slow every navigation.',
       ],
     },
-    hints: ['Which requests can begin only after another finishes?', 'Which fix removes the last hop entirely?'],
+    hints: [
+      'Which requests can begin only after another finishes?',
+      'Which fix removes the last hop entirely?',
+    ],
     objectives: ['Read and shorten resource waterfalls', 'Apply parallel-discovery fixes'],
   }),
 
@@ -201,12 +215,11 @@ export const performanceTemplates: QuestTemplate[] = [
     title: 'The Ignored Index',
     subtitle: 'Wrapping a column in a function hides the index.',
     description: 'Which query fails to use the index on created_at?',
-    question:
-      'The table orders has an index on created_at. Which query CANNOT use it efficiently?',
+    question: 'The table orders has an index on created_at. Which query CANNOT use it efficiently?',
     options: [
-      'WHERE created_at >= \'2026-01-01\' AND created_at < \'2026-02-01\'',
-      'WHERE DATE(created_at) = \'2026-01-15\'',
-      'WHERE created_at BETWEEN \'2026-01-15 00:00:00\' AND \'2026-01-15 23:59:59\'',
+      "WHERE created_at >= '2026-01-01' AND created_at < '2026-02-01'",
+      "WHERE DATE(created_at) = '2026-01-15'",
+      "WHERE created_at BETWEEN '2026-01-15 00:00:00' AND '2026-01-15 23:59:59'",
       'ORDER BY created_at LIMIT 10',
     ],
     optionExplanations: [
@@ -219,7 +232,10 @@ export const performanceTemplates: QuestTemplate[] = [
       'Sargability rule: indexable predicates reference the bare column; wrap functions around VALUES, never columns.',
       'The rewrite for the DATE case: created_at >= date AND created_at < date + 1 day.',
     ],
-    hints: ['Which side of the comparison carries the function?', 'What does the planner need to seek: a computable range or a per-row computation?'],
+    hints: [
+      'Which side of the comparison carries the function?',
+      'What does the planner need to seek: a computable range or a per-row computation?',
+    ],
     objectives: ['Write sargable predicates', 'Rewrite function-wrapped filters as ranges'],
   }),
 ];
