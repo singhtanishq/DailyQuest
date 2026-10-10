@@ -1,12 +1,12 @@
 import type { DailyReport } from '../../../shared/types.js';
-import { formatDisplayDate } from '../core/dates.js';
+import { formatDisplayDate, getTodayInTz } from '../core/dates.js';
 import { loadConfig } from '../../../config/dailyquest.config.js';
-import { layoutFor, reportPath } from '../storage/paths.js';
+import { reportPath } from '../storage/paths.js';
 import { writeJsonAtomic } from '../storage/io.js';
 import { rebuildDerived } from '../storage/rebuild.js';
 import { resolveSiteUrl, renderStatusBlock, updateReadmeStatus } from '../storage/readme.js';
 import { loadArchive } from './context.js';
-import { generateQuestForDate, resolveToday, type PipelineContext } from './generate.js';
+import { generateQuestForDate, type PipelineContext } from './generate.js';
 import { planCatchUp } from './catchup.js';
 
 export interface PublishEntry {
@@ -60,7 +60,7 @@ export function publishDaily(opts: {
     };
   }
 
-  const today = opts.dateOverride ?? getToday(config);
+  const today = opts.dateOverride ?? getTodayInTz(config.publicationTimezone);
   const archive = loadArchive(opts.dataRoot);
   const lastPublished = archive.length > 0 ? (archive[archive.length - 1]?.date ?? null) : null;
   const plan = planCatchUp(lastPublished, today, config.maxCatchupDays);
@@ -117,10 +117,13 @@ export function publishDaily(opts: {
         opts.repoRoot,
         renderStatusBlock(
           {
-            ...latest,
-            fpc: latest.contentHash.slice(0, 16),
-            fpt: '',
-            fpp: '',
+            sequenceNumber: latest.sequenceNumber,
+            title: latest.title,
+            slug: latest.slug,
+            category: latest.category,
+            difficulty: latest.difficulty,
+            estimatedMinutes: latest.estimatedMinutes,
+            date: latest.date,
           },
           formatDisplayDate(latest.date),
           resolveSiteUrl(opts.repoRoot)
@@ -160,9 +163,4 @@ export function publishDaily(opts: {
     readmeChanged,
     warnings,
   };
-}
-
-function getToday(config: ReturnType<typeof loadConfig>): string {
-  const { getTodayInTz } = require('../core/dates.js') as typeof import('../core/dates.js');
-  return getTodayInTz(config.publicationTimezone);
 }
