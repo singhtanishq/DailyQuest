@@ -1,33 +1,33 @@
 import { Component, type ErrorInfo, type ReactNode, Suspense, lazy } from 'react';
-import {
-  BrowserRouter,
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-} from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 import { AppShell } from './components/layout/AppShell.js';
 import { ErrorState, PageSkeleton } from './components/ui/States.js';
 import { HomePage } from './pages/HomePage.js';
 
 const ArchivePage = lazy(() =>
-  import('./pages/ArchivePage.js').then((m) => ({ default: m.ArchivePage }))
+  import('./pages/ArchivePage.js').then((m) => ({ default: m.ArchivePage })),
 );
 const CategoriesPage = lazy(() =>
-  import('./pages/CategoriesPage.js').then((m) => ({ default: m.CategoriesPage }))
+  import('./pages/CategoriesPage.js').then((m) => ({ default: m.CategoriesPage })),
 );
 const CategoryPage = lazy(() =>
-  import('./pages/CategoryPage.js').then((m) => ({ default: m.CategoryPage }))
+  import('./pages/CategoryPage.js').then((m) => ({ default: m.CategoryPage })),
 );
-const QuestPage = lazy(() => import('./pages/QuestPage.js').then((m) => ({ default: m.QuestPage })));
-const StatsPage = lazy(() => import('./pages/StatsPage.js').then((m) => ({ default: m.StatsPage })));
-const AboutPage = lazy(() => import('./pages/AboutPage.js').then((m) => ({ default: m.AboutPage })));
+const QuestPage = lazy(() =>
+  import('./pages/QuestPage.js').then((m) => ({ default: m.QuestPage })),
+);
+const StatsPage = lazy(() =>
+  import('./pages/StatsPage.js').then((m) => ({ default: m.StatsPage })),
+);
+const AboutPage = lazy(() =>
+  import('./pages/AboutPage.js').then((m) => ({ default: m.AboutPage })),
+);
 const RandomPage = lazy(() =>
-  import('./pages/RandomPage.js').then((m) => ({ default: m.RandomPage }))
+  import('./pages/RandomPage.js').then((m) => ({ default: m.RandomPage })),
 );
 const NotFoundPage = lazy(() =>
-  import('./pages/NotFoundPage.js').then((m) => ({ default: m.NotFoundPage }))
+  import('./pages/NotFoundPage.js').then((m) => ({ default: m.NotFoundPage })),
 );
 
 /** Replaces only the document title — description/OG stay static. */
@@ -77,7 +77,15 @@ export function App() {
           <ScrollToTop />
           <Suspense fallback={<PageSkeleton />}>
             <Routes>
-              <Route path="/" element={<><RouteTitle /><HomePage /></>} />
+              <Route
+                path="/"
+                element={
+                  <>
+                    <RouteTitle />
+                    <HomePage />
+                  </>
+                }
+              />
               <Route path="/quest/:slug" element={<QuestPage />} />
               <Route path="/archive" element={<ArchivePage />} />
               <Route path="/categories" element={<CategoriesPage />} />
