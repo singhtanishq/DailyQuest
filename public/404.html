@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DailyQuest — redirecting…</title>
+    <script>
+      /*
+       * GitHub Pages SPA fallback.
+       *
+       * GitHub Pages serves this file for any path without a real file behind
+       * it — which is every deep link of the single-page app. We translate the
+       * requested path back into a client route and hand it to index.html via
+       * sessionStorage. The base path is detected from the first known route
+       * segment, so the trick works for project sites, user sites and custom
+       * domains alike.
+       */
+      (function () {
+        var ROUTES = ['quest', 'archive', 'categories', 'category', 'stats', 'random', 'about', 'today', '404'];
+        var segments = window.location.pathname.split('/');
+        var routeIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (ROUTES.indexOf(segments[i]) !== -1) {
+            routeIndex = i;
+            break;
+          }
+        }
+        if (routeIndex > 0) {
+          var base = segments.slice(0, routeIndex).join('/') + '/';
+          var route = segments.slice(routeIndex).join('/') + window.location.search + window.location.hash;
+          try {
+            sessionStorage.setItem('dailyquest.spa-redirect', route);
+          } catch (e) {
+            /* storage unavailable — fall through to a plain redirect */
+          }
+          window.location.replace(base);
+        } else {
+          // Not a route we can rescue (e.g. a truly broken asset URL).
+          document.body.innerHTML =
+            '<div style="font-family: sans-serif; max-width: 32rem; margin: 6rem auto; text-align: center;">' +
+            '<h1 style="font-size: 2rem;">Quest not found</h1>' +
+            '<p style="color: #6b7280;">This page does not exist.</p>' +
+            '<p><a href="/" style="color: #a87614;">Back to DailyQuest</a></p></div>';
+        }
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
