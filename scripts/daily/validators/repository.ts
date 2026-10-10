@@ -1,4 +1,4 @@
-import { readdirSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 import type { Quest } from '../../../shared/types.js';
@@ -66,6 +66,12 @@ export function validateRepository(dataRoot: string): RepositoryReport {
   }
 
   quests.sort((a, b) => a.date.localeCompare(b.date));
+
+  // An untouched repository (no quests, no derived files) is not an error —
+  // it is simply a fresh install that has not published yet.
+  if (quests.length === 0 && files.length === 0 && !existsSync(layout.indexFile)) {
+    return { questCount: 0, errors: [], warnings: ['archive is empty — no quests published yet'] };
+  }
 
   // Cross-file invariants
   const seen = {
