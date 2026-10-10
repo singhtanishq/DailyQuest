@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-06",
+  "date": "2026-10-06",
+  "sequenceNumber": 6,
+  "slug": "2026-10-06-the-two-sources-of-truth",
+  "title": "The Two Sources of Truth",
+  "shortTitle": "The Two Sources of Truth",
+  "subtitle": "Controlled vs uncontrolled inputs.",
+  "description": "Decide when form state should live in React and when it should stay in the DOM.",
+  "category": "react",
+  "subcategories": [
+    "forms"
+  ],
+  "challengeType": "reasoning",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 15,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "controlled components",
+    "forms"
+  ],
+  "tags": [
+    "react",
+    "forms"
+  ],
+  "skills": [
+    "Form state design"
+  ],
+  "prompt": "Contrast controlled inputs (value + onChange) with uncontrolled inputs (defaultValue + refs). Which problems does each solve, and which would you pick for (a) live-validated search fields and (b) a huge rarely-touched settings form?\n\nA strong answer addresses:\n- Define both patterns precisely.\n- Name the trade-offs: re-render cost, validation, imperative APIs (reset, focus).\n- Justify a choice for each of the two scenarios.",
+  "instructions": [
+    "Answer in your own words, then compare with the solution."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "Who is the source of truth in each pattern?",
+    "What does every keystroke cost in a controlled input?"
+  ],
+  "solution": {
+    "summary": "Controlled inputs make React the single source of truth: every keystroke re-renders, enabling instant validation, formatting and conditional UI — right for the search field. Uncontrolled inputs let the DOM own the value and React read it on demand — fewer re-renders, natural for large static forms, at the cost of imperative access for programmatic changes.",
+    "reasoning": [
+      "Controlled: value={state} — React writes to the DOM each render; typing is a state update.",
+      "Uncontrolled: the input keeps its own state; ref.current.value reads it on submit.",
+      "Live validation needs the value in React → controlled. A 60-field form that users fill once gains little from 60 state updates per keystroke → uncontrolled (or controlled with a form library that batches).",
+      "Programmatic reset is a render with controlled inputs, but an imperative .reset() with uncontrolled ones."
+    ],
+    "commonMistakes": [
+      "Setting value without onChange — the input freezes read-only.",
+      "Mixing both for one input and fighting the DOM over the value."
+    ]
+  },
+  "learningObjectives": [
+    "Compare controlled and uncontrolled models",
+    "Choose per scenario with justification"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "react.controlled-inputs",
+  "generatorVersion": "1.0.0",
+  "seed": "86afe68815552bcd78bccddc63a9c09ca211e2657d7f3706a2b6dbf1a9c66722",
+  "paramsSignature": "v1",
+  "contentHash": "894be407f26e3cb5440ae74641e8d300b370e47c2b03d53618a7caffc5e1af6f",
+  "createdAt": "2026-10-10T16:26:35.239Z",
+  "updatedAt": "2026-10-10T16:26:35.239Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-10T16:26:35.239Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
