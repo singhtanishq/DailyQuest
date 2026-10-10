@@ -40,7 +40,10 @@ export const devopsTemplates: QuestTemplate[] = [
         'Deploying incompatible schema changes under either strategy and discovering it at rollback time.',
       ],
     },
-    hints: ['Which strategy gives you a statistical early warning?', 'What must be true of the schema for rollback to be safe?'],
+    hints: [
+      'Which strategy gives you a statistical early warning?',
+      'What must be true of the schema for rollback to be safe?',
+    ],
     objectives: ['Choose strategies per change risk', 'Apply expand-contract migrations'],
   }),
 
@@ -76,7 +79,10 @@ export const devopsTemplates: QuestTemplate[] = [
       'npm ci (not install) makes CI reproducible from the lockfile.',
       'Fail the build on any red stage; never merge past red.',
     ],
-    hints: ['What is the cost budget for a per-push pipeline?', 'Which stages need external state or long durations?'],
+    hints: [
+      'What is the cost budget for a per-push pipeline?',
+      'Which stages need external state or long durations?',
+    ],
     objectives: ['Design the fast CI lane', 'Separate scheduled heavy checks'],
   }),
 ];
@@ -114,7 +120,10 @@ export const generalTemplates: QuestTemplate[] = [
       'Absolute epsilon fails across scales — a relative tolerance (or decimal/cents arithmetic for money) is the robust rule.',
       'Money: never store floats; use integer minor units.',
     ],
-    hints: ['Which numbers CAN binary floats represent exactly?', 'Why does a fixed epsilon fail at 1e10?'],
+    hints: [
+      'Which numbers CAN binary floats represent exactly?',
+      'Why does a fixed epsilon fail at 1e10?',
+    ],
     objectives: ['Explain representation error', 'Compare floats correctly'],
   }),
 
@@ -151,7 +160,10 @@ export const generalTemplates: QuestTemplate[] = [
         'Storing timestamps as local strings in the DB and sorting them lexicographically across zones.',
       ],
     },
-    hints: ['Does "09:00 Berlin daily" have a fixed UTC instant?', 'What is ambiguous about 2026-10-25T02:30 in Berlin?'],
+    hints: [
+      'Does "09:00 Berlin daily" have a fixed UTC instant?',
+      'What is ambiguous about 2026-10-25T02:30 in Berlin?',
+    ],
     objectives: ['Separate instants from civil time', 'Delegate DST arithmetic to real tz data'],
   }),
 
@@ -168,8 +180,7 @@ export const generalTemplates: QuestTemplate[] = [
     title: 'The Mangled cafÃ©',
     subtitle: 'One encoding read as another.',
     description: 'Diagnose the classic double-encoding artifact.',
-    question:
-      'A page shows `cafÃ©` where `café` was stored. What happened, and what is the fix?',
+    question: 'A page shows `cafÃ©` where `café` was stored. What happened, and what is the fix?',
     options: [
       'UTF-8 bytes were decoded as Latin-1 (or Windows-1252) somewhere in the chain — fix by declaring/honoring UTF-8 consistently end to end',
       'The database truncated the string to a byte limit',
@@ -187,7 +198,10 @@ export const generalTemplates: QuestTemplate[] = [
       'The artifact itself is diagnostic: C3 A9 → Ã© is the signature of UTF-8-read-as-Latin1.',
       'The fix is consistency at every hop, and byte-preserving repair (re-encode mojibake back through the wrong decoder) only when data was already corrupted.',
     ],
-    hints: ['How many bytes does é occupy in UTF-8, and what do those bytes render as in Latin-1?', 'Which layer in the storage chain lacked a UTF-8 declaration?'],
+    hints: [
+      'How many bytes does é occupy in UTF-8, and what do those bytes render as in Latin-1?',
+      'Which layer in the storage chain lacked a UTF-8 declaration?',
+    ],
     objectives: ['Diagnose mojibake signatures', 'Enforce UTF-8 across the stack'],
   }),
 ];
