@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": "1.0.0",
+  "generatedAt": "2026-10-10T16:27:20.034Z",
+  "quest": {
+    "id": "dq-2026-10-10",
+    "date": "2026-10-10",
+    "sequenceNumber": 10,
+    "slug": "2026-10-10-the-balanced-ledger",
+    "title": "The Balanced Ledger",
+    "shortTitle": "The Balanced Ledger",
+    "description": "Determine whether a string of brackets is perfectly balanced — the classic stack exercise that still shows up in real parsers.",
+    "category": "coding",
+    "challengeType": "coding",
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "estimatedMinutes": 10,
+    "concepts": [
+      "stacks",
+      "parsing"
+    ],
+    "tags": [
+      "strings",
+      "stack",
+      "validation"
+    ],
+    "contentHash": "cc8a94988c3fd5331d8345bed8ce9ffdf371713433bf573de5997f700633033d",
+    "fpc": "cc8a94988c3fd533",
+    "fpt": "e4387f432ed974b2",
+    "fpp": "fa168ca649433939"
+  }
+}
