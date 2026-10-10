@@ -60,7 +60,9 @@ export function validateRepository(dataRoot: string): RepositoryReport {
       errors.push(`${rel}: ${failed.id}${failed.detail ? ` — ${failed.detail}` : ''}`);
     }
     if (quest.validation.passed !== true) {
-      errors.push(`${rel}: quest is marked as not validated (validation.passed must be true for published quests)`);
+      errors.push(
+        `${rel}: quest is marked as not validated (validation.passed must be true for published quests)`,
+      );
     }
     quests.push(quest);
   }
@@ -84,11 +86,7 @@ export function validateRepository(dataRoot: string): RepositoryReport {
   };
   quests.forEach((quest, i) => {
     const rel = `data/quests/${quest.date.replaceAll('-', '/').slice(0, 7)}/${quest.date}.json`;
-    const register = (
-      map: Map<string, string>,
-      key: string,
-      label: string
-    ): void => {
+    const register = (map: Map<string, string>, key: string, label: string): void => {
       const existing = map.get(key);
       if (existing !== undefined) {
         errors.push(`duplicate ${label} "${key}": ${existing} and ${rel}`);
@@ -122,10 +120,18 @@ export function validateRepository(dataRoot: string): RepositoryReport {
     errors.push(`index.json: ${(error as Error).message}`);
   }
   if (indexEntries.length !== quests.length) {
-    errors.push(`index.json has ${indexEntries.length} entries but ${quests.length} quest files exist`);
+    errors.push(
+      `index.json has ${indexEntries.length} entries but ${quests.length} quest files exist`,
+    );
   }
   for (const entry of indexEntries) {
-    const e = entry as { id?: string; date?: string; slug?: string; title?: string; contentHash?: string };
+    const e = entry as {
+      id?: string;
+      date?: string;
+      slug?: string;
+      title?: string;
+      contentHash?: string;
+    };
     const quest = quests.find((q) => q.id === e.id);
     if (!quest) {
       errors.push(`index.json entry ${e.id ?? '?'} has no quest file`);
@@ -165,7 +171,9 @@ export function validateRepository(dataRoot: string): RepositoryReport {
     const latest = readJsonFile<{ quest?: { id?: string } }>(layout.latestFile);
     const newest = quests[quests.length - 1];
     if (quests.length > 0 && latest.quest?.id !== newest?.id) {
-      errors.push(`latest.json points at ${String(latest.quest?.id)} but the newest quest is ${String(newest?.id)}`);
+      errors.push(
+        `latest.json points at ${String(latest.quest?.id)} but the newest quest is ${String(newest?.id)}`,
+      );
     }
   } catch (error) {
     errors.push(`latest.json: ${(error as Error).message}`);
