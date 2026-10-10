@@ -33,8 +33,14 @@ console.log('5' - 3);`,
       'The `-` operator has no string mode: both operands are coerced to numbers, so "5" - 3 → 2.',
       'One operator overloads for strings, the other never does — that is the whole trick.',
     ],
-    hints: ['`+` is the only arithmetic operator with a string mode.', 'What happens when a string must become a number for subtraction?'],
-    objectives: ['State the `+` concatenation rule', 'Explain numeric-only coercion for `-`, `*`, `/`'],
+    hints: [
+      '`+` is the only arithmetic operator with a string mode.',
+      'What happens when a string must become a number for subtraction?',
+    ],
+    objectives: [
+      'State the `+` concatenation rule',
+      'Explain numeric-only coercion for `-`, `*`, `/`',
+    ],
   }),
 
   predictionChallenge({
@@ -64,8 +70,14 @@ announce();`,
       'After the assignment line runs, the second log sees "dailyquest".',
       'With `let` the same code would throw a ReferenceError (temporal dead zone) instead.',
     ],
-    hints: ['What exactly does hoisting move — the declaration, the initialization, or both?', 'Contrast this with what `let` would do in the same spot.'],
-    objectives: ['Distinguish declaration hoisting from initialization', 'Know the TDZ behaviour of let/const'],
+    hints: [
+      'What exactly does hoisting move — the declaration, the initialization, or both?',
+      'Contrast this with what `let` would do in the same spot.',
+    ],
+    objectives: [
+      'Distinguish declaration hoisting from initialization',
+      'Know the TDZ behaviour of let/const',
+    ],
   }),
 
   predictionChallenge({
@@ -80,7 +92,8 @@ announce();`,
     subcategories: ['closures'],
     title: 'The Shared Souvenir',
     subtitle: 'Three closures, one variable.',
-    description: 'Three closures created in a loop all call themselves and report what they captured.',
+    description:
+      'Three closures created in a loop all call themselves and report what they captured.',
     snippet: `const fns = [];
 for (var i = 0; i < 3; i++) {
   fns.push(() => i);
@@ -95,7 +108,10 @@ console.log(fns[2]());`,
       'The closures run after the loop, when `i` is 3, so all three print 3.',
       'Changing `var` to `let` gives each iteration a fresh binding and prints 0, 1, 2.',
     ],
-    hints: ['How many bindings does `var i` create across three iterations?', 'The closures are called after the loop ends — what is `i` by then?'],
+    hints: [
+      'How many bindings does `var i` create across three iterations?',
+      'The closures are called after the loop ends — what is `i` by then?',
+    ],
     objectives: ['Predict closure capture with `var`', 'Fix the pattern with block-scoped `let`'],
   }),
 
@@ -121,7 +137,10 @@ console.log(Array.isArray([]));`,
       'Arrays are objects, so `typeof []` is also "object"; typeof cannot distinguish them.',
       '`Array.isArray` exists precisely because typeof cannot detect arrays.',
     ],
-    hints: ['One of these results is officially documented as a historical bug.', 'How would you reliably distinguish an array from a plain object?'],
+    hints: [
+      'One of these results is officially documented as a historical bug.',
+      'How would you reliably distinguish an array from a plain object?',
+    ],
     objectives: ['Know the typeof null quirk', 'Use Array.isArray for array detection'],
   }),
 
@@ -147,8 +166,14 @@ console.log(null == 0);`,
       'null and undefined are loosely equal to each other and to nothing else.',
       'null only coerces to a number under `>=`/`<=`; `==` treats null as equal only to undefined, so null == 0 is false.',
     ],
-    hints: ['What does String([1,2,3]) return?', 'null and undefined form their own special pair in the abstract equality algorithm.'],
-    objectives: ['Recall the null/undefined equality special case', 'Explain array-to-primitive coercion'],
+    hints: [
+      'What does String([1,2,3]) return?',
+      'null and undefined form their own special pair in the abstract equality algorithm.',
+    ],
+    objectives: [
+      'Recall the null/undefined equality special case',
+      'Explain array-to-primitive coercion',
+    ],
   }),
 
   predictionChallenge({
@@ -175,7 +200,10 @@ console.log(Boolean(''));`,
       'An empty array is an OBJECT, and every object is truthy — even [] and {}.',
       'The empty string "" is one of the eight falsy values.',
     ],
-    hints: ['There are exactly eight falsy values in JavaScript.', 'An empty array is not a string — what type does it coerce from?'],
+    hints: [
+      'There are exactly eight falsy values in JavaScript.',
+      'An empty array is not a string — what type does it coerce from?',
+    ],
     objectives: ['Recite the falsy list', 'Explain why objects are always truthy'],
   }),
 
@@ -201,7 +229,10 @@ console.log('A' - 1);`,
       'The unary `+` converts "2" to the number 2 first; 1 + 2 = 3, then 3 + "2" concatenates to "32".',
       'Subtraction has no string mode: "A" becomes NaN, and NaN - 1 stays NaN.',
     ],
-    hints: ['Evaluate each line strictly left to right.', 'Unary + is the fastest string-to-number conversion in JS.'],
+    hints: [
+      'Evaluate each line strictly left to right.',
+      'Unary + is the fastest string-to-number conversion in JS.',
+    ],
     objectives: ['Track coercion step by step', 'Predict NaN propagation'],
   }),
 
@@ -225,7 +256,10 @@ console.log('A' - 1);`,
       '"1" < "10" < "3" lexicographically: "1" is a prefix of "10", and "3" > "1" as a character.',
       'Numeric sorting requires a comparator: sort((a, b) => a - b).',
     ],
-    hints: ['What type are the elements when the comparator is missing?', 'Compare "10" and "3" as strings, character by character.'],
+    hints: [
+      'What type are the elements when the comparator is missing?',
+      'Compare "10" and "3" as strings, character by character.',
+    ],
     objectives: ['Explain the default sort order', 'Always supply a comparator for numbers'],
   }),
 ];
