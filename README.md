@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#011 — The Shared Database Taboo](https://singhtanishq.github.io/DailyQuest/quest/2026-10-11-the-shared-database-taboo)
-> October 11, 2026 · `architecture` · `intermediate` · 20 min
+> **Today’s quest:** [#012 — The CORS Misconception](https://singhtanishq.github.io/DailyQuest/quest/2026-10-12-the-cors-misconception)
+> October 12, 2026 · `web` · `intermediate` · 15 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

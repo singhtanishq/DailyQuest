@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-10T22:00:22.242Z",
-  "totalQuests": 11,
-  "currentSequence": 11,
-  "latestQuestDate": "2026-10-11",
+  "generatedAt": "2026-10-11T22:29:55.437Z",
+  "totalQuests": 12,
+  "currentSequence": 12,
+  "latestQuestDate": "2026-10-12",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 1,
@@ -15,16 +15,17 @@
     "react": 1,
     "algorithms": 1,
     "debugging": 1,
-    "architecture": 1
+    "architecture": 1,
+    "web": 1
   },
   "byDifficulty": {
-    "intermediate": 7,
+    "intermediate": 8,
     "hard": 1,
     "easy": 3
   },
   "byType": {
     "sql": 1,
-    "reasoning": 2,
+    "reasoning": 3,
     "cybersecurity": 1,
     "coding": 3,
     "performance": 2,
@@ -36,62 +37,68 @@
       "id": "coding",
       "label": "Coding",
       "count": 2,
-      "percent": 18
+      "percent": 17
     },
     {
       "id": "performance",
       "label": "Performance",
       "count": 2,
-      "percent": 18
+      "percent": 17
     },
     {
       "id": "algorithms",
       "label": "Algorithms",
       "count": 1,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "architecture",
       "label": "Architecture",
       "count": 1,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "cybersecurity",
       "label": "Cybersecurity",
       "count": 1,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "debugging",
       "label": "Debugging",
       "count": 1,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "react",
       "label": "React",
       "count": 1,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "sql",
       "label": "SQL",
       "count": 1,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "typescript",
       "label": "TypeScript",
       "count": 1,
-      "percent": 9
+      "percent": 8
+    },
+    {
+      "id": "web",
+      "label": "Web Platform",
+      "count": 1,
+      "percent": 8
     }
   ],
   "averageEstimatedMinutes": 14.8,
-  "totalEstimatedMinutes": 163,
-  "currentStreak": 11,
-  "longestStreak": 11,
-  "archiveSpanDays": 11,
+  "totalEstimatedMinutes": 178,
+  "currentStreak": 12,
+  "longestStreak": 12,
+  "archiveSpanDays": 12,
   "missedDays": 0,
   "mostFrequentCategory": "coding",
   "mostFrequentDifficulty": "intermediate"

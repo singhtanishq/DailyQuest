@@ -1,31 +1,32 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-10T22:00:22.242Z",
+  "generatedAt": "2026-10-11T22:29:55.437Z",
   "quest": {
-    "id": "dq-2026-10-11",
-    "date": "2026-10-11",
-    "sequenceNumber": 11,
-    "slug": "2026-10-11-the-shared-database-taboo",
-    "title": "The Shared Database Taboo",
-    "shortTitle": "The Shared Database Taboo",
-    "description": "Establish data ownership across service boundaries.",
-    "category": "architecture",
-    "challengeType": "architecture",
+    "id": "dq-2026-10-12",
+    "date": "2026-10-12",
+    "sequenceNumber": 12,
+    "slug": "2026-10-12-the-cors-misconception",
+    "title": "The CORS Misconception",
+    "shortTitle": "The CORS Misconception",
+    "description": "What the Same-Origin Policy forbids, what CORS actually grants, and who enforces it.",
+    "category": "web",
+    "challengeType": "reasoning",
     "difficulty": "intermediate",
     "difficultyScore": 3,
-    "estimatedMinutes": 20,
+    "estimatedMinutes": 15,
     "concepts": [
-      "service boundaries",
-      "data ownership"
+      "cors",
+      "same-origin policy"
     ],
     "tags": [
-      "data",
-      "services"
+      "http",
+      "browser",
+      "security"
     ],
-    "contentHash": "b0b134b6f1d25b4c456d8bb861b6e78ec8711ac6f9c07919c30439ef0a53059c",
-    "fpc": "b0b134b6f1d25b4c",
-    "fpt": "5617f869d30cb00f",
-    "fpp": "cfe7d4352b034b48"
+    "contentHash": "a97efe0557e41367a310ae5cb29d7d53e40ed89e4b7068bda7b47e77605456de",
+    "fpc": "a97efe0557e41367",
+    "fpt": "51b462fff3107430",
+    "fpp": "dcd926e40c615083"
   }
 }

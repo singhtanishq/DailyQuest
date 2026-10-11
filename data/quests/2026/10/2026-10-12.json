@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-12",
+  "date": "2026-10-12",
+  "sequenceNumber": 12,
+  "slug": "2026-10-12-the-cors-misconception",
+  "title": "The CORS Misconception",
+  "shortTitle": "The CORS Misconception",
+  "subtitle": "CORS is the browser asking permission.",
+  "description": "What the Same-Origin Policy forbids, what CORS actually grants, and who enforces it.",
+  "category": "web",
+  "subcategories": [
+    "security"
+  ],
+  "challengeType": "reasoning",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 15,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "cors",
+    "same-origin policy"
+  ],
+  "tags": [
+    "http",
+    "browser",
+    "security"
+  ],
+  "skills": [
+    "Browser security model"
+  ],
+  "prompt": "A teammate says \"we enabled CORS on the server, so now attackers can’t call our API.\" Untangle the confusion: what does the Same-Origin Policy block, what does a CORS header actually do, and why is CORS not an attack-surface control?\n\nA strong answer addresses:\n- Define same-origin and what SOP restricts (reads, not writes).\n- Explain the preflight/Access-Control-Allow-Origin flow.\n- State who enforces CORS and what it does NOT protect against.",
+  "instructions": [
+    "Answer in your own words, then compare with the solution."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "Try calling the API with curl — does CORS exist there?",
+    "Who refuses to hand over the response: the server or the browser?"
+  ],
+  "solution": {
+    "summary": "SOP stops a page’s JavaScript from READING cross-origin responses; CORS is the server explicitly relaxing that read restriction for listed origins. It is enforced by the BROWSER only — curl, server-to-server calls and attackers’ scripts outside a browser ignore it entirely. CORS therefore protects your users from other sites, not your API from attackers; authentication and authorization do that.",
+    "reasoning": [
+      "Origin = scheme + host + port; different = cross-origin.",
+      "Simple requests still go through (the response is hidden if disallowed); non-simple ones trigger a preflight OPTIONS the server must answer.",
+      "Attacker capabilities are unchanged by CORS: they never needed a browser to hit your API.",
+      "CSRF is the flip side: browsers DO send cross-origin writes — which is why state-changing endpoints need CSRF tokens or SameSite cookies, not CORS."
+    ],
+    "commonMistakes": [
+      "Setting Access-Control-Allow-Origin: * together with credentials — browsers reject that combination.",
+      "Treating CORS failures as server errors — the request may have succeeded; the browser hid the response."
+    ]
+  },
+  "learningObjectives": [
+    "Place CORS correctly in the security model",
+    "Separate read restrictions from write protections"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "web.cors-reality",
+  "generatorVersion": "1.0.0",
+  "seed": "8a8dc4eb3a780f728984009603e060e7b885a29036600dcae62329b3ed618ba0",
+  "paramsSignature": "v1",
+  "contentHash": "a97efe0557e41367a310ae5cb29d7d53e40ed89e4b7068bda7b47e77605456de",
+  "createdAt": "2026-10-11T22:29:55.432Z",
+  "updatedAt": "2026-10-11T22:29:55.432Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-11T22:29:55.432Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
