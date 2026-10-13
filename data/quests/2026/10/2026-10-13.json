@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-13",
+  "date": "2026-10-13",
+  "sequenceNumber": 13,
+  "slug": "2026-10-13-the-salary-podium",
+  "title": "The Salary Podium",
+  "shortTitle": "The Salary Podium",
+  "subtitle": "Rank within each team, not globally.",
+  "description": "RANK() OVER (PARTITION BY …) — per-group ordering without collapsing rows.",
+  "category": "sql",
+  "subcategories": [
+    "window-functions"
+  ],
+  "challengeType": "sql",
+  "difficulty": "hard",
+  "difficultyScore": 4,
+  "estimatedMinutes": 25,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 4,
+  "implementationComplexity": 4,
+  "concepts": [
+    "window functions",
+    "ranking"
+  ],
+  "tags": [
+    "window-functions"
+  ],
+  "skills": [
+    "Window function fluency"
+  ],
+  "prompt": "You are working with the following schema (SQLite):\n\n```sql\nCREATE TABLE employees (\n  id INTEGER PRIMARY KEY,\n  name TEXT NOT NULL,\n  manager_id INTEGER REFERENCES employees(id),\n  salary INTEGER NOT NULL\n);\n\nINSERT INTO employees (id, name, manager_id, salary) VALUES\n  (1, 'Ada',    NULL, 200),\n  (2, 'Grace',  1,    180),\n  (3, 'Linus',  1,    150),\n  (4, 'Edsger', 2,    120);\n```\n\nFor every employee WITH a manager, return `name` and `rnk` — their salary rank within their manager’s group (highest salary ranks 1). Order the output by manager_id, then rank.",
+  "instructions": [
+    "Write a single SQL query that produces the requested result."
+  ],
+  "constraints": [
+    "The query must be deterministic and must not modify the database."
+  ],
+  "examples": [],
+  "hints": [
+    "Window functions run AFTER the WHERE clause and never reduce row count.",
+    "PARTITION BY is \"GROUP BY that keeps the rows\"."
+  ],
+  "solution": {
+    "summary": "The reference query is:",
+    "code": {
+      "language": "sql",
+      "label": "Reference query",
+      "code": "SELECT name,\n       RANK() OVER (\n         PARTITION BY manager_id\n         ORDER BY salary DESC\n       ) AS rnk\nFROM employees\nWHERE manager_id IS NOT NULL\nORDER BY manager_id, rnk;"
+    },
+    "reasoning": [
+      "PARTITION BY manager_id restarts the ranking per manager instead of ranking the whole table.",
+      "Manager 1’s reports: Grace (180) ranks 1, Linus (150) ranks 2. Manager 2’s single report Edsger is rank 1 in their own partition.",
+      "Unlike GROUP BY, window functions keep every row — the result has one row per employee, not one per group.",
+      "RANK leaves gaps after ties; ROW_NUMBER never does. With no ties here they agree."
+    ],
+    "commonMistakes": [
+      "Adding GROUP BY manager_id and collapsing to one row per group.",
+      "Forgetting WHERE manager_id IS NOT NULL, which would create a NULL partition for Ada."
+    ]
+  },
+  "learningObjectives": [
+    "Use PARTITION BY + ORDER BY windows",
+    "Distinguish RANK, ROW_NUMBER and DENSE_RANK"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-01"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "sql.window-rank",
+  "generatorVersion": "1.0.0",
+  "seed": "0b4eaa6d2a8e3e199eec3beaad5986c92b85e1c51b6a26b9a22bc103147ae9b7",
+  "paramsSignature": "v1",
+  "contentHash": "6344132e416dd49ac4118699dcac435f4773070fdb9c5640b4ad284e73ec4334",
+  "createdAt": "2026-10-13T00:59:24.258Z",
+  "updatedAt": "2026-10-13T00:59:24.258Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-13T00:59:24.258Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced",
+      "verification-sqlite"
+    ]
+  }
+}

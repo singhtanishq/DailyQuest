@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#012 — The CORS Misconception](https://singhtanishq.github.io/DailyQuest/quest/2026-10-12-the-cors-misconception)
-> October 12, 2026 · `web` · `intermediate` · 15 min
+> **Today’s quest:** [#013 — The Salary Podium](https://singhtanishq.github.io/DailyQuest/quest/2026-10-13-the-salary-podium)
+> October 13, 2026 · `sql` · `hard` · 25 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

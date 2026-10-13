@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-11T22:29:55.437Z",
+  "generatedAt": "2026-10-13T00:59:24.326Z",
   "categories": [
     {
       "id": "coding",
@@ -248,17 +248,20 @@
       "description": "Joins, aggregation, NULL semantics and window functions against small concrete schemas. SQL quests are validated against SQLite at generation time, so the expected result set is real.",
       "icon": "table",
       "group": "Data",
-      "questCount": 1,
+      "questCount": 2,
       "difficultyDistribution": {
-        "intermediate": 1
+        "intermediate": 1,
+        "hard": 1
       },
       "skills": [
-        "Outer join semantics"
+        "Outer join semantics",
+        "Window function fluency"
       ],
       "topTags": [
-        "joins"
+        "joins",
+        "window-functions"
       ],
-      "latestQuestDate": "2026-10-01"
+      "latestQuestDate": "2026-10-13"
     },
     {
       "id": "linux",

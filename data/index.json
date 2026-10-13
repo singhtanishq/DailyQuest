@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-11T22:29:55.437Z",
+  "generatedAt": "2026-10-13T00:59:24.326Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -313,6 +313,31 @@
       "fpc": "a97efe0557e41367",
       "fpt": "51b462fff3107430",
       "fpp": "dcd926e40c615083"
+    },
+    {
+      "id": "dq-2026-10-13",
+      "date": "2026-10-13",
+      "sequenceNumber": 13,
+      "slug": "2026-10-13-the-salary-podium",
+      "title": "The Salary Podium",
+      "shortTitle": "The Salary Podium",
+      "description": "RANK() OVER (PARTITION BY …) — per-group ordering without collapsing rows.",
+      "category": "sql",
+      "challengeType": "sql",
+      "difficulty": "hard",
+      "difficultyScore": 4,
+      "estimatedMinutes": 25,
+      "concepts": [
+        "window functions",
+        "ranking"
+      ],
+      "tags": [
+        "window-functions"
+      ],
+      "contentHash": "6344132e416dd49ac4118699dcac435f4773070fdb9c5640b4ad284e73ec4334",
+      "fpc": "6344132e416dd49a",
+      "fpt": "556f42ef8d1f41ba",
+      "fpp": "b27f604c03827cc9"
     }
   ]
 }

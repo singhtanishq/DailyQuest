@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-11T22:29:55.437Z",
-  "totalQuests": 12,
-  "currentSequence": 12,
-  "latestQuestDate": "2026-10-12",
+  "generatedAt": "2026-10-13T00:59:24.326Z",
+  "totalQuests": 13,
+  "currentSequence": 13,
+  "latestQuestDate": "2026-10-13",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
-    "sql": 1,
+    "sql": 2,
     "typescript": 1,
     "cybersecurity": 1,
     "coding": 2,
@@ -20,11 +20,11 @@
   },
   "byDifficulty": {
     "intermediate": 8,
-    "hard": 1,
+    "hard": 2,
     "easy": 3
   },
   "byType": {
-    "sql": 1,
+    "sql": 2,
     "reasoning": 3,
     "cybersecurity": 1,
     "coding": 3,
@@ -37,13 +37,19 @@
       "id": "coding",
       "label": "Coding",
       "count": 2,
-      "percent": 17
+      "percent": 15
     },
     {
       "id": "performance",
       "label": "Performance",
       "count": 2,
-      "percent": 17
+      "percent": 15
+    },
+    {
+      "id": "sql",
+      "label": "SQL",
+      "count": 2,
+      "percent": 15
     },
     {
       "id": "algorithms",
@@ -76,12 +82,6 @@
       "percent": 8
     },
     {
-      "id": "sql",
-      "label": "SQL",
-      "count": 1,
-      "percent": 8
-    },
-    {
       "id": "typescript",
       "label": "TypeScript",
       "count": 1,
@@ -94,11 +94,11 @@
       "percent": 8
     }
   ],
-  "averageEstimatedMinutes": 14.8,
-  "totalEstimatedMinutes": 178,
-  "currentStreak": 12,
-  "longestStreak": 12,
-  "archiveSpanDays": 12,
+  "averageEstimatedMinutes": 15.6,
+  "totalEstimatedMinutes": 203,
+  "currentStreak": 13,
+  "longestStreak": 13,
+  "archiveSpanDays": 13,
   "missedDays": 0,
   "mostFrequentCategory": "coding",
   "mostFrequentDifficulty": "intermediate"
