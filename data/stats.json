@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-13T00:59:24.326Z",
-  "totalQuests": 13,
-  "currentSequence": 13,
-  "latestQuestDate": "2026-10-13",
+  "generatedAt": "2026-10-14T20:21:13.953Z",
+  "totalQuests": 14,
+  "currentSequence": 14,
+  "latestQuestDate": "2026-10-14",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 2,
@@ -16,12 +16,13 @@
     "algorithms": 1,
     "debugging": 1,
     "architecture": 1,
-    "web": 1
+    "web": 1,
+    "python": 1
   },
   "byDifficulty": {
     "intermediate": 8,
     "hard": 2,
-    "easy": 3
+    "easy": 4
   },
   "byType": {
     "sql": 2,
@@ -30,75 +31,82 @@
     "coding": 3,
     "performance": 2,
     "debugging": 1,
-    "architecture": 1
+    "architecture": 1,
+    "output_prediction": 1
   },
   "categoryBreakdown": [
     {
       "id": "coding",
       "label": "Coding",
       "count": 2,
-      "percent": 15
+      "percent": 14
     },
     {
       "id": "performance",
       "label": "Performance",
       "count": 2,
-      "percent": 15
+      "percent": 14
     },
     {
       "id": "sql",
       "label": "SQL",
       "count": 2,
-      "percent": 15
+      "percent": 14
     },
     {
       "id": "algorithms",
       "label": "Algorithms",
       "count": 1,
-      "percent": 8
+      "percent": 7
     },
     {
       "id": "architecture",
       "label": "Architecture",
       "count": 1,
-      "percent": 8
+      "percent": 7
     },
     {
       "id": "cybersecurity",
       "label": "Cybersecurity",
       "count": 1,
-      "percent": 8
+      "percent": 7
     },
     {
       "id": "debugging",
       "label": "Debugging",
       "count": 1,
-      "percent": 8
+      "percent": 7
+    },
+    {
+      "id": "python",
+      "label": "Python",
+      "count": 1,
+      "percent": 7
     },
     {
       "id": "react",
       "label": "React",
       "count": 1,
-      "percent": 8
+      "percent": 7
     },
     {
       "id": "typescript",
       "label": "TypeScript",
       "count": 1,
-      "percent": 8
+      "percent": 7
     },
     {
       "id": "web",
       "label": "Web Platform",
       "count": 1,
-      "percent": 8
+      "percent": 7
     }
   ],
-  "averageEstimatedMinutes": 15.6,
-  "totalEstimatedMinutes": 203,
-  "currentStreak": 13,
-  "longestStreak": 13,
-  "archiveSpanDays": 13,
+  "averageEstimatedMinutes": 15.1,
+  "totalEstimatedMinutes": 211,
+  "currentStreak": 14,
+  "longestStreak": 14,
+  "archiveSpanDays": 14,
   "missedDays": 0,
   "mostFrequentCategory": "coding",
   "mostFrequentDifficulty": "intermediate"

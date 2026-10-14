@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-14",
+  "date": "2026-10-14",
+  "sequenceNumber": 14,
+  "slug": "2026-10-14-the-missing-key",
+  "title": "The Missing Key",
+  "shortTitle": "The Missing Key",
+  "subtitle": "Three ways to read a dict, one of them throws.",
+  "description": "Indexing vs get() vs get() with a default.",
+  "category": "python",
+  "subcategories": [
+    "dicts"
+  ],
+  "challengeType": "output_prediction",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 8,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 1,
+  "concepts": [
+    "dict semantics"
+  ],
+  "tags": [
+    "python",
+    "dicts"
+  ],
+  "skills": [
+    "Safe key access"
+  ],
+  "prompt": "```python\ncounts = {\"apples\": 3}\n\nprint(counts.get(\"pears\", 0))\nprint(counts.get(\"pears\"))\nprint(counts[\"pears\"])\n```\n\nWhat happens when the script runs?\n\n**A.** Prints None three times\n**B.** Prints 0, then None, then raises KeyError\n**C.** Raises KeyError on the first line\n**D.** Prints 0, then 0, then raises KeyError",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "Prints None three times",
+    "Prints 0, then None, then raises KeyError",
+    "Raises KeyError on the first line",
+    "Prints 0, then 0, then raises KeyError"
+  ],
+  "correctOptionIndex": 1,
+  "examples": [],
+  "hints": [
+    "What is the signature of dict.get?",
+    "Which access form guarantees an exception on a missing key?"
+  ],
+  "solution": {
+    "summary": "The correct answer is B — Prints 0, then None, then raises KeyError",
+    "answer": "Prints 0, then None, then raises KeyError",
+    "reasoning": [
+      "dict.get exists precisely to avoid the KeyError dance.",
+      "None is a valid return value, which is why an explicit default (0) is usually clearer for counters.",
+      "collections.defaultdict(int) or Counter are the idiomatic tools for counting patterns."
+    ],
+    "whyNot": [
+      "Prints None three times — The third line is the one that raises — the first two never do.",
+      "Raises KeyError on the first line — get() never raises for missing keys; only indexing does.",
+      "Prints 0, then 0, then raises KeyError — get(key) without a second argument defaults to None, not 0."
+    ]
+  },
+  "learningObjectives": [
+    "Use get() with explicit defaults",
+    "Know when KeyError is actually helpful"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "py.dict-access",
+  "generatorVersion": "1.0.0",
+  "seed": "5c2e7f476d94d179ee15cea13c20eb3376f4d9a4411e3cf3713f8679af86fb68",
+  "paramsSignature": "v1",
+  "contentHash": "4b21a0c9a895a8e9e1ef1bf4af809ee236718b4aa6e295b5167342c6e2088ab9",
+  "createdAt": "2026-10-14T20:21:13.950Z",
+  "updatedAt": "2026-10-14T20:21:13.950Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-14T20:21:13.950Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

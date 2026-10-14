@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-13T00:59:24.326Z",
+  "generatedAt": "2026-10-14T20:21:13.953Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -338,6 +338,31 @@
       "fpc": "6344132e416dd49a",
       "fpt": "556f42ef8d1f41ba",
       "fpp": "b27f604c03827cc9"
+    },
+    {
+      "id": "dq-2026-10-14",
+      "date": "2026-10-14",
+      "sequenceNumber": 14,
+      "slug": "2026-10-14-the-missing-key",
+      "title": "The Missing Key",
+      "shortTitle": "The Missing Key",
+      "description": "Indexing vs get() vs get() with a default.",
+      "category": "python",
+      "challengeType": "output_prediction",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 8,
+      "concepts": [
+        "dict semantics"
+      ],
+      "tags": [
+        "python",
+        "dicts"
+      ],
+      "contentHash": "4b21a0c9a895a8e9e1ef1bf4af809ee236718b4aa6e295b5167342c6e2088ab9",
+      "fpc": "4b21a0c9a895a8e9",
+      "fpt": "05c17dc58cd51bb0",
+      "fpp": "29616fe97557082f"
     }
   ]
 }

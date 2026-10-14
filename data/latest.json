@@ -1,30 +1,30 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-13T00:59:24.326Z",
+  "generatedAt": "2026-10-14T20:21:13.953Z",
   "quest": {
-    "id": "dq-2026-10-13",
-    "date": "2026-10-13",
-    "sequenceNumber": 13,
-    "slug": "2026-10-13-the-salary-podium",
-    "title": "The Salary Podium",
-    "shortTitle": "The Salary Podium",
-    "description": "RANK() OVER (PARTITION BY …) — per-group ordering without collapsing rows.",
-    "category": "sql",
-    "challengeType": "sql",
-    "difficulty": "hard",
-    "difficultyScore": 4,
-    "estimatedMinutes": 25,
+    "id": "dq-2026-10-14",
+    "date": "2026-10-14",
+    "sequenceNumber": 14,
+    "slug": "2026-10-14-the-missing-key",
+    "title": "The Missing Key",
+    "shortTitle": "The Missing Key",
+    "description": "Indexing vs get() vs get() with a default.",
+    "category": "python",
+    "challengeType": "output_prediction",
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "estimatedMinutes": 8,
     "concepts": [
-      "window functions",
-      "ranking"
+      "dict semantics"
     ],
     "tags": [
-      "window-functions"
+      "python",
+      "dicts"
     ],
-    "contentHash": "6344132e416dd49ac4118699dcac435f4773070fdb9c5640b4ad284e73ec4334",
-    "fpc": "6344132e416dd49a",
-    "fpt": "556f42ef8d1f41ba",
-    "fpp": "b27f604c03827cc9"
+    "contentHash": "4b21a0c9a895a8e9e1ef1bf4af809ee236718b4aa6e295b5167342c6e2088ab9",
+    "fpc": "4b21a0c9a895a8e9",
+    "fpt": "05c17dc58cd51bb0",
+    "fpp": "29616fe97557082f"
   }
 }
