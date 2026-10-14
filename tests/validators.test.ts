@@ -111,6 +111,34 @@ describe('planCatchUp', () => {
 });
 
 describe('generated quests pass validation', () => {
+  
+it('accepts multiple-choice output-prediction quests without duplicate output metadata', () => {
+  const root = makeTempRoot();
+
+  try {
+    const quest = generateInto(root, '2026-01-15');
+
+    quest.challengeType = 'output_prediction';
+    quest.examples = [];
+    quest.options = [
+      'Prints 0, then None, then raises KeyError',
+      'Prints None three times',
+    ];
+    quest.correctOptionIndex = 0;
+    quest.solution.answer = quest.options[0]!;
+
+    delete quest.expectedOutput;
+    delete quest.testCases;
+
+    const failures = validateQuestStructure(quest).filter((c) => !c.passed);
+
+    expect(failures).toEqual([]);
+  } finally {
+    cleanupTempRoot(root);
+  }
+});
+
+  
   it('a freshly generated quest scores 100 and passes every structural check', () => {
     const root = makeTempRoot();
     try {
