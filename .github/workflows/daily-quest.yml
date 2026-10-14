@@ -159,7 +159,15 @@ jobs:
           if [ -n "$TITLE" ]; then
             MESSAGE="$MESSAGE — $TITLE"
           fi
-          git commit -m "$MESSAGE"
+          PUBLICATION_DATE="${{ steps.publish.outputs.publication_date }}"
+
+          if ! printf '%s' "$PUBLICATION_DATE" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+            echo "::error::Invalid publication date: $PUBLICATION_DATE"
+            exit 1
+          fi
+          
+          AUTHOR_DATE="${PUBLICATION_DATE}T12:00:00+05:30"
+          GIT_AUTHOR_DATE="$AUTHOR_DATE" git commit -m "$MESSAGE"
           echo "Committed: $MESSAGE"
 
       - name: Push (safe, never forced)
