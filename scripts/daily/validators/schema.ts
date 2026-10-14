@@ -158,12 +158,38 @@ export function validateQuestStructure(quest: Quest): CheckResult[] {
     check('options-consistent', optionsOk);
   }
 
-  // Executable challenges carry examples or a computed expected output.
-  // (SQL and regex quests are verified through sandbox execution instead.)
+  
+  // Executable challenges need examples or an expected output.
+  // Multiple-choice output-prediction quests can instead provide a valid,
+  // explicitly identified answer through their options and solution.
   const executable = ['coding', 'output_prediction', 'linux'].includes(quest.challengeType);
-  if (executable && quest.examples.length === 0 && !quest.testCases && !quest.expectedOutput) {
-    check('executable-examples', false, 'executable quest without examples or expected output');
+
+  const correctOption =
+    quest.correctOptionIndex === undefined
+      ? undefined
+      : quest.options?.[quest.correctOptionIndex];
+
+  const hasValidMultipleChoicePrediction =
+    quest.challengeType === 'output_prediction' &&
+    quest.options !== undefined &&
+    quest.options.length >= 2 &&
+    correctOption !== undefined &&
+    correctOption === quest.solution.answer;
+
+  if (
+    executable &&
+    quest.examples.length === 0 &&
+    !quest.testCases?.length &&
+    !quest.expectedOutput &&
+    !hasValidMultipleChoicePrediction
+  ) {
+    check(
+      'executable-examples',
+      false,
+      'executable quest without examples or expected output',
+    );
   }
+
 
   // Hygiene
   const text = collectText(quest);
