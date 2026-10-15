@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-15",
+  "date": "2026-10-15",
+  "sequenceNumber": 15,
+  "slug": "2026-10-15-the-city-ledger",
+  "title": "The City Ledger",
+  "shortTitle": "The City Ledger",
+  "subtitle": "Revenue by city, paid orders only.",
+  "description": "Join users to orders, filter to paid, and aggregate per city.",
+  "category": "sql",
+  "subcategories": [
+    "aggregation"
+  ],
+  "challengeType": "sql",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 15,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 3,
+  "concepts": [
+    "joins",
+    "group by",
+    "aggregation"
+  ],
+  "tags": [
+    "joins",
+    "aggregation"
+  ],
+  "skills": [
+    "JOIN + GROUP BY composition"
+  ],
+  "prompt": "You are working with the following schema (SQLite):\n\n```sql\nCREATE TABLE users (\n  id INTEGER PRIMARY KEY,\n  name TEXT NOT NULL,\n  city TEXT NOT NULL\n);\n\nCREATE TABLE orders (\n  id INTEGER PRIMARY KEY,\n  user_id INTEGER NOT NULL REFERENCES users(id),\n  amount_cents INTEGER NOT NULL,\n  status TEXT NOT NULL CHECK (status IN ('paid', 'pending', 'refunded')),\n  created_at TEXT NOT NULL\n);\n\nINSERT INTO users (id, name, city) VALUES\n  (1, 'Ada',    'London'),\n  (2, 'Grace',  'Berlin'),\n  (3, 'Linus',  'Helsinki'),\n  (4, 'Edsger', 'Berlin');\n\nINSERT INTO orders (id, user_id, amount_cents, status, created_at) VALUES\n  (101, 1,  12000, 'paid',     '2026-01-05'),\n  (102, 1,   8050, 'refunded', '2026-01-07'),\n  (103, 2,  20000, 'paid',     '2026-01-09'),\n  (104, 3,   4500, 'pending',  '2026-01-11'),\n  (105, 2,   6000, 'paid',     '2026-01-15'),\n  (106, 99,  7000, 'paid',     '2026-01-20');\n```\n\nWrite a query that returns each city and the total `amount_cents` of its **paid** orders, as columns `city` and `total_cents`, ordered by total descending.",
+  "instructions": [
+    "Write a single SQL query that produces the requested result."
+  ],
+  "constraints": [
+    "The query must be deterministic and must not modify the database."
+  ],
+  "examples": [],
+  "hints": [
+    "Which rows survive the status filter first?",
+    "The orphan order (user_id 99) — does an inner join keep it?"
+  ],
+  "solution": {
+    "summary": "The reference query is:",
+    "code": {
+      "language": "sql",
+      "label": "Reference query",
+      "code": "SELECT u.city, SUM(o.amount_cents) AS total_cents\nFROM orders o\nJOIN users u ON u.id = o.user_id\nWHERE o.status = 'paid'\nGROUP BY u.city\nORDER BY total_cents DESC;"
+    },
+    "reasoning": [
+      "Order 106 (user_id 99) has no matching user, so an INNER JOIN drops it — the orphan order is invisible to city revenue.",
+      "Order 102 is refunded and order 104 is pending: the WHERE clause excludes both before grouping.",
+      "Berlin appears twice (orders 103 and 105) and its sums add to 26000; London has one paid order of 12000.",
+      "ORDER BY total_cents DESC ranks Berlin above London."
+    ],
+    "commonMistakes": [
+      "Filtering status after aggregation — `WHERE` must run before `GROUP BY`.",
+      "Using a LEFT JOIN and forgetting that the orphan order lands in a NULL city group."
+    ]
+  },
+  "learningObjectives": [
+    "Compose JOIN + WHERE + GROUP BY + ORDER BY",
+    "Reason about inner-join semantics"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-01",
+    "dq-2026-10-13"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "sql.revenue-per-city",
+  "generatorVersion": "1.0.0",
+  "seed": "059fcb61770d3d553036cf16a120623a48f6694b326427093678d740092529e3",
+  "paramsSignature": "v1",
+  "contentHash": "ed15b29d6603e0492012b12a192f3258ce040de8bb6746db2f9f320132aa2d41",
+  "createdAt": "2026-10-14T21:57:54.205Z",
+  "updatedAt": "2026-10-14T21:57:54.205Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-14T21:57:54.205Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced",
+      "verification-sqlite"
+    ]
+  }
+}

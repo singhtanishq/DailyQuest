@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#014 — The Missing Key](https://singhtanishq.github.io/DailyQuest/quest/2026-10-14-the-missing-key)
-> October 14, 2026 · `python` · `easy` · 8 min
+> **Today’s quest:** [#015 — The City Ledger](https://singhtanishq.github.io/DailyQuest/quest/2026-10-15-the-city-ledger)
+> October 15, 2026 · `sql` · `intermediate` · 15 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---
