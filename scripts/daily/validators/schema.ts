@@ -21,7 +21,8 @@ export interface CheckResult {
   detail?: string;
 }
 
-const PLACEHOLDER_PATTERN = /\b(TODO|FIXME|LOREM IPSUM|PLACEHOLDER|TBD|XXX)\b/i;
+const TODO_MARKER_PATTERN = /\bTODO\b/;
+const PLACEHOLDER_PATTERN = /\b(FIXME|LOREM IPSUM|PLACEHOLDER|TBD|XXX)\b/i;
 const SECRET_PATTERN =
   /\b(sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{20,}|gho_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|xox[baprs]-[A-Za-z0-9-]{10,})\b/;
 
@@ -190,10 +191,10 @@ export function validateQuestStructure(quest: Quest): CheckResult[] {
     );
   }
 
-
   // Hygiene
   const text = collectText(quest);
-  const placeholderMatch = PLACEHOLDER_PATTERN.exec(text);
+  const placeholderMatch =
+    TODO_MARKER_PATTERN.exec(text) ?? PLACEHOLDER_PATTERN.exec(text);
   check('no-placeholders', placeholderMatch === null, placeholderMatch?.[0]);
   const secretMatch = SECRET_PATTERN.exec(text);
   check(

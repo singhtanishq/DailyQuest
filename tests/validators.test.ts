@@ -111,32 +111,54 @@ describe('planCatchUp', () => {
 });
 
 describe('generated quests pass validation', () => {
+
+  it('distinguishes todo-list wording from TODO placeholders', () => {
+    const root = makeTempRoot();
+
+    try {
+      const quest = generateInto(root, '2026-01-15');
+
+      quest.prompt = 'A todo list uses stable keys when items are reordered.';
+      let check = validateQuestStructure(quest).find(
+        (item) => item.id === 'no-placeholders'
+      );
+      expect(check?.passed).toBe(true);
+
+      quest.prompt = 'TODO: complete this explanation before publishing.';
+      check = validateQuestStructure(quest).find(
+        (item) => item.id === 'no-placeholders'
+      );
+      expect(check?.passed).toBe(false);
+    } finally {
+      cleanupTempRoot(root);
+    }
+  });
   
-it('accepts multiple-choice output-prediction quests without duplicate output metadata', () => {
-  const root = makeTempRoot();
+  it('accepts multiple-choice output-prediction quests without duplicate output metadata', () => {
+    const root = makeTempRoot();
 
-  try {
-    const quest = generateInto(root, '2026-01-15');
+    try {
+      const quest = generateInto(root, '2026-01-15');
 
-    quest.challengeType = 'output_prediction';
-    quest.examples = [];
-    quest.options = [
-      'Prints 0, then None, then raises KeyError',
-      'Prints None three times',
-    ];
-    quest.correctOptionIndex = 0;
-    quest.solution.answer = quest.options[0]!;
+      quest.challengeType = 'output_prediction';
+      quest.examples = [];
+      quest.options = [
+        'Prints 0, then None, then raises KeyError',
+        'Prints None three times',
+      ];
+      quest.correctOptionIndex = 0;
+      quest.solution.answer = quest.options[0]!;
 
-    delete quest.expectedOutput;
-    delete quest.testCases;
+      delete quest.expectedOutput;
+      delete quest.testCases;
 
-    const failures = validateQuestStructure(quest).filter((c) => !c.passed);
+      const failures = validateQuestStructure(quest).filter((c) => !c.passed);
 
-    expect(failures).toEqual([]);
-  } finally {
-    cleanupTempRoot(root);
-  }
-});
+      expect(failures).toEqual([]);
+    } finally {
+      cleanupTempRoot(root);
+    }
+  });
 
   
   it('a freshly generated quest scores 100 and passes every structural check', () => {
