@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-14T21:57:54.214Z",
-  "totalQuests": 15,
-  "currentSequence": 15,
-  "latestQuestDate": "2026-10-15",
+  "generatedAt": "2026-10-16T10:21:44.039Z",
+  "totalQuests": 16,
+  "currentSequence": 16,
+  "latestQuestDate": "2026-10-16",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
-    "sql": 3,
+    "sql": 4,
     "typescript": 1,
     "cybersecurity": 1,
     "coding": 2,
@@ -22,10 +22,10 @@
   "byDifficulty": {
     "intermediate": 9,
     "hard": 2,
-    "easy": 4
+    "easy": 5
   },
   "byType": {
-    "sql": 3,
+    "sql": 4,
     "reasoning": 3,
     "cybersecurity": 1,
     "coding": 3,
@@ -38,8 +38,8 @@
     {
       "id": "sql",
       "label": "SQL",
-      "count": 3,
-      "percent": 20
+      "count": 4,
+      "percent": 25
     },
     {
       "id": "coding",
@@ -57,56 +57,56 @@
       "id": "algorithms",
       "label": "Algorithms",
       "count": 1,
-      "percent": 7
+      "percent": 6
     },
     {
       "id": "architecture",
       "label": "Architecture",
       "count": 1,
-      "percent": 7
+      "percent": 6
     },
     {
       "id": "cybersecurity",
       "label": "Cybersecurity",
       "count": 1,
-      "percent": 7
+      "percent": 6
     },
     {
       "id": "debugging",
       "label": "Debugging",
       "count": 1,
-      "percent": 7
+      "percent": 6
     },
     {
       "id": "python",
       "label": "Python",
       "count": 1,
-      "percent": 7
+      "percent": 6
     },
     {
       "id": "react",
       "label": "React",
       "count": 1,
-      "percent": 7
+      "percent": 6
     },
     {
       "id": "typescript",
       "label": "TypeScript",
       "count": 1,
-      "percent": 7
+      "percent": 6
     },
     {
       "id": "web",
       "label": "Web Platform",
       "count": 1,
-      "percent": 7
+      "percent": 6
     }
   ],
-  "averageEstimatedMinutes": 15.1,
-  "totalEstimatedMinutes": 226,
-  "currentStreak": 15,
-  "longestStreak": 15,
-  "archiveSpanDays": 15,
+  "averageEstimatedMinutes": 14.8,
+  "totalEstimatedMinutes": 236,
+  "currentStreak": 16,
+  "longestStreak": 16,
+  "archiveSpanDays": 16,
   "missedDays": 0,
   "mostFrequentCategory": "sql",
   "mostFrequentDifficulty": "intermediate"

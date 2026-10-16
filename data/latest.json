@@ -1,32 +1,30 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-14T21:57:54.214Z",
+  "generatedAt": "2026-10-16T10:21:44.039Z",
   "quest": {
-    "id": "dq-2026-10-15",
-    "date": "2026-10-15",
-    "sequenceNumber": 15,
-    "slug": "2026-10-15-the-city-ledger",
-    "title": "The City Ledger",
-    "shortTitle": "The City Ledger",
-    "description": "Join users to orders, filter to paid, and aggregate per city.",
+    "id": "dq-2026-10-16",
+    "date": "2026-10-16",
+    "sequenceNumber": 16,
+    "slug": "2026-10-16-the-january-window",
+    "title": "The January Window",
+    "shortTitle": "The January Window",
+    "description": "Filter orders inside a date range with ISO-8601 lexicographic ordering.",
     "category": "sql",
     "challengeType": "sql",
-    "difficulty": "intermediate",
-    "difficultyScore": 3,
-    "estimatedMinutes": 15,
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "estimatedMinutes": 10,
     "concepts": [
-      "joins",
-      "group by",
-      "aggregation"
+      "date filtering",
+      "text comparisons"
     ],
     "tags": [
-      "joins",
-      "aggregation"
+      "dates"
     ],
-    "contentHash": "ed15b29d6603e0492012b12a192f3258ce040de8bb6746db2f9f320132aa2d41",
-    "fpc": "ed15b29d6603e049",
-    "fpt": "fed57f696a1b9c78",
-    "fpp": "d7a61233ab4d24b0"
+    "contentHash": "183ccfff1dd58b6c4a02052b49bb18d990400105ff61c99aa8ca9775c0fd9523",
+    "fpc": "183ccfff1dd58b6c",
+    "fpt": "803560281a2ac996",
+    "fpp": "b25899eefe3be3db"
   }
 }

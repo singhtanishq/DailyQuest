@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#015 — The City Ledger](https://singhtanishq.github.io/DailyQuest/quest/2026-10-15-the-city-ledger)
-> October 15, 2026 · `sql` · `intermediate` · 15 min
+> **Today’s quest:** [#016 — The January Window](https://singhtanishq.github.io/DailyQuest/quest/2026-10-16-the-january-window)
+> October 16, 2026 · `sql` · `easy` · 10 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

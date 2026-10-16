@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-16",
+  "date": "2026-10-16",
+  "sequenceNumber": 16,
+  "slug": "2026-10-16-the-january-window",
+  "title": "The January Window",
+  "shortTitle": "The January Window",
+  "subtitle": "ISO dates sort as text — use it.",
+  "description": "Filter orders inside a date range with ISO-8601 lexicographic ordering.",
+  "category": "sql",
+  "subcategories": [
+    "dates"
+  ],
+  "challengeType": "sql",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 10,
+  "conceptComplexity": 1,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 2,
+  "concepts": [
+    "date filtering",
+    "text comparisons"
+  ],
+  "tags": [
+    "dates"
+  ],
+  "skills": [
+    "ISO date reasoning"
+  ],
+  "prompt": "You are working with the following schema (SQLite):\n\n```sql\nCREATE TABLE users (\n  id INTEGER PRIMARY KEY,\n  name TEXT NOT NULL,\n  city TEXT NOT NULL\n);\n\nCREATE TABLE orders (\n  id INTEGER PRIMARY KEY,\n  user_id INTEGER NOT NULL REFERENCES users(id),\n  amount_cents INTEGER NOT NULL,\n  status TEXT NOT NULL CHECK (status IN ('paid', 'pending', 'refunded')),\n  created_at TEXT NOT NULL\n);\n\nINSERT INTO users (id, name, city) VALUES\n  (1, 'Ada',    'London'),\n  (2, 'Grace',  'Berlin'),\n  (3, 'Linus',  'Helsinki'),\n  (4, 'Edsger', 'Berlin');\n\nINSERT INTO orders (id, user_id, amount_cents, status, created_at) VALUES\n  (101, 1,  12000, 'paid',     '2026-01-05'),\n  (102, 1,   8050, 'refunded', '2026-01-07'),\n  (103, 2,  20000, 'paid',     '2026-01-09'),\n  (104, 3,   4500, 'pending',  '2026-01-11'),\n  (105, 2,   6000, 'paid',     '2026-01-15'),\n  (106, 99,  7000, 'paid',     '2026-01-20');\n```\n\nReturn the number of orders created between 2026-01-05 and 2026-01-15 INCLUSIVE, as column `order_count`.",
+  "instructions": [
+    "Write a single SQL query that produces the requested result."
+  ],
+  "constraints": [
+    "The query must be deterministic and must not modify the database."
+  ],
+  "examples": [],
+  "hints": [
+    "Compare the six created_at values with the window bounds as plain strings.",
+    "Is BETWEEN inclusive or exclusive?"
+  ],
+  "solution": {
+    "summary": "The reference query is:",
+    "code": {
+      "language": "sql",
+      "label": "Reference query",
+      "code": "SELECT COUNT(*) AS order_count\nFROM orders\nWHERE created_at BETWEEN '2026-01-05' AND '2026-01-15';"
+    },
+    "reasoning": [
+      "ISO-8601 dates in TEXT compare correctly as strings: lexicographic order equals chronological order for well-formed values.",
+      "Orders 101–105 all fall inside the window; order 106 (2026-01-20) does not.",
+      "BETWEEN is inclusive on both ends — a common source of off-by-one-day bugs with timestamps that carry a time component."
+    ],
+    "commonMistakes": [
+      "Using BETWEEN on TIMESTAMP columns with a date-only upper bound, which cuts off the whole last day (2026-01-15T00:00:00 exactly).",
+      "Storing dates in non-ISO formats and comparing text — the trick only works for ISO-8601."
+    ]
+  },
+  "learningObjectives": [
+    "Exploit ISO-8601 ordering",
+    "Respect BETWEEN inclusivity"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-01",
+    "dq-2026-10-13",
+    "dq-2026-10-15"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "sql.date-range-count",
+  "generatorVersion": "1.0.0",
+  "seed": "b0554227eda8b8ba0a29d1f76d86499349412cfb843aa48cc3aaf214f3f44c73",
+  "paramsSignature": "v1",
+  "contentHash": "183ccfff1dd58b6c4a02052b49bb18d990400105ff61c99aa8ca9775c0fd9523",
+  "createdAt": "2026-10-16T10:21:44.010Z",
+  "updatedAt": "2026-10-16T10:21:44.010Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-16T10:21:44.010Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced",
+      "verification-sqlite"
+    ]
+  }
+}
