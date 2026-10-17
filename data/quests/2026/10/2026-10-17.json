@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-17",
+  "date": "2026-10-17",
+  "sequenceNumber": 17,
+  "slug": "2026-10-17-the-dated-groups",
+  "title": "The Dated Groups",
+  "shortTitle": "The Dated Groups",
+  "subtitle": "Four digits, a dash, two more.",
+  "description": "Capture groups and exact quantifiers in a date fragment.",
+  "category": "regex",
+  "subcategories": [
+    "groups"
+  ],
+  "challengeType": "regex",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 12,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 3,
+  "concepts": [
+    "groups",
+    "quantifiers"
+  ],
+  "tags": [
+    "groups"
+  ],
+  "skills": [
+    "Capture group reading"
+  ],
+  "prompt": "Which strings match `/(\\d{4})-(\\d{2})/`, and what do the two groups capture in \"year 2026-10-07\"?\n\n```regex\n/(\\d{4})-(\\d{2})/\n```\n\nTest strings:\n\n- `2026-10` → match\n- `202-10` → NO match\n- `2026-1` → NO match\n- `year 2026-10-07` → match",
+  "instructions": [
+    "State which strings match and which do not, and explain why."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "{n} is exact repetition.",
+    "No anchors means a mid-string match is fine."
+  ],
+  "solution": {
+    "summary": "The pattern `/(\\d{4})-(\\d{2})/` behaves as shown above.",
+    "reasoning": [
+      "\\d{4} demands exactly four digits captured into group 1; \\d{2} captures exactly two into group 2.",
+      "\"202-10\" fails (three digits before the dash); \"2026-1\" fails (one digit after).",
+      "Without anchors, the pattern matches anywhere: \"year 2026-10-07\" matches starting at \"2026\", group 1 = \"2026\", group 2 = \"10\".",
+      "The trailing -07 is irrelevant: the pattern is not anchored and stops after the second group."
+    ],
+    "commonMistakes": [
+      "Assuming the match must cover the whole string — only ^…$ would require that.",
+      "Counting {4} as \"up to four\" — {4} is exactly four; {4,} would be four-or-more."
+    ]
+  },
+  "learningObjectives": [
+    "Track capture groups through a match",
+    "Apply exact quantifiers"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "regex.date-groups",
+  "generatorVersion": "1.0.0",
+  "seed": "7fa83d0dcb26d6463b3918471e8060a04a1192879c309f92ddd557e31db9474b",
+  "paramsSignature": "v1",
+  "contentHash": "85734d1386b77ea317b06fa7e7850ea131ca335df6499db7c96b01ad882274f3",
+  "createdAt": "2026-10-16T21:44:47.283Z",
+  "updatedAt": "2026-10-16T21:44:47.283Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-16T21:44:47.283Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced",
+      "verification-regex"
+    ]
+  }
+}

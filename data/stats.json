@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-16T10:21:44.039Z",
-  "totalQuests": 16,
-  "currentSequence": 16,
-  "latestQuestDate": "2026-10-16",
+  "generatedAt": "2026-10-16T21:44:47.286Z",
+  "totalQuests": 17,
+  "currentSequence": 17,
+  "latestQuestDate": "2026-10-17",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -17,10 +17,11 @@
     "debugging": 1,
     "architecture": 1,
     "web": 1,
-    "python": 1
+    "python": 1,
+    "regex": 1
   },
   "byDifficulty": {
-    "intermediate": 9,
+    "intermediate": 10,
     "hard": 2,
     "easy": 5
   },
@@ -32,26 +33,27 @@
     "performance": 2,
     "debugging": 1,
     "architecture": 1,
-    "output_prediction": 1
+    "output_prediction": 1,
+    "regex": 1
   },
   "categoryBreakdown": [
     {
       "id": "sql",
       "label": "SQL",
       "count": 4,
-      "percent": 25
+      "percent": 24
     },
     {
       "id": "coding",
       "label": "Coding",
       "count": 2,
-      "percent": 13
+      "percent": 12
     },
     {
       "id": "performance",
       "label": "Performance",
       "count": 2,
-      "percent": 13
+      "percent": 12
     },
     {
       "id": "algorithms",
@@ -90,6 +92,12 @@
       "percent": 6
     },
     {
+      "id": "regex",
+      "label": "Regex",
+      "count": 1,
+      "percent": 6
+    },
+    {
       "id": "typescript",
       "label": "TypeScript",
       "count": 1,
@@ -102,11 +110,11 @@
       "percent": 6
     }
   ],
-  "averageEstimatedMinutes": 14.8,
-  "totalEstimatedMinutes": 236,
-  "currentStreak": 16,
-  "longestStreak": 16,
-  "archiveSpanDays": 16,
+  "averageEstimatedMinutes": 14.6,
+  "totalEstimatedMinutes": 248,
+  "currentStreak": 17,
+  "longestStreak": 17,
+  "archiveSpanDays": 17,
   "missedDays": 0,
   "mostFrequentCategory": "sql",
   "mostFrequentDifficulty": "intermediate"

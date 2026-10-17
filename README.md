@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#016 — The January Window](https://singhtanishq.github.io/DailyQuest/quest/2026-10-16-the-january-window)
-> October 16, 2026 · `sql` · `easy` · 10 min
+> **Today’s quest:** [#017 — The Dated Groups](https://singhtanishq.github.io/DailyQuest/quest/2026-10-17-the-dated-groups)
+> October 17, 2026 · `regex` · `intermediate` · 12 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-16T10:21:44.039Z",
+  "generatedAt": "2026-10-16T21:44:47.286Z",
   "categories": [
     {
       "id": "coding",
@@ -360,11 +360,17 @@
       "description": "Character classes, anchors, groups and the greediness traps between them. Every regex quest is verified by executing the pattern against match and non-match samples.",
       "icon": "regex",
       "group": "Reasoning & Craft",
-      "questCount": 0,
-      "difficultyDistribution": {},
-      "skills": [],
-      "topTags": [],
-      "latestQuestDate": null
+      "questCount": 1,
+      "difficultyDistribution": {
+        "intermediate": 1
+      },
+      "skills": [
+        "Capture group reading"
+      ],
+      "topTags": [
+        "groups"
+      ],
+      "latestQuestDate": "2026-10-17"
     },
     {
       "id": "logic",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-16T10:21:44.039Z",
+  "generatedAt": "2026-10-16T21:44:47.286Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -415,6 +415,31 @@
       "fpc": "183ccfff1dd58b6c",
       "fpt": "803560281a2ac996",
       "fpp": "b25899eefe3be3db"
+    },
+    {
+      "id": "dq-2026-10-17",
+      "date": "2026-10-17",
+      "sequenceNumber": 17,
+      "slug": "2026-10-17-the-dated-groups",
+      "title": "The Dated Groups",
+      "shortTitle": "The Dated Groups",
+      "description": "Capture groups and exact quantifiers in a date fragment.",
+      "category": "regex",
+      "challengeType": "regex",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "groups",
+        "quantifiers"
+      ],
+      "tags": [
+        "groups"
+      ],
+      "contentHash": "85734d1386b77ea317b06fa7e7850ea131ca335df6499db7c96b01ad882274f3",
+      "fpc": "85734d1386b77ea3",
+      "fpt": "d870ee877bee0206",
+      "fpp": "e914b41b2b94201b"
     }
   ]
 }
