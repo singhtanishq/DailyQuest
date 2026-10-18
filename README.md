@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#017 — The Dated Groups](https://singhtanishq.github.io/DailyQuest/quest/2026-10-17-the-dated-groups)
-> October 17, 2026 · `regex` · `intermediate` · 12 min
+> **Today’s quest:** [#018 — The Widest View](https://singhtanishq.github.io/DailyQuest/quest/2026-10-18-the-widest-view)
+> October 18, 2026 · `algorithms` · `easy` · 12 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

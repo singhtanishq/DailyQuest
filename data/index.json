@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-16T21:44:47.286Z",
+  "generatedAt": "2026-10-17T21:00:25.904Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -440,6 +440,32 @@
       "fpc": "85734d1386b77ea3",
       "fpt": "d870ee877bee0206",
       "fpp": "e914b41b2b94201b"
+    },
+    {
+      "id": "dq-2026-10-18",
+      "date": "2026-10-18",
+      "sequenceNumber": 18,
+      "slug": "2026-10-18-the-widest-view",
+      "title": "The Widest View",
+      "shortTitle": "The Widest View",
+      "description": "Find the maximum sum of any contiguous window of size k — the friendliest introduction to sliding windows.",
+      "category": "algorithms",
+      "challengeType": "coding",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "sliding window",
+        "prefix sums"
+      ],
+      "tags": [
+        "sliding-window",
+        "arrays"
+      ],
+      "contentHash": "dccdd027b336c3c9a87d891369fcb227bb87dfd47969eb370ffe3ff5597ff25b",
+      "fpc": "dccdd027b336c3c9",
+      "fpt": "f64d291c07504674",
+      "fpp": "c2da5c1ea2f48145"
     }
   ]
 }
