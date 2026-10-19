@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-17T21:00:25.904Z",
-  "totalQuests": 18,
-  "currentSequence": 18,
-  "latestQuestDate": "2026-10-18",
+  "generatedAt": "2026-10-18T21:04:09.687Z",
+  "totalQuests": 19,
+  "currentSequence": 19,
+  "latestQuestDate": "2026-10-19",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -14,14 +14,14 @@
     "performance": 2,
     "react": 1,
     "algorithms": 2,
-    "debugging": 1,
+    "debugging": 2,
     "architecture": 1,
     "web": 1,
     "python": 1,
     "regex": 1
   },
   "byDifficulty": {
-    "intermediate": 10,
+    "intermediate": 11,
     "hard": 2,
     "easy": 6
   },
@@ -31,7 +31,7 @@
     "cybersecurity": 1,
     "coding": 4,
     "performance": 2,
-    "debugging": 1,
+    "debugging": 2,
     "architecture": 1,
     "output_prediction": 1,
     "regex": 1
@@ -41,7 +41,7 @@
       "id": "sql",
       "label": "SQL",
       "count": 4,
-      "percent": 22
+      "percent": 21
     },
     {
       "id": "algorithms",
@@ -56,6 +56,12 @@
       "percent": 11
     },
     {
+      "id": "debugging",
+      "label": "Debugging",
+      "count": 2,
+      "percent": 11
+    },
+    {
       "id": "performance",
       "label": "Performance",
       "count": 2,
@@ -65,56 +71,50 @@
       "id": "architecture",
       "label": "Architecture",
       "count": 1,
-      "percent": 6
+      "percent": 5
     },
     {
       "id": "cybersecurity",
       "label": "Cybersecurity",
       "count": 1,
-      "percent": 6
-    },
-    {
-      "id": "debugging",
-      "label": "Debugging",
-      "count": 1,
-      "percent": 6
+      "percent": 5
     },
     {
       "id": "python",
       "label": "Python",
       "count": 1,
-      "percent": 6
+      "percent": 5
     },
     {
       "id": "react",
       "label": "React",
       "count": 1,
-      "percent": 6
+      "percent": 5
     },
     {
       "id": "regex",
       "label": "Regex",
       "count": 1,
-      "percent": 6
+      "percent": 5
     },
     {
       "id": "typescript",
       "label": "TypeScript",
       "count": 1,
-      "percent": 6
+      "percent": 5
     },
     {
       "id": "web",
       "label": "Web Platform",
       "count": 1,
-      "percent": 6
+      "percent": 5
     }
   ],
-  "averageEstimatedMinutes": 14.4,
-  "totalEstimatedMinutes": 260,
-  "currentStreak": 18,
-  "longestStreak": 18,
-  "archiveSpanDays": 18,
+  "averageEstimatedMinutes": 14.5,
+  "totalEstimatedMinutes": 275,
+  "currentStreak": 19,
+  "longestStreak": 19,
+  "archiveSpanDays": 19,
   "missedDays": 0,
   "mostFrequentCategory": "sql",
   "mostFrequentDifficulty": "intermediate"

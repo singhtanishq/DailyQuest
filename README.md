@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#018 — The Widest View](https://singhtanishq.github.io/DailyQuest/quest/2026-10-18-the-widest-view)
-> October 18, 2026 · `algorithms` · `easy` · 12 min
+> **Today’s quest:** [#019 — The Nameless Reporter](https://singhtanishq.github.io/DailyQuest/quest/2026-10-19-the-nameless-reporter)
+> October 19, 2026 · `debugging` · `intermediate` · 15 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

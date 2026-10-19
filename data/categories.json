@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-17T21:00:25.904Z",
+  "generatedAt": "2026-10-18T21:04:09.687Z",
   "categories": [
     {
       "id": "coding",
@@ -35,18 +35,21 @@
       "description": "Realistic broken code with expected versus actual behaviour. Trace the failure, understand the root cause, and compare your fix against the corrected implementation.",
       "icon": "bug",
       "group": "Engineering",
-      "questCount": 1,
+      "questCount": 2,
       "difficultyDistribution": {
-        "easy": 1
+        "easy": 1,
+        "intermediate": 1
       },
       "skills": [
-        "Boundary analysis"
+        "Boundary analysis",
+        "Understanding `this` binding rules"
       ],
       "topTags": [
+        "javascript",
         "arrays",
-        "javascript"
+        "this"
       ],
-      "latestQuestDate": "2026-10-09"
+      "latestQuestDate": "2026-10-19"
     },
     {
       "id": "algorithms",

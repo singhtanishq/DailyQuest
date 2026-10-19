@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-17T21:00:25.904Z",
+  "generatedAt": "2026-10-18T21:04:09.687Z",
   "quest": {
-    "id": "dq-2026-10-18",
-    "date": "2026-10-18",
-    "sequenceNumber": 18,
-    "slug": "2026-10-18-the-widest-view",
-    "title": "The Widest View",
-    "shortTitle": "The Widest View",
-    "description": "Find the maximum sum of any contiguous window of size k — the friendliest introduction to sliding windows.",
-    "category": "algorithms",
-    "challengeType": "coding",
-    "difficulty": "easy",
-    "difficultyScore": 2,
-    "estimatedMinutes": 12,
+    "id": "dq-2026-10-19",
+    "date": "2026-10-19",
+    "sequenceNumber": 19,
+    "slug": "2026-10-19-the-nameless-reporter",
+    "title": "The Nameless Reporter",
+    "shortTitle": "The Nameless Reporter",
+    "description": "`setTimeout` calls a method later — and the method forgets who it belongs to.",
+    "category": "debugging",
+    "challengeType": "debugging",
+    "difficulty": "intermediate",
+    "difficultyScore": 3,
+    "estimatedMinutes": 15,
     "concepts": [
-      "sliding window",
-      "prefix sums"
+      "this binding",
+      "callbacks"
     ],
     "tags": [
-      "sliding-window",
-      "arrays"
+      "javascript",
+      "this"
     ],
-    "contentHash": "dccdd027b336c3c9a87d891369fcb227bb87dfd47969eb370ffe3ff5597ff25b",
-    "fpc": "dccdd027b336c3c9",
-    "fpt": "f64d291c07504674",
-    "fpp": "c2da5c1ea2f48145"
+    "contentHash": "4b2b252bc674f60a312baa05c06ca1ef9d662b6bae142331b095a328b6b93e95",
+    "fpc": "4b2b252bc674f60a",
+    "fpt": "efac210ca0c335df",
+    "fpp": "a3ecac3939cf7a2f"
   }
 }

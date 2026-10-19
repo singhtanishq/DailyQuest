@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-19",
+  "date": "2026-10-19",
+  "sequenceNumber": 19,
+  "slug": "2026-10-19-the-nameless-reporter",
+  "title": "The Nameless Reporter",
+  "shortTitle": "The Nameless Reporter",
+  "subtitle": "A method loses its owner on the way to the timer.",
+  "description": "`setTimeout` calls a method later — and the method forgets who it belongs to.",
+  "category": "debugging",
+  "subcategories": [
+    "javascript"
+  ],
+  "challengeType": "debugging",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 15,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 3,
+  "concepts": [
+    "this binding",
+    "callbacks"
+  ],
+  "tags": [
+    "javascript",
+    "this"
+  ],
+  "skills": [
+    "Understanding `this` binding rules"
+  ],
+  "prompt": "**Expected behaviour:** After 100 ms the timer prints `Hello from dailyquest`.\n\n**Actual behaviour:** It prints `Hello from undefined` — `this` is not the reporter inside the callback.\n\n```javascript\nconst reporter = {\n  name: \"dailyquest\",\n  greet() {\n    setTimeout(function () {\n      console.log(\"Hello from \" + this.name);\n    }, 100);\n  },\n};\n\nreporter.greet(); // expected: Hello from dailyquest\n```\n\nIdentify the bug, explain why it causes the observed behaviour, and fix it.",
+  "instructions": [
+    "Reproduce the failure mentally or locally.",
+    "Pinpoint the exact line and mechanism of the bug.",
+    "Write the minimal fix that restores the expected behaviour."
+  ],
+  "constraints": [
+    "Do not redesign the function unless the bug requires it."
+  ],
+  "examples": [],
+  "hints": [
+    "`this` is decided at call time for regular functions — who calls this one?",
+    "Arrow functions resolve `this` where they are WRITTEN, not where they run."
+  ],
+  "solution": {
+    "summary": "Regular functions get their `this` from how they are CALLED. `setTimeout` invokes the callback as a plain function, so `this` falls back to the global object (or undefined in strict mode). Arrow functions have no `this` of their own — they inherit it lexically from `greet`.",
+    "approach": [
+      "The callback is passed as a bare function reference; the timer calls it without a receiver.",
+      "Default binding sends `this` to globalThis (or undefined under strict mode).",
+      "An arrow function closes over the `this` of `greet`, which is `reporter`.",
+      "`.bind(reporter)` achieves the same result with a regular function."
+    ],
+    "code": {
+      "language": "javascript",
+      "label": "Corrected implementation",
+      "code": "const reporter = {\n  name: \"dailyquest\",\n  greet() {\n    setTimeout(() => {\n      console.log(\"Hello from \" + this.name);\n    }, 100);\n  },\n};"
+    },
+    "commonMistakes": [
+      "Using an arrow method DEFINITION (`greet: () => {...}`) — that would lose `reporter` at the outer level instead.",
+      "Storing `const self = this` — works, but is the pre-ES6 workaround."
+    ]
+  },
+  "learningObjectives": [
+    "Predict `this` under the four binding rules",
+    "Fix lost bindings with arrows or bind"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-09"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "debug.this-timeout",
+  "generatorVersion": "1.0.0",
+  "seed": "8463c338df51f210d5c276641f297f643c7e4ca9ebc566b1e414a239bbf07636",
+  "paramsSignature": "v1",
+  "contentHash": "4b2b252bc674f60a312baa05c06ca1ef9d662b6bae142331b095a328b6b93e95",
+  "createdAt": "2026-10-18T21:04:09.684Z",
+  "updatedAt": "2026-10-18T21:04:09.684Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-18T21:04:09.684Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
