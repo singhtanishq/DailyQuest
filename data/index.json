@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-18T21:04:09.687Z",
+  "generatedAt": "2026-10-19T22:39:15.307Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -492,6 +492,32 @@
       "fpc": "4b2b252bc674f60a",
       "fpt": "efac210ca0c335df",
       "fpp": "a3ecac3939cf7a2f"
+    },
+    {
+      "id": "dq-2026-10-20",
+      "date": "2026-10-20",
+      "sequenceNumber": 20,
+      "slug": "2026-10-20-the-traffic-valve",
+      "title": "The Traffic Valve",
+      "shortTitle": "The Traffic Valve",
+      "description": "Limit 100 requests per user per minute across 30 stateless API servers.",
+      "category": "system_design",
+      "challengeType": "system_design",
+      "difficulty": "hard",
+      "difficultyScore": 4,
+      "estimatedMinutes": 30,
+      "concepts": [
+        "rate limiting",
+        "distributed systems"
+      ],
+      "tags": [
+        "apis",
+        "reliability"
+      ],
+      "contentHash": "b0375b0ca0fed1264c35db2e79064560b0733a1a267a28e03d2ff830cccaa237",
+      "fpc": "b0375b0ca0fed126",
+      "fpt": "af9304fc8f00b491",
+      "fpp": "68f763afbcb299ae"
     }
   ]
 }

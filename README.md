@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#019 — The Nameless Reporter](https://singhtanishq.github.io/DailyQuest/quest/2026-10-19-the-nameless-reporter)
-> October 19, 2026 · `debugging` · `intermediate` · 15 min
+> **Today’s quest:** [#020 — The Traffic Valve](https://singhtanishq.github.io/DailyQuest/quest/2026-10-20-the-traffic-valve)
+> October 20, 2026 · `system_design` · `hard` · 30 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

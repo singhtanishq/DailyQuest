@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-20",
+  "date": "2026-10-20",
+  "sequenceNumber": 20,
+  "slug": "2026-10-20-the-traffic-valve",
+  "title": "The Traffic Valve",
+  "shortTitle": "The Traffic Valve",
+  "subtitle": "Design a distributed rate limiter.",
+  "description": "Limit 100 requests per user per minute across 30 stateless API servers.",
+  "category": "system_design",
+  "subcategories": [
+    "infrastructure"
+  ],
+  "challengeType": "system_design",
+  "difficulty": "hard",
+  "difficultyScore": 4,
+  "estimatedMinutes": 30,
+  "conceptComplexity": 4,
+  "reasoningComplexity": 4,
+  "implementationComplexity": 3,
+  "concepts": [
+    "rate limiting",
+    "distributed systems"
+  ],
+  "tags": [
+    "apis",
+    "reliability"
+  ],
+  "skills": [
+    "Limiting algorithms",
+    "Distributed state"
+  ],
+  "prompt": "Design a rate limiter for a public API: 100 requests per user per minute, enforced across 30 stateless API servers behind a load balancer. Over-limit requests receive 429 with Retry-After.\n\n**Requirements**\n- Limits enforced globally, not per server.\n- Enforcement adds less than 5 ms to request latency.\n- Behavior must be predictable under server restarts.",
+  "instructions": [
+    "Sketch the components and their responsibilities.",
+    "Define the data flow for the primary operation.",
+    "Name the key trade-offs you accepted and why.",
+    "Describe how the design fails and how it scales."
+  ],
+  "constraints": [
+    "Keep the design scoped to the stated requirements."
+  ],
+  "examples": [],
+  "hints": [
+    "Where does the counter state live so all 30 servers agree?",
+    "What does the client need to back off politely?"
+  ],
+  "solution": {
+    "summary": "Keep counters in shared storage (Redis) keyed by user + time window; choose fixed windows for simplicity or sliding-window/sliding-log for precision. Each API server checks-and-increments atomically (Lua script or INCR with expiry) — one fast round trip. Local token-bucket caches smooth burstiness but must sync to the global budget periodically.",
+    "reasoning": [
+      "**Components**\n- Counter store: Redis with key user:{id}:window:{minuteBucket} and TTL slightly above the window.\n- Atomic check-and-increment script returning allow/deny plus remaining budget.\n- Optional per-server local pre-filter (token bucket) to skip the network hop for obvious violations.\n- Config service distributing limit rules.",
+      "**Data flow**\n- Request arrives with user identity (API key/token).\n- Server computes window bucket and runs the atomic increment.\n- Allow → proceed and attach RateLimit headers; deny → 429 with Retry-After derived from window expiry.\n- Expired keys vanish via TTL; no cleanup job needed.",
+      "**Trade-offs**\n- Fixed window is trivially simple but allows 2× bursts across window boundaries; sliding window counts part of the previous bucket — better accuracy at small extra cost.\n- Redis adds a dependency and one round trip (~1 ms same-region); losing it must fail open or closed as an explicit policy choice.\n- Per-user keys scale with user count — shard by user id if the keyspace grows.",
+      "**Failure modes**\n- Redis unavailable: fail open (availability over protection) or closed (protection over availability) — document the choice.\n- Clock skew between servers: derive buckets from Redis TIME, not app clocks.\n- Hot-user retry storms after 429: require client backoff and cache 429s briefly at the edge."
+    ],
+    "complexity": "Redis handles ~100k ops/s per node; shard counters by user hash for higher rates. Multi-region needs per-region limits or an async global sync with honest local ceilings."
+  },
+  "learningObjectives": [
+    "Choose a limiting algorithm deliberately",
+    "Design the failure policy explicitly"
+  ],
+  "discussionPoints": [
+    "Fixed vs sliding window under adversarial burst timing.",
+    "Fail-open vs fail-closed for different endpoint classes."
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "design.rate-limiter",
+  "generatorVersion": "1.0.0",
+  "seed": "5091d213c8a66b1b50117021e7a25eff9f047f2c70f172f49ccb5126cb8ec810",
+  "paramsSignature": "v1",
+  "contentHash": "b0375b0ca0fed1264c35db2e79064560b0733a1a267a28e03d2ff830cccaa237",
+  "createdAt": "2026-10-19T22:39:15.304Z",
+  "updatedAt": "2026-10-19T22:39:15.304Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-19T22:39:15.304Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

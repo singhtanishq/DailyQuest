@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-18T21:04:09.687Z",
-  "totalQuests": 19,
-  "currentSequence": 19,
-  "latestQuestDate": "2026-10-19",
+  "generatedAt": "2026-10-19T22:39:15.307Z",
+  "totalQuests": 20,
+  "currentSequence": 20,
+  "latestQuestDate": "2026-10-20",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -18,11 +18,12 @@
     "architecture": 1,
     "web": 1,
     "python": 1,
-    "regex": 1
+    "regex": 1,
+    "system_design": 1
   },
   "byDifficulty": {
     "intermediate": 11,
-    "hard": 2,
+    "hard": 3,
     "easy": 6
   },
   "byType": {
@@ -34,38 +35,39 @@
     "debugging": 2,
     "architecture": 1,
     "output_prediction": 1,
-    "regex": 1
+    "regex": 1,
+    "system_design": 1
   },
   "categoryBreakdown": [
     {
       "id": "sql",
       "label": "SQL",
       "count": 4,
-      "percent": 21
+      "percent": 20
     },
     {
       "id": "algorithms",
       "label": "Algorithms",
       "count": 2,
-      "percent": 11
+      "percent": 10
     },
     {
       "id": "coding",
       "label": "Coding",
       "count": 2,
-      "percent": 11
+      "percent": 10
     },
     {
       "id": "debugging",
       "label": "Debugging",
       "count": 2,
-      "percent": 11
+      "percent": 10
     },
     {
       "id": "performance",
       "label": "Performance",
       "count": 2,
-      "percent": 11
+      "percent": 10
     },
     {
       "id": "architecture",
@@ -98,6 +100,12 @@
       "percent": 5
     },
     {
+      "id": "system_design",
+      "label": "System Design",
+      "count": 1,
+      "percent": 5
+    },
+    {
       "id": "typescript",
       "label": "TypeScript",
       "count": 1,
@@ -110,11 +118,11 @@
       "percent": 5
     }
   ],
-  "averageEstimatedMinutes": 14.5,
-  "totalEstimatedMinutes": 275,
-  "currentStreak": 19,
-  "longestStreak": 19,
-  "archiveSpanDays": 19,
+  "averageEstimatedMinutes": 15.3,
+  "totalEstimatedMinutes": 305,
+  "currentStreak": 20,
+  "longestStreak": 20,
+  "archiveSpanDays": 20,
   "missedDays": 0,
   "mostFrequentCategory": "sql",
   "mostFrequentDifficulty": "intermediate"
