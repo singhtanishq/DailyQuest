@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-19T22:39:15.307Z",
+  "generatedAt": "2026-10-20T21:55:34.153Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -518,6 +518,32 @@
       "fpc": "b0375b0ca0fed126",
       "fpt": "af9304fc8f00b491",
       "fpp": "68f763afbcb299ae"
+    },
+    {
+      "id": "dq-2026-10-21",
+      "date": "2026-10-21",
+      "sequenceNumber": 21,
+      "slug": "2026-10-21-the-impossible-maximum",
+      "title": "The Impossible Maximum",
+      "shortTitle": "The Impossible Maximum",
+      "description": "A \"featured price\" helper returns −Infinity when the catalogue is empty, and the UI happily renders it.",
+      "category": "debugging",
+      "challengeType": "debugging",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "edge cases",
+        "spread semantics"
+      ],
+      "tags": [
+        "javascript",
+        "edge-cases"
+      ],
+      "contentHash": "72f8d8a19c33b208f770556ea9d7e5ac2cd222f922339a8f7c1387e91214e971",
+      "fpc": "72f8d8a19c33b208",
+      "fpt": "5904c4d91942e1e4",
+      "fpp": "eccae50a6976dbd7"
     }
   ]
 }

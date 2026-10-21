@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#020 — The Traffic Valve](https://singhtanishq.github.io/DailyQuest/quest/2026-10-20-the-traffic-valve)
-> October 20, 2026 · `system_design` · `hard` · 30 min
+> **Today’s quest:** [#021 — The Impossible Maximum](https://singhtanishq.github.io/DailyQuest/quest/2026-10-21-the-impossible-maximum)
+> October 21, 2026 · `debugging` · `intermediate` · 12 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

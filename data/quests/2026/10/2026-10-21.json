@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-21",
+  "date": "2026-10-21",
+  "sequenceNumber": 21,
+  "slug": "2026-10-21-the-impossible-maximum",
+  "title": "The Impossible Maximum",
+  "shortTitle": "The Impossible Maximum",
+  "subtitle": "An empty cart reports −Infinity.",
+  "description": "A \"featured price\" helper returns −Infinity when the catalogue is empty, and the UI happily renders it.",
+  "category": "debugging",
+  "subcategories": [
+    "javascript"
+  ],
+  "challengeType": "debugging",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 12,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 3,
+  "concepts": [
+    "edge cases",
+    "spread semantics"
+  ],
+  "tags": [
+    "javascript",
+    "edge-cases"
+  ],
+  "skills": [
+    "Empty-input defensiveness"
+  ],
+  "prompt": "**Expected behaviour:** An empty list yields `null` so the caller can show \"no featured price\".\n\n**Actual behaviour:** It returns `-Infinity`, which is truthy and renders as \"−Infinity\" in the UI.\n\n```javascript\nfunction featuredPrice(prices) {\n  return Math.max(...prices);\n}\n\nconsole.log(featuredPrice([])); // expected null\n```\n\nIdentify the bug, explain why it causes the observed behaviour, and fix it.",
+  "instructions": [
+    "Reproduce the failure mentally or locally.",
+    "Pinpoint the exact line and mechanism of the bug.",
+    "Write the minimal fix that restores the expected behaviour."
+  ],
+  "constraints": [
+    "Do not redesign the function unless the bug requires it."
+  ],
+  "examples": [],
+  "hints": [
+    "What does `Math.max()` print when called with no arguments at all?",
+    "Decide the contract for empty input before computing anything."
+  ],
+  "solution": {
+    "summary": "Spreading an empty array calls `Math.max()` with no arguments, which is defined to return −Infinity. The function then leaks that sentinel value into UI logic that expects a real price or null.",
+    "approach": [
+      "`Math.max()` with zero arguments is −Infinity by specification (the identity for max).",
+      "−Infinity is truthy, so `if (featuredPrice(list))` guards do not catch it.",
+      "Explicit empty-input handling at the boundary is cheaper than sanitizing downstream."
+    ],
+    "code": {
+      "language": "javascript",
+      "label": "Corrected implementation",
+      "code": "function featuredPrice(prices) {\n  if (prices.length === 0) return null;\n  return Math.max(...prices);\n}"
+    },
+    "commonMistakes": [
+      "Guarding with a falsy check — `-Infinity` is truthy.",
+      "Using `reduce(Math.max)` without an initial value, which THROWS on empty arrays (a different failure mode)."
+    ]
+  },
+  "learningObjectives": [
+    "Know the no-argument identity of Math.max",
+    "Design explicit empty-input contracts"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-09",
+    "dq-2026-10-19"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "debug.empty-max",
+  "generatorVersion": "1.0.0",
+  "seed": "e3744eb37d42ae3f1c5b6d7cd0b7e006380bf3d0871d10b2e28c5da18f58133d",
+  "paramsSignature": "v1",
+  "contentHash": "72f8d8a19c33b208f770556ea9d7e5ac2cd222f922339a8f7c1387e91214e971",
+  "createdAt": "2026-10-20T21:55:34.150Z",
+  "updatedAt": "2026-10-20T21:55:34.150Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-20T21:55:34.150Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
