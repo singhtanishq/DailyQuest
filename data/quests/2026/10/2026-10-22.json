@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-22",
+  "date": "2026-10-22",
+  "sequenceNumber": 22,
+  "slug": "2026-10-22-the-anemic-dict",
+  "title": "The Anemic Dict",
+  "shortTitle": "The Anemic Dict",
+  "subtitle": "When a dict stops being enough.",
+  "description": "Choosing between dicts, namedtuples and dataclasses for a domain record.",
+  "category": "python",
+  "subcategories": [
+    "idioms"
+  ],
+  "challengeType": "reasoning",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 12,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "dataclasses",
+    "modeling"
+  ],
+  "tags": [
+    "python",
+    "design"
+  ],
+  "skills": [
+    "Data modeling"
+  ],
+  "prompt": "A service passes order records between five functions: `{\"id\": ..., \"items\": [...], \"total\": ...}`. Typos in keys keep causing bugs. What is the strongest argument for switching to a dataclass?\n\n**A.** Dicts cannot be passed to functions\n**B.** Dataclasses are always faster than dicts\n**C.** Dataclasses automatically validate that total matches items\n**D.** Attribute access plus a declared field list gives typo-proof access, defaults, validation hooks and type checking — errors surface at the boundary, not deep in call five",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "Dicts cannot be passed to functions",
+    "Dataclasses are always faster than dicts",
+    "Dataclasses automatically validate that total matches items",
+    "Attribute access plus a declared field list gives typo-proof access, defaults, validation hooks and type checking — errors surface at the boundary, not deep in call five"
+  ],
+  "correctOptionIndex": 3,
+  "examples": [],
+  "hints": [
+    "Where do the typo bugs get caught today?",
+    "What does a static type checker do with `order.ttoal` on each type?"
+  ],
+  "solution": {
+    "summary": "The correct answer is D — Attribute access plus a declared field list gives typo-proof access, defaults, validation hooks and type checking — errors surface at the boundary, not deep in call five",
+    "answer": "Attribute access plus a declared field list gives typo-proof access, defaults, validation hooks and type checking — errors surface at the boundary, not deep in call five",
+    "reasoning": [
+      "The failure mode (typo keys) is exactly what named shapes prevent.",
+      "dataclass slots=True even reduces memory versus dicts.",
+      "For fixed-shape records the dataclass documents the contract in code."
+    ],
+    "whyNot": [
+      "Dicts cannot be passed to functions — Dicts pass fine; the problem is untyped shape, not passability.",
+      "Dataclasses are always faster than dicts — Performance is not the argument — dicts are highly optimized and often faster for dynamic keys.",
+      "Dataclasses automatically validate that total matches items — Nothing validates automatically — @dataclass adds fields, __init__ and repr; invariants still need explicit code."
+    ]
+  },
+  "learningObjectives": [
+    "Justify typed records over stringly dicts",
+    "Know what dataclasses do and do not give you"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-14"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "py.dataclass-choice",
+  "generatorVersion": "1.0.0",
+  "seed": "d29a1a6b698e5bc972abb7051cfd0bd01593c63dc5bb28145cc5f26732cb7f8a",
+  "paramsSignature": "v1",
+  "contentHash": "67e6fd0e68637d8e9604903b9b7387cd38d9613733b469f32c7d10ce088f7d18",
+  "createdAt": "2026-10-21T21:59:43.291Z",
+  "updatedAt": "2026-10-21T21:59:43.291Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-21T21:59:43.291Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

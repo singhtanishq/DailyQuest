@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#021 — The Impossible Maximum](https://singhtanishq.github.io/DailyQuest/quest/2026-10-21-the-impossible-maximum)
-> October 21, 2026 · `debugging` · `intermediate` · 12 min
+> **Today’s quest:** [#022 — The Anemic Dict](https://singhtanishq.github.io/DailyQuest/quest/2026-10-22-the-anemic-dict)
+> October 22, 2026 · `python` · `intermediate` · 12 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---
