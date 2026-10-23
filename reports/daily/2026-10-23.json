@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "generatedAt": "2026-10-22T21:56:31.528Z",
+  "generatorVersion": "1.0.0",
+  "outcome": "created",
+  "questId": "dq-2026-10-23",
+  "sequenceNumber": 23,
+  "title": "The morning after reset --hard",
+  "category": "git",
+  "difficulty": "hard",
+  "templateId": "git.reflog-rescue",
+  "validationScore": 100,
+  "changedDerivedFiles": [
+    "/home/runner/work/DailyQuest/DailyQuest/data/index.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/stats.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/categories.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/latest.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/health.json"
+  ],
+  "warnings": [],
+  "durationMs": 0
+}

@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-23",
+  "date": "2026-10-23",
+  "sequenceNumber": 23,
+  "slug": "2026-10-23-the-morning-after-reset-hard",
+  "title": "The morning after reset --hard",
+  "shortTitle": "The morning after reset --hard",
+  "subtitle": "Nothing is truly gone (for a while).",
+  "description": "Recover work destroyed by a hard reset using the reflog.",
+  "category": "git",
+  "subcategories": [
+    "state"
+  ],
+  "challengeType": "git",
+  "difficulty": "hard",
+  "difficultyScore": 4,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 4,
+  "implementationComplexity": 4,
+  "concepts": [
+    "reflog",
+    "recovery"
+  ],
+  "tags": [
+    "reflog",
+    "recovery"
+  ],
+  "skills": [
+    "Disaster recovery"
+  ],
+  "prompt": "Yesterday you committed a day’s work (\"feat: critical module\"). This morning you ran `git reset --hard HEAD~3` and the commit is gone from the log and from `git status`. Walk through the exact recovery: which commands reveal the lost commit, how you restore it, and what eventually destroys it for good.\n\nA strong answer addresses:\n- Name the command that lists where HEAD has been.\n- Give the exact recovery sequence (identify → branch or reset).\n- State the retention rules and what really deletes unreachable commits.",
+  "instructions": [
+    "Answer in your own words, then compare with the solution."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "Which log does git log NOT show?",
+    "What is the default expiry for unreachable objects?"
+  ],
+  "solution": {
+    "summary": "git reflog lists every HEAD movement with short hashes; find the lost commit’s entry, then `git branch rescue <hash>` (or checkout -b / reset --hard <hash>) to make it reachable again. Unreachable commits survive until git gc prunes them — typically ~30 days for unreachable objects via the default reflog retention, but pushing a fresh ref and pruning shortens that. The reflog itself is local: it does not save you on a fresh clone.",
+    "reasoning": [
+      "reset --hard moves the branch pointer; the old commits become unreachable but remain on disk.",
+      "reflog entries record HEAD at every step, including before the reset.",
+      "Creating a branch at the lost hash restores reachability instantly.",
+      "Recovery works because reflog is repo-local history of YOUR head movements — clones and collaborators never see it."
+    ],
+    "commonMistakes": [
+      "Looking for the commit in git log — log shows reachable history only.",
+      "Running gc --prune=now in panic, which actually destroys the evidence."
+    ]
+  },
+  "learningObjectives": [
+    "Recover hard-reset work via reflog",
+    "Understand reachability and GC"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "git.reflog-rescue",
+  "generatorVersion": "1.0.0",
+  "seed": "65b9991fe49ccb3b9bcba0a3149484dc7aaf4ca965aaf90074c8a8d8c75f3711",
+  "paramsSignature": "v1",
+  "contentHash": "02c7f5988167d10548951b1934937e34ea27c2cbf001089a25c6fd2e298723c4",
+  "createdAt": "2026-10-22T21:56:31.528Z",
+  "updatedAt": "2026-10-22T21:56:31.528Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-22T21:56:31.528Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

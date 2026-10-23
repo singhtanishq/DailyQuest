@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#022 — The Anemic Dict](https://singhtanishq.github.io/DailyQuest/quest/2026-10-22-the-anemic-dict)
-> October 22, 2026 · `python` · `intermediate` · 12 min
+> **Today’s quest:** [#023 — The morning after reset --hard](https://singhtanishq.github.io/DailyQuest/quest/2026-10-23-the-morning-after-reset-hard)
+> October 23, 2026 · `git` · `hard` · 20 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

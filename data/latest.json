@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-21T21:59:43.295Z",
+  "generatedAt": "2026-10-22T21:56:31.531Z",
   "quest": {
-    "id": "dq-2026-10-22",
-    "date": "2026-10-22",
-    "sequenceNumber": 22,
-    "slug": "2026-10-22-the-anemic-dict",
-    "title": "The Anemic Dict",
-    "shortTitle": "The Anemic Dict",
-    "description": "Choosing between dicts, namedtuples and dataclasses for a domain record.",
-    "category": "python",
-    "challengeType": "reasoning",
-    "difficulty": "intermediate",
-    "difficultyScore": 3,
-    "estimatedMinutes": 12,
+    "id": "dq-2026-10-23",
+    "date": "2026-10-23",
+    "sequenceNumber": 23,
+    "slug": "2026-10-23-the-morning-after-reset-hard",
+    "title": "The morning after reset --hard",
+    "shortTitle": "The morning after reset --hard",
+    "description": "Recover work destroyed by a hard reset using the reflog.",
+    "category": "git",
+    "challengeType": "git",
+    "difficulty": "hard",
+    "difficultyScore": 4,
+    "estimatedMinutes": 20,
     "concepts": [
-      "dataclasses",
-      "modeling"
+      "reflog",
+      "recovery"
     ],
     "tags": [
-      "python",
-      "design"
+      "reflog",
+      "recovery"
     ],
-    "contentHash": "67e6fd0e68637d8e9604903b9b7387cd38d9613733b469f32c7d10ce088f7d18",
-    "fpc": "67e6fd0e68637d8e",
-    "fpt": "c159b81b9c467fe5",
-    "fpp": "f2b9984ef0a416f5"
+    "contentHash": "02c7f5988167d10548951b1934937e34ea27c2cbf001089a25c6fd2e298723c4",
+    "fpc": "02c7f5988167d105",
+    "fpt": "bb663c171d7f7792",
+    "fpp": "ef1ff08d8ee43198"
   }
 }
