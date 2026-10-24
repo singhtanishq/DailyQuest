@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-24",
+  "date": "2026-10-24",
+  "sequenceNumber": 24,
+  "slug": "2026-10-24-the-excluded-class",
+  "title": "The Excluded Class",
+  "shortTitle": "The Excluded Class",
+  "subtitle": "Everything except the digits.",
+  "description": "Negated character classes and the two meanings of ^.",
+  "category": "regex",
+  "subcategories": [
+    "classes"
+  ],
+  "challengeType": "regex",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 8,
+  "conceptComplexity": 1,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 2,
+  "concepts": [
+    "negated character classes"
+  ],
+  "tags": [
+    "classes"
+  ],
+  "skills": [
+    "Negation reading"
+  ],
+  "prompt": "What does `/[^0-9]/` match, and which test strings contain a match?\n\n```regex\n/[^0-9]/\n```\n\nTest strings:\n\n- `a1` → match\n- `123` → NO match\n- `` → NO match\n- `42a` → match\n- `1.5` → match",
+  "instructions": [
+    "State which strings match and which do not, and explain why."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "^ has a completely different meaning inside [ ].",
+    "Is the dot a digit?"
+  ],
+  "solution": {
+    "summary": "The pattern `/[^0-9]/` behaves as shown above.",
+    "reasoning": [
+      "The leading ^ INSIDE a class negates it: [^0-9] is \"any single character that is not a digit\".",
+      "\"a1\" and \"42a\" contain a non-digit; \"1.5\" matches the dot.",
+      "\"123\" is all digits, and the empty string has nothing to match — both fail.",
+      "Negated classes still match exactly ONE character per repetition; [^0-9]+ would consume \"a\" entirely."
+    ],
+    "commonMistakes": [
+      "Reading ^ at class start as the string-start anchor — meaning flips by position.",
+      "Assuming [^0-9] excludes only 0-9 but also excludes punctuation — it includes everything else, dots included."
+    ]
+  },
+  "learningObjectives": [
+    "Read negated classes correctly",
+    "Distinguish the two meanings of ^"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-17"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "regex.negated-class",
+  "generatorVersion": "1.0.0",
+  "seed": "b80b107741fe67293e1fb274e058adc55d862245fb0ac67d60f9b4241a6afca4",
+  "paramsSignature": "v1",
+  "contentHash": "5f61b5a38d74ca4acf8eddd0eda5345241a09552ca1b47d15bd505daea0bc620",
+  "createdAt": "2026-10-23T21:42:24.537Z",
+  "updatedAt": "2026-10-23T21:42:24.537Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-23T21:42:24.537Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced",
+      "verification-regex"
+    ]
+  }
+}

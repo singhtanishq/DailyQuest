@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-22T21:56:31.531Z",
+  "generatedAt": "2026-10-23T21:42:24.541Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -596,6 +596,30 @@
       "fpc": "02c7f5988167d105",
       "fpt": "bb663c171d7f7792",
       "fpp": "ef1ff08d8ee43198"
+    },
+    {
+      "id": "dq-2026-10-24",
+      "date": "2026-10-24",
+      "sequenceNumber": 24,
+      "slug": "2026-10-24-the-excluded-class",
+      "title": "The Excluded Class",
+      "shortTitle": "The Excluded Class",
+      "description": "Negated character classes and the two meanings of ^.",
+      "category": "regex",
+      "challengeType": "regex",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 8,
+      "concepts": [
+        "negated character classes"
+      ],
+      "tags": [
+        "classes"
+      ],
+      "contentHash": "5f61b5a38d74ca4acf8eddd0eda5345241a09552ca1b47d15bd505daea0bc620",
+      "fpc": "5f61b5a38d74ca4a",
+      "fpt": "bc4ee4ef85bc4971",
+      "fpp": "20e6219210a83389"
     }
   ]
 }

@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#023 — The morning after reset --hard](https://singhtanishq.github.io/DailyQuest/quest/2026-10-23-the-morning-after-reset-hard)
-> October 23, 2026 · `git` · `hard` · 20 min
+> **Today’s quest:** [#024 — The Excluded Class](https://singhtanishq.github.io/DailyQuest/quest/2026-10-24-the-excluded-class)
+> October 24, 2026 · `regex` · `easy` · 8 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

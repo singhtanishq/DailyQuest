@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-22T21:56:31.531Z",
-  "totalQuests": 23,
-  "currentSequence": 23,
-  "latestQuestDate": "2026-10-23",
+  "generatedAt": "2026-10-23T21:42:24.541Z",
+  "totalQuests": 24,
+  "currentSequence": 24,
+  "latestQuestDate": "2026-10-24",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -18,14 +18,14 @@
     "architecture": 1,
     "web": 1,
     "python": 2,
-    "regex": 1,
+    "regex": 2,
     "system_design": 1,
     "git": 1
   },
   "byDifficulty": {
     "intermediate": 13,
     "hard": 4,
-    "easy": 6
+    "easy": 7
   },
   "byType": {
     "sql": 4,
@@ -36,7 +36,7 @@
     "debugging": 3,
     "architecture": 1,
     "output_prediction": 1,
-    "regex": 1,
+    "regex": 2,
     "system_design": 1,
     "git": 1
   },
@@ -57,25 +57,31 @@
       "id": "algorithms",
       "label": "Algorithms",
       "count": 2,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "coding",
       "label": "Coding",
       "count": 2,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "performance",
       "label": "Performance",
       "count": 2,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "python",
       "label": "Python",
       "count": 2,
-      "percent": 9
+      "percent": 8
+    },
+    {
+      "id": "regex",
+      "label": "Regex",
+      "count": 2,
+      "percent": 8
     },
     {
       "id": "architecture",
@@ -102,12 +108,6 @@
       "percent": 4
     },
     {
-      "id": "regex",
-      "label": "Regex",
-      "count": 1,
-      "percent": 4
-    },
-    {
       "id": "system_design",
       "label": "System Design",
       "count": 1,
@@ -126,11 +126,11 @@
       "percent": 4
     }
   ],
-  "averageEstimatedMinutes": 15.2,
-  "totalEstimatedMinutes": 349,
-  "currentStreak": 23,
-  "longestStreak": 23,
-  "archiveSpanDays": 23,
+  "averageEstimatedMinutes": 14.9,
+  "totalEstimatedMinutes": 357,
+  "currentStreak": 24,
+  "longestStreak": 24,
+  "archiveSpanDays": 24,
   "missedDays": 0,
   "mostFrequentCategory": "sql",
   "mostFrequentDifficulty": "intermediate"

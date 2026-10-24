@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "generatedAt": "2026-10-23T21:42:24.537Z",
+  "generatorVersion": "1.0.0",
+  "outcome": "created",
+  "questId": "dq-2026-10-24",
+  "sequenceNumber": 24,
+  "title": "The Excluded Class",
+  "category": "regex",
+  "difficulty": "easy",
+  "templateId": "regex.negated-class",
+  "validationScore": 100,
+  "changedDerivedFiles": [
+    "/home/runner/work/DailyQuest/DailyQuest/data/index.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/stats.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/categories.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/latest.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/health.json"
+  ],
+  "warnings": [],
+  "durationMs": 0
+}
