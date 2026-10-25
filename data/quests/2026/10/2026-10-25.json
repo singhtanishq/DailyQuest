@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-25",
+  "date": "2026-10-25",
+  "sequenceNumber": 25,
+  "slug": "2026-10-25-the-penny-that-wasnt-there",
+  "title": "The Penny That Wasn’t There",
+  "shortTitle": "The Penny That Wasn’t There",
+  "subtitle": "0.1 + 0.2 has opinions.",
+  "description": "A shopping cart total that drifts by a fraction of a cent.",
+  "category": "debugging",
+  "subcategories": [
+    "floating-point"
+  ],
+  "challengeType": "debugging",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 15,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 3,
+  "concepts": [
+    "floating point",
+    "ieee 754"
+  ],
+  "tags": [
+    "javascript",
+    "floating-point"
+  ],
+  "skills": [
+    "IEEE-754 awareness",
+    "Money handling"
+  ],
+  "prompt": "**Expected behaviour:** The four prices sum to exactly `2.0`.\n\n**Actual behaviour:** It prints `1.9999999999999998` — binary floating point cannot represent the decimal intermediates exactly.\n\n```javascript\nfunction total(cents) {\n  let sum = 0;\n  for (const c of cents) {\n    sum += c / 100;\n  }\n  return sum;\n}\n\nconsole.log(total([19, 99, 49, 33])); // expected 2.00\n```\n\nIdentify the bug, explain why it causes the observed behaviour, and fix it.",
+  "instructions": [
+    "Reproduce the failure mentally or locally.",
+    "Pinpoint the exact line and mechanism of the bug.",
+    "Write the minimal fix that restores the expected behaviour."
+  ],
+  "constraints": [
+    "Do not redesign the function unless the bug requires it."
+  ],
+  "examples": [],
+  "hints": [
+    "Which of the four numbers can be represented exactly in binary?",
+    "Delay the division: compute in the unit the input already gives you."
+  ],
+  "solution": {
+    "summary": "Dividing each price by 100 produces non-representable binary fractions whose errors accumulate across four additions. Keeping integer cents and dividing once confines the rounding to a single, display-level step.",
+    "approach": [
+      "0.19, 0.99, 0.49, 0.33 are all repeating values in base 2.",
+      "Each division and addition rounds to the nearest double; errors compound.",
+      "Integer arithmetic in cents is exact up to 2^53, and one final division bounds the error."
+    ],
+    "code": {
+      "language": "javascript",
+      "label": "Corrected implementation",
+      "code": "function total(cents) {\n  let sum = 0;\n  for (const c of cents) {\n    sum += c;\n  }\n  return sum / 100;\n}"
+    },
+    "commonMistakes": [
+      "Reaching for `toFixed(2)` mid-loop — it returns strings and hides the problem.",
+      "Storing money as floats at all; integers or a decimal type are the real fix."
+    ]
+  },
+  "learningObjectives": [
+    "Recognize binary-representation drift",
+    "Structure money math to stay exact"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-09",
+    "dq-2026-10-19",
+    "dq-2026-10-21"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "debug.float-money",
+  "generatorVersion": "1.0.0",
+  "seed": "0dfa00fe9c0833cc6eff2f4807ea936f8874df996356134a11bd7c85c9acddf8",
+  "paramsSignature": "v1",
+  "contentHash": "b8ff26b55ca93ea103903a99980005d1ef0b2beef213be75a5b8ef13cda1dde6",
+  "createdAt": "2026-10-24T21:13:24.430Z",
+  "updatedAt": "2026-10-24T21:13:24.430Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-24T21:13:24.430Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

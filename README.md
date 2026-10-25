@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#024 — The Excluded Class](https://singhtanishq.github.io/DailyQuest/quest/2026-10-24-the-excluded-class)
-> October 24, 2026 · `regex` · `easy` · 8 min
+> **Today’s quest:** [#025 — The Penny That Wasn’t There](https://singhtanishq.github.io/DailyQuest/quest/2026-10-25-the-penny-that-wasnt-there)
+> October 25, 2026 · `debugging` · `intermediate` · 15 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

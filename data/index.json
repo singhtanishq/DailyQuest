@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-23T21:42:24.541Z",
+  "generatedAt": "2026-10-24T21:13:24.433Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -620,6 +620,32 @@
       "fpc": "5f61b5a38d74ca4a",
       "fpt": "bc4ee4ef85bc4971",
       "fpp": "20e6219210a83389"
+    },
+    {
+      "id": "dq-2026-10-25",
+      "date": "2026-10-25",
+      "sequenceNumber": 25,
+      "slug": "2026-10-25-the-penny-that-wasnt-there",
+      "title": "The Penny That Wasn’t There",
+      "shortTitle": "The Penny That Wasn’t There",
+      "description": "A shopping cart total that drifts by a fraction of a cent.",
+      "category": "debugging",
+      "challengeType": "debugging",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 15,
+      "concepts": [
+        "floating point",
+        "ieee 754"
+      ],
+      "tags": [
+        "javascript",
+        "floating-point"
+      ],
+      "contentHash": "b8ff26b55ca93ea103903a99980005d1ef0b2beef213be75a5b8ef13cda1dde6",
+      "fpc": "b8ff26b55ca93ea1",
+      "fpt": "d959b5cbea9a749e",
+      "fpp": "6e1902f411e30042"
     }
   ]
 }

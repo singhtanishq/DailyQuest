@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-23T21:42:24.541Z",
-  "totalQuests": 24,
-  "currentSequence": 24,
-  "latestQuestDate": "2026-10-24",
+  "generatedAt": "2026-10-24T21:13:24.433Z",
+  "totalQuests": 25,
+  "currentSequence": 25,
+  "latestQuestDate": "2026-10-25",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -14,7 +14,7 @@
     "performance": 2,
     "react": 1,
     "algorithms": 2,
-    "debugging": 3,
+    "debugging": 4,
     "architecture": 1,
     "web": 1,
     "python": 2,
@@ -23,7 +23,7 @@
     "git": 1
   },
   "byDifficulty": {
-    "intermediate": 13,
+    "intermediate": 14,
     "hard": 4,
     "easy": 7
   },
@@ -33,7 +33,7 @@
     "cybersecurity": 1,
     "coding": 4,
     "performance": 2,
-    "debugging": 3,
+    "debugging": 4,
     "architecture": 1,
     "output_prediction": 1,
     "regex": 2,
@@ -42,16 +42,16 @@
   },
   "categoryBreakdown": [
     {
+      "id": "debugging",
+      "label": "Debugging",
+      "count": 4,
+      "percent": 16
+    },
+    {
       "id": "sql",
       "label": "SQL",
       "count": 4,
-      "percent": 17
-    },
-    {
-      "id": "debugging",
-      "label": "Debugging",
-      "count": 3,
-      "percent": 13
+      "percent": 16
     },
     {
       "id": "algorithms",
@@ -127,11 +127,11 @@
     }
   ],
   "averageEstimatedMinutes": 14.9,
-  "totalEstimatedMinutes": 357,
-  "currentStreak": 24,
-  "longestStreak": 24,
-  "archiveSpanDays": 24,
+  "totalEstimatedMinutes": 372,
+  "currentStreak": 25,
+  "longestStreak": 25,
+  "archiveSpanDays": 25,
   "missedDays": 0,
-  "mostFrequentCategory": "sql",
+  "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"
 }
