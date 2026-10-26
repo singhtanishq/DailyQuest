@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-24T21:13:24.433Z",
-  "totalQuests": 25,
-  "currentSequence": 25,
-  "latestQuestDate": "2026-10-25",
+  "generatedAt": "2026-10-25T21:16:00.999Z",
+  "totalQuests": 26,
+  "currentSequence": 26,
+  "latestQuestDate": "2026-10-26",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -20,16 +20,17 @@
     "python": 2,
     "regex": 2,
     "system_design": 1,
-    "git": 1
+    "git": 1,
+    "javascript": 1
   },
   "byDifficulty": {
     "intermediate": 14,
     "hard": 4,
-    "easy": 7
+    "easy": 8
   },
   "byType": {
     "sql": 4,
-    "reasoning": 4,
+    "reasoning": 5,
     "cybersecurity": 1,
     "coding": 4,
     "performance": 2,
@@ -45,13 +46,13 @@
       "id": "debugging",
       "label": "Debugging",
       "count": 4,
-      "percent": 16
+      "percent": 15
     },
     {
       "id": "sql",
       "label": "SQL",
       "count": 4,
-      "percent": 16
+      "percent": 15
     },
     {
       "id": "algorithms",
@@ -102,6 +103,12 @@
       "percent": 4
     },
     {
+      "id": "javascript",
+      "label": "JavaScript",
+      "count": 1,
+      "percent": 4
+    },
+    {
       "id": "react",
       "label": "React",
       "count": 1,
@@ -126,11 +133,11 @@
       "percent": 4
     }
   ],
-  "averageEstimatedMinutes": 14.9,
-  "totalEstimatedMinutes": 372,
-  "currentStreak": 25,
-  "longestStreak": 25,
-  "archiveSpanDays": 25,
+  "averageEstimatedMinutes": 14.6,
+  "totalEstimatedMinutes": 380,
+  "currentStreak": 26,
+  "longestStreak": 26,
+  "archiveSpanDays": 26,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

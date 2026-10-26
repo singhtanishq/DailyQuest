@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-24T21:13:24.433Z",
+  "generatedAt": "2026-10-25T21:16:00.999Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -646,6 +646,31 @@
       "fpc": "b8ff26b55ca93ea1",
       "fpt": "d959b5cbea9a749e",
       "fpp": "6e1902f411e30042"
+    },
+    {
+      "id": "dq-2026-10-26",
+      "date": "2026-10-26",
+      "sequenceNumber": 26,
+      "slug": "2026-10-26-the-slippery-slope-blocker",
+      "title": "The Slippery Slope Blocker",
+      "shortTitle": "The Slippery Slope Blocker",
+      "description": "Strict mode turns several silent failures into errors.",
+      "category": "javascript",
+      "challengeType": "reasoning",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 8,
+      "concepts": [
+        "strict mode"
+      ],
+      "tags": [
+        "javascript",
+        "semantics"
+      ],
+      "contentHash": "0008c67b1764a3e3678e57c7bc6d390445c646ff9265a034324f11538af895e5",
+      "fpc": "0008c67b1764a3e3",
+      "fpt": "9115ce0aedd080ac",
+      "fpp": "49e7f68fb945e265"
     }
   ]
 }

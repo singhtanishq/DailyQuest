@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#025 — The Penny That Wasn’t There](https://singhtanishq.github.io/DailyQuest/quest/2026-10-25-the-penny-that-wasnt-there)
-> October 25, 2026 · `debugging` · `intermediate` · 15 min
+> **Today’s quest:** [#026 — The Slippery Slope Blocker](https://singhtanishq.github.io/DailyQuest/quest/2026-10-26-the-slippery-slope-blocker)
+> October 26, 2026 · `javascript` · `easy` · 8 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

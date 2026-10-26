@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-26",
+  "date": "2026-10-26",
+  "sequenceNumber": 26,
+  "slug": "2026-10-26-the-slippery-slope-blocker",
+  "title": "The Slippery Slope Blocker",
+  "shortTitle": "The Slippery Slope Blocker",
+  "subtitle": "What does \"use strict\" actually forbid?",
+  "description": "Strict mode turns several silent failures into errors.",
+  "category": "javascript",
+  "subcategories": [
+    "language"
+  ],
+  "challengeType": "reasoning",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 8,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 1,
+  "concepts": [
+    "strict mode"
+  ],
+  "tags": [
+    "javascript",
+    "semantics"
+  ],
+  "skills": [
+    "Strict mode rules"
+  ],
+  "prompt": "Which behaviour is changed by strict mode?\n\n**A.** Array indices become 1-based\n**B.** All asynchronous code becomes synchronous\n**C.** Assigning to an undeclared variable throws a ReferenceError\n**D.** Loose equality (==) is disabled at parse time",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "Array indices become 1-based",
+    "All asynchronous code becomes synchronous",
+    "Assigning to an undeclared variable throws a ReferenceError",
+    "Loose equality (==) is disabled at parse time"
+  ],
+  "correctOptionIndex": 2,
+  "examples": [],
+  "hints": [
+    "Think about the \"implicit global\" footgun.",
+    "Modules are always strict — how often do you see the directive there?"
+  ],
+  "solution": {
+    "summary": "The correct answer is C — Assigning to an undeclared variable throws a ReferenceError",
+    "answer": "Assigning to an undeclared variable throws a ReferenceError",
+    "reasoning": [
+      "Strict mode’s headline fixes: no implicit globals, this is undefined in bare calls, duplicate parameter names rejected, silent write failures throw.",
+      "It is opt-in per script/module/function via the \"use strict\" directive; ES modules are always strict."
+    ],
+    "whyNot": [
+      "Array indices become 1-based — Indexing is unchanged everywhere — strict mode has nothing to do with arrays’ indexing.",
+      "All asynchronous code becomes synchronous — Strict mode changes error reporting and bindings, never the concurrency model.",
+      "Loose equality (==) is disabled at parse time — == keeps working; linters discourage it, but the language does not forbid it."
+    ]
+  },
+  "learningObjectives": [
+    "List the key strict-mode changes",
+    "Know where strict mode applies automatically"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "js.strict-mode",
+  "generatorVersion": "1.0.0",
+  "seed": "0247a842a29989e7db62ce4a72867cf01471f99dfe693caa0570a257dcbb6607",
+  "paramsSignature": "v1",
+  "contentHash": "0008c67b1764a3e3678e57c7bc6d390445c646ff9265a034324f11538af895e5",
+  "createdAt": "2026-10-25T21:16:00.995Z",
+  "updatedAt": "2026-10-25T21:16:00.995Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-25T21:16:00.995Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
