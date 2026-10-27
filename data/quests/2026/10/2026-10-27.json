@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-27",
+  "date": "2026-10-27",
+  "sequenceNumber": 27,
+  "slug": "2026-10-27-the-mutating-method",
+  "title": "The Mutating Method",
+  "shortTitle": "The Mutating Method",
+  "subtitle": "Which one leaves the original alone?",
+  "description": "Four array operations — only some return new arrays.",
+  "category": "javascript",
+  "subcategories": [
+    "arrays"
+  ],
+  "challengeType": "output_prediction",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 8,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 1,
+  "concepts": [
+    "array methods",
+    "mutation"
+  ],
+  "tags": [
+    "javascript",
+    "arrays"
+  ],
+  "skills": [
+    "Mutator vs accessor methods"
+  ],
+  "prompt": "Which of these calls does NOT mutate the original array?\n\n**A.** const copy = items.map((x) => x * 2)\n**B.** items.splice(0, 1)\n**C.** items.sort()\n**D.** items.reverse()",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "const copy = items.map((x) => x * 2)",
+    "items.splice(0, 1)",
+    "items.sort()",
+    "items.reverse()"
+  ],
+  "correctOptionIndex": 0,
+  "examples": [],
+  "hints": [
+    "Think about which method’s job is to BUILD a new array.",
+    "ES2023 introduced spelled-out \"to\" variants for a reason."
+  ],
+  "solution": {
+    "summary": "The correct answer is A — const copy = items.map((x) => x * 2)",
+    "answer": "const copy = items.map((x) => x * 2)",
+    "reasoning": [
+      "The mutators are: push, pop, shift, unshift, splice, sort, reverse, fill, copyWithin.",
+      "The accessors/iterators (map, filter, slice, concat, flat) return new arrays.",
+      "ES2023 added non-mutating twins for the dangerous ones: toSorted, toReversed, toSpliced, with."
+    ],
+    "whyNot": [
+      "items.splice(0, 1) — splice removes elements in place — the classic mutator.",
+      "items.sort() — sort sorts in place and returns the same array reference.",
+      "items.reverse() — reverse reverses in place (use toReversed for a copy on modern runtimes)."
+    ]
+  },
+  "learningObjectives": [
+    "Classify array methods by mutation",
+    "Reach for toSorted/toReversed when needed"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-26"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "js.array-method-mutation",
+  "generatorVersion": "1.0.0",
+  "seed": "05c27208b667e44848bc231c35dd0bfbc10a01025872ecca46954bc589c5e6d8",
+  "paramsSignature": "v1",
+  "contentHash": "82817319fdb5e08d17a5e459f8e1378cdcdabac6c85247ca4249fcfab75886f5",
+  "createdAt": "2026-10-26T22:53:52.670Z",
+  "updatedAt": "2026-10-26T22:53:52.670Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-26T22:53:52.670Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

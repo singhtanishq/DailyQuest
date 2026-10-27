@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#026 — The Slippery Slope Blocker](https://singhtanishq.github.io/DailyQuest/quest/2026-10-26-the-slippery-slope-blocker)
-> October 26, 2026 · `javascript` · `easy` · 8 min
+> **Today’s quest:** [#027 — The Mutating Method](https://singhtanishq.github.io/DailyQuest/quest/2026-10-27-the-mutating-method)
+> October 27, 2026 · `javascript` · `easy` · 8 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

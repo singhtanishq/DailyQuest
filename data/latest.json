@@ -1,30 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-25T21:16:00.999Z",
+  "generatedAt": "2026-10-26T22:53:52.674Z",
   "quest": {
-    "id": "dq-2026-10-26",
-    "date": "2026-10-26",
-    "sequenceNumber": 26,
-    "slug": "2026-10-26-the-slippery-slope-blocker",
-    "title": "The Slippery Slope Blocker",
-    "shortTitle": "The Slippery Slope Blocker",
-    "description": "Strict mode turns several silent failures into errors.",
+    "id": "dq-2026-10-27",
+    "date": "2026-10-27",
+    "sequenceNumber": 27,
+    "slug": "2026-10-27-the-mutating-method",
+    "title": "The Mutating Method",
+    "shortTitle": "The Mutating Method",
+    "description": "Four array operations — only some return new arrays.",
     "category": "javascript",
-    "challengeType": "reasoning",
+    "challengeType": "output_prediction",
     "difficulty": "easy",
     "difficultyScore": 2,
     "estimatedMinutes": 8,
     "concepts": [
-      "strict mode"
+      "array methods",
+      "mutation"
     ],
     "tags": [
       "javascript",
-      "semantics"
+      "arrays"
     ],
-    "contentHash": "0008c67b1764a3e3678e57c7bc6d390445c646ff9265a034324f11538af895e5",
-    "fpc": "0008c67b1764a3e3",
-    "fpt": "9115ce0aedd080ac",
-    "fpp": "49e7f68fb945e265"
+    "contentHash": "82817319fdb5e08d17a5e459f8e1378cdcdabac6c85247ca4249fcfab75886f5",
+    "fpc": "82817319fdb5e08d",
+    "fpt": "0f098b0508ab4238",
+    "fpp": "870573a39861ba32"
   }
 }
