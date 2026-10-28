@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-26T22:53:52.674Z",
+  "generatedAt": "2026-10-27T22:39:23.611Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -697,6 +697,32 @@
       "fpc": "82817319fdb5e08d",
       "fpt": "0f098b0508ab4238",
       "fpp": "870573a39861ba32"
+    },
+    {
+      "id": "dq-2026-10-28",
+      "date": "2026-10-28",
+      "sequenceNumber": 28,
+      "slug": "2026-10-28-the-overlapping-meetings",
+      "title": "The Overlapping Meetings",
+      "shortTitle": "The Overlapping Meetings",
+      "description": "Merge overlapping intervals — the pattern behind calendar apps, IP range tables and genomic regions.",
+      "category": "algorithms",
+      "challengeType": "coding",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 20,
+      "concepts": [
+        "interval merging",
+        "sorting"
+      ],
+      "tags": [
+        "intervals",
+        "sorting"
+      ],
+      "contentHash": "5f656228c3f4f965304c7ba3616d14a105c957838ce2581b927af6fe5fa6a369",
+      "fpc": "5f656228c3f4f965",
+      "fpt": "49ec50de91997edd",
+      "fpp": "1d0ee78e590d8786"
     }
   ]
 }

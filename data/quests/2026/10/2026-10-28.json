@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-28",
+  "date": "2026-10-28",
+  "sequenceNumber": 28,
+  "slug": "2026-10-28-the-overlapping-meetings",
+  "title": "The Overlapping Meetings",
+  "shortTitle": "The Overlapping Meetings",
+  "subtitle": "Sort first, then merge in one sweep.",
+  "description": "Merge overlapping intervals — the pattern behind calendar apps, IP range tables and genomic regions.",
+  "category": "algorithms",
+  "subcategories": [
+    "intervals"
+  ],
+  "challengeType": "coding",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 3,
+  "concepts": [
+    "interval merging",
+    "sorting"
+  ],
+  "tags": [
+    "intervals",
+    "sorting"
+  ],
+  "skills": [
+    "Sort-then-scan",
+    "Overlap detection"
+  ],
+  "prompt": "You receive a list of intervals, one per line (`start end`). Merge all overlapping or touching intervals and print the result as `start-end` tokens separated by spaces, in ascending order.",
+  "instructions": [
+    "Each input line contains two integers: start and end.",
+    "Intervals may arrive in any order.",
+    "Print the merged intervals as `start-end` tokens, space-separated."
+  ],
+  "constraints": [
+    "1 ≤ number of intervals ≤ 10^4.",
+    "start ≤ end for every interval."
+  ],
+  "examples": [
+    {
+      "title": "Example 1",
+      "input": "1 3\n2 6\n8 10\n15 18",
+      "output": "1-6 8-10 15-18",
+      "explanation": "[1,3] and [2,6] overlap → [1,6]; the rest stand alone."
+    },
+    {
+      "title": "Example 2",
+      "input": "1 4\n4 5",
+      "output": "1-5",
+      "explanation": "Touching endpoints merge into [1,5]."
+    }
+  ],
+  "testCases": [
+    {
+      "name": "classic merge",
+      "input": "1 3\n2 6\n8 10\n15 18",
+      "expected": "1-6 8-10 15-18"
+    },
+    {
+      "name": "touching intervals",
+      "input": "1 4\n4 5",
+      "expected": "1-5"
+    },
+    {
+      "name": "unsorted input",
+      "input": "8 10\n1 3\n15 18\n2 6",
+      "expected": "1-6 8-10 15-18"
+    },
+    {
+      "name": "nested interval",
+      "input": "1 10\n2 3",
+      "expected": "1-10"
+    },
+    {
+      "name": "single interval",
+      "input": "5 7",
+      "expected": "5-7"
+    }
+  ],
+  "edgeCases": [
+    "nested intervals",
+    "touching endpoints",
+    "unsorted input",
+    "single interval"
+  ],
+  "hints": [
+    "After sorting, any interval that can overlap the current merged block must be its immediate successor.",
+    "Touching intervals ([1,4] and [4,5]) usually merge in calendars."
+  ],
+  "solution": {
+    "summary": "Sort by start, then sweep: if the next interval starts before the current merged one ends, extend its end to the max; otherwise start a new merged interval.",
+    "approach": [
+      "Sort intervals by start ascending.",
+      "Maintain a list of merged intervals; compare each new interval with the last merged one.",
+      "Overlap (or touch, since `<=`) means extend; otherwise append."
+    ],
+    "code": {
+      "language": "javascript",
+      "label": "Reference solution",
+      "code": "function merge(intervals) {\n  intervals.sort((a, b) => a[0] - b[0]);\n  const merged = [];\n  for (const [start, end] of intervals) {\n    const last = merged[merged.length - 1];\n    if (last && start <= last[1]) last[1] = Math.max(last[1], end);\n    else merged.push([start, end]);\n  }\n  return merged;\n}"
+    },
+    "complexity": "O(n log n) for the sort, O(n) for the sweep.",
+    "commonMistakes": [
+      "Merging in input order without sorting.",
+      "Using `<` instead of `<=` and leaving touching intervals unmerged."
+    ]
+  },
+  "learningObjectives": [
+    "Apply the sort-then-scan pattern",
+    "Handle boundary-touch semantics deliberately"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-08",
+    "dq-2026-10-18"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "algo.merge-intervals",
+  "generatorVersion": "1.0.0",
+  "seed": "48db0acba307549ca424789424d32720796aa6f73f0c478f9c86b5af64a53f19",
+  "paramsSignature": "v1",
+  "contentHash": "5f656228c3f4f965304c7ba3616d14a105c957838ce2581b927af6fe5fa6a369",
+  "createdAt": "2026-10-27T22:39:23.607Z",
+  "updatedAt": "2026-10-27T22:39:23.607Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-27T22:39:23.607Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

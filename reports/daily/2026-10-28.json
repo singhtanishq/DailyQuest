@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "generatedAt": "2026-10-27T22:39:23.607Z",
+  "generatorVersion": "1.0.0",
+  "outcome": "created",
+  "questId": "dq-2026-10-28",
+  "sequenceNumber": 28,
+  "title": "The Overlapping Meetings",
+  "category": "algorithms",
+  "difficulty": "intermediate",
+  "templateId": "algo.merge-intervals",
+  "validationScore": 100,
+  "changedDerivedFiles": [
+    "/home/runner/work/DailyQuest/DailyQuest/data/index.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/stats.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/categories.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/latest.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/health.json"
+  ],
+  "warnings": [],
+  "durationMs": 0
+}
