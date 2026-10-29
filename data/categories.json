@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-27T22:39:23.611Z",
+  "generatedAt": "2026-10-28T22:53:00.832Z",
   "categories": [
     {
       "id": "coding",
@@ -310,11 +310,18 @@
       "description": "grep, find, sed, pipes, permissions and process management. Some Linux quests are verified by executing the actual commands against a fixture in a sandbox.",
       "icon": "square-terminal",
       "group": "Systems & Tooling",
-      "questCount": 0,
-      "difficultyDistribution": {},
-      "skills": [],
-      "topTags": [],
-      "latestQuestDate": null
+      "questCount": 1,
+      "difficultyDistribution": {
+        "easy": 1
+      },
+      "skills": [
+        "Pipeline composition"
+      ],
+      "topTags": [
+        "pipes",
+        "text"
+      ],
+      "latestQuestDate": "2026-10-29"
     },
     {
       "id": "git",

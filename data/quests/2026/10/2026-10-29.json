@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-29",
+  "date": "2026-10-29",
+  "sequenceNumber": 29,
+  "slug": "2026-10-29-the-deduplicated-roster",
+  "title": "The Deduplicated Roster",
+  "shortTitle": "The Deduplicated Roster",
+  "subtitle": "sort -u in one step.",
+  "description": "A word list needs deduplication — predict the exact output.",
+  "category": "linux",
+  "subcategories": [
+    "text-processing"
+  ],
+  "challengeType": "linux",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 10,
+  "conceptComplexity": 1,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 2,
+  "concepts": [
+    "sort",
+    "uniq"
+  ],
+  "tags": [
+    "pipes",
+    "text"
+  ],
+  "skills": [
+    "Pipeline composition"
+  ],
+  "prompt": "You are in a directory containing these files:\n\n- `words.txt`\n\nWhat does the command print?\n\n```bash\nsort -u words.txt\n```",
+  "instructions": [
+    "Predict the exact output of the command."
+  ],
+  "constraints": [],
+  "examples": [],
+  "expectedOutput": "apple\nbanana\ncherry",
+  "hints": [
+    "Why does uniq require sorted input?",
+    "What is the one-letter shortcut for \"unique\"?"
+  ],
+  "solution": {
+    "summary": "The command prints:\n\n```text\napple\nbanana\ncherry\n```",
+    "reasoning": [
+      "sort -u sorts and drops duplicates in one pass (equivalent to sort | uniq here).",
+      "Lexicographic order puts apple before banana before cherry.",
+      "uniq ALONE would not work: it only collapses ADJACENT duplicates, and the input is unsorted."
+    ],
+    "commonMistakes": [
+      "Running uniq without sort — \"apple\ncherry\napple\nbanana\" would keep both apples.",
+      "Forgetting that sort -u preserves only the first occurrence of each key."
+    ]
+  },
+  "learningObjectives": [
+    "Compose sort and uniq correctly",
+    "Explain uniq’s adjacency requirement"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "linux.sort-uniq",
+  "generatorVersion": "1.0.0",
+  "seed": "087586807af2b969b54848d6aea182372cc2be4190a3eea5b54d1bcdac780248",
+  "paramsSignature": "v1",
+  "contentHash": "7197d3510e8d27a6282193f6f6b8072cb9a415a23cd4d0c3d083f587cc497f68",
+  "createdAt": "2026-10-28T22:53:00.823Z",
+  "updatedAt": "2026-10-28T22:53:00.823Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-28T22:53:00.823Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced",
+      "verification-shell"
+    ]
+  }
+}

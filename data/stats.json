@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-27T22:39:23.611Z",
-  "totalQuests": 28,
-  "currentSequence": 28,
-  "latestQuestDate": "2026-10-28",
+  "generatedAt": "2026-10-28T22:53:00.832Z",
+  "totalQuests": 29,
+  "currentSequence": 29,
+  "latestQuestDate": "2026-10-29",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -21,12 +21,13 @@
     "regex": 2,
     "system_design": 1,
     "git": 1,
-    "javascript": 2
+    "javascript": 2,
+    "linux": 1
   },
   "byDifficulty": {
     "intermediate": 15,
     "hard": 4,
-    "easy": 9
+    "easy": 10
   },
   "byType": {
     "sql": 4,
@@ -39,7 +40,8 @@
     "output_prediction": 2,
     "regex": 2,
     "system_design": 1,
-    "git": 1
+    "git": 1,
+    "linux": 1
   },
   "categoryBreakdown": [
     {
@@ -58,7 +60,7 @@
       "id": "algorithms",
       "label": "Algorithms",
       "count": 3,
-      "percent": 11
+      "percent": 10
     },
     {
       "id": "coding",
@@ -94,50 +96,56 @@
       "id": "architecture",
       "label": "Architecture",
       "count": 1,
-      "percent": 4
+      "percent": 3
     },
     {
       "id": "cybersecurity",
       "label": "Cybersecurity",
       "count": 1,
-      "percent": 4
+      "percent": 3
     },
     {
       "id": "git",
       "label": "Git",
       "count": 1,
-      "percent": 4
+      "percent": 3
+    },
+    {
+      "id": "linux",
+      "label": "Linux",
+      "count": 1,
+      "percent": 3
     },
     {
       "id": "react",
       "label": "React",
       "count": 1,
-      "percent": 4
+      "percent": 3
     },
     {
       "id": "system_design",
       "label": "System Design",
       "count": 1,
-      "percent": 4
+      "percent": 3
     },
     {
       "id": "typescript",
       "label": "TypeScript",
       "count": 1,
-      "percent": 4
+      "percent": 3
     },
     {
       "id": "web",
       "label": "Web Platform",
       "count": 1,
-      "percent": 4
+      "percent": 3
     }
   ],
-  "averageEstimatedMinutes": 14.6,
-  "totalEstimatedMinutes": 408,
-  "currentStreak": 28,
-  "longestStreak": 28,
-  "archiveSpanDays": 28,
+  "averageEstimatedMinutes": 14.4,
+  "totalEstimatedMinutes": 418,
+  "currentStreak": 29,
+  "longestStreak": 29,
+  "archiveSpanDays": 29,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

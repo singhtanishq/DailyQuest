@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-27T22:39:23.611Z",
+  "generatedAt": "2026-10-28T22:53:00.832Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -723,6 +723,32 @@
       "fpc": "5f656228c3f4f965",
       "fpt": "49ec50de91997edd",
       "fpp": "1d0ee78e590d8786"
+    },
+    {
+      "id": "dq-2026-10-29",
+      "date": "2026-10-29",
+      "sequenceNumber": 29,
+      "slug": "2026-10-29-the-deduplicated-roster",
+      "title": "The Deduplicated Roster",
+      "shortTitle": "The Deduplicated Roster",
+      "description": "A word list needs deduplication — predict the exact output.",
+      "category": "linux",
+      "challengeType": "linux",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 10,
+      "concepts": [
+        "sort",
+        "uniq"
+      ],
+      "tags": [
+        "pipes",
+        "text"
+      ],
+      "contentHash": "7197d3510e8d27a6282193f6f6b8072cb9a415a23cd4d0c3d083f587cc497f68",
+      "fpc": "7197d3510e8d27a6",
+      "fpt": "c3c428af8086066d",
+      "fpp": "757f253e8c1be4a1"
     }
   ]
 }

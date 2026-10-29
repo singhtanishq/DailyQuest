@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#028 — The Overlapping Meetings](https://singhtanishq.github.io/DailyQuest/quest/2026-10-28-the-overlapping-meetings)
-> October 28, 2026 · `algorithms` · `intermediate` · 20 min
+> **Today’s quest:** [#029 — The Deduplicated Roster](https://singhtanishq.github.io/DailyQuest/quest/2026-10-29-the-deduplicated-roster)
+> October 29, 2026 · `linux` · `easy` · 10 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

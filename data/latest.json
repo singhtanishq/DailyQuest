@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-27T22:39:23.611Z",
+  "generatedAt": "2026-10-28T22:53:00.832Z",
   "quest": {
-    "id": "dq-2026-10-28",
-    "date": "2026-10-28",
-    "sequenceNumber": 28,
-    "slug": "2026-10-28-the-overlapping-meetings",
-    "title": "The Overlapping Meetings",
-    "shortTitle": "The Overlapping Meetings",
-    "description": "Merge overlapping intervals — the pattern behind calendar apps, IP range tables and genomic regions.",
-    "category": "algorithms",
-    "challengeType": "coding",
-    "difficulty": "intermediate",
-    "difficultyScore": 3,
-    "estimatedMinutes": 20,
+    "id": "dq-2026-10-29",
+    "date": "2026-10-29",
+    "sequenceNumber": 29,
+    "slug": "2026-10-29-the-deduplicated-roster",
+    "title": "The Deduplicated Roster",
+    "shortTitle": "The Deduplicated Roster",
+    "description": "A word list needs deduplication — predict the exact output.",
+    "category": "linux",
+    "challengeType": "linux",
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "estimatedMinutes": 10,
     "concepts": [
-      "interval merging",
-      "sorting"
+      "sort",
+      "uniq"
     ],
     "tags": [
-      "intervals",
-      "sorting"
+      "pipes",
+      "text"
     ],
-    "contentHash": "5f656228c3f4f965304c7ba3616d14a105c957838ce2581b927af6fe5fa6a369",
-    "fpc": "5f656228c3f4f965",
-    "fpt": "49ec50de91997edd",
-    "fpp": "1d0ee78e590d8786"
+    "contentHash": "7197d3510e8d27a6282193f6f6b8072cb9a415a23cd4d0c3d083f587cc497f68",
+    "fpc": "7197d3510e8d27a6",
+    "fpt": "c3c428af8086066d",
+    "fpp": "757f253e8c1be4a1"
   }
 }
