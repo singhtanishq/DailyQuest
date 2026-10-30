@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-30",
+  "date": "2026-10-30",
+  "sequenceNumber": 30,
+  "slug": "2026-10-30-the-frozen-counter",
+  "title": "The Frozen Counter",
+  "shortTitle": "The Frozen Counter",
+  "subtitle": "An interval that never sees the new state.",
+  "description": "A setInterval started in an effect reads state that never updates.",
+  "category": "react",
+  "subcategories": [
+    "hooks"
+  ],
+  "challengeType": "debugging",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 15,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "hooks",
+    "closures",
+    "effects"
+  ],
+  "tags": [
+    "react",
+    "hooks"
+  ],
+  "skills": [
+    "Dependency arrays"
+  ],
+  "prompt": "```jsx\nfunction Timer() {\n  const [count, setCount] = useState(0);\n\n  useEffect(() => {\n    const id = setInterval(() => {\n      setCount(count + 1);\n    }, 1000);\n    return () => clearInterval(id);\n  }, []); // ← the suspect\n\n  return <p>{count}</p>;\n}\n```\n\nWhat does the counter show after several seconds, and why?\n\n**A.** It never renders any number because setState inside setInterval is illegal\n**B.** It reaches 1 and sticks there: the callback closed over count = 0 forever, so every tick sets 0 + 1\n**C.** It counts twice as fast because the effect re-runs on every render\n**D.** It counts correctly; the empty dependency array is fine here",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "It never renders any number because setState inside setInterval is illegal",
+    "It reaches 1 and sticks there: the callback closed over count = 0 forever, so every tick sets 0 + 1",
+    "It counts twice as fast because the effect re-runs on every render",
+    "It counts correctly; the empty dependency array is fine here"
+  ],
+  "correctOptionIndex": 1,
+  "examples": [],
+  "hints": [
+    "Which value of `count` did the interval callback capture, and when?",
+    "What does the setCount(c => c + 1) form receive as its argument?"
+  ],
+  "solution": {
+    "summary": "The correct answer is B — It reaches 1 and sticks there: the callback closed over count = 0 forever, so every tick sets 0 + 1",
+    "answer": "It reaches 1 and sticks there: the callback closed over count = 0 forever, so every tick sets 0 + 1",
+    "reasoning": [
+      "Effects capture the render’s values; with [], the capture is from the first render only.",
+      "The functional update setCount(c => c + 1) reads the LATEST state and fixes this without re-subscribing.",
+      "Alternatively, listing [count] re-creates the interval each tick — correct but churny."
+    ],
+    "whyNot": [
+      "It never renders any number because setState inside setInterval is illegal — setState is perfectly legal from timers — the problem is the stale value.",
+      "It counts twice as fast because the effect re-runs on every render — The effect runs exactly once because of the empty dependency array.",
+      "It counts correctly; the empty dependency array is fine here — The empty array IS the bug paired with reading state from the closure."
+    ]
+  },
+  "learningObjectives": [
+    "Diagnose stale closures in effects",
+    "Reach for functional updates"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-06"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "react.stale-closure",
+  "generatorVersion": "1.0.0",
+  "seed": "854e5351cc744c6934204c11a4bb600241b08955c28f73b4fab2551d9574c7d1",
+  "paramsSignature": "v1",
+  "contentHash": "b0470a9a1a0d53c0fa97d54f3bb0eedf74b9237d51ced283f71f052e9f2868dd",
+  "createdAt": "2026-10-29T22:59:33.909Z",
+  "updatedAt": "2026-10-29T22:59:33.909Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-29T22:59:33.909Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

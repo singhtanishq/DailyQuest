@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#029 — The Deduplicated Roster](https://singhtanishq.github.io/DailyQuest/quest/2026-10-29-the-deduplicated-roster)
-> October 29, 2026 · `linux` · `easy` · 10 min
+> **Today’s quest:** [#030 — The Frozen Counter](https://singhtanishq.github.io/DailyQuest/quest/2026-10-30-the-frozen-counter)
+> October 30, 2026 · `react` · `intermediate` · 15 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

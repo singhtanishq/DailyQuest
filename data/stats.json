@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-28T22:53:00.832Z",
-  "totalQuests": 29,
-  "currentSequence": 29,
-  "latestQuestDate": "2026-10-29",
+  "generatedAt": "2026-10-29T22:59:33.913Z",
+  "totalQuests": 30,
+  "currentSequence": 30,
+  "latestQuestDate": "2026-10-30",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -12,7 +12,7 @@
     "cybersecurity": 1,
     "coding": 2,
     "performance": 2,
-    "react": 1,
+    "react": 2,
     "algorithms": 3,
     "debugging": 4,
     "architecture": 1,
@@ -25,7 +25,7 @@
     "linux": 1
   },
   "byDifficulty": {
-    "intermediate": 15,
+    "intermediate": 16,
     "hard": 4,
     "easy": 10
   },
@@ -35,7 +35,7 @@
     "cybersecurity": 1,
     "coding": 5,
     "performance": 2,
-    "debugging": 4,
+    "debugging": 5,
     "architecture": 1,
     "output_prediction": 2,
     "regex": 2,
@@ -48,13 +48,13 @@
       "id": "debugging",
       "label": "Debugging",
       "count": 4,
-      "percent": 14
+      "percent": 13
     },
     {
       "id": "sql",
       "label": "SQL",
       "count": 4,
-      "percent": 14
+      "percent": 13
     },
     {
       "id": "algorithms",
@@ -83,6 +83,12 @@
     {
       "id": "python",
       "label": "Python",
+      "count": 2,
+      "percent": 7
+    },
+    {
+      "id": "react",
+      "label": "React",
       "count": 2,
       "percent": 7
     },
@@ -117,12 +123,6 @@
       "percent": 3
     },
     {
-      "id": "react",
-      "label": "React",
-      "count": 1,
-      "percent": 3
-    },
-    {
       "id": "system_design",
       "label": "System Design",
       "count": 1,
@@ -142,10 +142,10 @@
     }
   ],
   "averageEstimatedMinutes": 14.4,
-  "totalEstimatedMinutes": 418,
-  "currentStreak": 29,
-  "longestStreak": 29,
-  "archiveSpanDays": 29,
+  "totalEstimatedMinutes": 433,
+  "currentStreak": 30,
+  "longestStreak": 30,
+  "archiveSpanDays": 30,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

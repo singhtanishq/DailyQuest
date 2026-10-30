@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-28T22:53:00.832Z",
+  "generatedAt": "2026-10-29T22:59:33.913Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -749,6 +749,33 @@
       "fpc": "7197d3510e8d27a6",
       "fpt": "c3c428af8086066d",
       "fpp": "757f253e8c1be4a1"
+    },
+    {
+      "id": "dq-2026-10-30",
+      "date": "2026-10-30",
+      "sequenceNumber": 30,
+      "slug": "2026-10-30-the-frozen-counter",
+      "title": "The Frozen Counter",
+      "shortTitle": "The Frozen Counter",
+      "description": "A setInterval started in an effect reads state that never updates.",
+      "category": "react",
+      "challengeType": "debugging",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 15,
+      "concepts": [
+        "hooks",
+        "closures",
+        "effects"
+      ],
+      "tags": [
+        "react",
+        "hooks"
+      ],
+      "contentHash": "b0470a9a1a0d53c0fa97d54f3bb0eedf74b9237d51ced283f71f052e9f2868dd",
+      "fpc": "b0470a9a1a0d53c0",
+      "fpt": "d5d607bacc93cb2c",
+      "fpp": "7cac4dc809c65097"
     }
   ]
 }

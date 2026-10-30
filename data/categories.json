@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-28T22:53:00.832Z",
+  "generatedAt": "2026-10-29T22:59:33.913Z",
   "categories": [
     {
       "id": "coding",
@@ -209,18 +209,20 @@
       "description": "Hook rules, dependency arrays, keys, controlled inputs and render behaviour. React quests focus on the mental model, not framework trivia.",
       "icon": "atom",
       "group": "Languages & Frameworks",
-      "questCount": 1,
+      "questCount": 2,
       "difficultyDistribution": {
-        "intermediate": 1
+        "intermediate": 2
       },
       "skills": [
-        "Form state design"
+        "Form state design",
+        "Dependency arrays"
       ],
       "topTags": [
+        "react",
         "forms",
-        "react"
+        "hooks"
       ],
-      "latestQuestDate": "2026-10-06"
+      "latestQuestDate": "2026-10-30"
     },
     {
       "id": "web",
