@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-29T22:59:33.913Z",
+  "generatedAt": "2026-10-30T22:40:02.441Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -776,6 +776,31 @@
       "fpc": "b0470a9a1a0d53c0",
       "fpt": "d5d607bacc93cb2c",
       "fpp": "7cac4dc809c65097"
+    },
+    {
+      "id": "dq-2026-10-31",
+      "date": "2026-10-31",
+      "sequenceNumber": 31,
+      "slug": "2026-10-31-the-reviewers-radar",
+      "title": "The Reviewer’s Radar",
+      "shortTitle": "The Reviewer’s Radar",
+      "description": "Build a personal secure-review checklist for pull requests.",
+      "category": "security_analysis",
+      "challengeType": "security_analysis",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 20,
+      "concepts": [
+        "secure code review"
+      ],
+      "tags": [
+        "review",
+        "process"
+      ],
+      "contentHash": "de645d8b367ff478283ef022c7750a762ae08e3d2aae44ab4051f431de5409f8",
+      "fpc": "de645d8b367ff478",
+      "fpt": "a56ebe9bffaa22bc",
+      "fpp": "9a33ab0b62aa8cd8"
     }
   ]
 }

@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#030 — The Frozen Counter](https://singhtanishq.github.io/DailyQuest/quest/2026-10-30-the-frozen-counter)
-> October 30, 2026 · `react` · `intermediate` · 15 min
+> **Today’s quest:** [#031 — The Reviewer’s Radar](https://singhtanishq.github.io/DailyQuest/quest/2026-10-31-the-reviewers-radar)
+> October 31, 2026 · `security_analysis` · `intermediate` · 20 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

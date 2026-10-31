@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-10-31",
+  "date": "2026-10-31",
+  "sequenceNumber": 31,
+  "slug": "2026-10-31-the-reviewers-radar",
+  "title": "The Reviewer’s Radar",
+  "shortTitle": "The Reviewer’s Radar",
+  "subtitle": "A checklist that finds the classes, not just the bugs.",
+  "description": "Build a personal secure-review checklist for pull requests.",
+  "category": "security_analysis",
+  "subcategories": [
+    "analysis"
+  ],
+  "challengeType": "security_analysis",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 3,
+  "concepts": [
+    "secure code review"
+  ],
+  "tags": [
+    "review",
+    "process"
+  ],
+  "skills": [
+    "Systematic review"
+  ],
+  "prompt": "You are asked to review a new feature: an endpoint that accepts a username, fetches their profile from an internal service, and renders a page with data from the request. Draft your security review checklist for this diff — the vulnerability CLASSES you check for at each layer (input handling, authz, data flow to output, error handling, logging), and what evidence convinces you each is handled.\n\nA strong answer addresses:\n- Organize by layer: input, authorization, output context, errors, logging.\n- For each class, name the evidence you want to see in the diff.\n- Note what you would flag for a follow-up ticket instead of blocking.",
+  "instructions": [
+    "Answer in your own words, then compare with the solution."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "Start from the actor: who may fetch whom?",
+    "Which single missing check turns profile pages into data exfiltration?"
+  ],
+  "solution": {
+    "summary": "Input: validation and normalization of the username (type, length, charset) before any use. Authorization: is fetching another user’s profile ALLOWED for this caller, checked server-side (IDOR class)? Output: every rendered field encoded for its context; no raw HTML from the internal service. Errors: internal failures return generic messages — no stack traces or internal URLs. Logging: log the actor, target and outcome with request ids, never tokens or PII beyond need. Blocking issues: missing authz check and raw HTML rendering; advisory: verbose error detail, missing rate limiting.",
+    "reasoning": [
+      "Checklists work because vulnerability CLASSES are finite; novelty is rare in incident data.",
+      "IDOR deserves first position: it is the most common authorized-user vulnerability class.",
+      "Evidence over assertion: \"we sanitize\" needs a call site, not a claim."
+    ],
+    "commonMistakes": [
+      "Reviewing only the diff hunk — data flow into shared helpers escapes the hunk.",
+      "Blocking on style-level security theater while missing the authz hole."
+    ]
+  },
+  "learningObjectives": [
+    "Operate a class-based review checklist",
+    "Separate blocking from advisory findings"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "sec.secure-code-review-checklist",
+  "generatorVersion": "1.0.0",
+  "seed": "7a07343794c23274dc4cf646b1820cb16f7e2f804133d9c4327825541463d8d1",
+  "paramsSignature": "v1",
+  "contentHash": "de645d8b367ff478283ef022c7750a762ae08e3d2aae44ab4051f431de5409f8",
+  "createdAt": "2026-10-30T22:40:02.438Z",
+  "updatedAt": "2026-10-30T22:40:02.438Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-10-30T22:40:02.438Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

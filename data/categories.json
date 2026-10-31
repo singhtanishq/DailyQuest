@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-29T22:59:33.913Z",
+  "generatedAt": "2026-10-30T22:40:02.441Z",
   "categories": [
     {
       "id": "coding",
@@ -393,11 +393,18 @@
       "description": "Read a snippet, identify the vulnerability class, explain the risk and propose the mitigation. Purely defensive: analysis and secure fixes, never exploitation.",
       "icon": "scan-search",
       "group": "Security",
-      "questCount": 0,
-      "difficultyDistribution": {},
-      "skills": [],
-      "topTags": [],
-      "latestQuestDate": null
+      "questCount": 1,
+      "difficultyDistribution": {
+        "intermediate": 1
+      },
+      "skills": [
+        "Systematic review"
+      ],
+      "topTags": [
+        "process",
+        "review"
+      ],
+      "latestQuestDate": "2026-10-31"
     },
     {
       "id": "regex",
