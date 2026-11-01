@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#031 — The Reviewer’s Radar](https://singhtanishq.github.io/DailyQuest/quest/2026-10-31-the-reviewers-radar)
-> October 31, 2026 · `security_analysis` · `intermediate` · 20 min
+> **Today’s quest:** [#032 — Shifted Dispatch](https://singhtanishq.github.io/DailyQuest/quest/2026-11-01-shifted-dispatch)
+> November 1, 2026 · `coding` · `easy` · 12 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

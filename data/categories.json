@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-30T22:40:02.441Z",
+  "generatedAt": "2026-10-31T21:53:58.755Z",
   "categories": [
     {
       "id": "coding",
@@ -9,25 +9,28 @@
       "description": "Hands-on implementation challenges: string manipulation, parsing, simulation and small utilities. Every coding quest ships with executable reference tests, so the expected behaviour is verified, not invented.",
       "icon": "terminal",
       "group": "Engineering",
-      "questCount": 2,
+      "questCount": 3,
       "difficultyDistribution": {
         "intermediate": 1,
-        "easy": 1
+        "easy": 2
       },
       "skills": [
         "Character-level parsing",
         "Quoting rules",
         "Stack usage",
-        "Input parsing"
+        "Input parsing",
+        "Character arithmetic",
+        "Modular wrap-around"
       ],
       "topTags": [
         "strings",
+        "cryptography",
         "csv",
         "parsing",
         "stack",
         "validation"
       ],
-      "latestQuestDate": "2026-10-10"
+      "latestQuestDate": "2026-11-01"
     },
     {
       "id": "debugging",

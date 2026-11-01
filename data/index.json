@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-30T22:40:02.441Z",
+  "generatedAt": "2026-10-31T21:53:58.755Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -801,6 +801,32 @@
       "fpc": "de645d8b367ff478",
       "fpt": "a56ebe9bffaa22bc",
       "fpp": "9a33ab0b62aa8cd8"
+    },
+    {
+      "id": "dq-2026-11-01",
+      "date": "2026-11-01",
+      "sequenceNumber": 32,
+      "slug": "2026-11-01-shifted-dispatch",
+      "title": "Shifted Dispatch",
+      "shortTitle": "Shifted Dispatch",
+      "description": "Apply a Caesar shift to a message: letters rotate through the alphabet, case is preserved, and everything else passes through untouched.",
+      "category": "coding",
+      "challengeType": "coding",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "caesar cipher",
+        "character arithmetic"
+      ],
+      "tags": [
+        "cryptography",
+        "strings"
+      ],
+      "contentHash": "3adb06dc4af6759c54f81858b41568472575456789f6ea1e3590f1702c59112f",
+      "fpc": "3adb06dc4af6759c",
+      "fpt": "b7671bfb15efadb1",
+      "fpp": "9a08259b8da97ad0"
     }
   ]
 }
