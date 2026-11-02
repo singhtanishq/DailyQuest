@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-31T21:53:58.755Z",
-  "totalQuests": 32,
-  "currentSequence": 32,
-  "latestQuestDate": "2026-11-01",
+  "generatedAt": "2026-11-01T22:27:42.831Z",
+  "totalQuests": 33,
+  "currentSequence": 33,
+  "latestQuestDate": "2026-11-02",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -23,10 +23,11 @@
     "git": 1,
     "javascript": 2,
     "linux": 1,
-    "security_analysis": 1
+    "security_analysis": 1,
+    "networking": 1
   },
   "byDifficulty": {
-    "intermediate": 17,
+    "intermediate": 18,
     "hard": 4,
     "easy": 11
   },
@@ -43,20 +44,21 @@
     "system_design": 1,
     "git": 1,
     "linux": 1,
-    "security_analysis": 1
+    "security_analysis": 1,
+    "networking": 1
   },
   "categoryBreakdown": [
     {
       "id": "debugging",
       "label": "Debugging",
       "count": 4,
-      "percent": 13
+      "percent": 12
     },
     {
       "id": "sql",
       "label": "SQL",
       "count": 4,
-      "percent": 13
+      "percent": 12
     },
     {
       "id": "algorithms",
@@ -125,6 +127,12 @@
       "percent": 3
     },
     {
+      "id": "networking",
+      "label": "Networking",
+      "count": 1,
+      "percent": 3
+    },
+    {
       "id": "security_analysis",
       "label": "Security Analysis",
       "count": 1,
@@ -150,10 +158,10 @@
     }
   ],
   "averageEstimatedMinutes": 14.5,
-  "totalEstimatedMinutes": 465,
-  "currentStreak": 32,
-  "longestStreak": 32,
-  "archiveSpanDays": 32,
+  "totalEstimatedMinutes": 477,
+  "currentStreak": 33,
+  "longestStreak": 33,
+  "archiveSpanDays": 33,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

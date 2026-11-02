@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-02",
+  "date": "2026-11-02",
+  "sequenceNumber": 33,
+  "slug": "2026-11-02-the-26-subnet",
+  "title": "The /26 Subnet",
+  "shortTitle": "The /26 Subnet",
+  "subtitle": "Sixty-four minus the endpoints.",
+  "description": "Compute addresses and usable hosts for a /26 — the arithmetic every operator needs.",
+  "category": "networking",
+  "subcategories": [
+    "ip"
+  ],
+  "challengeType": "networking",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 12,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "cidr",
+    "subnetting"
+  ],
+  "tags": [
+    "cidr",
+    "ip"
+  ],
+  "skills": [
+    "Subnet arithmetic"
+  ],
+  "prompt": "A subnet is announced as `10.0.0.64/26`. How many TOTAL addresses does the block contain, and how many are USABLE for hosts?\n\n**A.** 64 total, 62 usable\n**B.** 26 total, 24 usable\n**C.** 64 total, 64 usable\n**D.** 128 total, 126 usable",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "64 total, 62 usable",
+    "26 total, 24 usable",
+    "64 total, 64 usable",
+    "128 total, 126 usable"
+  ],
+  "correctOptionIndex": 0,
+  "examples": [],
+  "hints": [
+    "How many bits remain after the prefix?",
+    "Which two addresses are always reserved?"
+  ],
+  "solution": {
+    "summary": "The correct answer is A — 64 total, 62 usable",
+    "answer": "64 total, 62 usable",
+    "reasoning": [
+      "Host bits = 32 − prefix length = 6; total = 2⁶ = 64.",
+      "The first address (10.0.0.64) is the network id, the last (10.0.0.127) is broadcast.",
+      "Usable range: 10.0.0.65 – 10.0.0.126 = 62 hosts."
+    ],
+    "whyNot": [
+      "26 total, 24 usable — The /26 prefix length is not the address count — host bits are 32 minus the prefix.",
+      "64 total, 64 usable — Network and broadcast addresses are reserved, so two of the 64 are not assignable.",
+      "128 total, 126 usable — That would be a /25 (7 host bits)."
+    ]
+  },
+  "learningObjectives": [
+    "Convert prefix length to host bits",
+    "Reserve network and broadcast correctly"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "net.cidr-26",
+  "generatorVersion": "1.0.0",
+  "seed": "dba2cb007900c4c16f7d0ad405fd21dd870b971222883086f68fccbdbb590e75",
+  "paramsSignature": "v1",
+  "contentHash": "c76ef12437fab170507772723da80dc5e000f5be102bdf1302a48a1b54b33796",
+  "createdAt": "2026-11-01T22:27:42.828Z",
+  "updatedAt": "2026-11-01T22:27:42.828Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-01T22:27:42.828Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

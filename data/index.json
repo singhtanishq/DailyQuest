@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-31T21:53:58.755Z",
+  "generatedAt": "2026-11-01T22:27:42.831Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -827,6 +827,32 @@
       "fpc": "3adb06dc4af6759c",
       "fpt": "b7671bfb15efadb1",
       "fpp": "9a08259b8da97ad0"
+    },
+    {
+      "id": "dq-2026-11-02",
+      "date": "2026-11-02",
+      "sequenceNumber": 33,
+      "slug": "2026-11-02-the-26-subnet",
+      "title": "The /26 Subnet",
+      "shortTitle": "The /26 Subnet",
+      "description": "Compute addresses and usable hosts for a /26 — the arithmetic every operator needs.",
+      "category": "networking",
+      "challengeType": "networking",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "cidr",
+        "subnetting"
+      ],
+      "tags": [
+        "cidr",
+        "ip"
+      ],
+      "contentHash": "c76ef12437fab170507772723da80dc5e000f5be102bdf1302a48a1b54b33796",
+      "fpc": "c76ef12437fab170",
+      "fpt": "d69976d5dfbd3618",
+      "fpp": "4b691e0c9ad19120"
     }
   ]
 }

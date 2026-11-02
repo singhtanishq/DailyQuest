@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-10-31T21:53:58.755Z",
+  "generatedAt": "2026-11-01T22:27:42.831Z",
   "categories": [
     {
       "id": "coding",
@@ -365,11 +365,18 @@
       "description": "TCP versus UDP, DNS resolution, CIDR math, TLS handshakes and latency. Networking quests keep the terminology precise — several include computed answers.",
       "icon": "network",
       "group": "Systems & Tooling",
-      "questCount": 0,
-      "difficultyDistribution": {},
-      "skills": [],
-      "topTags": [],
-      "latestQuestDate": null
+      "questCount": 1,
+      "difficultyDistribution": {
+        "intermediate": 1
+      },
+      "skills": [
+        "Subnet arithmetic"
+      ],
+      "topTags": [
+        "cidr",
+        "ip"
+      ],
+      "latestQuestDate": "2026-11-02"
     },
     {
       "id": "cybersecurity",

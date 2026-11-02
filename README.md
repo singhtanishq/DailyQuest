@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#032 — Shifted Dispatch](https://singhtanishq.github.io/DailyQuest/quest/2026-11-01-shifted-dispatch)
-> November 1, 2026 · `coding` · `easy` · 12 min
+> **Today’s quest:** [#033 — The /26 Subnet](https://singhtanishq.github.io/DailyQuest/quest/2026-11-02-the-26-subnet)
+> November 2, 2026 · `networking` · `intermediate` · 12 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---
