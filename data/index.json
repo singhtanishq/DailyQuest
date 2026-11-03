@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-01T22:27:42.831Z",
+  "generatedAt": "2026-11-03T01:19:41.888Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -853,6 +853,30 @@
       "fpc": "c76ef12437fab170",
       "fpt": "d69976d5dfbd3618",
       "fpp": "4b691e0c9ad19120"
+    },
+    {
+      "id": "dq-2026-11-03",
+      "date": "2026-11-03",
+      "sequenceNumber": 34,
+      "slug": "2026-11-03-the-committed-key",
+      "title": "The Committed Key",
+      "shortTitle": "The Committed Key",
+      "description": "A client-side module with the API key inline.",
+      "category": "code_review",
+      "challengeType": "code_review",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "secrets management"
+      ],
+      "tags": [
+        "security"
+      ],
+      "contentHash": "8194ce9355ebd8db4215d86e15e0c18c71647aaaf426a962846970326f60977b",
+      "fpc": "8194ce9355ebd8db",
+      "fpt": "d0047daa2813c3e7",
+      "fpp": "7473ab78aee23005"
     }
   ]
 }

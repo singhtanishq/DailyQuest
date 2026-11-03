@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-01T22:27:42.831Z",
-  "totalQuests": 33,
-  "currentSequence": 33,
-  "latestQuestDate": "2026-11-02",
+  "generatedAt": "2026-11-03T01:19:41.888Z",
+  "totalQuests": 34,
+  "currentSequence": 34,
+  "latestQuestDate": "2026-11-03",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -24,10 +24,11 @@
     "javascript": 2,
     "linux": 1,
     "security_analysis": 1,
-    "networking": 1
+    "networking": 1,
+    "code_review": 1
   },
   "byDifficulty": {
-    "intermediate": 18,
+    "intermediate": 19,
     "hard": 4,
     "easy": 11
   },
@@ -45,7 +46,8 @@
     "git": 1,
     "linux": 1,
     "security_analysis": 1,
-    "networking": 1
+    "networking": 1,
+    "code_review": 1
   },
   "categoryBreakdown": [
     {
@@ -109,6 +111,12 @@
       "percent": 3
     },
     {
+      "id": "code_review",
+      "label": "Code Review",
+      "count": 1,
+      "percent": 3
+    },
+    {
       "id": "cybersecurity",
       "label": "Cybersecurity",
       "count": 1,
@@ -157,11 +165,11 @@
       "percent": 3
     }
   ],
-  "averageEstimatedMinutes": 14.5,
-  "totalEstimatedMinutes": 477,
-  "currentStreak": 33,
-  "longestStreak": 33,
-  "archiveSpanDays": 33,
+  "averageEstimatedMinutes": 14.4,
+  "totalEstimatedMinutes": 489,
+  "currentStreak": 34,
+  "longestStreak": 34,
+  "archiveSpanDays": 34,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

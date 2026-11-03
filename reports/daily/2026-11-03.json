@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-03",
+  "generatedAt": "2026-11-03T01:19:41.884Z",
+  "generatorVersion": "1.0.0",
+  "outcome": "created",
+  "questId": "dq-2026-11-03",
+  "sequenceNumber": 34,
+  "title": "The Committed Key",
+  "category": "code_review",
+  "difficulty": "intermediate",
+  "templateId": "cr.hardcoded-secret",
+  "validationScore": 100,
+  "changedDerivedFiles": [
+    "/home/runner/work/DailyQuest/DailyQuest/data/index.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/stats.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/categories.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/latest.json",
+    "/home/runner/work/DailyQuest/DailyQuest/data/health.json"
+  ],
+  "warnings": [],
+  "durationMs": 0
+}

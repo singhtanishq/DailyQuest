@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-03",
+  "date": "2026-11-03",
+  "sequenceNumber": 34,
+  "slug": "2026-11-03-the-committed-key",
+  "title": "The Committed Key",
+  "shortTitle": "The Committed Key",
+  "subtitle": "The credential that ships with the repo.",
+  "description": "A client-side module with the API key inline.",
+  "category": "code_review",
+  "subcategories": [
+    "security"
+  ],
+  "challengeType": "code_review",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 12,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 3,
+  "concepts": [
+    "secrets management"
+  ],
+  "tags": [
+    "security"
+  ],
+  "skills": [
+    "Secrets hygiene"
+  ],
+  "prompt": "Review the following code as if it appeared in your team’s pull request.\n\n```typescript\nconst API_KEY = \"sk-live-9f3ab2c7d84e1f6a\";\n\nexport async function fetchDashboard() {\n  const res = await fetch(\"https://api.example.com/dashboard\", {\n    headers: { Authorization: `Bearer ${API_KEY}` },\n  });\n  if (!res.ok) throw new Error(\"Request failed: \" + res.status);\n  return res.json();\n}\n```\n\nIdentify every issue worth raising: correctness, security, performance, and maintainability.",
+  "instructions": [
+    "List each issue with its severity.",
+    "For every issue, explain the concrete risk it creates.",
+    "Propose the smallest fix that resolves it."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "Who can read the final bundle?",
+    "What does deleting the line actually accomplish?"
+  ],
+  "solution": {
+    "summary": "Review found 2 issues: Live secret committed to source; Client-side code cannot hold secrets at all.",
+    "reasoning": [
+      "**[CRITICAL] Live secret committed to source** — This file is bundled into client JavaScript — every visitor receives the key, and git history keeps it forever even after removal. It must be rotated immediately; deleting the line is not remediation. Fix: Rotate the key, purge nothing by hand — instead proxy privileged calls through your backend, which holds the secret in its environment.",
+      "**[MAJOR] Client-side code cannot hold secrets at all** — Even \"hidden\" build-time injection (VITE_ vars) ships in the bundle. Any credential the browser uses is public. Fix: Treat client-facing APIs as public: authenticate users (session/token) and enforce scopes server-side."
+    ]
+  },
+  "learningObjectives": [
+    "Handle leaked credentials correctly",
+    "Redesign client/server secret boundaries"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "cr.hardcoded-secret",
+  "generatorVersion": "1.0.0",
+  "seed": "18d4c9a2e9d1605b92c6239b41a023412f02bf93054090d6c233e6e903469397",
+  "paramsSignature": "v1",
+  "contentHash": "8194ce9355ebd8db4215d86e15e0c18c71647aaaf426a962846970326f60977b",
+  "createdAt": "2026-11-03T01:19:41.884Z",
+  "updatedAt": "2026-11-03T01:19:41.884Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-03T01:19:41.884Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
