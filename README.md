@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#034 — The Committed Key](https://singhtanishq.github.io/DailyQuest/quest/2026-11-03-the-committed-key)
-> November 3, 2026 · `code_review` · `intermediate` · 12 min
+> **Today’s quest:** [#035 — The Persisting Digit](https://singhtanishq.github.io/DailyQuest/quest/2026-11-04-the-persisting-digit)
+> November 4, 2026 · `coding` · `easy` · 8 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

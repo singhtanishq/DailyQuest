@@ -1,29 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-03T01:19:41.888Z",
+  "generatedAt": "2026-11-03T23:43:42.238Z",
   "quest": {
-    "id": "dq-2026-11-03",
-    "date": "2026-11-03",
-    "sequenceNumber": 34,
-    "slug": "2026-11-03-the-committed-key",
-    "title": "The Committed Key",
-    "shortTitle": "The Committed Key",
-    "description": "A client-side module with the API key inline.",
-    "category": "code_review",
-    "challengeType": "code_review",
-    "difficulty": "intermediate",
-    "difficultyScore": 3,
-    "estimatedMinutes": 12,
+    "id": "dq-2026-11-04",
+    "date": "2026-11-04",
+    "sequenceNumber": 35,
+    "slug": "2026-11-04-the-persisting-digit",
+    "title": "The Persisting Digit",
+    "shortTitle": "The Persisting Digit",
+    "description": "Repeatedly sum the digits of a number until a single digit is left — the digital root, with a surprise closed form.",
+    "category": "coding",
+    "challengeType": "coding",
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "estimatedMinutes": 8,
     "concepts": [
-      "secrets management"
+      "digit manipulation",
+      "fixed points"
     ],
     "tags": [
-      "security"
+      "math",
+      "digits"
     ],
-    "contentHash": "8194ce9355ebd8db4215d86e15e0c18c71647aaaf426a962846970326f60977b",
-    "fpc": "8194ce9355ebd8db",
-    "fpt": "d0047daa2813c3e7",
-    "fpp": "7473ab78aee23005"
+    "contentHash": "ab77cb8a0bdd19772fb9d1f13d93b0fe037fad6e283dac30b5d1102bc890a920",
+    "fpc": "ab77cb8a0bdd1977",
+    "fpt": "a07635ab222b74d1",
+    "fpp": "f777b54a71566d2d"
   }
 }

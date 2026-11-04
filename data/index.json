@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-03T01:19:41.888Z",
+  "generatedAt": "2026-11-03T23:43:42.238Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -877,6 +877,32 @@
       "fpc": "8194ce9355ebd8db",
       "fpt": "d0047daa2813c3e7",
       "fpp": "7473ab78aee23005"
+    },
+    {
+      "id": "dq-2026-11-04",
+      "date": "2026-11-04",
+      "sequenceNumber": 35,
+      "slug": "2026-11-04-the-persisting-digit",
+      "title": "The Persisting Digit",
+      "shortTitle": "The Persisting Digit",
+      "description": "Repeatedly sum the digits of a number until a single digit is left — the digital root, with a surprise closed form.",
+      "category": "coding",
+      "challengeType": "coding",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 8,
+      "concepts": [
+        "digit manipulation",
+        "fixed points"
+      ],
+      "tags": [
+        "math",
+        "digits"
+      ],
+      "contentHash": "ab77cb8a0bdd19772fb9d1f13d93b0fe037fad6e283dac30b5d1102bc890a920",
+      "fpc": "ab77cb8a0bdd1977",
+      "fpt": "a07635ab222b74d1",
+      "fpp": "f777b54a71566d2d"
     }
   ]
 }
