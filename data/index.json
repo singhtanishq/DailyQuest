@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-03T23:43:42.238Z",
+  "generatedAt": "2026-11-04T23:57:18.568Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -903,6 +903,32 @@
       "fpc": "ab77cb8a0bdd1977",
       "fpt": "a07635ab222b74d1",
       "fpp": "f777b54a71566d2d"
+    },
+    {
+      "id": "dq-2026-11-05",
+      "date": "2026-11-05",
+      "sequenceNumber": 36,
+      "slug": "2026-11-05-the-index-everything-fallacy",
+      "title": "The Index Everything Fallacy",
+      "shortTitle": "The Index Everything Fallacy",
+      "description": "When an index helps, when it hurts, and why low-selectivity columns are poor candidates.",
+      "category": "databases",
+      "challengeType": "reasoning",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 20,
+      "concepts": [
+        "indexing",
+        "write amplification"
+      ],
+      "tags": [
+        "indexes",
+        "performance"
+      ],
+      "contentHash": "368c2a8ba817648e6de498eeecf203f8e7672f3aed176bdb9ef676cd7c5bc6dd",
+      "fpc": "368c2a8ba817648e",
+      "fpt": "7f09adfe4a0b502f",
+      "fpp": "f2ccb00b89711617"
     }
   ]
 }

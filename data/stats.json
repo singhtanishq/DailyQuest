@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-03T23:43:42.238Z",
-  "totalQuests": 35,
-  "currentSequence": 35,
-  "latestQuestDate": "2026-11-04",
+  "generatedAt": "2026-11-04T23:57:18.568Z",
+  "totalQuests": 36,
+  "currentSequence": 36,
+  "latestQuestDate": "2026-11-05",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -25,16 +25,17 @@
     "linux": 1,
     "security_analysis": 1,
     "networking": 1,
-    "code_review": 1
+    "code_review": 1,
+    "databases": 1
   },
   "byDifficulty": {
-    "intermediate": 19,
+    "intermediate": 20,
     "hard": 4,
     "easy": 12
   },
   "byType": {
     "sql": 4,
-    "reasoning": 5,
+    "reasoning": 6,
     "cybersecurity": 1,
     "coding": 7,
     "performance": 2,
@@ -72,7 +73,7 @@
       "id": "algorithms",
       "label": "Algorithms",
       "count": 3,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "javascript",
@@ -123,6 +124,12 @@
       "percent": 3
     },
     {
+      "id": "databases",
+      "label": "Databases",
+      "count": 1,
+      "percent": 3
+    },
+    {
       "id": "git",
       "label": "Git",
       "count": 1,
@@ -165,11 +172,11 @@
       "percent": 3
     }
   ],
-  "averageEstimatedMinutes": 14.2,
-  "totalEstimatedMinutes": 497,
-  "currentStreak": 35,
-  "longestStreak": 35,
-  "archiveSpanDays": 35,
+  "averageEstimatedMinutes": 14.4,
+  "totalEstimatedMinutes": 517,
+  "currentStreak": 36,
+  "longestStreak": 36,
+  "archiveSpanDays": 36,
   "missedDays": 0,
   "mostFrequentCategory": "coding",
   "mostFrequentDifficulty": "intermediate"

@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-03T23:43:42.238Z",
+  "generatedAt": "2026-11-04T23:57:18.568Z",
   "quest": {
-    "id": "dq-2026-11-04",
-    "date": "2026-11-04",
-    "sequenceNumber": 35,
-    "slug": "2026-11-04-the-persisting-digit",
-    "title": "The Persisting Digit",
-    "shortTitle": "The Persisting Digit",
-    "description": "Repeatedly sum the digits of a number until a single digit is left — the digital root, with a surprise closed form.",
-    "category": "coding",
-    "challengeType": "coding",
-    "difficulty": "easy",
-    "difficultyScore": 2,
-    "estimatedMinutes": 8,
+    "id": "dq-2026-11-05",
+    "date": "2026-11-05",
+    "sequenceNumber": 36,
+    "slug": "2026-11-05-the-index-everything-fallacy",
+    "title": "The Index Everything Fallacy",
+    "shortTitle": "The Index Everything Fallacy",
+    "description": "When an index helps, when it hurts, and why low-selectivity columns are poor candidates.",
+    "category": "databases",
+    "challengeType": "reasoning",
+    "difficulty": "intermediate",
+    "difficultyScore": 3,
+    "estimatedMinutes": 20,
     "concepts": [
-      "digit manipulation",
-      "fixed points"
+      "indexing",
+      "write amplification"
     ],
     "tags": [
-      "math",
-      "digits"
+      "indexes",
+      "performance"
     ],
-    "contentHash": "ab77cb8a0bdd19772fb9d1f13d93b0fe037fad6e283dac30b5d1102bc890a920",
-    "fpc": "ab77cb8a0bdd1977",
-    "fpt": "a07635ab222b74d1",
-    "fpp": "f777b54a71566d2d"
+    "contentHash": "368c2a8ba817648e6de498eeecf203f8e7672f3aed176bdb9ef676cd7c5bc6dd",
+    "fpc": "368c2a8ba817648e",
+    "fpt": "7f09adfe4a0b502f",
+    "fpp": "f2ccb00b89711617"
   }
 }
