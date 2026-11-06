@@ -1,31 +1,32 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-04T23:57:18.568Z",
+  "generatedAt": "2026-11-05T23:52:10.006Z",
   "quest": {
-    "id": "dq-2026-11-05",
-    "date": "2026-11-05",
-    "sequenceNumber": 36,
-    "slug": "2026-11-05-the-index-everything-fallacy",
-    "title": "The Index Everything Fallacy",
-    "shortTitle": "The Index Everything Fallacy",
-    "description": "When an index helps, when it hurts, and why low-selectivity columns are poor candidates.",
-    "category": "databases",
-    "challengeType": "reasoning",
-    "difficulty": "intermediate",
-    "difficultyScore": 3,
+    "id": "dq-2026-11-06",
+    "date": "2026-11-06",
+    "sequenceNumber": 37,
+    "slug": "2026-11-06-the-thrashing-loop",
+    "title": "The Thrashing Loop",
+    "shortTitle": "The Thrashing Loop",
+    "description": "Diagnose and fix a loop that forces synchronous layout on every iteration.",
+    "category": "web",
+    "challengeType": "performance",
+    "difficulty": "hard",
+    "difficultyScore": 4,
     "estimatedMinutes": 20,
     "concepts": [
-      "indexing",
-      "write amplification"
+      "reflow",
+      "performance",
+      "rendering pipeline"
     ],
     "tags": [
-      "indexes",
-      "performance"
+      "performance",
+      "browser"
     ],
-    "contentHash": "368c2a8ba817648e6de498eeecf203f8e7672f3aed176bdb9ef676cd7c5bc6dd",
-    "fpc": "368c2a8ba817648e",
-    "fpt": "7f09adfe4a0b502f",
-    "fpp": "f2ccb00b89711617"
+    "contentHash": "c4703f9f8e2755ee42a8266e872f539f18051f018fda9e6a0eeb58a889df7663",
+    "fpc": "c4703f9f8e2755ee",
+    "fpt": "89cd14e7cd61ddae",
+    "fpp": "94cebd07f050739a"
   }
 }

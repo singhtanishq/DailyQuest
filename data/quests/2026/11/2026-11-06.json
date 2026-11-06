@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-06",
+  "date": "2026-11-06",
+  "sequenceNumber": 37,
+  "slug": "2026-11-06-the-thrashing-loop",
+  "title": "The Thrashing Loop",
+  "shortTitle": "The Thrashing Loop",
+  "subtitle": "Read, write, read, write — the layout killer.",
+  "description": "Diagnose and fix a loop that forces synchronous layout on every iteration.",
+  "category": "web",
+  "subcategories": [
+    "performance"
+  ],
+  "challengeType": "performance",
+  "difficulty": "hard",
+  "difficultyScore": 4,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 4,
+  "reasoningComplexity": 4,
+  "implementationComplexity": 3,
+  "concepts": [
+    "reflow",
+    "performance",
+    "rendering pipeline"
+  ],
+  "tags": [
+    "performance",
+    "browser"
+  ],
+  "skills": [
+    "Render pipeline reasoning"
+  ],
+  "prompt": "This code is slow: `for (const el of items) { heights.push(el.offsetHeight); el.style.height = (el.offsetHeight * 2) + \"px\"; }`. Explain what layout thrashing is, why this loop triggers it, and restructure it to be fast.\n\nA strong answer addresses:\n- Describe the JS → style → layout → paint pipeline and the invalidation rule.\n- Explain the read-write interleaving that forces reflow per item.\n- Provide the batched (read-all, write-all) rewrite.",
+  "instructions": [
+    "Answer in your own words, then compare with the solution."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "Which property reads force layout, and which writes invalidate it?",
+    "Split the loop into two passes: all reads, then all writes."
+  ],
+  "solution": {
+    "summary": "offsetHeight forces the browser to compute layout NOW if anything is dirty. Alternating reads and writes means each write invalidates layout and the next read flushes it — one synchronous reflow per item. Batch it: read every offsetHeight into an array first, then write all the new heights; layout flushes once.",
+    "reasoning": [
+      "DOM writes mark the tree dirty; layout-dependent reads (offsetWidth, getBoundingClientRect) force a synchronous flush.",
+      "N interleaved pairs → N forced reflows; batching → one.",
+      "For extreme cases, FastDOM-style scheduling or requestAnimationFrame chunking spreads the work across frames.",
+      "Transforms and opacity avoid layout entirely — prefer them when the effect allows."
+    ],
+    "commonMistakes": [
+      "Caching `el.offsetHeight` in the loop condition but still reading AFTER the write in the same iteration.",
+      "Blaming JavaScript speed — the cost is forced synchronous layout, not the JS itself."
+    ]
+  },
+  "learningObjectives": [
+    "Explain forced synchronous layout",
+    "Apply read-write batching"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-12"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "web.layout-thrashing",
+  "generatorVersion": "1.0.0",
+  "seed": "a52a58869f3650fd106a1339fd1011a9a9d64f6101cfd0d0b2479377fb7a1684",
+  "paramsSignature": "v1",
+  "contentHash": "c4703f9f8e2755ee42a8266e872f539f18051f018fda9e6a0eeb58a889df7663",
+  "createdAt": "2026-11-05T23:52:10.002Z",
+  "updatedAt": "2026-11-05T23:52:10.002Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-05T23:52:10.002Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

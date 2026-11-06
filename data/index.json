@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-04T23:57:18.568Z",
+  "generatedAt": "2026-11-05T23:52:10.006Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -929,6 +929,33 @@
       "fpc": "368c2a8ba817648e",
       "fpt": "7f09adfe4a0b502f",
       "fpp": "f2ccb00b89711617"
+    },
+    {
+      "id": "dq-2026-11-06",
+      "date": "2026-11-06",
+      "sequenceNumber": 37,
+      "slug": "2026-11-06-the-thrashing-loop",
+      "title": "The Thrashing Loop",
+      "shortTitle": "The Thrashing Loop",
+      "description": "Diagnose and fix a loop that forces synchronous layout on every iteration.",
+      "category": "web",
+      "challengeType": "performance",
+      "difficulty": "hard",
+      "difficultyScore": 4,
+      "estimatedMinutes": 20,
+      "concepts": [
+        "reflow",
+        "performance",
+        "rendering pipeline"
+      ],
+      "tags": [
+        "performance",
+        "browser"
+      ],
+      "contentHash": "c4703f9f8e2755ee42a8266e872f539f18051f018fda9e6a0eeb58a889df7663",
+      "fpc": "c4703f9f8e2755ee",
+      "fpt": "89cd14e7cd61ddae",
+      "fpp": "94cebd07f050739a"
     }
   ]
 }
