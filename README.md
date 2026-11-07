@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#037 — The Thrashing Loop](https://singhtanishq.github.io/DailyQuest/quest/2026-11-06-the-thrashing-loop)
-> November 6, 2026 · `web` · `hard` · 20 min
+> **Today’s quest:** [#038 — Params of Chaos](https://singhtanishq.github.io/DailyQuest/quest/2026-11-07-params-of-chaos)
+> November 7, 2026 · `coding` · `intermediate` · 15 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

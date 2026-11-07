@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-05T23:52:10.006Z",
-  "totalQuests": 37,
-  "currentSequence": 37,
-  "latestQuestDate": "2026-11-06",
+  "generatedAt": "2026-11-06T23:32:45.881Z",
+  "totalQuests": 38,
+  "currentSequence": 38,
+  "latestQuestDate": "2026-11-07",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
     "typescript": 1,
     "cybersecurity": 1,
-    "coding": 4,
+    "coding": 5,
     "performance": 2,
     "react": 2,
     "algorithms": 3,
@@ -29,7 +29,7 @@
     "databases": 1
   },
   "byDifficulty": {
-    "intermediate": 20,
+    "intermediate": 21,
     "hard": 5,
     "easy": 12
   },
@@ -37,7 +37,7 @@
     "sql": 4,
     "reasoning": 6,
     "cybersecurity": 1,
-    "coding": 7,
+    "coding": 8,
     "performance": 3,
     "debugging": 5,
     "architecture": 1,
@@ -54,8 +54,8 @@
     {
       "id": "coding",
       "label": "Coding",
-      "count": 4,
-      "percent": 11
+      "count": 5,
+      "percent": 13
     },
     {
       "id": "debugging",
@@ -173,10 +173,10 @@
     }
   ],
   "averageEstimatedMinutes": 14.5,
-  "totalEstimatedMinutes": 537,
-  "currentStreak": 37,
-  "longestStreak": 37,
-  "archiveSpanDays": 37,
+  "totalEstimatedMinutes": 552,
+  "currentStreak": 38,
+  "longestStreak": 38,
+  "archiveSpanDays": 38,
   "missedDays": 0,
   "mostFrequentCategory": "coding",
   "mostFrequentDifficulty": "intermediate"

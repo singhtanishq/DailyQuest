@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-05T23:52:10.006Z",
+  "generatedAt": "2026-11-06T23:32:45.881Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -956,6 +956,33 @@
       "fpc": "c4703f9f8e2755ee",
       "fpt": "89cd14e7cd61ddae",
       "fpp": "94cebd07f050739a"
+    },
+    {
+      "id": "dq-2026-11-07",
+      "date": "2026-11-07",
+      "sequenceNumber": 38,
+      "slug": "2026-11-07-params-of-chaos",
+      "title": "Params of Chaos",
+      "shortTitle": "Params of Chaos",
+      "description": "Parse a URL query string correctly: pairs split on `&`, values on the first `=`, `+` means space, and percent escapes decode to UTF-8.",
+      "category": "coding",
+      "challengeType": "coding",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 15,
+      "concepts": [
+        "url parsing",
+        "percent encoding"
+      ],
+      "tags": [
+        "urls",
+        "parsing",
+        "encoding"
+      ],
+      "contentHash": "6321964be2bc07a0de09cc7c050c517a94549c3050727d4740b7fbdd0a513679",
+      "fpc": "6321964be2bc07a0",
+      "fpt": "254868d71d42dc89",
+      "fpp": "d7540b545a848832"
     }
   ]
 }
