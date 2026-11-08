@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-06T23:32:45.881Z",
+  "generatedAt": "2026-11-07T22:20:18.185Z",
   "categories": [
     {
       "id": "coding",
@@ -524,11 +524,17 @@
       "description": "Encodings, floating point, dates, JSON and other cross-cutting fundamentals that produce disproportionately many production bugs.",
       "icon": "cpu",
       "group": "Reasoning & Craft",
-      "questCount": 0,
-      "difficultyDistribution": {},
-      "skills": [],
-      "topTags": [],
-      "latestQuestDate": null
+      "questCount": 1,
+      "difficultyDistribution": {
+        "easy": 1
+      },
+      "skills": [
+        "Encoding literacy"
+      ],
+      "topTags": [
+        "encodings"
+      ],
+      "latestQuestDate": "2026-11-08"
     }
   ]
 }

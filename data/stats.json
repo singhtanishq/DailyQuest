@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-06T23:32:45.881Z",
-  "totalQuests": 38,
-  "currentSequence": 38,
-  "latestQuestDate": "2026-11-07",
+  "generatedAt": "2026-11-07T22:20:18.185Z",
+  "totalQuests": 39,
+  "currentSequence": 39,
+  "latestQuestDate": "2026-11-08",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -26,16 +26,17 @@
     "security_analysis": 1,
     "networking": 1,
     "code_review": 1,
-    "databases": 1
+    "databases": 1,
+    "general_tech": 1
   },
   "byDifficulty": {
     "intermediate": 21,
     "hard": 5,
-    "easy": 12
+    "easy": 13
   },
   "byType": {
     "sql": 4,
-    "reasoning": 6,
+    "reasoning": 7,
     "cybersecurity": 1,
     "coding": 8,
     "performance": 3,
@@ -61,13 +62,13 @@
       "id": "debugging",
       "label": "Debugging",
       "count": 4,
-      "percent": 11
+      "percent": 10
     },
     {
       "id": "sql",
       "label": "SQL",
       "count": 4,
-      "percent": 11
+      "percent": 10
     },
     {
       "id": "algorithms",
@@ -136,6 +137,12 @@
       "percent": 3
     },
     {
+      "id": "general_tech",
+      "label": "General Tech",
+      "count": 1,
+      "percent": 3
+    },
+    {
       "id": "git",
       "label": "Git",
       "count": 1,
@@ -172,11 +179,11 @@
       "percent": 3
     }
   ],
-  "averageEstimatedMinutes": 14.5,
-  "totalEstimatedMinutes": 552,
-  "currentStreak": 38,
-  "longestStreak": 38,
-  "archiveSpanDays": 38,
+  "averageEstimatedMinutes": 14.4,
+  "totalEstimatedMinutes": 562,
+  "currentStreak": 39,
+  "longestStreak": 39,
+  "archiveSpanDays": 39,
   "missedDays": 0,
   "mostFrequentCategory": "coding",
   "mostFrequentDifficulty": "intermediate"

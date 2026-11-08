@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-06T23:32:45.881Z",
+  "generatedAt": "2026-11-07T22:20:18.185Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -983,6 +983,31 @@
       "fpc": "6321964be2bc07a0",
       "fpt": "254868d71d42dc89",
       "fpp": "d7540b545a848832"
+    },
+    {
+      "id": "dq-2026-11-08",
+      "date": "2026-11-08",
+      "sequenceNumber": 39,
+      "slug": "2026-11-08-the-mangled-cafa",
+      "title": "The Mangled cafÃ©",
+      "shortTitle": "The Mangled cafÃ©",
+      "description": "Diagnose the classic double-encoding artifact.",
+      "category": "general_tech",
+      "challengeType": "reasoning",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 10,
+      "concepts": [
+        "encodings",
+        "unicode"
+      ],
+      "tags": [
+        "encodings"
+      ],
+      "contentHash": "a01fe5c64b4218eb8c4b51e020062e7b435d86f60b691698cbbf55571dc7bfaf",
+      "fpc": "a01fe5c64b4218eb",
+      "fpt": "5d43446fc8646617",
+      "fpp": "84cbb73936fd394f"
     }
   ]
 }

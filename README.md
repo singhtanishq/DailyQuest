@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#038 — Params of Chaos](https://singhtanishq.github.io/DailyQuest/quest/2026-11-07-params-of-chaos)
-> November 7, 2026 · `coding` · `intermediate` · 15 min
+> **Today’s quest:** [#039 — The Mangled cafÃ©](https://singhtanishq.github.io/DailyQuest/quest/2026-11-08-the-mangled-cafa)
+> November 8, 2026 · `general_tech` · `easy` · 10 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

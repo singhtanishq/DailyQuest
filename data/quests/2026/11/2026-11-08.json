@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-08",
+  "date": "2026-11-08",
+  "sequenceNumber": 39,
+  "slug": "2026-11-08-the-mangled-cafa",
+  "title": "The Mangled cafÃ©",
+  "shortTitle": "The Mangled cafÃ©",
+  "subtitle": "One encoding read as another.",
+  "description": "Diagnose the classic double-encoding artifact.",
+  "category": "general_tech",
+  "subcategories": [
+    "encodings"
+  ],
+  "challengeType": "reasoning",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 10,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 1,
+  "concepts": [
+    "encodings",
+    "unicode"
+  ],
+  "tags": [
+    "encodings"
+  ],
+  "skills": [
+    "Encoding literacy"
+  ],
+  "prompt": "A page shows `cafÃ©` where `café` was stored. What happened, and what is the fix?\n\n**A.** The database truncated the string to a byte limit\n**B.** The browser needs a font that supports é\n**C.** UTF-8 bytes were decoded as Latin-1 (or Windows-1252) somewhere in the chain — fix by declaring/honoring UTF-8 consistently end to end\n**D.** The accented é is invalid in UTF-8",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "The database truncated the string to a byte limit",
+    "The browser needs a font that supports é",
+    "UTF-8 bytes were decoded as Latin-1 (or Windows-1252) somewhere in the chain — fix by declaring/honoring UTF-8 consistently end to end",
+    "The accented é is invalid in UTF-8"
+  ],
+  "correctOptionIndex": 2,
+  "examples": [],
+  "hints": [
+    "How many bytes does é occupy in UTF-8, and what do those bytes render as in Latin-1?",
+    "Which layer in the storage chain lacked a UTF-8 declaration?"
+  ],
+  "solution": {
+    "summary": "The correct answer is C — UTF-8 bytes were decoded as Latin-1 (or Windows-1252) somewhere in the chain — fix by declaring/honoring UTF-8 consistently end to end",
+    "answer": "UTF-8 bytes were decoded as Latin-1 (or Windows-1252) somewhere in the chain — fix by declaring/honoring UTF-8 consistently end to end",
+    "reasoning": [
+      "Every layer declares (or assumes) an encoding: DB column, connection charset, HTTP Content-Type, file reads, JSON parsers.",
+      "The artifact itself is diagnostic: C3 A9 → Ã© is the signature of UTF-8-read-as-Latin1.",
+      "The fix is consistency at every hop, and byte-preserving repair (re-encode mojibake back through the wrong decoder) only when data was already corrupted."
+    ],
+    "whyNot": [
+      "The database truncated the string to a byte limit — Truncation would cut the string short, not produce plausible accented characters.",
+      "The browser needs a font that supports é — A missing font shows boxes (tofu), never re-encoded lookalike characters.",
+      "The accented é is invalid in UTF-8 — é is perfectly valid UTF-8 — it is the interpretation that is wrong."
+    ]
+  },
+  "learningObjectives": [
+    "Diagnose mojibake signatures",
+    "Enforce UTF-8 across the stack"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "general.utf8-basics",
+  "generatorVersion": "1.0.0",
+  "seed": "39c8bc8e9c676af72549dc96591abe72d2ad69d3b71b59cfce3cd2015285ca4a",
+  "paramsSignature": "v1",
+  "contentHash": "a01fe5c64b4218eb8c4b51e020062e7b435d86f60b691698cbbf55571dc7bfaf",
+  "createdAt": "2026-11-07T22:20:18.180Z",
+  "updatedAt": "2026-11-07T22:20:18.180Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-07T22:20:18.180Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
