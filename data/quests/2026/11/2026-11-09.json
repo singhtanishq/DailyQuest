@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-09",
+  "date": "2026-11-09",
+  "sequenceNumber": 40,
+  "slug": "2026-11-09-the-chained-waterfall",
+  "title": "The Chained Waterfall",
+  "shortTitle": "The Chained Waterfall",
+  "subtitle": "Four sequential round trips before pixels.",
+  "description": "Untangle a render-blocking resource chain.",
+  "category": "performance",
+  "subcategories": [
+    "frontend"
+  ],
+  "challengeType": "performance",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "waterfalls",
+    "render blocking"
+  ],
+  "tags": [
+    "web",
+    "frontend"
+  ],
+  "skills": [
+    "Critical path analysis"
+  ],
+  "prompt": "A page loads: HTML → <link css> → css @import font.css → font.css declares a font URL → text cannot render until the font arrives. Sketch the request waterfall, explain why each link is blocking, and list the concrete fixes (inline critical CSS, preload the font, drop @import) with the order you would apply them.\n\nA strong answer addresses:\n- Draw the dependency chain and count round trips.\n- Explain why @import serializes discovery.\n- Prioritize fixes by (impact ÷ effort).",
+  "instructions": [
+    "Answer in your own words, then compare with the solution."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "Which requests can begin only after another finishes?",
+    "Which fix removes the last hop entirely?"
+  ],
+  "solution": {
+    "summary": "The chain is HTML → CSS1 → CSS2(@import) → font — four serial dependencies, each discovered only after the previous arrives, so render waits for all four. Fixes in order: (1) replace @import with <link> tags so discovery is parallel; (2) preload the font with <link rel=\"preload\" as=\"font\" crossorigin>; (3) inline the critical CSS in the HTML and defer the rest; (4) font-display: swap so text renders immediately in a fallback face. Expected effect: render no longer waits on the font, and CSS discovery collapses to one hop.",
+    "reasoning": [
+      "Browsers cannot know about @import targets until the importing CSS downloads — serial by construction.",
+      "preload breaks the discovery chain for assets you know are needed.",
+      "font-display trades brand fidelity for perceived speed — usually the right trade for content."
+    ],
+    "commonMistakes": [
+      "Preloading fonts without crossorigin (double-fetch or failed match).",
+      "Inlining ALL CSS — large inline stylesheets cannot be cached and slow every navigation."
+    ]
+  },
+  "learningObjectives": [
+    "Read and shorten resource waterfalls",
+    "Apply parallel-discovery fixes"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-05",
+    "dq-2026-10-07"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "perf.render-waterfall",
+  "generatorVersion": "1.0.0",
+  "seed": "b645941bf0668290b1b62188bafefe6ab2b9e7182e22af1a54e9ec26a35f8799",
+  "paramsSignature": "v1",
+  "contentHash": "4c6cddf02da7c80c996def67b91e8527552d21d803772883812feec490765384",
+  "createdAt": "2026-11-08T22:31:05.995Z",
+  "updatedAt": "2026-11-08T22:31:05.995Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-08T22:31:05.995Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

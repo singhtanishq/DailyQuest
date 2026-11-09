@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-07T22:20:18.185Z",
+  "generatedAt": "2026-11-08T22:31:06.000Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1008,6 +1008,32 @@
       "fpc": "a01fe5c64b4218eb",
       "fpt": "5d43446fc8646617",
       "fpp": "84cbb73936fd394f"
+    },
+    {
+      "id": "dq-2026-11-09",
+      "date": "2026-11-09",
+      "sequenceNumber": 40,
+      "slug": "2026-11-09-the-chained-waterfall",
+      "title": "The Chained Waterfall",
+      "shortTitle": "The Chained Waterfall",
+      "description": "Untangle a render-blocking resource chain.",
+      "category": "performance",
+      "challengeType": "performance",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 20,
+      "concepts": [
+        "waterfalls",
+        "render blocking"
+      ],
+      "tags": [
+        "web",
+        "frontend"
+      ],
+      "contentHash": "4c6cddf02da7c80c996def67b91e8527552d21d803772883812feec490765384",
+      "fpc": "4c6cddf02da7c80c",
+      "fpt": "07ed7fb779cfaee9",
+      "fpp": "3aa6b173a4b79a8f"
     }
   ]
 }

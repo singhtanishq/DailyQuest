@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#039 — The Mangled cafÃ©](https://singhtanishq.github.io/DailyQuest/quest/2026-11-08-the-mangled-cafa)
-> November 8, 2026 · `general_tech` · `easy` · 10 min
+> **Today’s quest:** [#040 — The Chained Waterfall](https://singhtanishq.github.io/DailyQuest/quest/2026-11-09-the-chained-waterfall)
+> November 9, 2026 · `performance` · `intermediate` · 20 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

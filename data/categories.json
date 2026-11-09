@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-07T22:20:18.185Z",
+  "generatedAt": "2026-11-08T22:31:06.000Z",
   "categories": [
     {
       "id": "coding",
@@ -108,19 +108,22 @@
       "description": "N+1 queries, accidental quadratic algorithms, caching mistakes and network waterfalls. Performance quests teach practical profiling instincts rather than micro-optimizations.",
       "icon": "gauge",
       "group": "Engineering",
-      "questCount": 2,
+      "questCount": 3,
       "difficultyDistribution": {
-        "intermediate": 2
+        "intermediate": 3
       },
       "skills": [
         "Complexity spotting",
-        "Query plan reasoning"
+        "Query plan reasoning",
+        "Critical path analysis"
       ],
       "topTags": [
         "complexity",
-        "databases"
+        "databases",
+        "frontend",
+        "web"
       ],
-      "latestQuestDate": "2026-10-07"
+      "latestQuestDate": "2026-11-09"
     },
     {
       "id": "code_review",
