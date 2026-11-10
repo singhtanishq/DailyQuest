@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-08T22:31:06.000Z",
-  "totalQuests": 40,
-  "currentSequence": 40,
-  "latestQuestDate": "2026-11-09",
+  "generatedAt": "2026-11-10T01:47:15.884Z",
+  "totalQuests": 41,
+  "currentSequence": 41,
+  "latestQuestDate": "2026-11-10",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -20,7 +20,7 @@
     "python": 2,
     "regex": 2,
     "system_design": 1,
-    "git": 1,
+    "git": 2,
     "javascript": 2,
     "linux": 1,
     "security_analysis": 1,
@@ -31,7 +31,7 @@
   },
   "byDifficulty": {
     "intermediate": 22,
-    "hard": 5,
+    "hard": 6,
     "easy": 13
   },
   "byType": {
@@ -45,7 +45,7 @@
     "output_prediction": 2,
     "regex": 2,
     "system_design": 1,
-    "git": 1,
+    "git": 2,
     "linux": 1,
     "security_analysis": 1,
     "networking": 1,
@@ -56,7 +56,7 @@
       "id": "coding",
       "label": "Coding",
       "count": 5,
-      "percent": 13
+      "percent": 12
     },
     {
       "id": "debugging",
@@ -74,13 +74,19 @@
       "id": "algorithms",
       "label": "Algorithms",
       "count": 3,
-      "percent": 8
+      "percent": 7
     },
     {
       "id": "performance",
       "label": "Performance",
       "count": 3,
-      "percent": 8
+      "percent": 7
+    },
+    {
+      "id": "git",
+      "label": "Git",
+      "count": 2,
+      "percent": 5
     },
     {
       "id": "javascript",
@@ -116,74 +122,68 @@
       "id": "architecture",
       "label": "Architecture",
       "count": 1,
-      "percent": 3
+      "percent": 2
     },
     {
       "id": "code_review",
       "label": "Code Review",
       "count": 1,
-      "percent": 3
+      "percent": 2
     },
     {
       "id": "cybersecurity",
       "label": "Cybersecurity",
       "count": 1,
-      "percent": 3
+      "percent": 2
     },
     {
       "id": "databases",
       "label": "Databases",
       "count": 1,
-      "percent": 3
+      "percent": 2
     },
     {
       "id": "general_tech",
       "label": "General Tech",
       "count": 1,
-      "percent": 3
-    },
-    {
-      "id": "git",
-      "label": "Git",
-      "count": 1,
-      "percent": 3
+      "percent": 2
     },
     {
       "id": "linux",
       "label": "Linux",
       "count": 1,
-      "percent": 3
+      "percent": 2
     },
     {
       "id": "networking",
       "label": "Networking",
       "count": 1,
-      "percent": 3
+      "percent": 2
     },
     {
       "id": "security_analysis",
       "label": "Security Analysis",
       "count": 1,
-      "percent": 3
+      "percent": 2
     },
     {
       "id": "system_design",
       "label": "System Design",
       "count": 1,
-      "percent": 3
+      "percent": 2
     },
     {
       "id": "typescript",
       "label": "TypeScript",
       "count": 1,
-      "percent": 3
+      "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.6,
-  "totalEstimatedMinutes": 582,
-  "currentStreak": 40,
-  "longestStreak": 40,
-  "archiveSpanDays": 40,
+  "averageEstimatedMinutes": 14.7,
+  "totalEstimatedMinutes": 602,
+  "currentStreak": 41,
+  "longestStreak": 41,
+  "archiveSpanDays": 41,
   "missedDays": 0,
   "mostFrequentCategory": "coding",
   "mostFrequentDifficulty": "intermediate"

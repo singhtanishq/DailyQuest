@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-10",
+  "date": "2026-11-10",
+  "sequenceNumber": 41,
+  "slug": "2026-11-10-the-borrowed-commit",
+  "title": "The Borrowed Commit",
+  "shortTitle": "The Borrowed Commit",
+  "subtitle": "Steal one commit across branches.",
+  "description": "Cherry-pick a feature commit onto main and predict the resulting state.",
+  "category": "git",
+  "subcategories": [
+    "history"
+  ],
+  "challengeType": "git",
+  "difficulty": "hard",
+  "difficultyScore": 4,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 4,
+  "implementationComplexity": 4,
+  "concepts": [
+    "cherry-pick",
+    "branches"
+  ],
+  "tags": [
+    "cherry-pick"
+  ],
+  "skills": [
+    "Commit grafting"
+  ],
+  "prompt": "On main: commit \"first\" adds f.txt with `one`. A branch `feature` is created there, commits \"feature work\" (adds g.txt with `two`). Back on main, \"main work\" adds h.txt with `three`. Finally, main runs `git cherry-pick feature`.\n\nOn main, after the cherry-pick: how many commits, which subjects does the log list (newest first), and which files exist with what content?",
+  "instructions": [
+    "Reason about the repository state after the command sequence."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "Cherry-pick is apply-by-commit: same change, new identity.",
+    "Which files did main have before the pick?"
+  ],
+  "solution": {
+    "summary": "cherry-pick copies the DIFF of the feature commit and applies it on main as a new commit — same message, new hash.",
+    "reasoning": [
+      "cherry-pick copies the DIFF of the feature commit and applies it on main as a new commit — same message, new hash.",
+      "The log order (newest first) is: feature work (the graft), main work, first.",
+      "All three files exist: f.txt and h.txt from the parallel histories, g.txt delivered by the cherry-pick.",
+      "The feature branch still exists and still has its own copy — cherry-pick duplicates, it does not move."
+    ],
+    "commonMistakes": [
+      "Expecting the commit HASH to survive — a new parent means a new hash.",
+      "Assuming g.txt arrives only if the branch is merged — cherry-pick carries the diff alone."
+    ]
+  },
+  "learningObjectives": [
+    "Explain what cherry-pick copies",
+    "Predict merged-free integration results"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-23"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "git.cherry-pick",
+  "generatorVersion": "1.0.0",
+  "seed": "ba04de3d9262dcf880f2bade98236f404a9575ac55b0ba66a3a9ff2e422e3e78",
+  "paramsSignature": "v1",
+  "contentHash": "0c93cecd6ddc00f8a1eee7ce161d2e2d15a0c13655559f667157c89898f57601",
+  "createdAt": "2026-11-10T01:47:15.816Z",
+  "updatedAt": "2026-11-10T01:47:15.816Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-10T01:47:15.816Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced",
+      "verification-git"
+    ]
+  }
+}

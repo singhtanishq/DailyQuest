@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-08T22:31:06.000Z",
+  "generatedAt": "2026-11-10T01:47:15.884Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1034,6 +1034,31 @@
       "fpc": "4c6cddf02da7c80c",
       "fpt": "07ed7fb779cfaee9",
       "fpp": "3aa6b173a4b79a8f"
+    },
+    {
+      "id": "dq-2026-11-10",
+      "date": "2026-11-10",
+      "sequenceNumber": 41,
+      "slug": "2026-11-10-the-borrowed-commit",
+      "title": "The Borrowed Commit",
+      "shortTitle": "The Borrowed Commit",
+      "description": "Cherry-pick a feature commit onto main and predict the resulting state.",
+      "category": "git",
+      "challengeType": "git",
+      "difficulty": "hard",
+      "difficultyScore": 4,
+      "estimatedMinutes": 20,
+      "concepts": [
+        "cherry-pick",
+        "branches"
+      ],
+      "tags": [
+        "cherry-pick"
+      ],
+      "contentHash": "0c93cecd6ddc00f8a1eee7ce161d2e2d15a0c13655559f667157c89898f57601",
+      "fpc": "0c93cecd6ddc00f8",
+      "fpt": "23563c6fb08a8cf0",
+      "fpp": "9631f882a97d32e3"
     }
   ]
 }
