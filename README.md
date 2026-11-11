@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#041 — The Borrowed Commit](https://singhtanishq.github.io/DailyQuest/quest/2026-11-10-the-borrowed-commit)
-> November 10, 2026 · `git` · `hard` · 20 min
+> **Today’s quest:** [#042 — The Identity Trap](https://singhtanishq.github.io/DailyQuest/quest/2026-11-11-the-identity-trap)
+> November 11, 2026 · `python` · `easy` · 8 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

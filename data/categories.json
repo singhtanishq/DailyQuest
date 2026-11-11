@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-10T01:47:15.884Z",
+  "generatedAt": "2026-11-10T23:45:36.284Z",
   "categories": [
     {
       "id": "coding",
@@ -161,21 +161,23 @@
       "description": "Language semantics, the standard library, mutability traps and idiomatic patterns — the details that separate Python you can write from Python you can trust.",
       "icon": "file-code",
       "group": "Languages & Frameworks",
-      "questCount": 2,
+      "questCount": 3,
       "difficultyDistribution": {
-        "easy": 1,
+        "easy": 2,
         "intermediate": 1
       },
       "skills": [
         "Safe key access",
-        "Data modeling"
+        "Data modeling",
+        "Correct comparison operators"
       ],
       "topTags": [
         "python",
+        "comparison",
         "design",
         "dicts"
       ],
-      "latestQuestDate": "2026-10-22"
+      "latestQuestDate": "2026-11-11"
     },
     {
       "id": "javascript",

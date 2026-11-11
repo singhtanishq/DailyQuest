@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-11",
+  "date": "2026-11-11",
+  "sequenceNumber": 42,
+  "slug": "2026-11-11-the-identity-trap",
+  "title": "The Identity Trap",
+  "shortTitle": "The Identity Trap",
+  "subtitle": "is or ==? One of them is almost always wrong.",
+  "description": "Choosing between `is` and `==` is a correctness decision, not a style one.",
+  "category": "python",
+  "subcategories": [
+    "semantics"
+  ],
+  "challengeType": "reasoning",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 8,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 1,
+  "concepts": [
+    "identity vs equality"
+  ],
+  "tags": [
+    "python",
+    "comparison"
+  ],
+  "skills": [
+    "Correct comparison operators"
+  ],
+  "prompt": "Which statement about `is` and `==` in Python is correct?\n\n**A.** is compares values for small integers only\n**B.** Use is to compare values; it is faster than ==\n**C.** Use == to compare values; use is only for identity checks such as `x is None`\n**D.** is and == are interchangeable for strings",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "is compares values for small integers only",
+    "Use is to compare values; it is faster than ==",
+    "Use == to compare values; use is only for identity checks such as `x is None`",
+    "is and == are interchangeable for strings"
+  ],
+  "correctOptionIndex": 2,
+  "examples": [],
+  "hints": [
+    "What does id(x) measure?",
+    "Why does PEP 8 explicitly tell you to use `is None`?"
+  ],
+  "solution": {
+    "summary": "The correct answer is C — Use == to compare values; use is only for identity checks such as `x is None`",
+    "answer": "Use == to compare values; use is only for identity checks such as `x is None`",
+    "reasoning": [
+      "is checks: are these the same object in memory (same id).",
+      "== asks the object: are you equal to that (via __eq__).",
+      "Interning and small-int caching are optimization details; code that depends on them is broken by design."
+    ],
+    "whyNot": [
+      "is compares values for small integers only — Small-integer caching is a CPython implementation detail, not a semantic guarantee.",
+      "Use is to compare values; it is faster than == — is does not compare values at all — two equal objects can be different objects.",
+      "is and == are interchangeable for strings — String interning makes some equal strings identical, but that is an implementation detail you must never rely on."
+    ]
+  },
+  "learningObjectives": [
+    "Choose is vs == correctly",
+    "Recognize implementation-detail reliance"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-14",
+    "dq-2026-10-22"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "py.is-vs-equals",
+  "generatorVersion": "1.0.0",
+  "seed": "b6799332f182f2d4cb1dcc820613596a22034f2bbdbfed38e3c586196d4a9278",
+  "paramsSignature": "v1",
+  "contentHash": "652da0dbe054b5f3fcb59d43ed94aeab1a3ead40cf37ed052cee1821fe15a063",
+  "createdAt": "2026-11-10T23:45:36.281Z",
+  "updatedAt": "2026-11-10T23:45:36.281Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-10T23:45:36.281Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

@@ -1,30 +1,30 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-10T01:47:15.884Z",
+  "generatedAt": "2026-11-10T23:45:36.284Z",
   "quest": {
-    "id": "dq-2026-11-10",
-    "date": "2026-11-10",
-    "sequenceNumber": 41,
-    "slug": "2026-11-10-the-borrowed-commit",
-    "title": "The Borrowed Commit",
-    "shortTitle": "The Borrowed Commit",
-    "description": "Cherry-pick a feature commit onto main and predict the resulting state.",
-    "category": "git",
-    "challengeType": "git",
-    "difficulty": "hard",
-    "difficultyScore": 4,
-    "estimatedMinutes": 20,
+    "id": "dq-2026-11-11",
+    "date": "2026-11-11",
+    "sequenceNumber": 42,
+    "slug": "2026-11-11-the-identity-trap",
+    "title": "The Identity Trap",
+    "shortTitle": "The Identity Trap",
+    "description": "Choosing between `is` and `==` is a correctness decision, not a style one.",
+    "category": "python",
+    "challengeType": "reasoning",
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "estimatedMinutes": 8,
     "concepts": [
-      "cherry-pick",
-      "branches"
+      "identity vs equality"
     ],
     "tags": [
-      "cherry-pick"
+      "python",
+      "comparison"
     ],
-    "contentHash": "0c93cecd6ddc00f8a1eee7ce161d2e2d15a0c13655559f667157c89898f57601",
-    "fpc": "0c93cecd6ddc00f8",
-    "fpt": "23563c6fb08a8cf0",
-    "fpp": "9631f882a97d32e3"
+    "contentHash": "652da0dbe054b5f3fcb59d43ed94aeab1a3ead40cf37ed052cee1821fe15a063",
+    "fpc": "652da0dbe054b5f3",
+    "fpt": "aae6fb7cf9bb7422",
+    "fpp": "757330e231cd0954"
   }
 }

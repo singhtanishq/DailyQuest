@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-10T01:47:15.884Z",
-  "totalQuests": 41,
-  "currentSequence": 41,
-  "latestQuestDate": "2026-11-10",
+  "generatedAt": "2026-11-10T23:45:36.284Z",
+  "totalQuests": 42,
+  "currentSequence": 42,
+  "latestQuestDate": "2026-11-11",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -17,7 +17,7 @@
     "debugging": 4,
     "architecture": 1,
     "web": 2,
-    "python": 2,
+    "python": 3,
     "regex": 2,
     "system_design": 1,
     "git": 2,
@@ -32,11 +32,11 @@
   "byDifficulty": {
     "intermediate": 22,
     "hard": 6,
-    "easy": 13
+    "easy": 14
   },
   "byType": {
     "sql": 4,
-    "reasoning": 7,
+    "reasoning": 8,
     "cybersecurity": 1,
     "coding": 8,
     "performance": 4,
@@ -83,6 +83,12 @@
       "percent": 7
     },
     {
+      "id": "python",
+      "label": "Python",
+      "count": 3,
+      "percent": 7
+    },
+    {
       "id": "git",
       "label": "Git",
       "count": 2,
@@ -91,12 +97,6 @@
     {
       "id": "javascript",
       "label": "JavaScript",
-      "count": 2,
-      "percent": 5
-    },
-    {
-      "id": "python",
-      "label": "Python",
       "count": 2,
       "percent": 5
     },
@@ -179,11 +179,11 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.7,
-  "totalEstimatedMinutes": 602,
-  "currentStreak": 41,
-  "longestStreak": 41,
-  "archiveSpanDays": 41,
+  "averageEstimatedMinutes": 14.5,
+  "totalEstimatedMinutes": 610,
+  "currentStreak": 42,
+  "longestStreak": 42,
+  "archiveSpanDays": 42,
   "missedDays": 0,
   "mostFrequentCategory": "coding",
   "mostFrequentDifficulty": "intermediate"
