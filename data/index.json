@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-10T23:45:36.284Z",
+  "generatedAt": "2026-11-12T01:02:32.225Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1084,6 +1084,32 @@
       "fpc": "652da0dbe054b5f3",
       "fpt": "aae6fb7cf9bb7422",
       "fpp": "757330e231cd0954"
+    },
+    {
+      "id": "dq-2026-11-12",
+      "date": "2026-11-12",
+      "sequenceNumber": 43,
+      "slug": "2026-11-12-the-promise-that-ran-ahead",
+      "title": "The Promise That Ran Ahead",
+      "shortTitle": "The Promise That Ran Ahead",
+      "description": "A stats function returns before its expensive computation has finished.",
+      "category": "debugging",
+      "challengeType": "debugging",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "promises",
+        "async/await"
+      ],
+      "tags": [
+        "javascript",
+        "async"
+      ],
+      "contentHash": "bafa4631e49e3f883ae1d8e0b226a660ddd1bd0bb2557f30f19848a9b26ea98a",
+      "fpc": "bafa4631e49e3f88",
+      "fpt": "372069d1297fde5a",
+      "fpp": "50137592e8836ef8"
     }
   ]
 }

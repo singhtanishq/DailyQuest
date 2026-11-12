@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#042 — The Identity Trap](https://singhtanishq.github.io/DailyQuest/quest/2026-11-11-the-identity-trap)
-> November 11, 2026 · `python` · `easy` · 8 min
+> **Today’s quest:** [#043 — The Promise That Ran Ahead](https://singhtanishq.github.io/DailyQuest/quest/2026-11-12-the-promise-that-ran-ahead)
+> November 12, 2026 · `debugging` · `easy` · 12 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

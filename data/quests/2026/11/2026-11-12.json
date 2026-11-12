@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-12",
+  "date": "2026-11-12",
+  "sequenceNumber": 43,
+  "slug": "2026-11-12-the-promise-that-ran-ahead",
+  "title": "The Promise That Ran Ahead",
+  "shortTitle": "The Promise That Ran Ahead",
+  "subtitle": "One missing `await` changes the story.",
+  "description": "A stats function returns before its expensive computation has finished.",
+  "category": "debugging",
+  "subcategories": [
+    "async"
+  ],
+  "challengeType": "debugging",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 12,
+  "conceptComplexity": 1,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 2,
+  "concepts": [
+    "promises",
+    "async/await"
+  ],
+  "tags": [
+    "javascript",
+    "async"
+  ],
+  "skills": [
+    "Spotting floating promises"
+  ],
+  "prompt": "**Expected behaviour:** `stats.summary` is the finished object, not a thenable.\n\n**Actual behaviour:** `stats.summary` is a Promise — the caller inspects `.then` because the result was never awaited.\n\n```javascript\nasync function buildStats(rows) {\n  const summary = computeHeavy(rows); // async\n  return { count: rows.length, summary };\n}\n\n// caller:\nconst stats = await buildStats(rows);\nconsole.log(typeof stats.summary.then); // expected \"undefined\"\n```\n\nIdentify the bug, explain why it causes the observed behaviour, and fix it.",
+  "instructions": [
+    "Reproduce the failure mentally or locally.",
+    "Pinpoint the exact line and mechanism of the bug.",
+    "Write the minimal fix that restores the expected behaviour."
+  ],
+  "constraints": [
+    "Do not redesign the function unless the bug requires it."
+  ],
+  "examples": [],
+  "hints": [
+    "What is the return type of calling an `async` function?",
+    "Trace the type of `summary` line by line."
+  ],
+  "solution": {
+    "summary": "Calling an async function returns a promise immediately; without `await`, that promise is stored in `summary` and returned as-is. The work still completes eventually, but the caller receives a promise instead of a value.",
+    "approach": [
+      "`computeHeavy` is async, so the call resolves to a Promise object.",
+      "Nothing in `buildStats` awaits it — a \"floating promise\".",
+      "The returned object embeds the promise; TypeScript would flag the type, plain JS hides it until runtime."
+    ],
+    "code": {
+      "language": "javascript",
+      "label": "Corrected implementation",
+      "code": "async function buildStats(rows) {\n  const summary = await computeHeavy(rows);\n  return { count: rows.length, summary };\n}"
+    },
+    "commonMistakes": [
+      "Assuming `async` callers auto-await sub-calls.",
+      "Fixing with `.then(summary => ...)` and forgetting to await THAT too."
+    ]
+  },
+  "learningObjectives": [
+    "Recognize floating promises",
+    "Use `await` at the point of composition"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-19",
+    "dq-2026-10-21",
+    "dq-2026-10-25"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "debug.missing-await",
+  "generatorVersion": "1.0.0",
+  "seed": "0bcd7f3a2c966e1ad187a275bb6a6ed0a079d6ef955301c1947bb08ee1b3e260",
+  "paramsSignature": "v1",
+  "contentHash": "bafa4631e49e3f883ae1d8e0b226a660ddd1bd0bb2557f30f19848a9b26ea98a",
+  "createdAt": "2026-11-12T01:02:32.223Z",
+  "updatedAt": "2026-11-12T01:02:32.223Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-12T01:02:32.223Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
