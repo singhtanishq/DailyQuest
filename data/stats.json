@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-12T01:02:32.225Z",
-  "totalQuests": 43,
-  "currentSequence": 43,
-  "latestQuestDate": "2026-11-12",
+  "generatedAt": "2026-11-12T23:54:10.505Z",
+  "totalQuests": 44,
+  "currentSequence": 44,
+  "latestQuestDate": "2026-11-13",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -27,12 +27,13 @@
     "networking": 1,
     "code_review": 1,
     "databases": 1,
-    "general_tech": 1
+    "general_tech": 1,
+    "output_prediction": 1
   },
   "byDifficulty": {
     "intermediate": 22,
     "hard": 6,
-    "easy": 15
+    "easy": 16
   },
   "byType": {
     "sql": 4,
@@ -42,7 +43,7 @@
     "performance": 4,
     "debugging": 6,
     "architecture": 1,
-    "output_prediction": 2,
+    "output_prediction": 3,
     "regex": 2,
     "system_design": 1,
     "git": 2,
@@ -56,13 +57,13 @@
       "id": "coding",
       "label": "Coding",
       "count": 5,
-      "percent": 12
+      "percent": 11
     },
     {
       "id": "debugging",
       "label": "Debugging",
       "count": 5,
-      "percent": 12
+      "percent": 11
     },
     {
       "id": "sql",
@@ -161,6 +162,12 @@
       "percent": 2
     },
     {
+      "id": "output_prediction",
+      "label": "Output Prediction",
+      "count": 1,
+      "percent": 2
+    },
+    {
       "id": "security_analysis",
       "label": "Security Analysis",
       "count": 1,
@@ -179,11 +186,11 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.5,
-  "totalEstimatedMinutes": 622,
-  "currentStreak": 43,
-  "longestStreak": 43,
-  "archiveSpanDays": 43,
+  "averageEstimatedMinutes": 14.3,
+  "totalEstimatedMinutes": 627,
+  "currentStreak": 44,
+  "longestStreak": 44,
+  "archiveSpanDays": 44,
   "missedDays": 0,
   "mostFrequentCategory": "coding",
   "mostFrequentDifficulty": "intermediate"

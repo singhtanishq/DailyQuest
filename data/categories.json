@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-12T01:02:32.225Z",
+  "generatedAt": "2026-11-12T23:54:10.505Z",
   "categories": [
     {
       "id": "coding",
@@ -151,11 +151,18 @@
       "description": "Short snippets with surprising-but-correct behaviour. Every expected output is computed by actually executing the snippet in a sandbox at generation time — never guessed.",
       "icon": "eye",
       "group": "Engineering",
-      "questCount": 0,
-      "difficultyDistribution": {},
-      "skills": [],
-      "topTags": [],
-      "latestQuestDate": null
+      "questCount": 1,
+      "difficultyDistribution": {
+        "easy": 1
+      },
+      "skills": [
+        "Declaration hoisting"
+      ],
+      "topTags": [
+        "hoisting",
+        "javascript"
+      ],
+      "latestQuestDate": "2026-11-13"
     },
     {
       "id": "python",

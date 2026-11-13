@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-13",
+  "date": "2026-11-13",
+  "sequenceNumber": 44,
+  "slug": "2026-11-13-the-declaration-time-machine",
+  "title": "The Declaration Time Machine",
+  "shortTitle": "The Declaration Time Machine",
+  "subtitle": "Read before write — with var.",
+  "description": "A variable is logged before its declaration line inside a function.",
+  "category": "output_prediction",
+  "subcategories": [
+    "hoisting"
+  ],
+  "challengeType": "output_prediction",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 5,
+  "conceptComplexity": 1,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 2,
+  "concepts": [
+    "hoisting",
+    "temporal dead zone"
+  ],
+  "tags": [
+    "javascript",
+    "hoisting"
+  ],
+  "skills": [
+    "Declaration hoisting"
+  ],
+  "prompt": "What does this JavaScript program print to the console?\n\n```javascript\nfunction announce() {\n  console.log(name);\n  var name = 'dailyquest';\n  console.log(name);\n}\n\nannounce();\n```",
+  "instructions": [
+    "Predict the exact console output before revealing the solution."
+  ],
+  "constraints": [],
+  "examples": [],
+  "expectedOutput": "undefined\ndailyquest",
+  "hints": [
+    "What exactly does hoisting move — the declaration, the initialization, or both?",
+    "Contrast this with what `let` would do in the same spot."
+  ],
+  "solution": {
+    "summary": "The program prints:\n\n```text\nundefined\ndailyquest\n```",
+    "reasoning": [
+      "`var` declarations are hoisted to the top of the function scope, so `name` exists from the first line.",
+      "Hoisting moves the DECLARATION, not the assignment — the value is `undefined` at the first log.",
+      "After the assignment line runs, the second log sees \"dailyquest\".",
+      "With `let` the same code would throw a ReferenceError (temporal dead zone) instead."
+    ]
+  },
+  "learningObjectives": [
+    "Distinguish declaration hoisting from initialization",
+    "Know the TDZ behaviour of let/const"
+  ],
+  "relatedQuestIds": [],
+  "authoringMethod": "deterministic-template",
+  "templateId": "pred.hoisted-var",
+  "generatorVersion": "1.0.0",
+  "seed": "49f92a1416d072d7ea8dc99c2d895f2353341ff01e4aa4de7344d888b5a0316d",
+  "paramsSignature": "v1",
+  "contentHash": "4b3b155426be0f3c6344b4c3bd3b6c93c28c8317d2601bd717d6a9f75daafe3c",
+  "createdAt": "2026-11-12T23:54:10.502Z",
+  "updatedAt": "2026-11-12T23:54:10.502Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-12T23:54:10.502Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced",
+      "verification-javascript"
+    ]
+  }
+}

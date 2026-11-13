@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-12T01:02:32.225Z",
+  "generatedAt": "2026-11-12T23:54:10.505Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1110,6 +1110,32 @@
       "fpc": "bafa4631e49e3f88",
       "fpt": "372069d1297fde5a",
       "fpp": "50137592e8836ef8"
+    },
+    {
+      "id": "dq-2026-11-13",
+      "date": "2026-11-13",
+      "sequenceNumber": 44,
+      "slug": "2026-11-13-the-declaration-time-machine",
+      "title": "The Declaration Time Machine",
+      "shortTitle": "The Declaration Time Machine",
+      "description": "A variable is logged before its declaration line inside a function.",
+      "category": "output_prediction",
+      "challengeType": "output_prediction",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 5,
+      "concepts": [
+        "hoisting",
+        "temporal dead zone"
+      ],
+      "tags": [
+        "javascript",
+        "hoisting"
+      ],
+      "contentHash": "4b3b155426be0f3c6344b4c3bd3b6c93c28c8317d2601bd717d6a9f75daafe3c",
+      "fpc": "4b3b155426be0f3c",
+      "fpt": "233091f05db6a660",
+      "fpp": "8c644477992724bc"
     }
   ]
 }

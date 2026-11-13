@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-12T01:02:32.225Z",
+  "generatedAt": "2026-11-12T23:54:10.505Z",
   "quest": {
-    "id": "dq-2026-11-12",
-    "date": "2026-11-12",
-    "sequenceNumber": 43,
-    "slug": "2026-11-12-the-promise-that-ran-ahead",
-    "title": "The Promise That Ran Ahead",
-    "shortTitle": "The Promise That Ran Ahead",
-    "description": "A stats function returns before its expensive computation has finished.",
-    "category": "debugging",
-    "challengeType": "debugging",
+    "id": "dq-2026-11-13",
+    "date": "2026-11-13",
+    "sequenceNumber": 44,
+    "slug": "2026-11-13-the-declaration-time-machine",
+    "title": "The Declaration Time Machine",
+    "shortTitle": "The Declaration Time Machine",
+    "description": "A variable is logged before its declaration line inside a function.",
+    "category": "output_prediction",
+    "challengeType": "output_prediction",
     "difficulty": "easy",
     "difficultyScore": 2,
-    "estimatedMinutes": 12,
+    "estimatedMinutes": 5,
     "concepts": [
-      "promises",
-      "async/await"
+      "hoisting",
+      "temporal dead zone"
     ],
     "tags": [
       "javascript",
-      "async"
+      "hoisting"
     ],
-    "contentHash": "bafa4631e49e3f883ae1d8e0b226a660ddd1bd0bb2557f30f19848a9b26ea98a",
-    "fpc": "bafa4631e49e3f88",
-    "fpt": "372069d1297fde5a",
-    "fpp": "50137592e8836ef8"
+    "contentHash": "4b3b155426be0f3c6344b4c3bd3b6c93c28c8317d2601bd717d6a9f75daafe3c",
+    "fpc": "4b3b155426be0f3c",
+    "fpt": "233091f05db6a660",
+    "fpp": "8c644477992724bc"
   }
 }
