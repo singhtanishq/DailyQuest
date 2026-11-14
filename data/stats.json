@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-12T23:54:10.505Z",
-  "totalQuests": 44,
-  "currentSequence": 44,
-  "latestQuestDate": "2026-11-13",
+  "generatedAt": "2026-11-13T23:55:53.655Z",
+  "totalQuests": 45,
+  "currentSequence": 45,
+  "latestQuestDate": "2026-11-14",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -21,7 +21,7 @@
     "regex": 2,
     "system_design": 1,
     "git": 2,
-    "javascript": 2,
+    "javascript": 3,
     "linux": 1,
     "security_analysis": 1,
     "networking": 1,
@@ -33,7 +33,7 @@
   "byDifficulty": {
     "intermediate": 22,
     "hard": 6,
-    "easy": 16
+    "easy": 17
   },
   "byType": {
     "sql": 4,
@@ -43,7 +43,7 @@
     "performance": 4,
     "debugging": 6,
     "architecture": 1,
-    "output_prediction": 3,
+    "output_prediction": 4,
     "regex": 2,
     "system_design": 1,
     "git": 2,
@@ -78,6 +78,12 @@
       "percent": 7
     },
     {
+      "id": "javascript",
+      "label": "JavaScript",
+      "count": 3,
+      "percent": 7
+    },
+    {
       "id": "performance",
       "label": "Performance",
       "count": 3,
@@ -93,31 +99,25 @@
       "id": "git",
       "label": "Git",
       "count": 2,
-      "percent": 5
-    },
-    {
-      "id": "javascript",
-      "label": "JavaScript",
-      "count": 2,
-      "percent": 5
+      "percent": 4
     },
     {
       "id": "react",
       "label": "React",
       "count": 2,
-      "percent": 5
+      "percent": 4
     },
     {
       "id": "regex",
       "label": "Regex",
       "count": 2,
-      "percent": 5
+      "percent": 4
     },
     {
       "id": "web",
       "label": "Web Platform",
       "count": 2,
-      "percent": 5
+      "percent": 4
     },
     {
       "id": "architecture",
@@ -186,11 +186,11 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.3,
-  "totalEstimatedMinutes": 627,
-  "currentStreak": 44,
-  "longestStreak": 44,
-  "archiveSpanDays": 44,
+  "averageEstimatedMinutes": 14.1,
+  "totalEstimatedMinutes": 635,
+  "currentStreak": 45,
+  "longestStreak": 45,
+  "archiveSpanDays": 45,
   "missedDays": 0,
   "mostFrequentCategory": "coding",
   "mostFrequentDifficulty": "intermediate"

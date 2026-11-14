@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#044 — The Declaration Time Machine](https://singhtanishq.github.io/DailyQuest/quest/2026-11-13-the-declaration-time-machine)
-> November 13, 2026 · `output_prediction` · `easy` · 5 min
+> **Today’s quest:** [#045 — The Dead Zone Entry](https://singhtanishq.github.io/DailyQuest/quest/2026-11-14-the-dead-zone-entry)
+> November 14, 2026 · `javascript` · `easy` · 8 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

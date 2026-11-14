@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-12T23:54:10.505Z",
+  "generatedAt": "2026-11-13T23:55:53.655Z",
   "quest": {
-    "id": "dq-2026-11-13",
-    "date": "2026-11-13",
-    "sequenceNumber": 44,
-    "slug": "2026-11-13-the-declaration-time-machine",
-    "title": "The Declaration Time Machine",
-    "shortTitle": "The Declaration Time Machine",
-    "description": "A variable is logged before its declaration line inside a function.",
-    "category": "output_prediction",
+    "id": "dq-2026-11-14",
+    "date": "2026-11-14",
+    "sequenceNumber": 45,
+    "slug": "2026-11-14-the-dead-zone-entry",
+    "title": "The Dead Zone Entry",
+    "shortTitle": "The Dead Zone Entry",
+    "description": "Accessing a let variable before its declaration throws — why the TDZ exists.",
+    "category": "javascript",
     "challengeType": "output_prediction",
     "difficulty": "easy",
     "difficultyScore": 2,
-    "estimatedMinutes": 5,
+    "estimatedMinutes": 8,
     "concepts": [
-      "hoisting",
-      "temporal dead zone"
+      "temporal dead zone",
+      "let vs var"
     ],
     "tags": [
       "javascript",
-      "hoisting"
+      "scoping"
     ],
-    "contentHash": "4b3b155426be0f3c6344b4c3bd3b6c93c28c8317d2601bd717d6a9f75daafe3c",
-    "fpc": "4b3b155426be0f3c",
-    "fpt": "233091f05db6a660",
-    "fpp": "8c644477992724bc"
+    "contentHash": "7deb6952915aebbb17bcc23b0e6d85009aaeb215169673ac0255b51b68098b74",
+    "fpc": "7deb6952915aebbb",
+    "fpt": "4c0112b6cfadeb31",
+    "fpp": "1d0737abb27d33bd"
   }
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-12T23:54:10.505Z",
+  "generatedAt": "2026-11-13T23:55:53.655Z",
   "categories": [
     {
       "id": "coding",
@@ -194,20 +194,22 @@
       "description": "Closures, coercion, the event loop, prototypes and array semantics. JavaScript quests target the parts of the language that genuinely surprise working developers.",
       "icon": "braces",
       "group": "Languages & Frameworks",
-      "questCount": 2,
+      "questCount": 3,
       "difficultyDistribution": {
-        "easy": 2
+        "easy": 3
       },
       "skills": [
         "Strict mode rules",
-        "Mutator vs accessor methods"
+        "Mutator vs accessor methods",
+        "TDZ reasoning"
       ],
       "topTags": [
         "javascript",
         "arrays",
+        "scoping",
         "semantics"
       ],
-      "latestQuestDate": "2026-10-27"
+      "latestQuestDate": "2026-11-14"
     },
     {
       "id": "typescript",

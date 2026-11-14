@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-14",
+  "date": "2026-11-14",
+  "sequenceNumber": 45,
+  "slug": "2026-11-14-the-dead-zone-entry",
+  "title": "The Dead Zone Entry",
+  "shortTitle": "The Dead Zone Entry",
+  "subtitle": "let exists but cannot be touched.",
+  "description": "Accessing a let variable before its declaration throws — why the TDZ exists.",
+  "category": "javascript",
+  "subcategories": [
+    "scoping"
+  ],
+  "challengeType": "output_prediction",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 8,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 1,
+  "concepts": [
+    "temporal dead zone",
+    "let vs var"
+  ],
+  "tags": [
+    "javascript",
+    "scoping"
+  ],
+  "skills": [
+    "TDZ reasoning"
+  ],
+  "prompt": "```javascript\nfunction demo() {\n  console.log(x); // line A\n  let x = 5;\n}\n\ndemo();\n```\n\nWhat happens when line A executes?\n\n**A.** null is printed\n**B.** undefined is printed\n**C.** 5 is printed\n**D.** A ReferenceError is thrown",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "null is printed",
+    "undefined is printed",
+    "5 is printed",
+    "A ReferenceError is thrown"
+  ],
+  "correctOptionIndex": 3,
+  "examples": [],
+  "hints": [
+    "Hoisting moves the binding, not the value, for every declaration kind.",
+    "The temporal dead zone ends exactly at the declaration statement."
+  ],
+  "solution": {
+    "summary": "The correct answer is D — A ReferenceError is thrown",
+    "answer": "A ReferenceError is thrown",
+    "reasoning": [
+      "All declarations are hoisted; the difference is initialization.",
+      "var starts as undefined; let/const start uninitialized (TDZ).",
+      "The TDZ turns read-before-declare into a loud error instead of a silent undefined — a deliberate safety feature."
+    ],
+    "whyNot": [
+      "null is printed — No coercion or defaulting applies — the binding is simply not initialized yet.",
+      "undefined is printed — That is var behaviour. let bindings are not initialized to undefined; they are uninitialized.",
+      "5 is printed — The declaration has not executed yet, so the value does not exist."
+    ]
+  },
+  "learningObjectives": [
+    "Explain the temporal dead zone",
+    "Contrast var, let and const initialization"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-26",
+    "dq-2026-10-27"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "js.let-tdz",
+  "generatorVersion": "1.0.0",
+  "seed": "ab2df4267e906479ad5f45db9b907b68c8de2f575e085e626b03f95cbee6ce79",
+  "paramsSignature": "v1",
+  "contentHash": "7deb6952915aebbb17bcc23b0e6d85009aaeb215169673ac0255b51b68098b74",
+  "createdAt": "2026-11-13T23:55:53.653Z",
+  "updatedAt": "2026-11-13T23:55:53.653Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-13T23:55:53.653Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

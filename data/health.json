@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
   "status": "ok",
-  "latestQuestDate": "2026-11-13",
-  "archiveCount": 44,
+  "latestQuestDate": "2026-11-14",
+  "archiveCount": 45,
   "templateCount": 186,
   "lastGeneration": {
-    "date": "2026-11-13",
-    "questId": "dq-2026-11-13",
-    "at": "2026-11-12T23:54:10.502Z"
+    "date": "2026-11-14",
+    "questId": "dq-2026-11-14",
+    "at": "2026-11-13T23:55:53.653Z"
   }
 }
