@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-15",
+  "date": "2026-11-15",
+  "sequenceNumber": 46,
+  "slug": "2026-11-15-the-mirror-number",
+  "title": "The Mirror Number",
+  "shortTitle": "The Mirror Number",
+  "subtitle": "Reverse half, compare once.",
+  "description": "Check whether an integer is a palindrome without converting it to a string — reverse only half the digits.",
+  "category": "algorithms",
+  "subcategories": [
+    "math"
+  ],
+  "challengeType": "coding",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 15,
+  "conceptComplexity": 1,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 2,
+  "concepts": [
+    "math without strings",
+    "half reversal"
+  ],
+  "tags": [
+    "math",
+    "palindrome"
+  ],
+  "skills": [
+    "Digit arithmetic",
+    "Half-reversal trick"
+  ],
+  "prompt": "Determine whether a non-negative-integer-or-negative input reads the same forwards and backwards — without any string conversion. Print `yes` or `no`.",
+  "instructions": [
+    "Read one integer from input.",
+    "Print `yes` if it is a palindrome, otherwise `no`."
+  ],
+  "constraints": [
+    "No string conversion of the number.",
+    "Negative numbers are never palindromes."
+  ],
+  "examples": [
+    {
+      "title": "Example 1",
+      "input": "12321",
+      "output": "yes",
+      "explanation": "Reversed half (12…21) matches the rest (123 → 12 | 3). Yes."
+    },
+    {
+      "title": "Example 2",
+      "input": "10",
+      "output": "no",
+      "explanation": "Ends in zero but is not zero — cannot be a palindrome."
+    }
+  ],
+  "testCases": [
+    {
+      "name": "odd length",
+      "input": "121",
+      "expected": "yes"
+    },
+    {
+      "name": "negative",
+      "input": "-121",
+      "expected": "no"
+    },
+    {
+      "name": "trailing zero",
+      "input": "10",
+      "expected": "no"
+    },
+    {
+      "name": "zero",
+      "input": "0",
+      "expected": "yes"
+    },
+    {
+      "name": "five digits",
+      "input": "12321",
+      "expected": "yes"
+    },
+    {
+      "name": "not a palindrome",
+      "input": "123",
+      "expected": "no"
+    }
+  ],
+  "edgeCases": [
+    "negative input",
+    "trailing zeros",
+    "single digit",
+    "zero"
+  ],
+  "hints": [
+    "You never need more than half the digits.",
+    "Odd-length palindromes have a middle digit that matches anything — drop it."
+  ],
+  "solution": {
+    "summary": "Reject negatives and non-zero multiples of ten. Then reverse digits while the reversed half is still smaller than the rest; at the end compare equal (even length) or reversed/10 === rest (odd length).",
+    "approach": [
+      "Early exits: n < 0 → no; n % 10 === 0 && n !== 0 → no.",
+      "Loop while rest > reversed: peel a digit onto reversed.",
+      "Compare reversed === rest (even digit count) or reversed/10 === rest (odd, drop the middle digit)."
+    ],
+    "code": {
+      "language": "javascript",
+      "label": "Reference solution",
+      "code": "function isPalindrome(n) {\n  if (n < 0 || (n % 10 === 0 && n !== 0)) return false;\n  let reversed = 0, rest = n;\n  while (rest > reversed) {\n    reversed = reversed * 10 + rest % 10;\n    rest = Math.floor(rest / 10);\n  }\n  return reversed === rest || Math.floor(reversed / 10) === rest;\n}"
+    },
+    "complexity": "O(log₁₀ n) time, O(1) space.",
+    "commonMistakes": [
+      "Reversing the entire number and risking overflow in fixed-width languages.",
+      "Forgetting that 0 is a palindrome while 10, 100, 1000 never are."
+    ]
+  },
+  "learningObjectives": [
+    "Manipulate digits arithmetically",
+    "Use half-reversal to avoid overflow"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-08",
+    "dq-2026-10-18",
+    "dq-2026-10-28"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "algo.palindrome-number",
+  "generatorVersion": "1.0.0",
+  "seed": "0f0fc9c7614ed16e1c2fe43585b8428fc0881a2199bb209534645052df06037e",
+  "paramsSignature": "v1",
+  "contentHash": "2a46305f6a499840f6163eb0bb39e6b51046beb9625dff1bb773157069877971",
+  "createdAt": "2026-11-14T22:46:58.957Z",
+  "updatedAt": "2026-11-14T22:46:58.957Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-14T22:46:58.957Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

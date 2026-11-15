@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-13T23:55:53.655Z",
+  "generatedAt": "2026-11-14T22:46:58.959Z",
   "categories": [
     {
       "id": "coding",
@@ -69,9 +69,9 @@
       "description": "Classic techniques — searching, two pointers, sliding windows, dynamic programming — applied to concrete problems with clear complexity expectations.",
       "icon": "network",
       "group": "Engineering",
-      "questCount": 3,
+      "questCount": 4,
       "difficultyDistribution": {
-        "easy": 2,
+        "easy": 3,
         "intermediate": 1
       },
       "skills": [
@@ -80,17 +80,19 @@
         "Window maintenance",
         "Incremental updates",
         "Sort-then-scan",
-        "Overlap detection"
+        "Overlap detection",
+        "Digit arithmetic",
+        "Half-reversal trick"
       ],
       "topTags": [
         "arrays",
         "dp",
         "grids",
         "intervals",
-        "sliding-window",
-        "sorting"
+        "math",
+        "palindrome"
       ],
-      "latestQuestDate": "2026-10-28"
+      "latestQuestDate": "2026-11-15"
     },
     {
       "id": "data_structures",

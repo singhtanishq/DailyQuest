@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-13T23:55:53.655Z",
+  "generatedAt": "2026-11-14T22:46:58.959Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1162,6 +1162,32 @@
       "fpc": "7deb6952915aebbb",
       "fpt": "4c0112b6cfadeb31",
       "fpp": "1d0737abb27d33bd"
+    },
+    {
+      "id": "dq-2026-11-15",
+      "date": "2026-11-15",
+      "sequenceNumber": 46,
+      "slug": "2026-11-15-the-mirror-number",
+      "title": "The Mirror Number",
+      "shortTitle": "The Mirror Number",
+      "description": "Check whether an integer is a palindrome without converting it to a string — reverse only half the digits.",
+      "category": "algorithms",
+      "challengeType": "coding",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 15,
+      "concepts": [
+        "math without strings",
+        "half reversal"
+      ],
+      "tags": [
+        "math",
+        "palindrome"
+      ],
+      "contentHash": "2a46305f6a499840f6163eb0bb39e6b51046beb9625dff1bb773157069877971",
+      "fpc": "2a46305f6a499840",
+      "fpt": "48adba8d2be90271",
+      "fpp": "4e4c1c46d36456b3"
     }
   ]
 }

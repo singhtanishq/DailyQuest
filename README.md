@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#045 — The Dead Zone Entry](https://singhtanishq.github.io/DailyQuest/quest/2026-11-14-the-dead-zone-entry)
-> November 14, 2026 · `javascript` · `easy` · 8 min
+> **Today’s quest:** [#046 — The Mirror Number](https://singhtanishq.github.io/DailyQuest/quest/2026-11-15-the-mirror-number)
+> November 15, 2026 · `algorithms` · `easy` · 15 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---
