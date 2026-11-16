@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-14T22:46:58.959Z",
+  "generatedAt": "2026-11-15T23:12:14.207Z",
   "categories": [
     {
       "id": "coding",
@@ -40,10 +40,10 @@
       "description": "Realistic broken code with expected versus actual behaviour. Trace the failure, understand the root cause, and compare your fix against the corrected implementation.",
       "icon": "bug",
       "group": "Engineering",
-      "questCount": 5,
+      "questCount": 6,
       "difficultyDistribution": {
         "easy": 2,
-        "intermediate": 3
+        "intermediate": 4
       },
       "skills": [
         "Boundary analysis",
@@ -51,17 +51,18 @@
         "Empty-input defensiveness",
         "IEEE-754 awareness",
         "Money handling",
-        "Spotting floating promises"
+        "Spotting floating promises",
+        "Asynchronous control flow"
       ],
       "topTags": [
         "javascript",
-        "arrays",
         "async",
+        "arrays",
         "edge-cases",
         "floating-point",
         "this"
       ],
-      "latestQuestDate": "2026-11-12"
+      "latestQuestDate": "2026-11-16"
     },
     {
       "id": "algorithms",

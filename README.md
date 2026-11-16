@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#046 — The Mirror Number](https://singhtanishq.github.io/DailyQuest/quest/2026-11-15-the-mirror-number)
-> November 15, 2026 · `algorithms` · `easy` · 15 min
+> **Today’s quest:** [#047 — The Impatient Fetcher](https://singhtanishq.github.io/DailyQuest/quest/2026-11-16-the-impatient-fetcher)
+> November 16, 2026 · `debugging` · `intermediate` · 20 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

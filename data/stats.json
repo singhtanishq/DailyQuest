@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-14T22:46:58.959Z",
-  "totalQuests": 46,
-  "currentSequence": 46,
-  "latestQuestDate": "2026-11-15",
+  "generatedAt": "2026-11-15T23:12:14.207Z",
+  "totalQuests": 47,
+  "currentSequence": 47,
+  "latestQuestDate": "2026-11-16",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -14,7 +14,7 @@
     "performance": 3,
     "react": 2,
     "algorithms": 4,
-    "debugging": 5,
+    "debugging": 6,
     "architecture": 1,
     "web": 2,
     "python": 3,
@@ -31,7 +31,7 @@
     "output_prediction": 1
   },
   "byDifficulty": {
-    "intermediate": 22,
+    "intermediate": 23,
     "hard": 6,
     "easy": 18
   },
@@ -41,7 +41,7 @@
     "cybersecurity": 1,
     "coding": 9,
     "performance": 4,
-    "debugging": 6,
+    "debugging": 7,
     "architecture": 1,
     "output_prediction": 4,
     "regex": 2,
@@ -54,14 +54,14 @@
   },
   "categoryBreakdown": [
     {
-      "id": "coding",
-      "label": "Coding",
-      "count": 5,
-      "percent": 11
-    },
-    {
       "id": "debugging",
       "label": "Debugging",
+      "count": 6,
+      "percent": 13
+    },
+    {
+      "id": "coding",
+      "label": "Coding",
       "count": 5,
       "percent": 11
     },
@@ -81,19 +81,19 @@
       "id": "javascript",
       "label": "JavaScript",
       "count": 3,
-      "percent": 7
+      "percent": 6
     },
     {
       "id": "performance",
       "label": "Performance",
       "count": 3,
-      "percent": 7
+      "percent": 6
     },
     {
       "id": "python",
       "label": "Python",
       "count": 3,
-      "percent": 7
+      "percent": 6
     },
     {
       "id": "git",
@@ -186,12 +186,12 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.1,
-  "totalEstimatedMinutes": 650,
-  "currentStreak": 46,
-  "longestStreak": 46,
-  "archiveSpanDays": 46,
+  "averageEstimatedMinutes": 14.3,
+  "totalEstimatedMinutes": 670,
+  "currentStreak": 47,
+  "longestStreak": 47,
+  "archiveSpanDays": 47,
   "missedDays": 0,
-  "mostFrequentCategory": "coding",
+  "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"
 }

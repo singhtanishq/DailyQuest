@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-14T22:46:58.959Z",
+  "generatedAt": "2026-11-15T23:12:14.207Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1188,6 +1188,32 @@
       "fpc": "2a46305f6a499840",
       "fpt": "48adba8d2be90271",
       "fpp": "4e4c1c46d36456b3"
+    },
+    {
+      "id": "dq-2026-11-16",
+      "date": "2026-11-16",
+      "sequenceNumber": 47,
+      "slug": "2026-11-16-the-impatient-fetcher",
+      "title": "The Impatient Fetcher",
+      "shortTitle": "The Impatient Fetcher",
+      "description": "A function that awaits inside `forEach` returns before any fetch has finished.",
+      "category": "debugging",
+      "challengeType": "debugging",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 20,
+      "concepts": [
+        "async/await",
+        "callback semantics"
+      ],
+      "tags": [
+        "javascript",
+        "async"
+      ],
+      "contentHash": "4f835ffb508971370d168274e099dd5c50d82c476ed3663622b94022424ef858",
+      "fpc": "4f835ffb50897137",
+      "fpt": "256e5d196d517c14",
+      "fpp": "3536363cd9d1f8a1"
     }
   ]
 }

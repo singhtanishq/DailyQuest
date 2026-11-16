@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-16",
+  "date": "2026-11-16",
+  "sequenceNumber": 47,
+  "slug": "2026-11-16-the-impatient-fetcher",
+  "title": "The Impatient Fetcher",
+  "shortTitle": "The Impatient Fetcher",
+  "subtitle": "forEach does not wait for anyone.",
+  "description": "A function that awaits inside `forEach` returns before any fetch has finished.",
+  "category": "debugging",
+  "subcategories": [
+    "async"
+  ],
+  "challengeType": "debugging",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 3,
+  "concepts": [
+    "async/await",
+    "callback semantics"
+  ],
+  "tags": [
+    "javascript",
+    "async"
+  ],
+  "skills": [
+    "Asynchronous control flow"
+  ],
+  "prompt": "**Expected behaviour:** `loadNames` resolves with all three fetched names, so the length is 3.\n\n**Actual behaviour:** The length is 0 — the function returns the empty array long before the fetches resolve.\n\n```javascript\nasync function loadNames(ids) {\n  const names = [];\n  ids.forEach(async (id) => {\n    const res = await fetchName(id);\n    names.push(res);\n  });\n  return names;\n}\n\n// caller:\nconst names = await loadNames([1, 2, 3]);\nconsole.log(names.length); // expected 3\n```\n\nIdentify the bug, explain why it causes the observed behaviour, and fix it.",
+  "instructions": [
+    "Reproduce the failure mentally or locally.",
+    "Pinpoint the exact line and mechanism of the bug.",
+    "Write the minimal fix that restores the expected behaviour."
+  ],
+  "constraints": [
+    "Do not redesign the function unless the bug requires it."
+  ],
+  "examples": [],
+  "hints": [
+    "What does `forEach` do with the return value of its callback?",
+    "You need a place where all three promises are collected and awaited."
+  ],
+  "solution": {
+    "summary": "`forEach` ignores the promises its callback returns. The `async` callback starts each fetch but nothing joins them; `loadNames` returns `names` synchronously after scheduling the work.",
+    "approach": [
+      "`async` functions return promises; `forEach` neither awaits nor collects them.",
+      "The pushes happen later, after the caller has already received the empty array.",
+      "`Promise.all` (or a `for...of` loop with `await`) is the correct join point; `map` + `Promise.all` also runs the fetches concurrently."
+    ],
+    "code": {
+      "language": "javascript",
+      "label": "Corrected implementation",
+      "code": "async function loadNames(ids) {\n  const names = await Promise.all(\n    ids.map((id) => fetchName(id))\n  );\n  return names;\n}"
+    },
+    "commonMistakes": [
+      "Using `for...of` with `await` when concurrency is desired — correct but sequential.",
+      "Adding `.then` inside `forEach` and still not joining the promises."
+    ]
+  },
+  "learningObjectives": [
+    "Explain why `await` inside `forEach` does not serialize",
+    "Join concurrent work with `Promise.all`"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-21",
+    "dq-2026-10-25",
+    "dq-2026-11-12"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "debug.foreach-async",
+  "generatorVersion": "1.0.0",
+  "seed": "dd1c291773c19e505019c8281e17ffedf43c93bd4f3ac30cbf5bb4fad58b697c",
+  "paramsSignature": "v1",
+  "contentHash": "4f835ffb508971370d168274e099dd5c50d82c476ed3663622b94022424ef858",
+  "createdAt": "2026-11-15T23:12:14.204Z",
+  "updatedAt": "2026-11-15T23:12:14.204Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-15T23:12:14.204Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
