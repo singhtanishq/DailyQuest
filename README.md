@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#047 — The Impatient Fetcher](https://singhtanishq.github.io/DailyQuest/quest/2026-11-16-the-impatient-fetcher)
-> November 16, 2026 · `debugging` · `intermediate` · 20 min
+> **Today’s quest:** [#048 — The Half-Paid Order](https://singhtanishq.github.io/DailyQuest/quest/2026-11-17-the-half-paid-order)
+> November 17, 2026 · `code_review` · `hard` · 20 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

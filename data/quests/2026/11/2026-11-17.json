@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-17",
+  "date": "2026-11-17",
+  "sequenceNumber": 48,
+  "slug": "2026-11-17-the-half-paid-order",
+  "title": "The Half-Paid Order",
+  "shortTitle": "The Half-Paid Order",
+  "subtitle": "Two writes, no transaction.",
+  "description": "An order flow that can charge the card and lose the order — or the reverse.",
+  "category": "code_review",
+  "subcategories": [
+    "reliability"
+  ],
+  "challengeType": "code_review",
+  "difficulty": "hard",
+  "difficultyScore": 4,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 4,
+  "implementationComplexity": 4,
+  "concepts": [
+    "transactions",
+    "partial failure"
+  ],
+  "tags": [
+    "reliability"
+  ],
+  "skills": [
+    "Failure-mode review"
+  ],
+  "prompt": "Review the following code as if it appeared in your team’s pull request.\n\n```typescript\nexport async function placeOrder(order: Order) {\n  const payment = await chargeCard(order.card, order.totalCents);\n  await db.orders.insert({ ...order, paymentId: payment.id });\n  await emailReceipt(order.email, payment.id);\n  return { ok: true };\n}\n```\n\nIdentify every issue worth raising: correctness, security, performance, and maintainability.",
+  "instructions": [
+    "List each issue with its severity.",
+    "For every issue, explain the concrete risk it creates.",
+    "Propose the smallest fix that resolves it."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "List every line where the process could die. Which states are unrecoverable?",
+    "Which operation does the client retry?"
+  ],
+  "solution": {
+    "summary": "Review found 3 issues: Charge and order insert are not atomic; Email in the critical path; No idempotency surface for retries.",
+    "reasoning": [
+      "**[CRITICAL] Charge and order insert are not atomic** — If the insert fails (crash, unique violation, deploy), the customer is charged with no order record — the worst support ticket class. If the DB write succeeds but the process dies before returning, a client retry double-charges. Fix: Wrap charge + insert in one transaction where the provider supports it; otherwise use an idempotency key on the charge and an outbox/reconciliation job that pairs orphan charges with orders.",
+      "**[MINOR] Email in the critical path** — A slow or failing email provider fails the whole request after money moved; the customer sees an error but their order exists. Fix: Enqueue the email after commit (outbox or queue) and return success.",
+      "**[MAJOR] No idempotency surface for retries** — placeOrder retried after a timeout charges twice: nothing in the payload names the operation. Fix: Accept a client-generated idempotency key and store it with the order."
+    ]
+  },
+  "learningObjectives": [
+    "Reason about partial failure",
+    "Design transactional + idempotent flows"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-11-03"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "cr.partial-failure",
+  "generatorVersion": "1.0.0",
+  "seed": "f94792d10fe597b69229d74d7408ea1ded658d553d86d0959c946d48b04e4868",
+  "paramsSignature": "v1",
+  "contentHash": "89999d11978b2ae959c5342c1ee4448db12026947273b44cf04b6cd9571b2a9b",
+  "createdAt": "2026-11-17T02:07:47.532Z",
+  "updatedAt": "2026-11-17T02:07:47.532Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-17T02:07:47.532Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-15T23:12:14.207Z",
+  "generatedAt": "2026-11-17T02:07:47.536Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1214,6 +1214,31 @@
       "fpc": "4f835ffb50897137",
       "fpt": "256e5d196d517c14",
       "fpp": "3536363cd9d1f8a1"
+    },
+    {
+      "id": "dq-2026-11-17",
+      "date": "2026-11-17",
+      "sequenceNumber": 48,
+      "slug": "2026-11-17-the-half-paid-order",
+      "title": "The Half-Paid Order",
+      "shortTitle": "The Half-Paid Order",
+      "description": "An order flow that can charge the card and lose the order — or the reverse.",
+      "category": "code_review",
+      "challengeType": "code_review",
+      "difficulty": "hard",
+      "difficultyScore": 4,
+      "estimatedMinutes": 20,
+      "concepts": [
+        "transactions",
+        "partial failure"
+      ],
+      "tags": [
+        "reliability"
+      ],
+      "contentHash": "89999d11978b2ae959c5342c1ee4448db12026947273b44cf04b6cd9571b2a9b",
+      "fpc": "89999d11978b2ae9",
+      "fpt": "0bec4ceaaa95aab0",
+      "fpp": "cc63e8e795fa1eaf"
     }
   ]
 }

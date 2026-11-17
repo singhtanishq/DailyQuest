@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-15T23:12:14.207Z",
-  "totalQuests": 47,
-  "currentSequence": 47,
-  "latestQuestDate": "2026-11-16",
+  "generatedAt": "2026-11-17T02:07:47.536Z",
+  "totalQuests": 48,
+  "currentSequence": 48,
+  "latestQuestDate": "2026-11-17",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -25,14 +25,14 @@
     "linux": 1,
     "security_analysis": 1,
     "networking": 1,
-    "code_review": 1,
+    "code_review": 2,
     "databases": 1,
     "general_tech": 1,
     "output_prediction": 1
   },
   "byDifficulty": {
     "intermediate": 23,
-    "hard": 6,
+    "hard": 7,
     "easy": 18
   },
   "byType": {
@@ -50,7 +50,7 @@
     "linux": 1,
     "security_analysis": 1,
     "networking": 1,
-    "code_review": 1
+    "code_review": 2
   },
   "categoryBreakdown": [
     {
@@ -63,19 +63,19 @@
       "id": "coding",
       "label": "Coding",
       "count": 5,
-      "percent": 11
+      "percent": 10
     },
     {
       "id": "algorithms",
       "label": "Algorithms",
       "count": 4,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "sql",
       "label": "SQL",
       "count": 4,
-      "percent": 9
+      "percent": 8
     },
     {
       "id": "javascript",
@@ -94,6 +94,12 @@
       "label": "Python",
       "count": 3,
       "percent": 6
+    },
+    {
+      "id": "code_review",
+      "label": "Code Review",
+      "count": 2,
+      "percent": 4
     },
     {
       "id": "git",
@@ -122,12 +128,6 @@
     {
       "id": "architecture",
       "label": "Architecture",
-      "count": 1,
-      "percent": 2
-    },
-    {
-      "id": "code_review",
-      "label": "Code Review",
       "count": 1,
       "percent": 2
     },
@@ -186,11 +186,11 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.3,
-  "totalEstimatedMinutes": 670,
-  "currentStreak": 47,
-  "longestStreak": 47,
-  "archiveSpanDays": 47,
+  "averageEstimatedMinutes": 14.4,
+  "totalEstimatedMinutes": 690,
+  "currentStreak": 48,
+  "longestStreak": 48,
+  "archiveSpanDays": 48,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"
