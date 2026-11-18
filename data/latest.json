@@ -1,30 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-17T02:07:47.536Z",
+  "generatedAt": "2026-11-18T01:20:40.805Z",
   "quest": {
-    "id": "dq-2026-11-17",
-    "date": "2026-11-17",
-    "sequenceNumber": 48,
-    "slug": "2026-11-17-the-half-paid-order",
-    "title": "The Half-Paid Order",
-    "shortTitle": "The Half-Paid Order",
-    "description": "An order flow that can charge the card and lose the order — or the reverse.",
-    "category": "code_review",
-    "challengeType": "code_review",
+    "id": "dq-2026-11-18",
+    "date": "2026-11-18",
+    "sequenceNumber": 49,
+    "slug": "2026-11-18-the-double-charge",
+    "title": "The Double Charge",
+    "shortTitle": "The Double Charge",
+    "description": "Design idempotency keys for unsafe methods and specify the whole contract.",
+    "category": "apis",
+    "challengeType": "api",
     "difficulty": "hard",
     "difficultyScore": 4,
-    "estimatedMinutes": 20,
+    "estimatedMinutes": 25,
     "concepts": [
-      "transactions",
-      "partial failure"
+      "idempotency",
+      "retries"
     ],
     "tags": [
+      "idempotency",
       "reliability"
     ],
-    "contentHash": "89999d11978b2ae959c5342c1ee4448db12026947273b44cf04b6cd9571b2a9b",
-    "fpc": "89999d11978b2ae9",
-    "fpt": "0bec4ceaaa95aab0",
-    "fpp": "cc63e8e795fa1eaf"
+    "contentHash": "d83e027a7e3e6e2acb526aeeecd165ae09d76298e3d049a5b37e28f902aa2a1b",
+    "fpc": "d83e027a7e3e6e2a",
+    "fpt": "5e3a949cd10182e1",
+    "fpp": "7cd7644ca2ea86ea"
   }
 }

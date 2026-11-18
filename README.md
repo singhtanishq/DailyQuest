@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#048 — The Half-Paid Order](https://singhtanishq.github.io/DailyQuest/quest/2026-11-17-the-half-paid-order)
-> November 17, 2026 · `code_review` · `hard` · 20 min
+> **Today’s quest:** [#049 — The Double Charge](https://singhtanishq.github.io/DailyQuest/quest/2026-11-18-the-double-charge)
+> November 18, 2026 · `apis` · `hard` · 25 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

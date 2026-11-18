@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-17T02:07:47.536Z",
-  "totalQuests": 48,
-  "currentSequence": 48,
-  "latestQuestDate": "2026-11-17",
+  "generatedAt": "2026-11-18T01:20:40.805Z",
+  "totalQuests": 49,
+  "currentSequence": 49,
+  "latestQuestDate": "2026-11-18",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -28,11 +28,12 @@
     "code_review": 2,
     "databases": 1,
     "general_tech": 1,
-    "output_prediction": 1
+    "output_prediction": 1,
+    "apis": 1
   },
   "byDifficulty": {
     "intermediate": 23,
-    "hard": 7,
+    "hard": 8,
     "easy": 18
   },
   "byType": {
@@ -50,14 +51,15 @@
     "linux": 1,
     "security_analysis": 1,
     "networking": 1,
-    "code_review": 2
+    "code_review": 2,
+    "api": 1
   },
   "categoryBreakdown": [
     {
       "id": "debugging",
       "label": "Debugging",
       "count": 6,
-      "percent": 13
+      "percent": 12
     },
     {
       "id": "coding",
@@ -126,6 +128,12 @@
       "percent": 4
     },
     {
+      "id": "apis",
+      "label": "APIs",
+      "count": 1,
+      "percent": 2
+    },
+    {
       "id": "architecture",
       "label": "Architecture",
       "count": 1,
@@ -186,11 +194,11 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.4,
-  "totalEstimatedMinutes": 690,
-  "currentStreak": 48,
-  "longestStreak": 48,
-  "archiveSpanDays": 48,
+  "averageEstimatedMinutes": 14.6,
+  "totalEstimatedMinutes": 715,
+  "currentStreak": 49,
+  "longestStreak": 49,
+  "archiveSpanDays": 49,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"
