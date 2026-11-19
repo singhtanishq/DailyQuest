@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#049 — The Double Charge](https://singhtanishq.github.io/DailyQuest/quest/2026-11-18-the-double-charge)
-> November 18, 2026 · `apis` · `hard` · 25 min
+> **Today’s quest:** [#050 — The Cascade Tiebreak](https://singhtanishq.github.io/DailyQuest/quest/2026-11-19-the-cascade-tiebreak)
+> November 19, 2026 · `web` · `intermediate` · 10 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

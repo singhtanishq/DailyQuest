@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-18T01:20:40.805Z",
-  "totalQuests": 49,
-  "currentSequence": 49,
-  "latestQuestDate": "2026-11-18",
+  "generatedAt": "2026-11-19T00:45:05.448Z",
+  "totalQuests": 50,
+  "currentSequence": 50,
+  "latestQuestDate": "2026-11-19",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -16,7 +16,7 @@
     "algorithms": 4,
     "debugging": 6,
     "architecture": 1,
-    "web": 2,
+    "web": 3,
     "python": 3,
     "regex": 2,
     "system_design": 1,
@@ -32,13 +32,13 @@
     "apis": 1
   },
   "byDifficulty": {
-    "intermediate": 23,
+    "intermediate": 24,
     "hard": 8,
     "easy": 18
   },
   "byType": {
     "sql": 4,
-    "reasoning": 8,
+    "reasoning": 9,
     "cybersecurity": 1,
     "coding": 9,
     "performance": 4,
@@ -98,6 +98,12 @@
       "percent": 6
     },
     {
+      "id": "web",
+      "label": "Web Platform",
+      "count": 3,
+      "percent": 6
+    },
+    {
       "id": "code_review",
       "label": "Code Review",
       "count": 2,
@@ -118,12 +124,6 @@
     {
       "id": "regex",
       "label": "Regex",
-      "count": 2,
-      "percent": 4
-    },
-    {
-      "id": "web",
-      "label": "Web Platform",
       "count": 2,
       "percent": 4
     },
@@ -194,11 +194,11 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.6,
-  "totalEstimatedMinutes": 715,
-  "currentStreak": 49,
-  "longestStreak": 49,
-  "archiveSpanDays": 49,
+  "averageEstimatedMinutes": 14.5,
+  "totalEstimatedMinutes": 725,
+  "currentStreak": 50,
+  "longestStreak": 50,
+  "archiveSpanDays": 50,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-19",
+  "date": "2026-11-19",
+  "sequenceNumber": 50,
+  "slug": "2026-11-19-the-cascade-tiebreak",
+  "title": "The Cascade Tiebreak",
+  "shortTitle": "The Cascade Tiebreak",
+  "subtitle": "IDs, classes, and order of appearance.",
+  "description": "Which rule wins when selectors collide?",
+  "category": "web",
+  "subcategories": [
+    "css"
+  ],
+  "challengeType": "reasoning",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 10,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "css",
+    "specificity"
+  ],
+  "tags": [
+    "css",
+    "cascading"
+  ],
+  "skills": [
+    "Specificity calculation"
+  ],
+  "prompt": "Given `<p id=\"intro\" class=\"note\">` and the rules `#intro { color: blue }`, `.note { color: red }`, and `p { color: green }` — plus `p.note { color: purple }` — which color applies?\n\n**A.** red — classes beat element selectors\n**B.** green — element selectors apply last\n**C.** purple — the most specific compound selector wins\n**D.** blue — the ID selector outranks every class-based selector regardless of order",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "red — classes beat element selectors",
+    "green — element selectors apply last",
+    "purple — the most specific compound selector wins",
+    "blue — the ID selector outranks every class-based selector regardless of order"
+  ],
+  "correctOptionIndex": 3,
+  "examples": [],
+  "hints": [
+    "Compare the three-column tuple before thinking about order.",
+    "Order matters only between selectors of EQUAL specificity."
+  ],
+  "solution": {
+    "summary": "The correct answer is D — blue — the ID selector outranks every class-based selector regardless of order",
+    "answer": "blue — the ID selector outranks every class-based selector regardless of order",
+    "reasoning": [
+      "Specificity tuple: (ids, classes/attrs/pseudo-classes, types/pseudo-elements).",
+      "p.note = (0,1,1); .note = (0,1,0); p = (0,0,1); #intro = (1,0,0).",
+      "Only !important or inline styles outrank ID selectors — both are smells."
+    ],
+    "whyNot": [
+      "red — classes beat element selectors — .note alone is (0,1,0) and loses to p.note, let alone #intro.",
+      "green — element selectors apply last — Element selectors are the weakest tier here.",
+      "purple — the most specific compound selector wins — p.note is (0,1,1) — strong among class rules, but zero IDs still lose to one."
+    ]
+  },
+  "learningObjectives": [
+    "Compute specificity tuples",
+    "Untangle cascade conflicts"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-12",
+    "dq-2026-11-06"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "web.css-specificity",
+  "generatorVersion": "1.0.0",
+  "seed": "92bd83e66b3a523052f8abaec8bb032dd2ecb8598849c35fa3419b050490f98c",
+  "paramsSignature": "v1",
+  "contentHash": "2cb05ecb456f178789e3cb67138858a6bbd1b35ee6c46f72de729b12d1a6b237",
+  "createdAt": "2026-11-19T00:45:05.445Z",
+  "updatedAt": "2026-11-19T00:45:05.445Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-19T00:45:05.445Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

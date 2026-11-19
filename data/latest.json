@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-18T01:20:40.805Z",
+  "generatedAt": "2026-11-19T00:45:05.448Z",
   "quest": {
-    "id": "dq-2026-11-18",
-    "date": "2026-11-18",
-    "sequenceNumber": 49,
-    "slug": "2026-11-18-the-double-charge",
-    "title": "The Double Charge",
-    "shortTitle": "The Double Charge",
-    "description": "Design idempotency keys for unsafe methods and specify the whole contract.",
-    "category": "apis",
-    "challengeType": "api",
-    "difficulty": "hard",
-    "difficultyScore": 4,
-    "estimatedMinutes": 25,
+    "id": "dq-2026-11-19",
+    "date": "2026-11-19",
+    "sequenceNumber": 50,
+    "slug": "2026-11-19-the-cascade-tiebreak",
+    "title": "The Cascade Tiebreak",
+    "shortTitle": "The Cascade Tiebreak",
+    "description": "Which rule wins when selectors collide?",
+    "category": "web",
+    "challengeType": "reasoning",
+    "difficulty": "intermediate",
+    "difficultyScore": 3,
+    "estimatedMinutes": 10,
     "concepts": [
-      "idempotency",
-      "retries"
+      "css",
+      "specificity"
     ],
     "tags": [
-      "idempotency",
-      "reliability"
+      "css",
+      "cascading"
     ],
-    "contentHash": "d83e027a7e3e6e2acb526aeeecd165ae09d76298e3d049a5b37e28f902aa2a1b",
-    "fpc": "d83e027a7e3e6e2a",
-    "fpt": "5e3a949cd10182e1",
-    "fpp": "7cd7644ca2ea86ea"
+    "contentHash": "2cb05ecb456f178789e3cb67138858a6bbd1b35ee6c46f72de729b12d1a6b237",
+    "fpc": "2cb05ecb456f1787",
+    "fpt": "67db854008936dc2",
+    "fpp": "d2ebe8c165079fca"
   }
 }
