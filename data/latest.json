@@ -1,31 +1,30 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-19T00:45:05.448Z",
+  "generatedAt": "2026-11-20T00:57:11.598Z",
   "quest": {
-    "id": "dq-2026-11-19",
-    "date": "2026-11-19",
-    "sequenceNumber": 50,
-    "slug": "2026-11-19-the-cascade-tiebreak",
-    "title": "The Cascade Tiebreak",
-    "shortTitle": "The Cascade Tiebreak",
-    "description": "Which rule wins when selectors collide?",
-    "category": "web",
-    "challengeType": "reasoning",
-    "difficulty": "intermediate",
-    "difficultyScore": 3,
-    "estimatedMinutes": 10,
+    "id": "dq-2026-11-20",
+    "date": "2026-11-20",
+    "sequenceNumber": 51,
+    "slug": "2026-11-20-the-expensive-leaderboard",
+    "title": "The Expensive Leaderboard",
+    "shortTitle": "The Expensive Leaderboard",
+    "description": "Design a cache around a hot, expensive query.",
+    "category": "performance",
+    "challengeType": "performance",
+    "difficulty": "hard",
+    "difficultyScore": 4,
+    "estimatedMinutes": 25,
     "concepts": [
-      "css",
-      "specificity"
+      "caching",
+      "invalidation"
     ],
     "tags": [
-      "css",
-      "cascading"
+      "caching"
     ],
-    "contentHash": "2cb05ecb456f178789e3cb67138858a6bbd1b35ee6c46f72de729b12d1a6b237",
-    "fpc": "2cb05ecb456f1787",
-    "fpt": "67db854008936dc2",
-    "fpp": "d2ebe8c165079fca"
+    "contentHash": "3b233d516fb0571205f35c2e612bb46228c91ff5e65d8a07961dbd927cc76d7a",
+    "fpc": "3b233d516fb05712",
+    "fpt": "2e055c22e821fca5",
+    "fpp": "263bf82c753c673f"
   }
 }

@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-19T00:45:05.448Z",
-  "totalQuests": 50,
-  "currentSequence": 50,
-  "latestQuestDate": "2026-11-19",
+  "generatedAt": "2026-11-20T00:57:11.598Z",
+  "totalQuests": 51,
+  "currentSequence": 51,
+  "latestQuestDate": "2026-11-20",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
     "typescript": 1,
     "cybersecurity": 1,
     "coding": 5,
-    "performance": 3,
+    "performance": 4,
     "react": 2,
     "algorithms": 4,
     "debugging": 6,
@@ -33,7 +33,7 @@
   },
   "byDifficulty": {
     "intermediate": 24,
-    "hard": 8,
+    "hard": 9,
     "easy": 18
   },
   "byType": {
@@ -41,7 +41,7 @@
     "reasoning": 9,
     "cybersecurity": 1,
     "coding": 9,
-    "performance": 4,
+    "performance": 5,
     "debugging": 7,
     "architecture": 1,
     "output_prediction": 4,
@@ -74,6 +74,12 @@
       "percent": 8
     },
     {
+      "id": "performance",
+      "label": "Performance",
+      "count": 4,
+      "percent": 8
+    },
+    {
       "id": "sql",
       "label": "SQL",
       "count": 4,
@@ -82,12 +88,6 @@
     {
       "id": "javascript",
       "label": "JavaScript",
-      "count": 3,
-      "percent": 6
-    },
-    {
-      "id": "performance",
-      "label": "Performance",
       "count": 3,
       "percent": 6
     },
@@ -194,11 +194,11 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.5,
-  "totalEstimatedMinutes": 725,
-  "currentStreak": 50,
-  "longestStreak": 50,
-  "archiveSpanDays": 50,
+  "averageEstimatedMinutes": 14.7,
+  "totalEstimatedMinutes": 750,
+  "currentStreak": 51,
+  "longestStreak": 51,
+  "archiveSpanDays": 51,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

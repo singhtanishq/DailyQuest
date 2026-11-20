@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-20",
+  "date": "2026-11-20",
+  "sequenceNumber": 51,
+  "slug": "2026-11-20-the-expensive-leaderboard",
+  "title": "The Expensive Leaderboard",
+  "shortTitle": "The Expensive Leaderboard",
+  "subtitle": "Cache it — but what invalidates it?",
+  "description": "Design a cache around a hot, expensive query.",
+  "category": "performance",
+  "subcategories": [
+    "caching"
+  ],
+  "challengeType": "performance",
+  "difficulty": "hard",
+  "difficultyScore": 4,
+  "estimatedMinutes": 25,
+  "conceptComplexity": 4,
+  "reasoningComplexity": 4,
+  "implementationComplexity": 3,
+  "concepts": [
+    "caching",
+    "invalidation"
+  ],
+  "tags": [
+    "caching"
+  ],
+  "skills": [
+    "Cache design"
+  ],
+  "prompt": "A leaderboard query aggregates 5M rows and is requested 50×/second; results may lag up to one minute. Design the caching layer: what you cache (payload shape), TTL vs explicit invalidation, stampede protection, and how you would monitor hit rate and staleness.\n\nA strong answer addresses:\n- Choose cache level (in-process vs shared Redis) with justification.\n- Define TTL, jitter, and single-flight/stampede protection.\n- Define observability: hit rate, build time, staleness monitoring.",
+  "instructions": [
+    "Answer in your own words, then compare with the solution."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "What happens when the cached entry expires under 50 rps?",
+    "Where does staleness become visible and testable?"
+  ],
+  "solution": {
+    "summary": "Cache the rendered payload (not the ORM rows) in a shared store (Redis) with a 60s TTL plus jitter, and guard rebuilds with single-flight locking so one builder serves the stampede. TTL alone meets the one-minute staleness budget — explicit invalidation on every score write would be more correct but couples the write path to the read path, so start with TTL and add write-through invalidation for the top-N slice if users notice. Monitor hit rate, rebuild duration, and worst-case staleness (now − payload timestamp).",
+    "reasoning": [
+      "Stampedes are the real risk at 50 rps: an expired key with 50 waiters triggers 50 parallel 5M-row aggregates without locking.",
+      "In-process caches multiply misses by instance count and break consistency — shared cache first.",
+      "Staleness must be measurable: embed a computed_at in the payload."
+    ],
+    "commonMistakes": [
+      "Caching ORM objects with connections attached — cache the DTO.",
+      "Setting TTL without jitter: synchronized expiry recreates the stampede every interval."
+    ]
+  },
+  "learningObjectives": [
+    "Design TTL + stampede-safe caching",
+    "Make staleness observable"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-05",
+    "dq-2026-10-07",
+    "dq-2026-11-09"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "perf.cache-strategy",
+  "generatorVersion": "1.0.0",
+  "seed": "163581d4f9bcc75d45eac854b4cb69683a1f8a3f07e5a0224a3cdb75710d8086",
+  "paramsSignature": "v1",
+  "contentHash": "3b233d516fb0571205f35c2e612bb46228c91ff5e65d8a07961dbd927cc76d7a",
+  "createdAt": "2026-11-20T00:57:11.594Z",
+  "updatedAt": "2026-11-20T00:57:11.594Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-20T00:57:11.594Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

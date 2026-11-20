@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#050 — The Cascade Tiebreak](https://singhtanishq.github.io/DailyQuest/quest/2026-11-19-the-cascade-tiebreak)
-> November 19, 2026 · `web` · `intermediate` · 10 min
+> **Today’s quest:** [#051 — The Expensive Leaderboard](https://singhtanishq.github.io/DailyQuest/quest/2026-11-20-the-expensive-leaderboard)
+> November 20, 2026 · `performance` · `hard` · 25 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---
