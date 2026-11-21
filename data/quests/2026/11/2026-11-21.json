@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-21",
+  "date": "2026-11-21",
+  "sequenceNumber": 52,
+  "slug": "2026-11-21-the-modular-monolith-moment",
+  "title": "The Modular Monolith Moment",
+  "shortTitle": "The Modular Monolith Moment",
+  "subtitle": "When do microservices actually pay?",
+  "description": "Choose the architecture that matches the org, not the conference talks.",
+  "category": "architecture",
+  "subcategories": [
+    "styles"
+  ],
+  "challengeType": "architecture",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 20,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "architecture styles"
+  ],
+  "tags": [
+    "architecture"
+  ],
+  "skills": [
+    "Structural decision-making"
+  ],
+  "prompt": "A 12-engineer team ships a B2B product with one deployment per week. Which architecture argument is the strongest for their stage?\n\n**A.** A single-file script, since 12 engineers is small\n**B.** Serverless functions for every operation, since services are outdated\n**C.** A modular monolith: one deployable with strict internal module boundaries, split into services only when team scale or scaling profiles demand it\n**D.** Microservices from day one, so the architecture never needs migration",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "A single-file script, since 12 engineers is small",
+    "Serverless functions for every operation, since services are outdated",
+    "A modular monolith: one deployable with strict internal module boundaries, split into services only when team scale or scaling profiles demand it",
+    "Microservices from day one, so the architecture never needs migration"
+  ],
+  "correctOptionIndex": 2,
+  "examples": [],
+  "hints": [
+    "What does the team actually need: independent scaling or simpler operations?",
+    "What do module boundaries cost to maintain versus service boundaries?"
+  ],
+  "solution": {
+    "summary": "The correct answer is C — A modular monolith: one deployable with strict internal module boundaries, split into services only when team scale or scaling profiles demand it",
+    "answer": "A modular monolith: one deployable with strict internal module boundaries, split into services only when team scale or scaling profiles demand it",
+    "reasoning": [
+      "Conway’s law: architecture mirrors communication paths; one team argues for one deployable with clean seams.",
+      "Migration cost from modular monolith to services is real but predictable — extract along the seams you maintained.",
+      "The signal to split: divergent scaling profiles, independent release cadences, or team ownership boundaries."
+    ],
+    "whyNot": [
+      "A single-file script, since 12 engineers is small —  straw man — the choice is about module boundaries, not file counts.",
+      "Serverless functions for every operation, since services are outdated — Function-per-operation has real costs (cold starts, orphaned distributed state) that must be justified per workload.",
+      "Microservices from day one, so the architecture never needs migration — Day-one microservices distribute a monolith’s coupling over the network: shared database, chatty calls, and every feature touching five repos."
+    ]
+  },
+  "learningObjectives": [
+    "Match architecture to org scale",
+    "Preserve extraction seams"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-11"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "arch.monolith-vs-services",
+  "generatorVersion": "1.0.0",
+  "seed": "5304a9c4491ab3eff8db927ebe677f659d7c303c535f98de0f271a303e5d8bf8",
+  "paramsSignature": "v1",
+  "contentHash": "ee2fb9e19c2d85e9bfe61f13e4d94b0c937b335b492173e475006da455026847",
+  "createdAt": "2026-11-21T00:19:35.433Z",
+  "updatedAt": "2026-11-21T00:19:35.433Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-21T00:19:35.433Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

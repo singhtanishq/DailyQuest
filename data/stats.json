@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-20T00:57:11.598Z",
-  "totalQuests": 51,
-  "currentSequence": 51,
-  "latestQuestDate": "2026-11-20",
+  "generatedAt": "2026-11-21T00:19:35.435Z",
+  "totalQuests": 52,
+  "currentSequence": 52,
+  "latestQuestDate": "2026-11-21",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -15,7 +15,7 @@
     "react": 2,
     "algorithms": 4,
     "debugging": 6,
-    "architecture": 1,
+    "architecture": 2,
     "web": 3,
     "python": 3,
     "regex": 2,
@@ -32,7 +32,7 @@
     "apis": 1
   },
   "byDifficulty": {
-    "intermediate": 24,
+    "intermediate": 25,
     "hard": 9,
     "easy": 18
   },
@@ -43,7 +43,7 @@
     "coding": 9,
     "performance": 5,
     "debugging": 7,
-    "architecture": 1,
+    "architecture": 2,
     "output_prediction": 4,
     "regex": 2,
     "system_design": 1,
@@ -104,6 +104,12 @@
       "percent": 6
     },
     {
+      "id": "architecture",
+      "label": "Architecture",
+      "count": 2,
+      "percent": 4
+    },
+    {
       "id": "code_review",
       "label": "Code Review",
       "count": 2,
@@ -130,12 +136,6 @@
     {
       "id": "apis",
       "label": "APIs",
-      "count": 1,
-      "percent": 2
-    },
-    {
-      "id": "architecture",
-      "label": "Architecture",
       "count": 1,
       "percent": 2
     },
@@ -194,11 +194,11 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.7,
-  "totalEstimatedMinutes": 750,
-  "currentStreak": 51,
-  "longestStreak": 51,
-  "archiveSpanDays": 51,
+  "averageEstimatedMinutes": 14.8,
+  "totalEstimatedMinutes": 770,
+  "currentStreak": 52,
+  "longestStreak": 52,
+  "archiveSpanDays": 52,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

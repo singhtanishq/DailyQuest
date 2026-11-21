@@ -1,30 +1,29 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-20T00:57:11.598Z",
+  "generatedAt": "2026-11-21T00:19:35.435Z",
   "quest": {
-    "id": "dq-2026-11-20",
-    "date": "2026-11-20",
-    "sequenceNumber": 51,
-    "slug": "2026-11-20-the-expensive-leaderboard",
-    "title": "The Expensive Leaderboard",
-    "shortTitle": "The Expensive Leaderboard",
-    "description": "Design a cache around a hot, expensive query.",
-    "category": "performance",
-    "challengeType": "performance",
-    "difficulty": "hard",
-    "difficultyScore": 4,
-    "estimatedMinutes": 25,
+    "id": "dq-2026-11-21",
+    "date": "2026-11-21",
+    "sequenceNumber": 52,
+    "slug": "2026-11-21-the-modular-monolith-moment",
+    "title": "The Modular Monolith Moment",
+    "shortTitle": "The Modular Monolith Moment",
+    "description": "Choose the architecture that matches the org, not the conference talks.",
+    "category": "architecture",
+    "challengeType": "architecture",
+    "difficulty": "intermediate",
+    "difficultyScore": 3,
+    "estimatedMinutes": 20,
     "concepts": [
-      "caching",
-      "invalidation"
+      "architecture styles"
     ],
     "tags": [
-      "caching"
+      "architecture"
     ],
-    "contentHash": "3b233d516fb0571205f35c2e612bb46228c91ff5e65d8a07961dbd927cc76d7a",
-    "fpc": "3b233d516fb05712",
-    "fpt": "2e055c22e821fca5",
-    "fpp": "263bf82c753c673f"
+    "contentHash": "ee2fb9e19c2d85e9bfe61f13e4d94b0c937b335b492173e475006da455026847",
+    "fpc": "ee2fb9e19c2d85e9",
+    "fpt": "d3d12c8a5bee4672",
+    "fpp": "d6dd63f0406aa38f"
   }
 }
