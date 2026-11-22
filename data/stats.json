@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-21T00:19:35.435Z",
-  "totalQuests": 52,
-  "currentSequence": 52,
-  "latestQuestDate": "2026-11-21",
+  "generatedAt": "2026-11-21T23:37:03.218Z",
+  "totalQuests": 53,
+  "currentSequence": 53,
+  "latestQuestDate": "2026-11-22",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -17,7 +17,7 @@
     "debugging": 6,
     "architecture": 2,
     "web": 3,
-    "python": 3,
+    "python": 4,
     "regex": 2,
     "system_design": 1,
     "git": 2,
@@ -34,7 +34,7 @@
   "byDifficulty": {
     "intermediate": 25,
     "hard": 9,
-    "easy": 18
+    "easy": 19
   },
   "byType": {
     "sql": 4,
@@ -44,7 +44,7 @@
     "performance": 5,
     "debugging": 7,
     "architecture": 2,
-    "output_prediction": 4,
+    "output_prediction": 5,
     "regex": 2,
     "system_design": 1,
     "git": 2,
@@ -59,13 +59,13 @@
       "id": "debugging",
       "label": "Debugging",
       "count": 6,
-      "percent": 12
+      "percent": 11
     },
     {
       "id": "coding",
       "label": "Coding",
       "count": 5,
-      "percent": 10
+      "percent": 9
     },
     {
       "id": "algorithms",
@@ -80,6 +80,12 @@
       "percent": 8
     },
     {
+      "id": "python",
+      "label": "Python",
+      "count": 4,
+      "percent": 8
+    },
+    {
       "id": "sql",
       "label": "SQL",
       "count": 4,
@@ -88,12 +94,6 @@
     {
       "id": "javascript",
       "label": "JavaScript",
-      "count": 3,
-      "percent": 6
-    },
-    {
-      "id": "python",
-      "label": "Python",
       "count": 3,
       "percent": 6
     },
@@ -194,11 +194,11 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.8,
-  "totalEstimatedMinutes": 770,
-  "currentStreak": 52,
-  "longestStreak": 52,
-  "archiveSpanDays": 52,
+  "averageEstimatedMinutes": 14.6,
+  "totalEstimatedMinutes": 776,
+  "currentStreak": 53,
+  "longestStreak": 53,
+  "archiveSpanDays": 53,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

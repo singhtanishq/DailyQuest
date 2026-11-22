@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-22",
+  "date": "2026-11-22",
+  "sequenceNumber": 53,
+  "slug": "2026-11-22-the-filtered-doubling",
+  "title": "The Filtered Doubling",
+  "shortTitle": "The Filtered Doubling",
+  "subtitle": "Map, filter, one line.",
+  "description": "A comprehension with a conditional filter.",
+  "category": "python",
+  "subcategories": [
+    "idioms"
+  ],
+  "challengeType": "output_prediction",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 6,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 1,
+  "concepts": [
+    "comprehensions"
+  ],
+  "tags": [
+    "python",
+    "comprehensions"
+  ],
+  "skills": [
+    "Reading comprehensions"
+  ],
+  "prompt": "```python\nresult = [x * 2 for x in range(5) if x % 2 == 0]\nprint(result)\n```\n\nWhat does the script print?\n\n**A.** [0, 2, 4, 6, 8]\n**B.** [2, 6]\n**C.** [0, 4, 8]\n**D.** [0, 4, 8, 12, 16]",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "[0, 2, 4, 6, 8]",
+    "[2, 6]",
+    "[0, 4, 8]",
+    "[0, 4, 8, 12, 16]"
+  ],
+  "correctOptionIndex": 2,
+  "examples": [],
+  "hints": [
+    "Which values of range(5) satisfy x % 2 == 0?",
+    "The `if` clause filters input, not output."
+  ],
+  "solution": {
+    "summary": "The correct answer is C — [0, 4, 8]",
+    "answer": "[0, 4, 8]",
+    "reasoning": [
+      "range(5) yields 0, 1, 2, 3, 4.",
+      "x % 2 == 0 keeps 0, 2, 4.",
+      "x * 2 maps them to 0, 4, 8 — filter runs before the map expression."
+    ],
+    "whyNot": [
+      "[0, 2, 4, 6, 8] — That is doubling without the filter — the `if` drops odd x.",
+      "[2, 6] — That doubles the odd values only — the condition selects even x.",
+      "[0, 4, 8, 12, 16] — That doubles 0..8 — the range stops at 5."
+    ]
+  },
+  "learningObjectives": [
+    "Read comprehensions as filter+map",
+    "Order the clauses correctly when writing them"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-14",
+    "dq-2026-10-22",
+    "dq-2026-11-11"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "py.comprehension-filter",
+  "generatorVersion": "1.0.0",
+  "seed": "1fcb5a9e2f6a835779e0f583d9e50e098c1dcf6e8eae36c6a879041f8dcc0db6",
+  "paramsSignature": "v1",
+  "contentHash": "43546e69bce9323a46cfe0ab7cf1aeadab15865927913824b5ce83bd7cc705ec",
+  "createdAt": "2026-11-21T23:37:03.214Z",
+  "updatedAt": "2026-11-21T23:37:03.214Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-21T23:37:03.214Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

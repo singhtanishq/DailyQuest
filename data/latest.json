@@ -1,29 +1,30 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-21T00:19:35.435Z",
+  "generatedAt": "2026-11-21T23:37:03.218Z",
   "quest": {
-    "id": "dq-2026-11-21",
-    "date": "2026-11-21",
-    "sequenceNumber": 52,
-    "slug": "2026-11-21-the-modular-monolith-moment",
-    "title": "The Modular Monolith Moment",
-    "shortTitle": "The Modular Monolith Moment",
-    "description": "Choose the architecture that matches the org, not the conference talks.",
-    "category": "architecture",
-    "challengeType": "architecture",
-    "difficulty": "intermediate",
-    "difficultyScore": 3,
-    "estimatedMinutes": 20,
+    "id": "dq-2026-11-22",
+    "date": "2026-11-22",
+    "sequenceNumber": 53,
+    "slug": "2026-11-22-the-filtered-doubling",
+    "title": "The Filtered Doubling",
+    "shortTitle": "The Filtered Doubling",
+    "description": "A comprehension with a conditional filter.",
+    "category": "python",
+    "challengeType": "output_prediction",
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "estimatedMinutes": 6,
     "concepts": [
-      "architecture styles"
+      "comprehensions"
     ],
     "tags": [
-      "architecture"
+      "python",
+      "comprehensions"
     ],
-    "contentHash": "ee2fb9e19c2d85e9bfe61f13e4d94b0c937b335b492173e475006da455026847",
-    "fpc": "ee2fb9e19c2d85e9",
-    "fpt": "d3d12c8a5bee4672",
-    "fpp": "d6dd63f0406aa38f"
+    "contentHash": "43546e69bce9323a46cfe0ab7cf1aeadab15865927913824b5ce83bd7cc705ec",
+    "fpc": "43546e69bce9323a",
+    "fpt": "771c8ec1e5c56d37",
+    "fpp": "19a696bb154411bc"
   }
 }

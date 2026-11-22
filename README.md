@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#052 — The Modular Monolith Moment](https://singhtanishq.github.io/DailyQuest/quest/2026-11-21-the-modular-monolith-moment)
-> November 21, 2026 · `architecture` · `intermediate` · 20 min
+> **Today’s quest:** [#053 — The Filtered Doubling](https://singhtanishq.github.io/DailyQuest/quest/2026-11-22-the-filtered-doubling)
+> November 22, 2026 · `python` · `easy` · 6 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

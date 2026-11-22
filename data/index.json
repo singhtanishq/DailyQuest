@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-21T00:19:35.435Z",
+  "generatedAt": "2026-11-21T23:37:03.218Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1340,6 +1340,31 @@
       "fpc": "ee2fb9e19c2d85e9",
       "fpt": "d3d12c8a5bee4672",
       "fpp": "d6dd63f0406aa38f"
+    },
+    {
+      "id": "dq-2026-11-22",
+      "date": "2026-11-22",
+      "sequenceNumber": 53,
+      "slug": "2026-11-22-the-filtered-doubling",
+      "title": "The Filtered Doubling",
+      "shortTitle": "The Filtered Doubling",
+      "description": "A comprehension with a conditional filter.",
+      "category": "python",
+      "challengeType": "output_prediction",
+      "difficulty": "easy",
+      "difficultyScore": 2,
+      "estimatedMinutes": 6,
+      "concepts": [
+        "comprehensions"
+      ],
+      "tags": [
+        "python",
+        "comprehensions"
+      ],
+      "contentHash": "43546e69bce9323a46cfe0ab7cf1aeadab15865927913824b5ce83bd7cc705ec",
+      "fpc": "43546e69bce9323a",
+      "fpt": "771c8ec1e5c56d37",
+      "fpp": "19a696bb154411bc"
     }
   ]
 }
