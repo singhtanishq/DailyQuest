@@ -1,30 +1,30 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-21T23:37:03.218Z",
+  "generatedAt": "2026-11-22T23:53:06.672Z",
   "quest": {
-    "id": "dq-2026-11-22",
-    "date": "2026-11-22",
-    "sequenceNumber": 53,
-    "slug": "2026-11-22-the-filtered-doubling",
-    "title": "The Filtered Doubling",
-    "shortTitle": "The Filtered Doubling",
-    "description": "A comprehension with a conditional filter.",
-    "category": "python",
-    "challengeType": "output_prediction",
-    "difficulty": "easy",
-    "difficultyScore": 2,
-    "estimatedMinutes": 6,
+    "id": "dq-2026-11-23",
+    "date": "2026-11-23",
+    "sequenceNumber": 54,
+    "slug": "2026-11-23-the-hundred-character-service",
+    "title": "The Hundred-Character Service",
+    "shortTitle": "The Hundred-Character Service",
+    "description": "Shorten URLs, redirect fast, never collide.",
+    "category": "system_design",
+    "challengeType": "system_design",
+    "difficulty": "intermediate",
+    "difficultyScore": 3,
+    "estimatedMinutes": 30,
     "concepts": [
-      "comprehensions"
+      "key generation",
+      "redirects"
     ],
     "tags": [
-      "python",
-      "comprehensions"
+      "design"
     ],
-    "contentHash": "43546e69bce9323a46cfe0ab7cf1aeadab15865927913824b5ce83bd7cc705ec",
-    "fpc": "43546e69bce9323a",
-    "fpt": "771c8ec1e5c56d37",
-    "fpp": "19a696bb154411bc"
+    "contentHash": "3df8ab70a7d9b95b9c56b29c3cc25f5aed683c170e54046d6f958a4822a8df31",
+    "fpc": "3df8ab70a7d9b95b",
+    "fpt": "e96bf4bea2f84b28",
+    "fpp": "ef7405f757598abc"
   }
 }

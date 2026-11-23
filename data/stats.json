@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-21T23:37:03.218Z",
-  "totalQuests": 53,
-  "currentSequence": 53,
-  "latestQuestDate": "2026-11-22",
+  "generatedAt": "2026-11-22T23:53:06.672Z",
+  "totalQuests": 54,
+  "currentSequence": 54,
+  "latestQuestDate": "2026-11-23",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -19,7 +19,7 @@
     "web": 3,
     "python": 4,
     "regex": 2,
-    "system_design": 1,
+    "system_design": 2,
     "git": 2,
     "javascript": 3,
     "linux": 1,
@@ -32,7 +32,7 @@
     "apis": 1
   },
   "byDifficulty": {
-    "intermediate": 25,
+    "intermediate": 26,
     "hard": 9,
     "easy": 19
   },
@@ -46,7 +46,7 @@
     "architecture": 2,
     "output_prediction": 5,
     "regex": 2,
-    "system_design": 1,
+    "system_design": 2,
     "git": 2,
     "linux": 1,
     "security_analysis": 1,
@@ -71,25 +71,25 @@
       "id": "algorithms",
       "label": "Algorithms",
       "count": 4,
-      "percent": 8
+      "percent": 7
     },
     {
       "id": "performance",
       "label": "Performance",
       "count": 4,
-      "percent": 8
+      "percent": 7
     },
     {
       "id": "python",
       "label": "Python",
       "count": 4,
-      "percent": 8
+      "percent": 7
     },
     {
       "id": "sql",
       "label": "SQL",
       "count": 4,
-      "percent": 8
+      "percent": 7
     },
     {
       "id": "javascript",
@@ -130,6 +130,12 @@
     {
       "id": "regex",
       "label": "Regex",
+      "count": 2,
+      "percent": 4
+    },
+    {
+      "id": "system_design",
+      "label": "System Design",
       "count": 2,
       "percent": 4
     },
@@ -182,23 +188,17 @@
       "percent": 2
     },
     {
-      "id": "system_design",
-      "label": "System Design",
-      "count": 1,
-      "percent": 2
-    },
-    {
       "id": "typescript",
       "label": "TypeScript",
       "count": 1,
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.6,
-  "totalEstimatedMinutes": 776,
-  "currentStreak": 53,
-  "longestStreak": 53,
-  "archiveSpanDays": 53,
+  "averageEstimatedMinutes": 14.9,
+  "totalEstimatedMinutes": 806,
+  "currentStreak": 54,
+  "longestStreak": 54,
+  "archiveSpanDays": 54,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

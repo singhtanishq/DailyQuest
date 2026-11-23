@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-23",
+  "date": "2026-11-23",
+  "sequenceNumber": 54,
+  "slug": "2026-11-23-the-hundred-character-service",
+  "title": "The Hundred-Character Service",
+  "shortTitle": "The Hundred-Character Service",
+  "subtitle": "Design a URL shortener.",
+  "description": "Shorten URLs, redirect fast, never collide.",
+  "category": "system_design",
+  "subcategories": [
+    "storage"
+  ],
+  "challengeType": "system_design",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 30,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "key generation",
+    "redirects"
+  ],
+  "tags": [
+    "design"
+  ],
+  "skills": [
+    "Keyspace design",
+    "Hot-path optimization"
+  ],
+  "prompt": "Design a URL shortener: shorten arbitrary URLs to ~7-character codes, redirect with minimal latency, support 10k new URLs/minute and 1M redirects/minute.\n\n**Requirements**\n- Redirect latency under 50 ms p99.\n- No duplicate codes for distinct URLs; codes unguessable enough to resist enumeration.\n- Custom aliases must be supported.",
+  "instructions": [
+    "Sketch the components and their responsibilities.",
+    "Define the data flow for the primary operation.",
+    "Name the key trade-offs you accepted and why.",
+    "Describe how the design fails and how it scales."
+  ],
+  "constraints": [
+    "Keep the design scoped to the stated requirements."
+  ],
+  "examples": [],
+  "hints": [
+    "What is on the hot path: creation or redirect? Optimize that one first.",
+    "Why does the redirect probably not want a 301?"
+  ],
+  "solution": {
+    "summary": "Store mapping code → URL in a key-value store. Generate codes from a random 62-alphabet space (62⁷ ≈ 3.5 trillion) with a uniqueness check, or preallocate ranges from a counter for guaranteed uniqueness. The redirect path is a single cache-first lookup: CDN/edge cache for hot codes, Redis for warm, KV store as source of truth. Record analytics asynchronously so redirects never write synchronously.",
+    "reasoning": [
+      "**Components**\n- Key generation service (random with collision check, or range allocation).\n- Key-value store mapping code → target URL (DynamoDB/Vitess-style).\n- Cache layer (Redis + CDN for hot codes).\n- Async analytics pipeline consuming click events from a queue.",
+      "**Data flow**\n- POST /shorten validates URL, generates or accepts code, persists mapping.\n- GET /:code → cache hit serves 301/302 immediately; miss reads store, backfills cache.\n- Click event pushed to queue; consumers aggregate per code/day.",
+      "**Trade-offs**\n- 301 vs 302: 301 caches permanently (great latency, but loses click analytics and cannot re-target); 302 keeps control — most shorteners use 302/307.\n- Random codes resist enumeration but need collision checks; sequential base-62 codes are unique by construction but guessable.\n- Predictable keys make the service a spam vector: require auth for creation and rate-limit aggressively.",
+      "**Failure modes**\n- Cache failure falls back to the store — the store must handle full read load.\n- Range allocator is a single point of serialization; ranges amortize it to one allocation per thousand codes.\n- Abuse: malicious targets require URL validation and blocklist checks at creation."
+    ],
+    "complexity": "Redirects scale horizontally trivially (stateless + cache). Creation rate is bounded by key generation and store writes — both shard naturally by code prefix."
+  },
+  "learningObjectives": [
+    "Optimize the read-heavy hot path",
+    "Pick redirect semantics knowingly"
+  ],
+  "discussionPoints": [
+    "Enumeration vs sequential keys.",
+    "Analytics without slowing redirects."
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-20"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "design.url-shortener",
+  "generatorVersion": "1.0.0",
+  "seed": "5845153d446e008b608d169ad800a9a6cf6af02dda84fd4221a6304b6a09a285",
+  "paramsSignature": "v1",
+  "contentHash": "3df8ab70a7d9b95b9c56b29c3cc25f5aed683c170e54046d6f958a4822a8df31",
+  "createdAt": "2026-11-22T23:53:06.669Z",
+  "updatedAt": "2026-11-22T23:53:06.669Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-22T23:53:06.669Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

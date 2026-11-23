@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-21T23:37:03.218Z",
+  "generatedAt": "2026-11-22T23:53:06.672Z",
   "categories": [
     {
       "id": "coding",
@@ -545,19 +545,23 @@
       "description": "Scoped mini-designs — rate limiters, URL shorteners, webhook delivery — with requirements, trade-offs, failure modes and scaling as first-class answers.",
       "icon": "workflow",
       "group": "Design",
-      "questCount": 1,
+      "questCount": 2,
       "difficultyDistribution": {
-        "hard": 1
+        "hard": 1,
+        "intermediate": 1
       },
       "skills": [
         "Limiting algorithms",
-        "Distributed state"
+        "Distributed state",
+        "Keyspace design",
+        "Hot-path optimization"
       ],
       "topTags": [
         "apis",
+        "design",
         "reliability"
       ],
-      "latestQuestDate": "2026-10-20"
+      "latestQuestDate": "2026-11-23"
     },
     {
       "id": "general_tech",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-21T23:37:03.218Z",
+  "generatedAt": "2026-11-22T23:53:06.672Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1365,6 +1365,31 @@
       "fpc": "43546e69bce9323a",
       "fpt": "771c8ec1e5c56d37",
       "fpp": "19a696bb154411bc"
+    },
+    {
+      "id": "dq-2026-11-23",
+      "date": "2026-11-23",
+      "sequenceNumber": 54,
+      "slug": "2026-11-23-the-hundred-character-service",
+      "title": "The Hundred-Character Service",
+      "shortTitle": "The Hundred-Character Service",
+      "description": "Shorten URLs, redirect fast, never collide.",
+      "category": "system_design",
+      "challengeType": "system_design",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 30,
+      "concepts": [
+        "key generation",
+        "redirects"
+      ],
+      "tags": [
+        "design"
+      ],
+      "contentHash": "3df8ab70a7d9b95b9c56b29c3cc25f5aed683c170e54046d6f958a4822a8df31",
+      "fpc": "3df8ab70a7d9b95b",
+      "fpt": "e96bf4bea2f84b28",
+      "fpp": "ef7405f757598abc"
     }
   ]
 }

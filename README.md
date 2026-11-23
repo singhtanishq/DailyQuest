@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#053 — The Filtered Doubling](https://singhtanishq.github.io/DailyQuest/quest/2026-11-22-the-filtered-doubling)
-> November 22, 2026 · `python` · `easy` · 6 min
+> **Today’s quest:** [#054 — The Hundred-Character Service](https://singhtanishq.github.io/DailyQuest/quest/2026-11-23-the-hundred-character-service)
+> November 23, 2026 · `system_design` · `intermediate` · 30 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---
