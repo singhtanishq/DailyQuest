@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#054 — The Hundred-Character Service](https://singhtanishq.github.io/DailyQuest/quest/2026-11-23-the-hundred-character-service)
-> November 23, 2026 · `system_design` · `intermediate` · 30 min
+> **Today’s quest:** [#055 — The Settled Promise](https://singhtanishq.github.io/DailyQuest/quest/2026-11-24-the-settled-promise)
+> November 24, 2026 · `javascript` · `intermediate` · 15 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

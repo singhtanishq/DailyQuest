@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-24",
+  "date": "2026-11-24",
+  "sequenceNumber": 55,
+  "slug": "2026-11-24-the-settled-promise",
+  "title": "The Settled Promise",
+  "shortTitle": "The Settled Promise",
+  "subtitle": "Why can a promise never change its mind?",
+  "description": "Explain the promise lifecycle and what \"settled\" locks in.",
+  "category": "javascript",
+  "subcategories": [
+    "async"
+  ],
+  "challengeType": "reasoning",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 15,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "promises",
+    "async semantics"
+  ],
+  "tags": [
+    "javascript",
+    "async"
+  ],
+  "skills": [
+    "Promise state machine"
+  ],
+  "prompt": "Describe the states a promise can be in, the transition rules between them, and the consequences for code that calls `resolve` twice or attaches `.then` after settlement.\n\nA strong answer addresses:\n- Name the states and the legal transitions.\n- Explain idempotent settling: what double resolve actually does.\n- Explain late attachment of then/catch handlers.",
+  "instructions": [
+    "Answer in your own words, then compare with the solution."
+  ],
+  "constraints": [],
+  "examples": [],
+  "hints": [
+    "\"Settled\" is the umbrella term — which two states does it cover?",
+    "What does `.then` on an already-resolved promise do?"
+  ],
+  "solution": {
+    "summary": "A promise starts pending and settles exactly once: to fulfilled (with a value) or rejected (with a reason). Settling is final — further resolve/reject calls are ignored — and handlers attached after settlement still run, via the microtask queue.",
+    "reasoning": [
+      "pending → fulfilled or pending → rejected are the only transitions; there is no un-settle.",
+      "The first resolve/reject wins; subsequent calls are no-ops by specification.",
+      "then registers callbacks that fire later regardless of whether the promise is settled already — if it is, the callback is queued immediately as a microtask.",
+      "This one-way lifecycle is what makes async composition predictable: a value or error arrives exactly once."
+    ],
+    "commonMistakes": [
+      "Assuming a second resolve throws — it silently does nothing.",
+      "Thinking late .then handlers are dropped — they always fire."
+    ]
+  },
+  "learningObjectives": [
+    "Model the promise state machine",
+    "Predict double-resolve and late-handler behaviour"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-26",
+    "dq-2026-10-27",
+    "dq-2026-11-14"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "js.promise-states",
+  "generatorVersion": "1.0.0",
+  "seed": "81b6781e6ef5940c73c412d08918b99cc67fa61338b8c33c1b376b772f677720",
+  "paramsSignature": "v1",
+  "contentHash": "b423c7338f76f06978345fd2edd77e170d7d573c98b945a6450acb8b69f20706",
+  "createdAt": "2026-11-24T04:06:49.568Z",
+  "updatedAt": "2026-11-24T04:06:49.568Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-24T04:06:49.568Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

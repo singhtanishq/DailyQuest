@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-22T23:53:06.672Z",
+  "generatedAt": "2026-11-24T04:06:49.570Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1390,6 +1390,32 @@
       "fpc": "3df8ab70a7d9b95b",
       "fpt": "e96bf4bea2f84b28",
       "fpp": "ef7405f757598abc"
+    },
+    {
+      "id": "dq-2026-11-24",
+      "date": "2026-11-24",
+      "sequenceNumber": 55,
+      "slug": "2026-11-24-the-settled-promise",
+      "title": "The Settled Promise",
+      "shortTitle": "The Settled Promise",
+      "description": "Explain the promise lifecycle and what \"settled\" locks in.",
+      "category": "javascript",
+      "challengeType": "reasoning",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 15,
+      "concepts": [
+        "promises",
+        "async semantics"
+      ],
+      "tags": [
+        "javascript",
+        "async"
+      ],
+      "contentHash": "b423c7338f76f06978345fd2edd77e170d7d573c98b945a6450acb8b69f20706",
+      "fpc": "b423c7338f76f069",
+      "fpt": "16b7bc2896d57ffd",
+      "fpp": "9309f66b31569acb"
     }
   ]
 }

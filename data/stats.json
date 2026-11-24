@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-22T23:53:06.672Z",
-  "totalQuests": 54,
-  "currentSequence": 54,
-  "latestQuestDate": "2026-11-23",
+  "generatedAt": "2026-11-24T04:06:49.570Z",
+  "totalQuests": 55,
+  "currentSequence": 55,
+  "latestQuestDate": "2026-11-24",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -21,7 +21,7 @@
     "regex": 2,
     "system_design": 2,
     "git": 2,
-    "javascript": 3,
+    "javascript": 4,
     "linux": 1,
     "security_analysis": 1,
     "networking": 1,
@@ -32,13 +32,13 @@
     "apis": 1
   },
   "byDifficulty": {
-    "intermediate": 26,
+    "intermediate": 27,
     "hard": 9,
     "easy": 19
   },
   "byType": {
     "sql": 4,
-    "reasoning": 9,
+    "reasoning": 10,
     "cybersecurity": 1,
     "coding": 9,
     "performance": 5,
@@ -74,6 +74,12 @@
       "percent": 7
     },
     {
+      "id": "javascript",
+      "label": "JavaScript",
+      "count": 4,
+      "percent": 7
+    },
+    {
       "id": "performance",
       "label": "Performance",
       "count": 4,
@@ -92,16 +98,10 @@
       "percent": 7
     },
     {
-      "id": "javascript",
-      "label": "JavaScript",
-      "count": 3,
-      "percent": 6
-    },
-    {
       "id": "web",
       "label": "Web Platform",
       "count": 3,
-      "percent": 6
+      "percent": 5
     },
     {
       "id": "architecture",
@@ -195,10 +195,10 @@
     }
   ],
   "averageEstimatedMinutes": 14.9,
-  "totalEstimatedMinutes": 806,
-  "currentStreak": 54,
-  "longestStreak": 54,
-  "archiveSpanDays": 54,
+  "totalEstimatedMinutes": 821,
+  "currentStreak": 55,
+  "longestStreak": 55,
+  "archiveSpanDays": 55,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"
