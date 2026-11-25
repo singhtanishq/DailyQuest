@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-24T04:06:49.570Z",
+  "generatedAt": "2026-11-25T02:49:35.968Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1416,6 +1416,32 @@
       "fpc": "b423c7338f76f069",
       "fpt": "16b7bc2896d57ffd",
       "fpp": "9309f66b31569acb"
+    },
+    {
+      "id": "dq-2026-11-25",
+      "date": "2026-11-25",
+      "sequenceNumber": 56,
+      "slug": "2026-11-25-the-credential-menu",
+      "title": "The Credential Menu",
+      "shortTitle": "The Credential Menu",
+      "description": "API keys, client-credentials OAuth and authorization-code flows serve different actors.",
+      "category": "apis",
+      "challengeType": "cybersecurity",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 15,
+      "concepts": [
+        "authentication",
+        "oauth"
+      ],
+      "tags": [
+        "auth",
+        "security"
+      ],
+      "contentHash": "8ac745e7d9e2a7b1b7200e09e1537122305df23220d5172ba9b031c211c83932",
+      "fpc": "8ac745e7d9e2a7b1",
+      "fpt": "23ce77e4aa0c15cb",
+      "fpp": "6dd3b2375eff0458"
     }
   ]
 }

@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#055 — The Settled Promise](https://singhtanishq.github.io/DailyQuest/quest/2026-11-24-the-settled-promise)
-> November 24, 2026 · `javascript` · `intermediate` · 15 min
+> **Today’s quest:** [#056 — The Credential Menu](https://singhtanishq.github.io/DailyQuest/quest/2026-11-25-the-credential-menu)
+> November 25, 2026 · `apis` · `intermediate` · 15 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

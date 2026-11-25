@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-25",
+  "date": "2026-11-25",
+  "sequenceNumber": 56,
+  "slug": "2026-11-25-the-credential-menu",
+  "title": "The Credential Menu",
+  "shortTitle": "The Credential Menu",
+  "subtitle": "Match the client to the flow.",
+  "description": "API keys, client-credentials OAuth and authorization-code flows serve different actors.",
+  "category": "apis",
+  "subcategories": [
+    "auth"
+  ],
+  "challengeType": "cybersecurity",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 15,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "authentication",
+    "oauth"
+  ],
+  "tags": [
+    "auth",
+    "security"
+  ],
+  "skills": [
+    "Credential selection"
+  ],
+  "prompt": "A third-party BACKEND service calls your API on behalf of itself (not a user). Which credential design fits best?\n\n**A.** OAuth 2.0 client credentials flow: the service authenticates with its own client id/secret (or private key JWT) and receives a short-lived access token\n**B.** The authorization-code flow, with a redirect through a user’s browser\n**C.** A shared API key embedded in the third party’s mobile app\n**D.** Basic auth with a global username and password",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "OAuth 2.0 client credentials flow: the service authenticates with its own client id/secret (or private key JWT) and receives a short-lived access token",
+    "The authorization-code flow, with a redirect through a user’s browser",
+    "A shared API key embedded in the third party’s mobile app",
+    "Basic auth with a global username and password"
+  ],
+  "correctOptionIndex": 0,
+  "examples": [],
+  "hints": [
+    "Is there a human in the loop at all?",
+    "What happens when a long-lived shared secret leaks?"
+  ],
+  "solution": {
+    "summary": "The correct answer is A — OAuth 2.0 client credentials flow: the service authenticates with its own client id/secret (or private key JWT) and receives a short-lived access token",
+    "answer": "OAuth 2.0 client credentials flow: the service authenticates with its own client id/secret (or private key JWT) and receives a short-lived access token",
+    "reasoning": [
+      "Pick by actor: user present → authorization code (+PKCE); no user, server-to-server → client credentials; truly trivial integrations → signed static keys with rotation.",
+      "Short-lived tokens bound the damage of leakage; rotation and scopes bound blast radius."
+    ],
+    "whyNot": [
+      "The authorization-code flow, with a redirect through a user’s browser — Authorization code flow exists for USER-delegated access; there is no user here.",
+      "A shared API key embedded in the third party’s mobile app — A key in a mobile app is public the moment it ships; anything in client code is attacker-visible.",
+      "Basic auth with a global username and password — Basic auth over long-lived shared secrets has no expiry, no scoping and no revocation story."
+    ]
+  },
+  "learningObjectives": [
+    "Match flows to actors",
+    "Reason about token lifetime and scope"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-11-18"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "api.auth-flow-choice",
+  "generatorVersion": "1.0.0",
+  "seed": "db34e32907d0f901849bdd76a8a2872eb34a7d51718c187b8fbfb06cd0dfbf8c",
+  "paramsSignature": "v1",
+  "contentHash": "8ac745e7d9e2a7b1b7200e09e1537122305df23220d5172ba9b031c211c83932",
+  "createdAt": "2026-11-25T02:49:35.965Z",
+  "updatedAt": "2026-11-25T02:49:35.965Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-25T02:49:35.965Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

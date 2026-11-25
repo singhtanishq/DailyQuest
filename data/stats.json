@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-24T04:06:49.570Z",
-  "totalQuests": 55,
-  "currentSequence": 55,
-  "latestQuestDate": "2026-11-24",
+  "generatedAt": "2026-11-25T02:49:35.968Z",
+  "totalQuests": 56,
+  "currentSequence": 56,
+  "latestQuestDate": "2026-11-25",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -29,17 +29,17 @@
     "databases": 1,
     "general_tech": 1,
     "output_prediction": 1,
-    "apis": 1
+    "apis": 2
   },
   "byDifficulty": {
-    "intermediate": 27,
+    "intermediate": 28,
     "hard": 9,
     "easy": 19
   },
   "byType": {
     "sql": 4,
     "reasoning": 10,
-    "cybersecurity": 1,
+    "cybersecurity": 2,
     "coding": 9,
     "performance": 5,
     "debugging": 7,
@@ -104,6 +104,12 @@
       "percent": 5
     },
     {
+      "id": "apis",
+      "label": "APIs",
+      "count": 2,
+      "percent": 4
+    },
+    {
       "id": "architecture",
       "label": "Architecture",
       "count": 2,
@@ -138,12 +144,6 @@
       "label": "System Design",
       "count": 2,
       "percent": 4
-    },
-    {
-      "id": "apis",
-      "label": "APIs",
-      "count": 1,
-      "percent": 2
     },
     {
       "id": "cybersecurity",
@@ -195,10 +195,10 @@
     }
   ],
   "averageEstimatedMinutes": 14.9,
-  "totalEstimatedMinutes": 821,
-  "currentStreak": 55,
-  "longestStreak": 55,
-  "archiveSpanDays": 55,
+  "totalEstimatedMinutes": 836,
+  "currentStreak": 56,
+  "longestStreak": 56,
+  "archiveSpanDays": 56,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

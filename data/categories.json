@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-24T04:06:49.570Z",
+  "generatedAt": "2026-11-25T02:49:35.968Z",
   "categories": [
     {
       "id": "coding",
@@ -309,18 +309,22 @@
       "description": "REST design, pagination, idempotency, versioning, retries and rate limiting. API quests ask you to make design decisions and defend them.",
       "icon": "plug",
       "group": "Web & APIs",
-      "questCount": 1,
+      "questCount": 2,
       "difficultyDistribution": {
-        "hard": 1
+        "hard": 1,
+        "intermediate": 1
       },
       "skills": [
-        "Safe write design"
+        "Safe write design",
+        "Credential selection"
       ],
       "topTags": [
+        "auth",
         "idempotency",
-        "reliability"
+        "reliability",
+        "security"
       ],
-      "latestQuestDate": "2026-11-18"
+      "latestQuestDate": "2026-11-25"
     },
     {
       "id": "databases",
