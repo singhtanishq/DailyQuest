@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-25T02:49:35.968Z",
+  "generatedAt": "2026-11-26T01:57:55.616Z",
   "categories": [
     {
       "id": "coding",
@@ -271,25 +271,27 @@
       "description": "HTML semantics, accessibility, CSS layout behaviour and browser fundamentals — the platform knowledge that makes everything else easier.",
       "icon": "globe",
       "group": "Web & APIs",
-      "questCount": 3,
+      "questCount": 4,
       "difficultyDistribution": {
         "intermediate": 2,
-        "hard": 1
+        "hard": 1,
+        "easy": 1
       },
       "skills": [
         "Browser security model",
         "Render pipeline reasoning",
-        "Specificity calculation"
+        "Specificity calculation",
+        "Semantic HTML"
       ],
       "topTags": [
         "browser",
+        "a11y",
         "cascading",
         "css",
-        "http",
-        "performance",
-        "security"
+        "html",
+        "http"
       ],
-      "latestQuestDate": "2026-11-19"
+      "latestQuestDate": "2026-11-26"
     },
     {
       "id": "http",

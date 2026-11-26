@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-25T02:49:35.968Z",
-  "totalQuests": 56,
-  "currentSequence": 56,
-  "latestQuestDate": "2026-11-25",
+  "generatedAt": "2026-11-26T01:57:55.616Z",
+  "totalQuests": 57,
+  "currentSequence": 57,
+  "latestQuestDate": "2026-11-26",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -16,7 +16,7 @@
     "algorithms": 4,
     "debugging": 6,
     "architecture": 2,
-    "web": 3,
+    "web": 4,
     "python": 4,
     "regex": 2,
     "system_design": 2,
@@ -34,7 +34,7 @@
   "byDifficulty": {
     "intermediate": 28,
     "hard": 9,
-    "easy": 19
+    "easy": 20
   },
   "byType": {
     "sql": 4,
@@ -51,7 +51,7 @@
     "linux": 1,
     "security_analysis": 1,
     "networking": 1,
-    "code_review": 2,
+    "code_review": 3,
     "api": 1
   },
   "categoryBreakdown": [
@@ -100,8 +100,8 @@
     {
       "id": "web",
       "label": "Web Platform",
-      "count": 3,
-      "percent": 5
+      "count": 4,
+      "percent": 7
     },
     {
       "id": "apis",
@@ -194,11 +194,11 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.9,
-  "totalEstimatedMinutes": 836,
-  "currentStreak": 56,
-  "longestStreak": 56,
-  "archiveSpanDays": 56,
+  "averageEstimatedMinutes": 14.8,
+  "totalEstimatedMinutes": 844,
+  "currentStreak": 57,
+  "longestStreak": 57,
+  "archiveSpanDays": 57,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

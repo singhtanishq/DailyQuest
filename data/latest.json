@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-25T02:49:35.968Z",
+  "generatedAt": "2026-11-26T01:57:55.616Z",
   "quest": {
-    "id": "dq-2026-11-25",
-    "date": "2026-11-25",
-    "sequenceNumber": 56,
-    "slug": "2026-11-25-the-credential-menu",
-    "title": "The Credential Menu",
-    "shortTitle": "The Credential Menu",
-    "description": "API keys, client-credentials OAuth and authorization-code flows serve different actors.",
-    "category": "apis",
-    "challengeType": "cybersecurity",
-    "difficulty": "intermediate",
-    "difficultyScore": 3,
-    "estimatedMinutes": 15,
+    "id": "dq-2026-11-26",
+    "date": "2026-11-26",
+    "sequenceNumber": 57,
+    "slug": "2026-11-26-the-div-that-couldnt",
+    "title": "The Div That Couldn’t",
+    "shortTitle": "The Div That Couldn’t",
+    "description": "What a real <button> gives you that a div with onClick never will.",
+    "category": "web",
+    "challengeType": "code_review",
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "estimatedMinutes": 8,
     "concepts": [
-      "authentication",
-      "oauth"
+      "semantics",
+      "accessibility"
     ],
     "tags": [
-      "auth",
-      "security"
+      "html",
+      "a11y"
     ],
-    "contentHash": "8ac745e7d9e2a7b1b7200e09e1537122305df23220d5172ba9b031c211c83932",
-    "fpc": "8ac745e7d9e2a7b1",
-    "fpt": "23ce77e4aa0c15cb",
-    "fpp": "6dd3b2375eff0458"
+    "contentHash": "d3b239749fce362e3a4d90d9c27724e23b60532b01278023cfe0be70c8a3c9eb",
+    "fpc": "d3b239749fce362e",
+    "fpt": "2d6b862dd7330b7b",
+    "fpp": "1e28fafac367d950"
   }
 }

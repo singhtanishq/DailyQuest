@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#056 — The Credential Menu](https://singhtanishq.github.io/DailyQuest/quest/2026-11-25-the-credential-menu)
-> November 25, 2026 · `apis` · `intermediate` · 15 min
+> **Today’s quest:** [#057 — The Div That Couldn’t](https://singhtanishq.github.io/DailyQuest/quest/2026-11-26-the-div-that-couldnt)
+> November 26, 2026 · `web` · `easy` · 8 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

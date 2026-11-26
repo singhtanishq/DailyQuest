@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-26",
+  "date": "2026-11-26",
+  "sequenceNumber": 57,
+  "slug": "2026-11-26-the-div-that-couldnt",
+  "title": "The Div That Couldn’t",
+  "shortTitle": "The Div That Couldn’t",
+  "subtitle": "A clickable div fails four ways.",
+  "description": "What a real <button> gives you that a div with onClick never will.",
+  "category": "web",
+  "subcategories": [
+    "a11y"
+  ],
+  "challengeType": "code_review",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 8,
+  "conceptComplexity": 2,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 1,
+  "concepts": [
+    "semantics",
+    "accessibility"
+  ],
+  "tags": [
+    "html",
+    "a11y"
+  ],
+  "skills": [
+    "Semantic HTML"
+  ],
+  "prompt": "A card uses `<div class=\"btn\" onClick={submit}>Save</div>`. Which set of problems does switching to `<button type=\"button\">` fix?\n\n**A.** Keyboard activation, focusability, screen-reader role, and Enter/Space handling — all free\n**B.** It adds the text to the page title for SEO\n**C.** It makes the click handler run faster\n**D.** Only visual styling improves; behaviour is identical",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "Keyboard activation, focusability, screen-reader role, and Enter/Space handling — all free",
+    "It adds the text to the page title for SEO",
+    "It makes the click handler run faster",
+    "Only visual styling improves; behaviour is identical"
+  ],
+  "correctOptionIndex": 0,
+  "examples": [],
+  "hints": [
+    "Try submitting that div with the Tab key only.",
+    "What does a screen reader announce for a div?"
+  ],
+  "solution": {
+    "summary": "The correct answer is A — Keyboard activation, focusability, screen-reader role, and Enter/Space handling — all free",
+    "answer": "Keyboard activation, focusability, screen-reader role, and Enter/Space handling — all free",
+    "reasoning": [
+      "Interactive elements must be reachable and operable by keyboard — a div requires manual tabIndex, role, and keydown handlers.",
+      "A button also carries no navigation semantics (unlike <a href>), matching the \"perform an action\" intent.",
+      "Rule: choose the element whose native behaviour matches the interaction, style it afterwards."
+    ],
+    "whyNot": [
+      "It adds the text to the page title for SEO — SEO is unrelated to button semantics here.",
+      "It makes the click handler run faster — Handler performance is unaffected.",
+      "Only visual styling improves; behaviour is identical — The behavioural gaps are exactly the problem; styling is incidental."
+    ]
+  },
+  "learningObjectives": [
+    "Prefer native semantics over rebuilt behaviour",
+    "Name the four free guarantees of <button>"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-12",
+    "dq-2026-11-06",
+    "dq-2026-11-19"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "web.button-semantics",
+  "generatorVersion": "1.0.0",
+  "seed": "96588e398021d043f533294a3a5a65e168a154ec76c506eaaabb20bd3c7c1dbf",
+  "paramsSignature": "v1",
+  "contentHash": "d3b239749fce362e3a4d90d9c27724e23b60532b01278023cfe0be70c8a3c9eb",
+  "createdAt": "2026-11-26T01:57:55.612Z",
+  "updatedAt": "2026-11-26T01:57:55.612Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-26T01:57:55.612Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}
