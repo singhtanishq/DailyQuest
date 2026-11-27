@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#057 — The Div That Couldn’t](https://singhtanishq.github.io/DailyQuest/quest/2026-11-26-the-div-that-couldnt)
-> November 26, 2026 · `web` · `easy` · 8 min
+> **Today’s quest:** [#058 — The Fast Hash Mistake](https://singhtanishq.github.io/DailyQuest/quest/2026-11-27-the-fast-hash-mistake)
+> November 27, 2026 · `cybersecurity` · `intermediate` · 12 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

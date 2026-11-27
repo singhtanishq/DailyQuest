@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-26T01:57:55.616Z",
+  "generatedAt": "2026-11-27T01:57:54.045Z",
   "quests": [
     {
       "id": "dq-2026-10-01",
@@ -1468,6 +1468,32 @@
       "fpc": "d3b239749fce362e",
       "fpt": "2d6b862dd7330b7b",
       "fpp": "1e28fafac367d950"
+    },
+    {
+      "id": "dq-2026-11-27",
+      "date": "2026-11-27",
+      "sequenceNumber": 58,
+      "slug": "2026-11-27-the-fast-hash-mistake",
+      "title": "The Fast Hash Mistake",
+      "shortTitle": "The Fast Hash Mistake",
+      "description": "Choose the right password storage primitive.",
+      "category": "cybersecurity",
+      "challengeType": "cybersecurity",
+      "difficulty": "intermediate",
+      "difficultyScore": 3,
+      "estimatedMinutes": 12,
+      "concepts": [
+        "password hashing",
+        "key derivation"
+      ],
+      "tags": [
+        "hashing",
+        "auth"
+      ],
+      "contentHash": "8ef98ee526ffdde2e5a0b9dbcf155bcb8e4dffef5c8c50972baec240174c69f1",
+      "fpc": "8ef98ee526ffdde2",
+      "fpt": "1109506748878bb8",
+      "fpp": "9ab32e67bab62d44"
     }
   ]
 }

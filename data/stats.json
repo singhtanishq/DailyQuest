@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-26T01:57:55.616Z",
-  "totalQuests": 57,
-  "currentSequence": 57,
-  "latestQuestDate": "2026-11-26",
+  "generatedAt": "2026-11-27T01:57:54.045Z",
+  "totalQuests": 58,
+  "currentSequence": 58,
+  "latestQuestDate": "2026-11-27",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
     "typescript": 1,
-    "cybersecurity": 1,
+    "cybersecurity": 2,
     "coding": 5,
     "performance": 4,
     "react": 2,
@@ -32,14 +32,14 @@
     "apis": 2
   },
   "byDifficulty": {
-    "intermediate": 28,
+    "intermediate": 29,
     "hard": 9,
     "easy": 20
   },
   "byType": {
     "sql": 4,
     "reasoning": 10,
-    "cybersecurity": 2,
+    "cybersecurity": 3,
     "coding": 9,
     "performance": 5,
     "debugging": 7,
@@ -59,7 +59,7 @@
       "id": "debugging",
       "label": "Debugging",
       "count": 6,
-      "percent": 11
+      "percent": 10
     },
     {
       "id": "coding",
@@ -107,49 +107,49 @@
       "id": "apis",
       "label": "APIs",
       "count": 2,
-      "percent": 4
+      "percent": 3
     },
     {
       "id": "architecture",
       "label": "Architecture",
       "count": 2,
-      "percent": 4
+      "percent": 3
     },
     {
       "id": "code_review",
       "label": "Code Review",
       "count": 2,
-      "percent": 4
+      "percent": 3
+    },
+    {
+      "id": "cybersecurity",
+      "label": "Cybersecurity",
+      "count": 2,
+      "percent": 3
     },
     {
       "id": "git",
       "label": "Git",
       "count": 2,
-      "percent": 4
+      "percent": 3
     },
     {
       "id": "react",
       "label": "React",
       "count": 2,
-      "percent": 4
+      "percent": 3
     },
     {
       "id": "regex",
       "label": "Regex",
       "count": 2,
-      "percent": 4
+      "percent": 3
     },
     {
       "id": "system_design",
       "label": "System Design",
       "count": 2,
-      "percent": 4
-    },
-    {
-      "id": "cybersecurity",
-      "label": "Cybersecurity",
-      "count": 1,
-      "percent": 2
+      "percent": 3
     },
     {
       "id": "databases",
@@ -195,10 +195,10 @@
     }
   ],
   "averageEstimatedMinutes": 14.8,
-  "totalEstimatedMinutes": 844,
-  "currentStreak": 57,
-  "longestStreak": 57,
-  "archiveSpanDays": 57,
+  "totalEstimatedMinutes": 856,
+  "currentStreak": 58,
+  "longestStreak": 58,
+  "archiveSpanDays": 58,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

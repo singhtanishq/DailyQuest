@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-27",
+  "date": "2026-11-27",
+  "sequenceNumber": 58,
+  "slug": "2026-11-27-the-fast-hash-mistake",
+  "title": "The Fast Hash Mistake",
+  "shortTitle": "The Fast Hash Mistake",
+  "subtitle": "SHA-256 is too fast for passwords.",
+  "description": "Choose the right password storage primitive.",
+  "category": "cybersecurity",
+  "subcategories": [
+    "auth"
+  ],
+  "challengeType": "cybersecurity",
+  "difficulty": "intermediate",
+  "difficultyScore": 3,
+  "estimatedMinutes": 12,
+  "conceptComplexity": 3,
+  "reasoningComplexity": 3,
+  "implementationComplexity": 2,
+  "concepts": [
+    "password hashing",
+    "key derivation"
+  ],
+  "tags": [
+    "hashing",
+    "auth"
+  ],
+  "skills": [
+    "Credential storage"
+  ],
+  "prompt": "Which password storage approach is correct?\n\n**A.** Argon2id (or bcrypt/scrypt) with a per-user salt and tuned cost parameters\n**B.** MD5 for speed, since passwords are checked often\n**C.** SHA-256 with a per-user salt\n**D.** AES encryption with a server-side key, so passwords are recoverable",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "Argon2id (or bcrypt/scrypt) with a per-user salt and tuned cost parameters",
+    "MD5 for speed, since passwords are checked often",
+    "SHA-256 with a per-user salt",
+    "AES encryption with a server-side key, so passwords are recoverable"
+  ],
+  "correctOptionIndex": 0,
+  "examples": [],
+  "hints": [
+    "After a leak, what limits the attacker’s guess rate?",
+    "Why does encryption differ categorically from hashing here?"
+  ],
+  "solution": {
+    "summary": "The correct answer is A — Argon2id (or bcrypt/scrypt) with a per-user salt and tuned cost parameters",
+    "answer": "Argon2id (or bcrypt/scrypt) with a per-user salt and tuned cost parameters",
+    "reasoning": [
+      "The threat model is OFFLINE cracking after a database leak — speed is the enemy.",
+      "Salts kill rainbow tables; cost parameters buy margin as hardware improves.",
+      "Never log, transmit (outside TLS), or encrypt passwords — one-way derivations only."
+    ],
+    "whyNot": [
+      "MD5 for speed, since passwords are checked often — MD5 is both broken as a hash AND fast — the worst of both worlds.",
+      "SHA-256 with a per-user salt — SHA-256 is a general hash: GPUs compute billions per second, making offline cracking cheap even salted.",
+      "AES encryption with a server-side key, so passwords are recoverable — Recoverable passwords are a liability: you must be able to decrypt them, so an attacker with the key can too."
+    ]
+  },
+  "learningObjectives": [
+    "Pick memory-hard KDFs",
+    "Argue the offline-crack threat model"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-03"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "sec.password-storage",
+  "generatorVersion": "1.0.0",
+  "seed": "1ec14a0f37a2a15f63e55e12dad4ed227c9c5e734b52e1233bdef5b2b8a45a12",
+  "paramsSignature": "v1",
+  "contentHash": "8ef98ee526ffdde2e5a0b9dbcf155bcb8e4dffef5c8c50972baec240174c69f1",
+  "createdAt": "2026-11-27T01:57:54.042Z",
+  "updatedAt": "2026-11-27T01:57:54.042Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-27T01:57:54.042Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

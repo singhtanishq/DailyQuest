@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-26T01:57:55.616Z",
+  "generatedAt": "2026-11-27T01:57:54.045Z",
   "categories": [
     {
       "id": "coding",
@@ -450,18 +450,22 @@
       "description": "Defensive security: vulnerability classes, secure coding, detection and mitigation. Quests analyse controlled examples — XSS, CSRF, injection, JWT mistakes — without ever targeting real systems.",
       "icon": "shield-check",
       "group": "Security",
-      "questCount": 1,
+      "questCount": 2,
       "difficultyDistribution": {
-        "hard": 1
+        "hard": 1,
+        "intermediate": 1
       },
       "skills": [
-        "Server-side request analysis"
+        "Server-side request analysis",
+        "Credential storage"
       ],
       "topTags": [
+        "auth",
+        "hashing",
         "ssrf",
         "web"
       ],
-      "latestQuestDate": "2026-10-03"
+      "latestQuestDate": "2026-11-27"
     },
     {
       "id": "security_analysis",

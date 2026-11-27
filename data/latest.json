@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-26T01:57:55.616Z",
+  "generatedAt": "2026-11-27T01:57:54.045Z",
   "quest": {
-    "id": "dq-2026-11-26",
-    "date": "2026-11-26",
-    "sequenceNumber": 57,
-    "slug": "2026-11-26-the-div-that-couldnt",
-    "title": "The Div That Couldn’t",
-    "shortTitle": "The Div That Couldn’t",
-    "description": "What a real <button> gives you that a div with onClick never will.",
-    "category": "web",
-    "challengeType": "code_review",
-    "difficulty": "easy",
-    "difficultyScore": 2,
-    "estimatedMinutes": 8,
+    "id": "dq-2026-11-27",
+    "date": "2026-11-27",
+    "sequenceNumber": 58,
+    "slug": "2026-11-27-the-fast-hash-mistake",
+    "title": "The Fast Hash Mistake",
+    "shortTitle": "The Fast Hash Mistake",
+    "description": "Choose the right password storage primitive.",
+    "category": "cybersecurity",
+    "challengeType": "cybersecurity",
+    "difficulty": "intermediate",
+    "difficultyScore": 3,
+    "estimatedMinutes": 12,
     "concepts": [
-      "semantics",
-      "accessibility"
+      "password hashing",
+      "key derivation"
     ],
     "tags": [
-      "html",
-      "a11y"
+      "hashing",
+      "auth"
     ],
-    "contentHash": "d3b239749fce362e3a4d90d9c27724e23b60532b01278023cfe0be70c8a3c9eb",
-    "fpc": "d3b239749fce362e",
-    "fpt": "2d6b862dd7330b7b",
-    "fpp": "1e28fafac367d950"
+    "contentHash": "8ef98ee526ffdde2e5a0b9dbcf155bcb8e4dffef5c8c50972baec240174c69f1",
+    "fpc": "8ef98ee526ffdde2",
+    "fpt": "1109506748878bb8",
+    "fpp": "9ab32e67bab62d44"
   }
 }
