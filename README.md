@@ -12,8 +12,8 @@ publishes one technical quest per day — and this repository *is* the archive.
 </div>
 
 <!-- DAILYQUEST:STATUS:BEGIN -->
-> **Today’s quest:** [#058 — The Fast Hash Mistake](https://singhtanishq.github.io/DailyQuest/quest/2026-11-27-the-fast-hash-mistake)
-> November 27, 2026 · `cybersecurity` · `intermediate` · 12 min
+> **Today’s quest:** [#059 — The Slowest Racer](https://singhtanishq.github.io/DailyQuest/quest/2026-11-28-the-slowest-racer)
+> November 28, 2026 · `algorithms` · `easy` · 8 min
 <!-- DAILYQUEST:STATUS:END -->
 
 ---

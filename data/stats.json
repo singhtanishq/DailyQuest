@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-27T01:57:54.045Z",
-  "totalQuests": 58,
-  "currentSequence": 58,
-  "latestQuestDate": "2026-11-27",
+  "generatedAt": "2026-11-28T01:41:35.105Z",
+  "totalQuests": 59,
+  "currentSequence": 59,
+  "latestQuestDate": "2026-11-28",
   "oldestQuestDate": "2026-10-01",
   "byCategory": {
     "sql": 4,
@@ -13,7 +13,7 @@
     "coding": 5,
     "performance": 4,
     "react": 2,
-    "algorithms": 4,
+    "algorithms": 5,
     "debugging": 6,
     "architecture": 2,
     "web": 4,
@@ -34,7 +34,7 @@
   "byDifficulty": {
     "intermediate": 29,
     "hard": 9,
-    "easy": 20
+    "easy": 21
   },
   "byType": {
     "sql": 4,
@@ -52,7 +52,8 @@
     "security_analysis": 1,
     "networking": 1,
     "code_review": 3,
-    "api": 1
+    "api": 1,
+    "algorithm": 1
   },
   "categoryBreakdown": [
     {
@@ -62,16 +63,16 @@
       "percent": 10
     },
     {
+      "id": "algorithms",
+      "label": "Algorithms",
+      "count": 5,
+      "percent": 8
+    },
+    {
       "id": "coding",
       "label": "Coding",
       "count": 5,
-      "percent": 9
-    },
-    {
-      "id": "algorithms",
-      "label": "Algorithms",
-      "count": 4,
-      "percent": 7
+      "percent": 8
     },
     {
       "id": "javascript",
@@ -194,11 +195,11 @@
       "percent": 2
     }
   ],
-  "averageEstimatedMinutes": 14.8,
-  "totalEstimatedMinutes": 856,
-  "currentStreak": 58,
-  "longestStreak": 58,
-  "archiveSpanDays": 58,
+  "averageEstimatedMinutes": 14.6,
+  "totalEstimatedMinutes": 864,
+  "currentStreak": 59,
+  "longestStreak": 59,
+  "archiveSpanDays": 59,
   "missedDays": 0,
   "mostFrequentCategory": "debugging",
   "mostFrequentDifficulty": "intermediate"

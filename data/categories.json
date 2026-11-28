@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-27T01:57:54.045Z",
+  "generatedAt": "2026-11-28T01:41:35.105Z",
   "categories": [
     {
       "id": "coding",
@@ -70,9 +70,9 @@
       "description": "Classic techniques — searching, two pointers, sliding windows, dynamic programming — applied to concrete problems with clear complexity expectations.",
       "icon": "network",
       "group": "Engineering",
-      "questCount": 4,
+      "questCount": 5,
       "difficultyDistribution": {
-        "easy": 3,
+        "easy": 4,
         "intermediate": 1
       },
       "skills": [
@@ -87,13 +87,13 @@
       ],
       "topTags": [
         "arrays",
+        "complexity",
         "dp",
         "grids",
         "intervals",
-        "math",
-        "palindrome"
+        "math"
       ],
-      "latestQuestDate": "2026-11-15"
+      "latestQuestDate": "2026-11-28"
     },
     {
       "id": "data_structures",

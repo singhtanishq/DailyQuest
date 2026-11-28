@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "dq-2026-11-28",
+  "date": "2026-11-28",
+  "sequenceNumber": 59,
+  "slug": "2026-11-28-the-slowest-racer",
+  "title": "The Slowest Racer",
+  "shortTitle": "The Slowest Racer",
+  "subtitle": "Which complexity dominates them all?",
+  "description": "A quick asymptotic reality check: polynomial vs. exponential.",
+  "category": "algorithms",
+  "subcategories": [
+    "complexity"
+  ],
+  "challengeType": "algorithm",
+  "difficulty": "easy",
+  "difficultyScore": 2,
+  "estimatedMinutes": 8,
+  "conceptComplexity": 1,
+  "reasoningComplexity": 2,
+  "implementationComplexity": 2,
+  "concepts": [
+    "asymptotic analysis",
+    "big-O"
+  ],
+  "tags": [
+    "complexity"
+  ],
+  "skills": [
+    "Asymptotic reasoning"
+  ],
+  "prompt": "For sufficiently large input size n, which of these running times grows fastest?\n\n**A.** O(2ⁿ)\n**B.** O(n¹⁰⁰)\n**C.** O(n²⁰ · log n)\n**D.** O(n! / 2ⁿ)",
+  "instructions": [
+    "Choose the single best answer."
+  ],
+  "constraints": [],
+  "options": [
+    "O(2ⁿ)",
+    "O(n¹⁰⁰)",
+    "O(n²⁰ · log n)",
+    "O(n! / 2ⁿ)"
+  ],
+  "correctOptionIndex": 3,
+  "examples": [],
+  "hints": [
+    "Two options are exponential-flavored — compare those, not the polynomials.",
+    "Stirling: n! ≈ (n/e)ⁿ · √(2πn), so n!/2ⁿ ≈ (n/(2e))ⁿ · √(2πn)."
+  ],
+  "solution": {
+    "summary": "The correct answer is D — O(n! / 2ⁿ)",
+    "answer": "O(n! / 2ⁿ)",
+    "reasoning": [
+      "Both O(n!/2ⁿ) and O(2ⁿ) are exponential-flavored; the polynomials never compete.",
+      "Stirling: n! ≈ (n/e)ⁿ · √(2πn), so n!/2ⁿ ≈ (n/(2e))ⁿ · √(2πn), whose base (n/(2e)) itself grows with n.",
+      "Therefore n!/2ⁿ grows faster than any fixed-base exponential — it is the fastest of the four."
+    ],
+    "whyNot": [
+      "O(2ⁿ) — O(2ⁿ) is exponential and dwarfs every polynomial — but it is still dominated by the factorial-based option.",
+      "O(n¹⁰⁰) — n¹⁰⁰ is a fixed polynomial; any exponential 2ᵏⁿ with k > 0 eventually overtakes it, no matter how large the exponent.",
+      "O(n²⁰ · log n) — n²⁰ · log n is polynomial (times a logarithm), so both exponentials dominate it."
+    ]
+  },
+  "learningObjectives": [
+    "Compare growth rates precisely",
+    "Read asymptotic questions carefully before answering"
+  ],
+  "relatedQuestIds": [
+    "dq-2026-10-18",
+    "dq-2026-10-28",
+    "dq-2026-11-15"
+  ],
+  "authoringMethod": "deterministic-template",
+  "templateId": "algo.complexity-dominance",
+  "generatorVersion": "1.0.0",
+  "seed": "0c47a807798016426b8d516a9cff097b910f2743f0ea57d77a93ef254fd431bd",
+  "paramsSignature": "v1",
+  "contentHash": "1720e8be777a1612f8f4166e53012a9c98dacb54c533f35d69af247752eb78cc",
+  "createdAt": "2026-11-28T01:41:35.101Z",
+  "updatedAt": "2026-11-28T01:41:35.101Z",
+  "status": "published",
+  "validation": {
+    "passed": true,
+    "score": 100,
+    "checkedAt": "2026-11-28T01:41:35.101Z",
+    "checks": [
+      "schemaVersion",
+      "id-format",
+      "date-valid",
+      "slug-canonical",
+      "sequence-positive",
+      "status-published",
+      "authoring-method",
+      "template-id-present",
+      "generator-version",
+      "seed-present",
+      "content-hash-present",
+      "timestamps",
+      "category-valid",
+      "challenge-type-valid",
+      "difficulty-valid",
+      "difficulty-score-aligned",
+      "conceptComplexity-range",
+      "reasoningComplexity-range",
+      "implementationComplexity-range",
+      "title-nonempty",
+      "title-length",
+      "short-title-nonempty",
+      "subtitle-nonempty",
+      "description-nonempty",
+      "prompt-substantial",
+      "instructions-nonempty",
+      "hints-count",
+      "solution-summary",
+      "estimated-minutes",
+      "concepts-nonempty",
+      "tags-nonempty",
+      "skills-nonempty",
+      "objectives-nonempty",
+      "validation-record",
+      "options-consistent",
+      "no-placeholders",
+      "no-secrets",
+      "markdown-fences-balanced"
+    ]
+  }
+}

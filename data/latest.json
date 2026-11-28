@@ -1,31 +1,30 @@
 {
   "schemaVersion": 1,
   "generatorVersion": "1.0.0",
-  "generatedAt": "2026-11-27T01:57:54.045Z",
+  "generatedAt": "2026-11-28T01:41:35.105Z",
   "quest": {
-    "id": "dq-2026-11-27",
-    "date": "2026-11-27",
-    "sequenceNumber": 58,
-    "slug": "2026-11-27-the-fast-hash-mistake",
-    "title": "The Fast Hash Mistake",
-    "shortTitle": "The Fast Hash Mistake",
-    "description": "Choose the right password storage primitive.",
-    "category": "cybersecurity",
-    "challengeType": "cybersecurity",
-    "difficulty": "intermediate",
-    "difficultyScore": 3,
-    "estimatedMinutes": 12,
+    "id": "dq-2026-11-28",
+    "date": "2026-11-28",
+    "sequenceNumber": 59,
+    "slug": "2026-11-28-the-slowest-racer",
+    "title": "The Slowest Racer",
+    "shortTitle": "The Slowest Racer",
+    "description": "A quick asymptotic reality check: polynomial vs. exponential.",
+    "category": "algorithms",
+    "challengeType": "algorithm",
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "estimatedMinutes": 8,
     "concepts": [
-      "password hashing",
-      "key derivation"
+      "asymptotic analysis",
+      "big-O"
     ],
     "tags": [
-      "hashing",
-      "auth"
+      "complexity"
     ],
-    "contentHash": "8ef98ee526ffdde2e5a0b9dbcf155bcb8e4dffef5c8c50972baec240174c69f1",
-    "fpc": "8ef98ee526ffdde2",
-    "fpt": "1109506748878bb8",
-    "fpp": "9ab32e67bab62d44"
+    "contentHash": "1720e8be777a1612f8f4166e53012a9c98dacb54c533f35d69af247752eb78cc",
+    "fpc": "1720e8be777a1612",
+    "fpt": "81f09a3dc9887301",
+    "fpp": "07d8ca984de2da18"
   }
 }
